@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${trainPaymentView.referenceNumber}" transactionDateString="${trainPaymentView.transactionDateString}"  
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol" style="font-weight:bold;">${message:referenceNumber}</td>
+                <td>:</td>
+                <td>${trainPaymentView.referenceNumber}
+                	<td style="font-weight:bold;">${message:total}</td>
+            		<td>:</td>
+            		<td>${message:curr}
+            			<t:output value="trainPaymentView.total" format="formatter"/>
+            		</td>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:paymentType}</td>
+                <td>:</td>
+                <td>${message:trainPayment}
+                	<td style="font-weight:bold;">${message:fee}</td>
+            		<td>:</td>
+            		<td>${message:curr}
+            			<t:output value="trainPaymentView.fee" format="formatter"/>
+            		</td>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:bookingCode}</td>
+                <td>:</td>
+                <td>${trainPaymentView.customerReference}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:trainName}</td>
+                <td>:</td>
+                <td>${trainPaymentView.trainName}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:referenceName}</td>
+                <td>:</td>
+                <td>${trainPaymentView.referenceName}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:numOfPassenger}</td>
+                <td>:</td>
+                <td>${trainPaymentView.numOfPassenger}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:tripInfo}</td>
+                <td>:</td>
+                <td>${trainPaymentView.tripInfo}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:departureDate}</td>
+                <td>:</td>
+                <td>
+                   <t:output value="trainPaymentView.departureDate" format="longDate"/>
+                </td>
+            </tr>
+<!--             <tr> -->
+<!--                 <td style="font-weight:bold;">${message:amount}</td> -->
+<!--                 <td>:</td> -->
+<!--                 <td>${message:curr} -->
+<!--                     <t:output value="trainPaymentView.amount" format="formatter"/> -->
+<!--                 </td> -->
+<!--             </tr> -->
+<!--             <tr> -->
+<!--                 <td style="font-weight:bold;">${message:fee}</td> -->
+<!--                 <td>:</td> -->
+<!--                 <td>${message:curr} -->
+<!--                     <t:output value="trainPaymentView.fee" format="formatter"/> -->
+<!--                 </td> -->
+<!--             </tr> -->
+<!--             <tr> -->
+<!--                 <td style="font-weight:bold;">${message:total}</td> -->
+<!--                 <td>:</td> -->
+<!--                 <td>${message:curr} -->
+<!--                      <t:output value="trainPaymentView.total" format="formatter"/> -->
+<!--                 </td> -->
+<!--             </tr> -->
+            <tr/>
+            <tr/>
+            <tr/>
+            <tr/>
+            
+        </table>
+        
+        <p class="center" align="center">
+	        <br />
+	        <br />
+	        <span class="upercase" style="font-weight:bold; font-style:italic;" >${message:footNote1}</span><br/>
+	        <span class="upercase" style="font-weight:bold;">${message:footNote2}</span><br/>
+   		 </p>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="recipe_wrap">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_9"></div>
+
+	<br />
+	<br />
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <div id="recipe">
+        	<div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+            <legend>${message:customerData}</legend>
+            <table>
+                <!--tr class="odd">
+                    <td class="first">
+                        <label>${message:referenceNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${mobileRegistrationView.referenceNumber}</label>
+                    </td>
+                </tr-->
+                <tr>
+                    <td>
+                        <label>${message:cardNo}</label>
+                    </td>
+                    <td class="last">
+                        <label>${mobileRegistrationView.cardNumber}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:cellNo}</label>
+                    </td>
+                    <td class="last">
+                        <label>${mobileRegistrationView.customerReference}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:customerName}</label>
+                    </td>
+                    <td class="last">
+                        <label style="font-weight: bold; font-size: 12pt;">${mobileRegistrationView.referenceName}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:activationCode}</label>
+                    </td>
+
+                    <td class="last">
+                    	<label style="font-weight: bold; font-size: 12pt;">${mobileRegistrationView.activationCode}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:status}</label>
+                    </td>
+
+                    <td class="last">
+                        <label>${message:success}</label>
+                    </td>
+                </tr>
+
+            </table>
+			</div>            
+        </div>
+        <input type="button"
+               onclick="popupInfo('/administration/MobileRegistrationPrint')"
+               class="grey_btn right" t:type="any" value="message:print"/>
+
+    </form>
+</div>
+</html>

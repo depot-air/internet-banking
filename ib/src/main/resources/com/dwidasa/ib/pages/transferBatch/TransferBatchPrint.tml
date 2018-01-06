@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${transferBatchView.referenceNumber}" transactionDateString="${transferBatchView.transactionDateString}"   
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<table class="dg_first">
+    <tr>
+        <td style="font-weight:bold;">${message:date}</td>
+        <td>:</td>
+        <td>
+        	<t:output value="transferBatchView.transactionDate" format="mediumDate"/>
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:accountSource}</td>
+        <td>:</td>
+        <td>${transferBatchView.accountNumber}</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight:bold;">${message:batch}</td>
+        <td>:</td>
+        <td>${transferBatchView.batchName}</td>
+    </tr>    
+    <tr>
+        <td style="font-weight:bold;">${message:description}</td>
+        <td>:</td>
+        <td>${transferBatchView.batchDescription}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:transferType}</td>
+        <td>:</td>
+        <td>${getStrTransferType(transferBatchView.transferType)}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:status}</td>
+        <td>:</td>
+        <td>${getStrStatus(transferBatchView.status)}</td>
+    </tr>
+	<tr/>
+	<tr/>
+	<tr/>   		
+</table>
+	
+	<p class="center" align="center">
+	    <span class="upercase" style="font-weight:bold;">${message:footNote1}</span><br/>
+	    <span class="upercase" style="font-weight:bold;">${message:footNote2}</span><br/>
+	    <span class="upercase" style="font-weight:bold;">${message:footNote3}</span><br/>
+   	</p>
+</html>

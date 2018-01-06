@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+
+        <fieldSet>
+            <legend>${message:transferData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:transferCode}</label>
+                    </td>
+                    <td class="last">
+                        <label>${CashOutDelimaView.billerReference}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:nominalTransfer}</label>
+                    </td>
+                    <td>
+                        <label><t:output value="cashOutDelimaView.amount" format="formatter"/></label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+
+
+        <hr/>
+
+        <fieldSet>
+            <legend>${message:receiverData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:receiverName}</label>
+                    </td>
+                    <td class="last">
+                        <label>${cashOutDelimaView.receiverName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:receiverAddress}</label>
+                    </td>
+                    <td>
+                        <label>${cashOutDelimaView.receiverAddress}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:receiverCity}</label>
+                    </td>
+                    <td>
+                        <label>${cashOutDelimaView.receiverCity}</label>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td>
+                        <label>${message:receiverId}</label>
+                    </td>
+                    <td>
+                        <label>${cashOutDelimaView.receiverIdNumber}</label>
+                    </td>
+                </tr>-->
+                <tr>
+                    <td>
+                        <label>${message:receiverPhone}</label>
+                    </td>
+                    <td>
+                        <label>${cashOutDelimaView.receiverPhoneNumber}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="sms"/>
+                    </td>
+                    <td class="last">
+                        <input t:type="textField" t:id="sms" type="text"
+                               value="cashOutDelimaView.description"
+                               label="message:sms" validate="required" maxlength="6"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <!--<t:Token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge" mode="tokenType"/>-->
+
+
+        <t:submit t:id="cancel" class="grey_btn ml10" value="message:cancel" mode="cancel"/>
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+
+    </t:form>
+</div>
+</html>
+
+
+
+

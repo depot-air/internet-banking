@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit" autofocus="false">
+        <fieldset>
+            <legend>${subtitle}</legend>
+            <table>
+            	<tr class="odd">
+                    <td class="first">
+                        <t:label for="transactionType"/>
+                    </td>
+                    <td class="last">
+                    	<t:select t:id="transactionType" t:value="transactionTypeId"
+                    		t:model="transactionTypeModel" t:validate="required" label="message:transactionType"
+                    		t:zone="billerZone" t:blankOption="always"/>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="biller"/>
+                    </td>
+                    <td>
+                   		<t:zone t:id="billerZone">
+	                    	<t:select t:id="biller" t:value="billerId"
+	                    		t:model="billerModel" t:validate="required" label="message:biller"
+	                    		t:blankOption="always"/>
+                    	</t:zone>                        
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="productCode"/>
+                    </td>
+                    <td>
+                        <input t:id="productCode" value="billerProduct.productCode" t:type="textfield"
+                               validate="required" label="message:productCode"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="productName"/>
+                    </td>
+                    <td>
+                        <input t:id="productName" value="billerProduct.productName" t:type="textfield"
+                               validate="required" label="message:productName"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:submit t:id="add" class="green_btn mr10" value="prop:action"/>
+    </form>
+</div>
+</html>

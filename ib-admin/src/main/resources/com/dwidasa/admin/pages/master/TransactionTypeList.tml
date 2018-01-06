@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+
+    <t:form class="formfield" t:id="transactionTypeList" clientValidation="submit">
+        <fieldset>
+            <legend>${message:searchData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="transactionType"/>
+                    </td>
+                    <td class="last">
+                        <input t:id="transactionType" value="transactionType" t:type="textfield"
+                               label="message:transactionType"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <t:submit t:id="reset" class="grey_btn ml10" value="message:reset" mode="cancel"/>
+        <t:submit t:id="search" class="grey_btn mr10" value="message:search"/>
+        <br/>
+        <br/>
+        <hr/>
+        <table t:type="grid" source="dataSource" row="row" rowsPerPage="pageSize" add="action"
+               include="transactionType, description" width="100%" t:mixins="gridSortingDisabled">
+            <t:parameter name="empty">
+                <div id="emptyData">
+                    ${message:emptyData}
+                </div>
+            </t:parameter>
+            <p:actionCell>
+                <a t:type="pagelink" t:page="master/TransactionTypeDetail" t:context="row.id">${message:edit}</a>
+                &nbsp;
+                <a t:type="actionlink" t:id="delete" t:context="row.id" onClick="return confirm('${message:confirmDelete}');">${message:delete}</a>
+            </p:actionCell>
+        </table>
+
+        <t:submit t:id="add" value="message:add" class="grey_btn mr10" mode="cancel"/>
+    </t:form>
+</div>
+
+</html>

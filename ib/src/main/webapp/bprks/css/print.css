@@ -1,0 +1,14 @@
+@media print {
+#print_wrap{padding:5pt; font-family:Arial, Helvetica, sans-serif; color:#666;}
+#print_wrap hr{border-color:#036;}
+p { font-size: 10pt; color:#666}
+h1 { font-size: 14pt; font-weight:normal; color:#000; margin:5pt 0 5pt;}
+h2 { font-size: 12pt; font-weight:normal; color:#036; margin:5pt 0 20pt;}
+.firstcol{width:100pt;}
+.dg_first{float:left; margin-right:25pt; font-size: 12pt;}
+.dg_last{float:left;}
+.clear{clear:both;}
+.center{text-align:center;align:center;}
+.upercase{text-transform:uppercase;}
+}
+

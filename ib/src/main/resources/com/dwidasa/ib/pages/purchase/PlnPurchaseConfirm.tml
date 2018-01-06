@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_10"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:confirm}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${plnPurchaseView.cardNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${plnPurchaseView.accountNumber}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:meterNumber}</label>
+                    </td>
+                    <td>
+                        <label>${plnPurchaseView.meterNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:idPelanggan}</label>
+                    </td>
+                    <td>
+                        <label>${plnPurchaseView.customerReference}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:referenceName}</label>
+                    </td>
+                    <td>
+                        <label>${plnPurchaseView.referenceName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:powerCategory}</label>
+                    </td>
+                    <td>
+                        <label>${plnPurchaseView.powerCategory}&nbsp;${message:va} </label>
+                    </td>
+                </tr>
+
+                <t:radioGroup value="chooseValue">
+                    <tr class="odd">
+                        <td>
+                            <label>${message:nominal}</label>
+                        </td>
+                        <td>
+                            <t:radio t:id="unsold1" value="literal:0"/>
+                            <t:label for="unsold1">${message:sesuaiInput}&nbsp;<t:output value="denomination" format="formatter"/></t:label>
+                        </td>
+                    </tr>
+                    <t:if test="plnPurchaseView.unsold1">
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <t:radio t:id="unsold2" value="literal:1"/>
+                                <t:label for="unsold2">${message:unsold2}&nbsp;<t:output value="plnPurchaseView.unsold1" format="formatter"/></t:label>
+                            </td>
+                        </tr>
+                        <t:if test="plnPurchaseView.unsold2">
+                            <tr class="odd">
+                                <td>
+                                </td>
+                                <td>
+                                    <t:radio t:id="fromId" value="literal:2"/>
+                                    <t:label for="fromId">${message:unsold2}&nbsp;<t:output value="plnPurchaseView.unsold2" format="formatter"/></t:label>
+                                </td>
+                            </tr>
+                        </t:if>
+                    </t:if>
+                </t:radioGroup>
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <t:token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge"
+                 mode="tokenType"/>
+        <a hRef="plnpurchaseinput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+    </form>
+</div>
+</html>

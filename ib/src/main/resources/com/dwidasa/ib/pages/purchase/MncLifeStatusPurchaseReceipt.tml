@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<div id="recipe_wrap">
+    <form t:type="form" t:id="mncLifePurchaseView" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+                
+                	<tr class="odd">
+	                    <td class="first">
+	                        <label>NAMA TERTANGGUNG</label>
+	                    </td>
+	                     <td>
+	                            <label>|</label>
+	                        </td>
+	                    <td class="last">
+	                        <label>${mncLifePurchaseView.NamaTertanggung}</label>
+	                    </td>
+	               	</tr>
+	               		 
+	               	<tr>
+	                    <td class="first">
+	                        <label>No KTP</label>
+	                    </td>
+	                     <td>
+	                            <label>|</label>
+	                        </td>
+	                    <td class="last">
+	                        <label>${mncLifePurchaseView.CustomerReference}</label>
+	                    </td>
+               		</tr>
+               		 
+               		<tr>
+	                    <td colspan="3">
+	                        <label><hr/></label>
+	                    </td>
+	               	</tr>
+               		 
+                	<tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorPolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${mncLifePurchaseView.NomoPolis1}</label>
+                    </td>
+               		 </tr>
+               		 
+               		<tr>
+                    <td class="first">
+                        <label>${message:tanggalawalpolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${FormatTglAwal} - ${FormatTglAkhir}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 
+               	<t:if test="mncLifePurchaseView.NomoPolis2">
+               	
+               		<tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorPolis2}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${mncLifePurchaseView.NomoPolis2}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 <tr>
+                    <td class="first">
+                        <label>${message:tanggalawalpolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${FormatTglAwal2} - ${FormatTglAkhir2}</label>
+                    </td>
+               		 </tr>
+               	
+               	</t:if>
+                   
+               		 
+                <t:if test="mncLifePurchaseView.NomoPolis3">                		 
+               		 <tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorPolis3}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${mncLifePurchaseView.NomoPolis3}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 <tr>
+                    <td class="first">
+                        <label>${message:tanggalawalpolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${FormatTglAwal3} - ${FormatTglAkhir3}</label>
+                    </td>
+               		 </tr>
+               		 
+               		</t:if>
+               		
+               		
+               		<t:if test="mncLifePurchaseView.NomoPolis4">
+               		 
+               		 <tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorPolis4}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${mncLifePurchaseView.NomoPolis4}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 <tr>
+                    <td class="first">
+                        <label>${message:tanggalawalpolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${FormatTglAwal4} - ${FormatTglAkhir4}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 </t:if>
+               		        
+               		        <t:if test="mncLifePurchaseView.NomoPolis5">
+               		               		 
+               		 <tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorPolis5}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${mncLifePurchaseView.NomoPolis5}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 <tr>
+                    <td class="first">
+                        <label>${message:tanggalawalpolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${FormatTglAwal5} - ${FormatTglAkhir5}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 </t:if>
+               		 
+               		 
+               		 <t:if test="mncLifePurchaseView.NomoPolis6">
+               		
+               		 <tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorPolis6}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${mncLifePurchaseView.NomoPolis6}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 <tr>
+                    <td class="first">
+                        <label>${message:tanggalawalpolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${FormatTglAwal6} - ${FormatTglAkhir6}</label>
+                    </td>
+               		 </tr>
+               		 
+               		</t:if>
+               		
+               		<t:if test="mncLifePurchaseView.NomoPolis7">
+               		 <tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorPolis7}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${mncLifePurchaseView.NomoPolis7}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 <tr>
+                    <td class="first">
+                        <label>${message:tanggalawalpolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${FormatTglAwal7} - ${FormatTglAkhir7}</label>
+                    </td>
+               		 </tr>
+               		 
+               		</t:if>
+               		
+               		
+               		<t:if test="mncLifePurchaseView.NomoPolis8">
+               		 
+               		 <tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorPolis8}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${mncLifePurchaseView.NomoPolis8}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 <tr>
+                    <td class="first">
+                        <label>${message:tanggalawalpolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${FormatTglAwal8} - ${FormatTglAkhir8}</label>
+                    </td>
+               		 </tr>
+               		 
+               		</t:if>
+               		
+               		<t:if test="mncLifePurchaseView.NomoPolis9">
+               		
+               		<tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorPolis9}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${mncLifePurchaseView.NomoPolis9}</label>
+                    </td>
+               		 </tr>
+               		 
+               		 <tr>
+                    <td class="first">
+                        <label>${message:tanggalawalpolis1}</label>
+                    </td>
+                     <td>
+                            <label>|</label>
+                        </td>
+                    <td class="last">
+                        <label>${FormatTglAwal9} - ${FormatTglAkhir9}</label>
+                    </td>
+               		 </tr>
+               		
+               		</t:if>
+               		 
+               		 
+               	
+               	
+                </table>
+            </div>
+        </div>
+        
+       <p class="center" align="center">
+		      
+			    <span class="upercase" style="font-weight:bold;">${message:footdown1Note}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdown2Note}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdown3Note}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdown4Note}</span><br/>
+			    
+	    </p>
+        
+        <t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>   
+		 
+		<t:if test="StatusHistory">
+		
+		<p:else>
+		
+		<input type="button"
+               onclick="popupInfo('/purchase/MncLifeStatusPurchasePrint')"
+               class="grey_btn right" t:type="any" value="message:print"/>
+               
+		</p:else>
+		
+		</t:if>   		
+        
+ 
+    </form>
+</div>
+</html>

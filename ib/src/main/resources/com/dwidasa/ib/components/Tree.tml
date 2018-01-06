@@ -1,0 +1,14 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    <t:content>
+        <t:assign to="currentNode"/>
+        <t:block>
+            <t:branch node="current" position="currentPosition">
+                <t:assign to="currentNode"/>
+            </t:branch>
+            <t:leaf node="current" position="currentPosition">
+                <t:assign to="currentNode"/>
+            </t:leaf>
+        </t:block>
+    </t:content>
+</html>

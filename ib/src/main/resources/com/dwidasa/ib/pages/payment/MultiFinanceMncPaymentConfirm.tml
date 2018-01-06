@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_3"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${getMasked(noKartu)}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${noRekening}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:paymentData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:biller}</label>
+                    </td>
+                    <td class="last">
+                        <label>${nomorKontrak}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:bookingCode}</label>
+                    </td>
+                    <td>
+                        <label>${namaPelanggan}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:passengerName}</label>
+                    </td>
+                    <td>
+                        <label>${deskripsi}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:numOfPassenger}</label>
+                    </td>
+                    <td>
+                        <label>${jmlTagihan}</label>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td>
+                        <label>${message:fee}</label>
+                    </td>
+                    <td>
+                        <label><t:output value="MultiFinancePaymentView.fee" format="formatter"/></label>
+                    </td>
+                </tr>
+
+            </table>
+        </fieldSet>
+        
+        <fieldSet>
+            <legend>Data Tagihan</legend>
+
+            <div class="table_grid">
+                <table width="100%">
+                    <thead>
+                    <tr>
+                        <th>Angsurang Ke</th>
+                        <th>Tanggal Jatuh Tempo</th>
+                        <th>Nominal Angsuran</th>
+                        <th>Nominal Denda</th>
+                        <th>Minimal Pembayaran</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr t:type="loop" t:source="financePaymentViews" t:value="detilMultiFinance" class="prop:evenOdd.next" encoder="encoder">
+<!--                         <td> -->
+<!--                        <a t:type="eventlink" t:event="viewStatement" t:context="[tiketKeretaDjatiPurchaseView.kodeJurusan,tiketKeretaDjatiPurchaseView.ticketPricePerSheat, tiketKeretaDjatiPurchaseView.TotalEmptySheat, tiketKeretaDjatiPurchaseView.DepartID, tiketKeretaDjatiPurchaseView.TotalSheat, tiketKeretaDjatiPurchaseView.index]" href="#"> -->
+<!--                             ${tiketKeretaDjatiPurchaseView.kodeJurusan} -->
+<!--                         </a>  -->
+<!--                     	</td> -->
+						<td>${detilMultiFinance.angsuranKe}</td>
+						<td>${getFormatTgl(detilMultiFinance.tglJatuhTempo)}</td>
+                        <td><t:output value="detilMultiFinance.nominalAngsuran" format="formatter"/></td>                       
+                        <td><t:output value="detilMultiFinance.nominalDenda" format="formatter"/></td>   
+                        <td><t:output value="detilMultiFinance.minimalPembayaran" format="formatter"/></td>   
+                   </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldSet>
+        
+        <hr/>
+
+        <t:token token="tokenView.token" token6Digit="tokenView.token" challenge="tokenView.challenge" mode="tokenType"/>
+        <a hRef="multiFinancepaymentinput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+    </form>
+</div>
+</html>

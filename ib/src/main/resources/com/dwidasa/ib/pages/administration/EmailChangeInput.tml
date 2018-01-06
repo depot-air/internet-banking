@@ -1,0 +1,55 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      t:type="layout" title="message:title" group="message:group"
+      xmlns:p="tapestry:parameter">
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+
+	<h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_29"></div>
+
+    <form t:type="form" class="formfield" 
+          t:clientValidation="submit" >
+
+        <t:errors banner="message:errorBanner"/>
+                <fieldSet>
+                    <table>
+                        <tr class="odd">
+                            <td class="first">
+                                <t:label for="newEmail">${message:newEmail}</t:label>
+                            </td>
+                            <td class="last">
+                                <input t:id="newEmail" t:type="textField" type="text"
+                                       t:value="customerView.email" t:validate="required"
+                                        />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <t:label for="confirmEmail">${message:confirmEmail}</t:label>
+                            </td>
+                            <td>
+                                <input t:id="confirmEmail" t:type="textField" type="text"
+                                       t:value="confirmEmailValue" t:validate="required"
+                                        />
+                            </td>
+                        </tr>
+                    </table>
+                </fieldSet>
+			<hr/>
+			<t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+			<br /><br /><br />
+			<div id="notivy_yellow">
+            		<div id="notivy_message">
+                		${message:noteEmailChangeInput1}<br/>
+                		${message:noteEmailChangeInput2}
+               		</div>
+            </div>
+        	
+    </form>
+</div>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${ccPaymentView.referenceNumber}" 
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol">${message:referenceNumber}</td>
+                <td>:</td>
+                <td>${ccPaymentView.referenceNumber}</td>
+            </tr>
+            <tr>
+                <td>${message:accountNumber}</td>
+                <td>:</td>
+                <td>${ccPaymentView.accountNumber}</td>
+            </tr>
+            <tr>
+                <td>${message:biller}</td>
+                <td>:</td>
+                <td>${ccPaymentView.billerName}</td>
+            </tr>
+            <tr>
+                <td>${message:customerReference}</td>
+                <td>:</td>
+                <td>${ccPaymentView.customerReference}</td>
+            </tr>           
+            <tr>
+                <td>${message:amount}</td>
+                <td>:</td>
+                <td>
+                    <t:output value="ccPaymentView.amount" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td>${message:transactionDate}</td>
+                <td>:</td>
+                <td>
+                    <t:output value="ccPaymentView.transactionDate" format="mediumDate"/>
+                </td>
+            </tr>
+        </table>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="recipe_wrap">
+    <form t:type="form" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue">${message:title}</div>
+            <hr/>
+            <div id="recipe_list">
+                    <table>
+                        <tr>
+                            <td>
+                                <div id ="note">
+                                <label>${message:messageChange}</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id ="note">
+                                <label>${message:noRef}</label>: <label>${resultView.referenceNumber}</label>
+                                </div><br />
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+        </div>
+    </form>
+</div>
+</html>

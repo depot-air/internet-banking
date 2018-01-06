@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+    	<t:errors banner="message:errorBanner"/>
+        <fieldset>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="userId">${message:userId}</t:label>
+                    </td>
+                    <td>:</td>
+                    <td class="last">
+                        <input t:id="userId" t:type="textfield" type="text" autocomplete="off" t:value="userIdValue" />
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <t:label for="nomerRekening">${message:accountNumber}</t:label>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <input t:id="nomerRekening" t:type="textfield" type="text" autocomplete="off" t:value="accountNumberValue" maxlength="10"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="merchantId">${message:merchantId}</t:label>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <input t:id="merchantId" t:type="textfield" type="text" autocomplete="off" t:value="merchantIdValue" maxlength="8"/>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <t:label for="ibTokenId">${message:serialNumber}</t:label>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <!--select t:id="ibToken" t:type="select" t:model="ibTokenModel" t:value="ibTokenValue" t:encoder="ibTokenEncoder" blankOption="never"></select-->
+                        <select t:id="ibTokenId" t:type="select" t:model="ibTokenModel" t:value="ibToken" t:encoder="ibTokenEncoder" blankOption="never"></select>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td>
+                        <t:label for="merchantId">Soft Token</t:label>
+                    </td>
+                    <td>:</td>
+                     <td>
+                            <input t:type="checkBox" t:id="saveBox" value="saveBoxValue" />
+                        </td>
+                </tr>
+                
+                
+                        
+            </table>
+        </fieldset>                
+        <hr/>       
+        <t:submit t:id="reset" class="grey_btn ml10" value="Batalkan" mode="cancel"/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/> 
+    </form>
+    
+</div>
+
+</html>

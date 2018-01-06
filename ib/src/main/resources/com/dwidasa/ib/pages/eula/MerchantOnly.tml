@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<body>
+<div id="main_content">
+	<!--
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_20"></div>
+    -->
+    <t:form>
+   			
+  	</t:form>
+	
+    <fieldSet>
+    	<br /><br />
+        <p><h3><b>${message:welcome}</b></h3></p>
+        
+    </fieldSet>  
+</div>
+</body>
+</html>

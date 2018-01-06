@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+
+<div id="ct_right">
+    <div id="page_title">
+        <div class="ground_1"></div>
+        <div class="ground_2"><p>${message:title}</p></div>
+        <div class="ground_3"></div>
+    </div>
+
+    <form t:type="form" class="full-form" method="get" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account accountNumber="planePaymentView.accountNumber" cardNumber="planePaymentView.cardNumber"/>
+        <h4>${message:paymentData}</h4>
+
+        <div class="page_panel">
+            <div class="ground_1"></div>
+            <div class="ground_2"></div>
+            <div class="ground_3"></div>
+            <div class="ground_4"></div>
+            <div class="ground_5"></div>
+            <div class="ground_6"></div>
+            <div class="main_form">
+                <fieldSet>
+                    <table>
+                        <tr class="even">
+                            <td class="setter">
+                                <t:label for="biller">${message:biller}</t:label>
+                            </td>
+                            <td class="setter2">
+                                <t:select t:id="biller" t:model="billerModel"
+                                          blankoption="never" value="planePaymentView.billerCode"/>
+                            </td>
+                        </tr>
+                        <tr class="odd">
+                            <td>
+                                <t:label for="bookingCode">${message:bookingCode}</t:label>
+                            </td>
+                            <td>
+                                <input t:type="textField" t:id="bookingCode" t:value="planePaymentView.customerReference" />
+                            </td>
+                        </tr>
+                    </table>
+                </fieldSet>
+            </div>
+        </div>
+
+        <t:token token="tokenView.token" token6Digit="tokenView.token" status="even" challenge="tokenView.challenge"
+                 mode="tokenType"/>
+
+        <div id="form_submit_btn">
+            <t:submit t:id="next" value="message:next" class="btn_style"/>
+        </div>
+    </form>
+</div>
+</html>

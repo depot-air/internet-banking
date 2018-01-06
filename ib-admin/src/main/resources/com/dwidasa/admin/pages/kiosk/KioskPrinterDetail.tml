@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" t:id="kioskPrinterDetail" clientValidation="submit" autofocus="false">
+        <fieldset>
+            <legend>${subtitle}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="mKioskTerminalId"/>
+                    </td>
+                    <td class="last">
+                    	<t:select t:id="mKioskTerminalId" t:value="kioskPrinter.mKioskTerminalId" blankOption="always"
+                    		t:model="mKioskTerminalIdModel" t:validate="required" label="message:mKioskTerminalId"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first">
+                        <t:label for="strukCounter"/>
+                    </td>
+                    <td class="last">
+                        <input t:id="strukCounter" value="kioskPrinter.strukCounter" t:type="textfield"
+                               label="message:strukCounter" disabled="true" />
+                        <t:submit t:id="strukReset" class="grey_btn" value="Reset"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="strukMaxId"/>
+                    </td>
+                    <td class="last">
+                    	<t:select t:id="strukMaxId" t:value="kioskPrinter.strukMaxId" blankOption="always"
+                    		t:model="strukMaxIdModel" t:validate="required" label="message:strukMaxId"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="a4Counter"/>
+                    </td>
+                    <td>
+                        <input t:id="a4Counter" value="kioskPrinter.a4Counter" t:type="textfield"
+                               label="message:a4Counter" disabled="true" />
+                        <t:submit t:id="a4Reset" class="grey_btn" value="Reset"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="a4CounterTape"/>
+                    </td>
+                    <td>
+                        <input t:id="a4CounterTape" value="kioskPrinter.a4CounterTape" t:type="textfield"
+                               label="message:a4CounterTape" disabled="true" />
+                        <t:submit t:id="a4TapeReset" class="grey_btn" value="Reset"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="a4MaxId"/>
+                    </td>
+                    <td class="last">
+                    	<t:select t:id="a4MaxId" t:value="kioskPrinter.a4MaxId" blankOption="always"
+                    		t:model="a4MaxIdModel" t:validate="required" label="message:a4MaxId"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="ssppCounterTape"/>
+                    </td>
+                    <td>
+                        <input t:id="ssppCounterTape" value="kioskPrinter.ssppCounterTape" t:type="textfield"
+                               label="message:ssppCounterTape" disabled="true"/>
+                        <t:submit t:id="ssppReset" class="grey_btn" value="Reset"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="ssppMaxId"/>
+                    </td>
+                    <td class="last">
+                    	<t:select t:id="ssppMaxId" t:value="kioskPrinter.ssppMaxId" blankOption="always"
+                    		t:model="ssppMaxIdModel" t:validate="required" label="message:ssppMaxId"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:submit t:id="add" class="green_btn mr10" value="prop:action"/>
+    </form>
+</div>
+</html>

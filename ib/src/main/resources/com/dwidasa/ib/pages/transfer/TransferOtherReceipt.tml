@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="recipe_wrap">
+    <form t:type="form" t:id="transferOtherReceipt" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+                    <tr class="odd">
+                        <td class="first">
+                            <label>${message:referenceNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.referenceNumber}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:dateTime}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <t:output value="transferView.transactionDate" format="longDate"/>
+                            ${message:timeZone}
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:cardNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.cardNumber}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:fromAccount}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.accountNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:toAccount}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.customerReference}</label>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <label>${message:receiverBank}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.billerName}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:receiverName}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.receiverName}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:cost}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>
+                                <t:output value="transferView.fee" format="formatter"/>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr class="odd" >
+                        <td>
+                            <label>${message:amount}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>
+                                <t:output value="transferView.amount" format="formatter"/>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:total}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>
+                                <t:output value="transferView.totalDebetAmount" format="formatter"/>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:description}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.description}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:transferType}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:transferNow}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:status}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${StatusDetil}</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="note">
+            ${message:noteReceipt}
+        </div>
+        <t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>
+		
+		<t:if test="StatusHistory">
+		
+		<p:else>
+		
+		 <input type="button"
+               onclick="popupInfo('/transfer/transferOtherPrint')"
+               class="grey_btn right" t:type="any" value="message:print"/>
+               
+		</p:else>
+		
+		</t:if>
+		
+       
+    </form>
+</div>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:tx="tapestry-library:tapx"
+      xmlns:p="tapestry:parameter">
+      
+    <link type="text/css" rel="stylesheet" href="${context:bprks/css/aero/redmond/jquery-ui-1.10.4.custom.css}" />
+    <link type="text/css" rel="stylesheet" href="${context:bprks/css/aero/select2.css}" />
+    <link type="text/css" rel="stylesheet" href="${context:bprks/css/aero/style.css}" />
+    <script src="${context:bprks/js/aero/jquery.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/aero/jquery-ui.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/aero/select2.min.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/aero/fLSScript.js}" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery('.baloonStatus').fadeOut(0);
+	jQuery( ".aero" ).hover(
+	  	function() {
+			var findFlightName = jQuery(this).find('p').html();
+			var findFlightStatus = jQuery(this).parent().attr('class');
+			jQuery(this).parent().find('.baloonStatus p b').html(findFlightName);
+			jQuery(this).parent().find('.baloonStatus p span').html(findFlightStatus);
+			jQuery(this).parent().find('.baloonStatus').fadeIn();
+	  	}, function() {
+			jQuery('.baloonStatus').fadeOut(0);
+	  	}
+	);
+});
+
+</script>
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+	
+    <div class="ico_position ico_favorite_36"></div>
+    <t:form t:id="form" class="formfield" autofocus="false" clientValidation="none">
+
+	        <!--<t:errors banner="message:errorBanner"/>-->
+            <div class="t-error" id="terror">
+                <div class="t-banner" id="tbanner">Pesan Kesalahan</div>
+                <ul>
+                    <!--<li>Silahkan memilih Tanggal Keberangkatan</li>-->
+                </ul>
+            </div>
+
+	        <t:account accountNumber="aeroTicketingView.accountNumber" cardNumber="aeroTicketingView.cardNumber"/>
+
+            <!--<hr style="margin-top: -30px"/>-->
+
+            <input t:type="textField" t:name="hiddenSelectedAirlines" t:id="hiddenSelectedAirlines" t:value="hiddenSelectedAirlines" style="display:none" />
+<div class="airLines">
+    <div class="pMBtn">
+        <div class="pMBOpen rounded10">Pilih Maskapai</div>
+        <div class="pMBClose rounded10">Close</div>
+        <div class="aLOption rounded8">
+            <ul>
+
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoAirasia"></span>
+                    <p class="airlineName">Airasia Airline</p>
+                    <input type="checkbox" class="mKPL" value="logoAirasia" id="checkBoxlogoAirasia" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoCitilink"></span>
+                    <p class="airlineName">Citilink Airline</p>
+                    <input type="checkbox" class="mKPL" value="logoCitilink" id="checkBoxlogoCitilink" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoGaruda"></span>
+                    <p class="airlineName">Garuda Airline</p>
+                    <input type="checkbox" class="mKPL" value="logoGaruda" id="checkBoxlogoGaruda" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo airLine5"></span>
+                    <p class="airlineName">Garuda Executive Airline</p>
+                    <input type="checkbox" class="mKPL" value="logoGE" id="checkBoxlogoGE" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoKalstar"></span>
+                    <p class="airlineName">Kal Star Airline</p>
+                    <input type="checkbox" class="mKPL" value="logoKalstar" id="checkBoxlogoKalstar" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoLion"></span>
+                    <p class="airlineName">Lionair Airline</p>
+                    <input type="checkbox" class="mKPL" value="logoLion" id="checkBoxlogoLion" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoTiger"></span>
+                    <p class="airlineName">Tiger Airline</p>
+                    <input type="checkbox" class="mKPL" value="logoTiger" id="checkBoxlogoTiger" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoSriwijaya"></span>
+                    <p class="airlineName">Sriwijaya Airline</p>
+                    <input type="checkbox" class="mKPL" value="logoSriwijaya" id="checkBoxlogoSriwijaya" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoXpress"></span>
+                    <p class="airlineName">Xpress Air</p>
+                    <input type="checkbox" class="mKPL" value="logoXpress" id="checkBoxlogoExpress" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoAirasiaMalaysia"></span>
+                    <p class="airlineName">Airasia Malaysia</p>
+                    <input type="checkbox" class="mKPL" value="logoAirasiaMalaysia" id="checkBoxlogoAirasiaMalaysia" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoAviaStar"></span>
+                    <p class="airlineName">Avia Star</p>
+                    <input type="checkbox" class="mKPL" value="logoAviaStar" id="checkBoxlogoAviaStar" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoBatikAir"></span>
+                    <p class="airlineName">Batik Air</p>
+                    <input type="checkbox" class="mKPL" value="logoBatikAir" id="checkBoxlogoBatikAir" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoMalindo"></span>
+                    <p class="airlineName">Malindo</p>
+                    <input type="checkbox" class="mKPL" value="logoMalindo" id="checkBoxlogoMalindo" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoNamAir"></span>
+                    <p class="airlineName">Nam Air</p>
+                    <input type="checkbox" class="mKPL" value="logoNamAir" id="checkBoxlogoNamAir" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoSkyAviation"></span>
+                    <p class="airlineName">Sky Aviation</p>
+                    <input type="checkbox" class="mKPL" value="logoSkyAviation" id="checkBoxlogoSkyAviation" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoThaiLion"></span>
+                    <p class="airlineName">Thai Lion</p>
+                    <input type="checkbox" class="mKPL" value="logoThaiLion" id="checkBoxlogoThaiLion" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoTigerAirSing"></span>
+                    <p class="airlineName">Tiger Air Singapore</p>
+                    <input type="checkbox" class="mKPL" value="logoTigerAirSing" id="checkBoxlogoTigerAirSing" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoTriganaAir"></span>
+                    <p class="airlineName">Trigana Air</p>
+                    <input type="checkbox" class="mKPL" value="logoTriganaAir" id="checkBoxlogoTriganaAir" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                <li class="rounded5 aLList">
+                    <span class="airLogo logoWingsAir"></span>
+                    <p class="airlineName">Wings Air</p>
+                    <input type="checkbox" class="mKPL" value="logoWingsAir" id="checkBoxlogoWingsAir" />
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div id="logoAirasia" class="airLine rounded8">
+        <span class="aLImg logoAirasia"></span>
+        <p class="aLName">Airasia Airline</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoCitilink" class="airLine rounded8">
+        <span class="aLImg logoCitilink"></span>
+        <p class="aLName">Citilink Airline</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoGaruda" class="airLine rounded8">
+        <span class="aLImg logoGaruda"></span>
+        <p class="aLName">Garuda Airline</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoGE" class="airLine rounded8">
+        <span class="aLImg logoGE"></span>
+        <p class="aLName">Garuda Executive Airline</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoKalstar" class="airLine rounded8">
+        <span class="aLImg logoKalstar"></span>
+        <p class="aLName">Kal Star Airline</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoLion" class="airLine rounded8">
+        <span class="aLImg logoLion"></span>
+        <p class="aLName">Lionair Airline</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoSriwijaya" class="airLine rounded8">
+        <span class="aLImg logoSriwijaya"></span>
+        <p class="aLName">Sriwijaya Airline</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoTiger" class="airLine rounded8">
+        <span class="aLImg logoTiger"></span>
+        <p class="aLName">Tiger Airline</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoXpress" class="airLine rounded8">
+        <span class="aLImg logoXpress"></span>
+        <p class="aLName">Xpress Air</p>
+        <span class="hoverClose">X</span>
+    </div>
+
+    <div id="logoAirasiaMalaysia" class="airLine rounded8">
+        <span class="aLImg logoAirasiaMalaysia"></span>
+        <p class="aLName">Airasia Malaysia</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoAviaStar" class="airLine rounded8">
+        <span class="aLImg logoAviaStar"></span>
+        <p class="aLName">Avia Star</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoBatikAir" class="airLine rounded8">
+        <span class="aLImg logoBatikAir"></span>
+        <p class="aLName">Batik Air</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoMalindo" class="airLine rounded8">
+        <span class="aLImg logoMalindo"></span>
+        <p class="aLName">Malindo</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoNamAir" class="airLine rounded8">
+        <span class="aLImg logoNamAir"></span>
+        <p class="aLName">Nam Air</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoSkyAviation" class="airLine rounded8">
+        <span class="aLImg logoSkyAviation"></span>
+        <p class="aLName">Sky Aviation</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoThaiLion" class="airLine rounded8">
+        <span class="aLImg logoThaiLion"></span>
+        <p class="aLName">Thai Lion</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoTigerAirSing" class="airLine rounded8">
+        <span class="aLImg logoTigerAirSing"></span>
+        <p class="aLName">Tiger Air Singapore</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoTriganaAir" class="airLine rounded8">
+        <span class="aLImg logoTriganaAir"></span>
+        <p class="aLName">Trigana Air</p>
+        <span class="hoverClose">X</span>
+    </div>
+    <div id="logoWingsAir" class="airLine rounded8">
+        <span class="aLImg logoWingsAir"></span>
+        <p class="aLName">Wings Air</p>
+        <span class="hoverClose">X</span>
+    </div>
+</div>
+<div class="searchForm">
+    <ul class="departReturn" id="departReturn" >
+        <li class="rounded20 active" id="vDepartReturn" value="vDepartReturn">
+            <span class="fTReturn"></span>
+            <p>Pulang Pergi</p>
+        </li>
+        <li class="rounded20" id="vDepartOnly" value="vDepartOnly">
+            <span class="fTOneWay"></span>
+            <p>Sekali Jalan</p>
+        </li>
+    </ul>
+    <input t:type="textField" t:name="airType" t:id="airType" t:value="chooseValue" style="display:none" />
+    <input t:type="textField" t:name="hiddenAirasia" t:id="hiddenAirasia" t:value="hiddenAirasia" style="display:none" />
+    <input t:type="textField" t:name="hiddenCitilink" t:id="hiddenCitilink" t:value="hiddenCitilink" style="display:none" />
+    <input t:type="textField" t:name="hiddenGaruda" t:id="hiddenGaruda" t:value="hiddenGaruda" style="display:none" />
+    <input t:type="textField" t:name="hiddenGarudaExec" t:id="hiddenGarudaExec" t:value="hiddenGarudaExec" style="display:none" />
+    <input t:type="textField" t:name="hiddenKalstar" t:id="hiddenKalstar" t:value="hiddenKalstar" style="display:none" />
+    <input t:type="textField" t:name="hiddenLionair" t:id="hiddenLionair" t:value="hiddenLionair" style="display:none" />
+    <input t:type="textField" t:name="hiddenSriwijaya" t:id="hiddenSriwijaya" t:value="hiddenSriwijaya" style="display:none" />
+    <input t:type="textField" t:name="hiddenTiger" t:id="hiddenTiger" t:value="hiddenTiger" style="display:none" />
+    <input t:type="textField" t:name="hiddenXpress" t:id="hiddenXpress" t:value="hiddenXpress" style="display:none" />
+
+    <input t:type="textField" t:name="hiddenAirasiaMalaysia" t:id="hiddenAirasiaMalaysia" t:value="hiddenAirasiaMalaysia" style="display:none" />
+    <input t:type="textField" t:name="hiddenAviaStar" t:id="hiddenAviaStar" t:value="hiddenAviaStar" style="display:none" />
+    <input t:type="textField" t:name="hiddenBatikAir" t:id="hiddenBatikAir" t:value="hiddenBatikAir" style="display:none" />
+    <input t:type="textField" t:name="hiddenMalindo" t:id="hiddenMalindo" t:value="hiddenMalindo" style="display:none" />
+    <input t:type="textField" t:name="hiddenNamAir" t:id="hiddenNamAir" t:value="hiddenNamAir" style="display:none" />
+    <input t:type="textField" t:name="hiddenSkyAviation" t:id="hiddenSkyAviation" t:value="hiddenSkyAviation" style="display:none" />
+    <input t:type="textField" t:name="hiddenThaiLion" t:id="hiddenThaiLion" t:value="hiddenThaiLion" style="display:none" />
+    <input t:type="textField" t:name="hiddenTigerAirSing" t:id="hiddenTigerAirSing" t:value="hiddenTigerAirSing" style="display:none" />
+    <input t:type="textField" t:name="hiddenTriganaAir" t:id="hiddenTriganaAir" t:value="hiddenTriganaAir" style="display:none" />
+    <input t:type="textField" t:name="hiddenWingsAir" t:id="hiddenWingsAir" t:value="hiddenWingsAir" style="display:none" />
+
+    <input t:type="textField" t:name="hiddenServerIp" t:id="hiddenServerIp" t:value="hiddenServerIp" style="display:none" />
+    <input t:type="textField" t:name="hiddenCustomerId" t:id="hiddenCustomerId" t:value="hiddenCustomerId" style="display:none" />
+    <input t:type="textField" t:name="hiddenAeroTicketingView" t:id="hiddenAeroTicketingView" t:value="hiddenAeroTicketingView" style="display:none" />
+
+    <!--<input t:type="textField" t:name="hiddenOftenDepart" t:id="hiddenOftenDepart" t:value="hiddenOftenDepart" style="display:none" />
+    <input t:type="textField" t:name="hiddenOftenReturn" t:id="hiddenOftenReturn" t:value="hiddenOftenReturn" style="display:none" />
+    <input t:type="textField" t:name="hiddenOftenRoute" t:id="hiddenOftenRoute" t:value="hiddenOftenRoute" style="display:none" />-->
+
+    <input t:type="textField" t:name="depart" t:id="departInput" class="departInput" placeholder="Kota Asal" t:value="aeroTicketingView.departureAirportCode" /><br />
+    <input t:type="textField" t:name="arrive" t:id="arriveInput" class="arriveInput" placeholder="Kota Tujuan" t:value="aeroTicketingView.destinationAirportCode" /><br />
+    <input t:type="textField" t:name="provider" t:id="providerInput" class="providerInput" placeholder="Provider" t:value="aeroTicketingView.providerCode" /><br />
+    <span class="departDateContainer">
+        <input t:type="textField" t:name="departDate" t:id="departDate" class="departDate" placeholder="Keberangkatan" t:value="sDepartDate"  />
+    </span>
+    <span class="returnDateContainer">
+        <input t:type="textField" t:name="returnDate" t:id="returnDate" class="returnDate" placeholder="Kembali" t:value="sReturnDate" />
+    </span>
+    <br /><br />
+    <div class="passCountCtr">
+        <span class="labPass">Dewasa</span>
+        <br/>
+        <div class="group">
+            <span class="reduceValue rounded5">&minus;</span>
+            <input max="7" class="passCount" onkeypress="return isNumberKey(event)" t:value="aeroTicketingView.totalAdult" t:id="fieldAdultValue" name="fieldAdultValue" t:type="textField"></input>
+            <span class="increaseValue rounded5">&#43;</span>
+        </div>
+    </div>
+    <div class="passCountCtr">
+        <span class="labPass">Anak</span>
+        <div class="miniInfo"><span class="rounded5">Anak umur 2 - 12 Tahun</span></div>
+        <br/>
+        <div class="group">
+            <span class="reduceValue rounded5">&minus;</span>
+            <input class="passCount" onkeypress="return isNumberKey(event)" t:value="aeroTicketingView.totalChildren" t:id="fieldChildValue" name="fieldChildValue" t:type="textField"></input>
+            <span class="increaseValue rounded5">&#43;</span>
+        </div>
+    </div>
+    <div class="passCountCtr">
+        <span class="labPass">Bayi</span>
+        <div class="miniInfo"><span class="rounded5">Bayi umur 3 - 23 Bulan, Selain Garuda</span></div>
+        <br/>
+        <div class="group">
+            <span class="reduceValue rounded5">&minus;</span>
+            <input class="passCount" onkeypress="return isNumberKey(event)" t:value="aeroTicketingView.totalInfant" t:id="fieldBabyValue" name="fieldBabyValue" t:type="textField"></input>
+            <span class="increaseValue rounded5">&#43;</span>
+        </div>
+    </div>
+    <br /><br />
+
+    <input value="Proses Pencarian" class="submitSearchBtn green_btn" type="submit"></input>
+</div>
+
+    	</t:form>
+	</div>
+</html>
+

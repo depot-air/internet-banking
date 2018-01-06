@@ -1,0 +1,594 @@
+.airLine1{background:url(../../img/tiketux/aero/airasia.png) center no-repeat; background-size: 100% 100%;}
+.airLine2{background:url(../../img/tiketux/aero/batavia.png) center no-repeat; background-size: 100% 100%;}
+.airLine3{background:url(../../img/tiketux/aero/citilink.png) center no-repeat; background-size: 100% 100%;}
+.airLine4, .airLine5{background:url(../../img/tiketux/aero/garuda.png) center no-repeat; background-size: 100% 100%;}
+.airLine6{background:url(../../img/tiketux/aero/kalstar.png) center no-repeat; background-size: 100% 100%;}
+.airLine7{background:url(../../img/tiketux/aero/lion.png) center no-repeat; background-size: 100% 100%;}
+.airLine8{background:url(../../img/tiketux/aero/mandala.png) center no-repeat; background-size: 100% 100%;}
+.airLine9{background:url(../../img/tiketux/aero/merpati.png) center no-repeat; background-size: 100% 100%;}
+.airLine10{background:url(../../img/tiketux/aero/sriwijaya.png) center no-repeat; background-size: 100% 100%;}
+.aLDelete{background:url(../../img/tiketux/aero/aLDelete.png) center no-repeat; background-size: 100% 100%;}
+
+.airLines{width: 112px; float: left; text-align: center;}
+.airLines .airLine{width: 95px; position: relative; text-align: center; margin: 0 auto; margin-bottom: 5px; padding:5px 0; background: #F9F9F9; border: 1px solid #EEE; display: none;}
+.airLines .airLine .aLImg{width: 80px; height: 35px; display:block; margin: 0 auto;}
+.airLines .airLine .aLName{padding: 0; margin-left: 0 !important; font-size: 11px; color: #CBCBCB; width: 100%; float: none;}
+
+.pMBtn{margin-bottom: 8px; position: relative;}
+.pMBtn .pMBText{background: #69C ; width: 110px; padding: 10px 0; border:1px solid #69C; cursor: pointer; font-size: 12px; display: block; color: white; text-align:center; z-index: 999; position: relative;}
+.pMBtn .pMBTAct{background: #F9F9F9; color: #666; border: 1px solid #E9E9E9; border-right: none; border-top-right-radius: 0; border-bottom-right-radius: 0;}
+
+.aLOption{position: absolute; top: 0; left: 110px; width: 488px; padding: 3px; background: #F9F9F9; border: 1px solid #E9E9E9; cursor: default; display: none; border-top-left-radius: 0 !important; z-index: 99}
+.aLOption ul, .aLOption ul li{list-style-type: none; margin: 0; padding: 0; font-size: 11px;}
+.aLOption ul li{float: left; width: 110px; height: 90px; margin:5px; border: 1px solid #F0F0F0; background: #FFF; cursor: pointer; position: relative;}
+.aLOption ul li.wEnb{float: left; width: 110px; height: 90px; margin:2px; border: 4px solid #339933 !important; background: #FFF; cursor: pointer;}
+.aLOption ul li.wDsb{float: left; width: 110px; height: 90px; margin:2px; border: 4px solid #EEE; background: #FFF; cursor: pointer;}
+.aLOption ul li:hover{box-shadow: 0 0 10px #a0e5ff ;}
+.aLOption ul li span.airLogo{width: 80px; height: 32px; margin: 0 auto; margin-top: 12px; margin-bottom: 8px; display: block;}
+.aLOption ul li.wDsb span.aLTrans{background:url(../../img/tiketux/aero/aLTrans.png); position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block;}
+.aLOption ul li.wEnb span.aLTrans{display: none !important;}
+.aLOption ul li.wEnb span.aLSelect{background:url(../../img/tiketux/aero/aLSelect.png); width: 25px; height: 25px; position: absolute; top: 0; right: 0;}
+.aLOption ul li .mKPL{display: none;}
+.aLOption ul li p{font-size: 11px; margin: 0 !important; padding: 0; width: 100%; text-align: center;}
+.aLOption .optionControl{ padding: 8px; height: 38px; margin:10px 3px 5px; position: relative; background: #dddddd; background: -moz-linear-gradient(top,  #dddddd 0%, #ffffff 3%, #f0f0f0 6%, #e0e0e0 97%, #cccccc 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dddddd), color-stop(3%,#ffffff), color-stop(6%,#f0f0f0), color-stop(97%,#e0e0e0), color-stop(100%,#cccccc)); background: -webkit-linear-gradient(top,  #dddddd 0%,#ffffff 3%,#f0f0f0 6%,#e0e0e0 97%,#cccccc 100%); background: -o-linear-gradient(top,  #dddddd 0%,#ffffff 3%,#f0f0f0 6%,#e0e0e0 97%,#cccccc 100%); background: -ms-linear-gradient(top,  #dddddd 0%,#ffffff 3%,#f0f0f0 6%,#e0e0e0 97%,#cccccc 100%); background: linear-gradient(to bottom,  #dddddd 0%,#ffffff 3%,#f0f0f0 6%,#e0e0e0 97%,#cccccc 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#cccccc',GradientType=0 );}
+.optionControl .cancelPBtn{background:url(../../img/tiketux/aero/cancelPBtn.png); width: 102px; height: 39px; display: block; float: left; margin-right: 8px;}
+.optionControl .resetPBtnDsb{background:url(../../img/tiketux/aero/resetPBtnDsb.png); width: 102px; height: 39px; display: block; float: left; margin-right: 8px;}
+.optionControl .resetPBtn{background:url(../../img/tiketux/aero/resetPBtn.png); width: 102px; height: 39px; display: block; float: left; margin-right: 8px; display: none;}
+.optionControl .submitPBtnDsb{background:url(../../img/tiketux/aero/submitPBtnDsb.png); width: 102px; height: 39px; display: block; float: right;}
+.optionControl .submitPBtn{background:url(../../img/tiketux/aero/submitPBtn.png); width: 102px; height: 39px; display: block; float: right; display: none;}
+
+.passCountCtr{margin-right: 17px; position: relative; float:left;}
+.passCountCtr input{width: 20px; padding: 6px; margin: 0 2px; text-align: center; color: #333;}
+.reduceValue, .increaseValue{background: #F0F0F0; border: 1px solid #DDD; color: #666; padding: 1px 0 0 5px; width: 14px; height: 20px; font-weight: bold; display: block; margin-top:2px; float: left; cursor: pointer;}
+
+.searchForm{margin-left: 120px;}
+.searchFormTrain{margin-left: 160px;}
+.searchForm ul, .searchForm ul li, .searchFormTrain ul, .searchFormTrain ul li{margin: 0; padding: 0; list-style-type: none;}
+.searchForm ul, .searchFormTrain ul{height: 40px; margin-bottom:8px;}
+.searchForm ul li, .searchFormTrain ul li{margin-right: 10px; float: left; background: #fff; padding:2px; cursor: pointer;}
+.searchForm .fTReturn, .searchForm .fTOneWay, .searchFormTrain .fTReturn, .searchFormTrain .fTOneWay, .fTReturn, .fTOneWay{width: 33px; height: 32px; display: block; float:left;}
+.searchForm .fTReturn, .fTReturn{background:url(../../img/tiketux/returnIcon.png);}
+.searchForm .fTOneWay, .fTOneWay{background:url(../../img/tiketux/oneWayIcon.png);}
+.searchFormTrain .fTReturn{background:url(../../img/tiketux/returnTrainIcon.png);}
+.searchFormTrain .fTOneWay{background:url(../../img/tiketux/oneWayTrainIcon.png);}
+.searchForm ul li p, .searchForm ul li p, .searchFormTrain ul li p, .searchFormTrain ul li p{margin-left: 8px !important; padding: 7px 10px 0 0}
+.searchForm ul li:hover, .searchFormTrain ul li:hover{ background: #F0F0F0;}
+.searchForm ul li.active{ background: #aaa;}
+.searchFormTrain ul li.active{ background: #ffc000;}
+.searchForm ul li.active p, .searchFormTrain ul li.active p{color: #fff;}
+.searchForm ul li.active .fTReturn{background:url(../../img/tiketux/returnIconActive.png);}
+.searchForm ul li.active .fTOneWay{background:url(../../img/tiketux/oneWayIconActive.png);}
+.searchFormTrain ul li.active .fTReturn{background:url(../../img/tiketux/returnTrainIconActive.png);}
+.searchFormTrain ul li.active .fTOneWay{background:url(../../img/tiketux/oneWayTrainIconActive.png);}
+.ui-helper-hidden-accessible{display: none;}
+.searchForm .departInput, .searchForm .arriveInput, .searchFormTrain .departInput, .searchFormTrain .arriveInput{width: 275px; margin-bottom: 10px; font-size:11px; background: none;}
+.searchForm .departDate, .searchForm .returnDate, .searchFormTrain .departDate, .searchFormTrain .returnDate{width: 118px; padding: 6px; margin-right:10px;}
+.searchForm .adultPass, .searchForm .childPass, .searchForm .babyPass, .searchFormTrain .adultPass, .searchFormTrain .childPass, .searchFormTrain .babyPass{margin: 0; margin-right: 4px; height: 25px; float:left;}
+.searchForm .labPass, .searchFormTrain .labPass, .searchFormTrain .labPass, .searchFormTrainTrain .labPass{float: left; margin: 0 5px 0 20px; font-size: 11px; color: #666;}
+.searchForm .miniInfo, .searchFormTrain .miniInfo{background:url(../../img/tiketux/infoMiniIcon.png); width: 14px; height: 14px; font-size: 11px; background-size:100% 100%; margin-top:0; display:block; float:left; margin-right:5px; position: relative;}
+.searchForm .miniInfo span, .searchFormTrain .miniInfo span{background: #333; color: white; width: 300px; white-space: nowrap; padding: 8px 10px; display: none;}
+.submitSearchBtn{color: white; padding: 8px; margin-top: 10px; width: 274px; cursor: pointer;}
+.searchFormTrain .submitSearchBtn{clear: both;}
+.passFormBtn{color: white; padding: 8px; margin-top: 10px; margin-left: 35px; width: 280px; cursor: pointer;}
+.KAILogo{background: url(../../img/tiketux/logoKAI.png); width: 120px; height: 76px; float: left; margin-left: 20px; background-size: 100% 100%;}
+.choseTrainClass{padding: 10px; width: 160px; color: #999; height: 26px; margin-bottom: 8px; font-size: 11px !important;}
+
+
+#fSResult{width: 100%;}
+#fSResult .fLLeft{float: left; width: 415px; padding: 0 5px 5px; display:block; position: relative; z-index: 999;}
+#detailPrice{float: right; width: 240px; margin-bottom: 10px; padding-bottom: 5px; background: #fafafa; border: 1px solid #dadada; position: relative;}
+#detailPrice h4{font-size: 12px; font-weight: bold; color: #999; margin: 7px 0 6px 8px; position: relative;}
+#detailPrice p, #detailPrice h4, #detailPrice div{position: relative;}
+#detailPrice .bgTotalPrice{background:url(../../img/tiketux/bgTotalPrice.jpg); width: 240px; height: 45px; display:block;}
+#detailPrice .bgTotalPriceTrain{background:url(../../img/tiketux/bgTotalPriceTrain.jpg); width: 240px; height: 45px; display:block;}
+#detailPrice .lbTotalPrice{font-size: 11px; color: #999; text-align: right; position: relative; margin: 0; padding: 3px 8px 0 0; width: 232px;}
+#detailPrice .bgTotalPrice .totalPrice{font-size: 20px; color: #0e4d97; text-align: right; position: relative; margin: 0; padding: 0 8px 0 0; width: 232px; line-height: 22px;}
+#detailPrice .bgTotalPriceTrain .totalPrice{font-size: 20px; color: #ffb100; text-align: right; position: relative; margin: 0; padding: 0 8px 0 0; width: 232px; line-height: 22px;}
+#detailPrice .detailRoute{margin: 0; padding: 7px; font-size: 11px; color: #666; font-weight: bold;}
+.detailRoute span{float: left;}
+.detailRoute .arrowIcon{background:url(../../img/tiketux/goTo.png); width: 12px; height: 12px; background-size: 100% 100%; margin: 2px; display: block;}
+#detailPrice .hrDetail{margin-left:7px; margin-bottom: 4px; border: none; border-bottom: 1px solid #eaeaea;}
+#detailPrice .labelDepart{color: black; background:url(../../img/tiketux/fourBoxList.jpg) left center no-repeat; padding: 0 0 0 10px; margin-left: 8px; font-weight: bold; width: 222px; float: none;}
+#detailPrice .labelDepart .departDate{float: right; margin-right: 8px; font-size: 11px; font-weight: normal; color: #666;}
+#detailPrice .flightLogoAndCode{width: 232px; padding: 0 0 4px; margin-right: 8px; text-align: center;}
+#detailPrice .flightLogoAndCode .flightLogo{width: 90px; height: 40px; display: block; margin:0 auto;}
+#detailPrice .flightLogoAndCode .flightCode{float: right; color: #666; font-weight: bold; font-size: 11px; margin-top: 10px;}
+#detailPrice .flightLogoAndCode .carName{float: left; color: #666; margin-left: 18px; font-weight: bold; font-size: 16px;}
+#detailPrice .flightLogoAndCode .carNum{float: right; color: #666; font-weight: bold; font-size: 11px;}
+#detailPrice .flightLogoAndCode .subClass{float: right; color: #666; font-size: 11px;}
+#detailPrice .detailFlow{background:url(../../img/tiketux/detailFlowBg.png) no-repeat; width: 228px; height: 45px; position: relative; margin: 0 auto; margin-top: -8px;}
+#detailPrice .detailFlowTrain{background:url(../../img/tiketux/detailFlowTrainBg.png) no-repeat; width: 228px; height: 45px; position: relative; margin: 0 auto; margin-top: -8px;}
+#detailPrice .departIconFlow{background:url(../../img/tiketux/detailFlowDepart.jpg); width: 16px; height: 16px; position: absolute; top: 9px; left: 8px; display: block;}
+#detailPrice .departTrainIconFlow{background:url(../../img/tiketux/detailFlowTrainDepart.png); width: 33px; height: 33px; position: absolute; top: 0; left: 0; display: block;}
+#detailPrice .returnIconFlow{background:url(../../img/tiketux/detailFlowReturn.jpg); width: 16px; height: 16px; position: absolute; top: 9px; left: 8px; display: block;}
+#detailPrice .returnTrainIconFlow{background:url(../../img/tiketux/detailFlowTrainReturn.png); width: 33px; height: 33px; position: absolute; top: 0; left: 0; display: block;}
+#detailPrice .departCityCode{position: absolute; top: 7px; left: 50px; color: #FFF; text-align: center; width: 50px;}
+#detailPrice .arriveCityCode{position: absolute; top: 7px; left: 150px; color: #FFF; text-align: center; width: 50px;}
+#detailPrice .departTime{font-size: 11px; color: #999; position: absolute; bottom: 0; right: 110px;}
+#detailPrice .arriveTime{font-size: 11px; color: #999; position: absolute; bottom: 0; right: 10px;}
+#detailPrice .detailBtmBg{background:url(../../img/tiketux/bgBotDetailPanel.jpg); width: 240px; height: 113px; position: absolute; left: 0; bottom: 0; border-bottom-left-radius: 10px; -moz-border-radius-bottomleft:10px; -webkit-border-bottom-left-radius:10px; border-bottom-right-radius: 10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-right-radius:10px;}
+#detailPrice .detailBtmTrainBg{background:url(../../img/tiketux/bgBotDetailTrainPanel.jpg); width: 240px; height: 113px; position: absolute; left: 0; bottom: 0; border-bottom-left-radius: 10px; -moz-border-radius-bottomleft:10px; -webkit-border-bottom-left-radius:10px; border-bottom-right-radius: 10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-right-radius:10px;}
+#detailPrice .labelTitle{margin-left:0; color: #999; padding-left: 8px; float: none;}
+#detailPrice .priceCtr{text-align:left; margin: 0 0 0 8px; padding: 0; float: none;}
+#detailPrice .priceCtr .passPrice{float: right; margin-right: 8px;}
+#detailPrice .priceTotal{margin-top: 10px; margin-bottom: 60px; clear: both;}
+#detailPrice .priceTotal .passPrice{font-weight: bold;}
+#detailPrice .footNote{text-align: center; margin: 0 auto; padding: 0; width: 100%; font-size: 11px;}
+#resultOption hr{margin-bottom:5px;}
+#resultOption h3{font-size: 12px; color: #666; margin: 0;}
+#resultOption .dRCtr{ z-index: 999; position: relative;}
+#resultOption .dRCtr .detailRoute{float: none; margin-left: 0; padding: 0; color: #999;}
+#resultOption .flightFilter{float: right; position: relative;}
+#resultOption .flightFilter, #resultOption .flightFilter li{margin: 0; padding: 0; margin-top: -2px; list-style-type: none;}
+#resultOption .flightFilter li{float: left; padding:5px 6px 5px 8px; color: #6699cc; font-size:11px; cursor: pointer; position: relative;}
+#resultOption .flightFilter li:hover{background: #f9f9f9; color: #336699; border-radius: 5px;}
+#resultOption .flightFilter li.active{background: #EEE; color: #666; border-radius: 5px;}
+#resultOption .flightFilter li span.flightDropDownIcon{background:url(../../img/tiketux/DropDownIcon.png); width: 10px; height: 5px; display:block; float:right; margin:7px 0 0 3px;}
+#resultOption .flightFilter li ul{position: absolute; top: 100%; right: 0; padding: 3px; background:#FFF; border: 1px solid #ccc; border-radius: 5px; display:none}
+#resultOption .flightFilter li li{float:none; margin:0; color: #336699; padding:3px 5px; white-space: nowrap;}
+#resultOption .flightFilter li li:hover{background: #6699cc; color: white; border-radius: 5px;}
+#resultOption .flightFilter li li.active{background: #6699cc; color: white; border-radius: 5px;}
+#resultOption .changeDateWrap{clear: both; padding-top:10px; margin-left: 5px; position: relative; height: 30px; z-index: 998;}
+#resultOption .changeDateWrap ul, #resultOption .changeDateWrap ul li{margin: 0; padding: 0; list-style-type: none;}
+#resultOption .changeDateWrap ul li a{float: left; padding: 4px 25px; font-size: 12px; border-bottom: 1px solid #CCC; text-decoration: none; color: #999;}
+#resultOption .changeDateWrap ul li a:hover{color: #666; text-decoration: underline;}
+#resultOption .changeDateWrap ul li a.activeDate{border: 1px solid #CCC; border-bottom: none; color: #336699; border-top-left-radius: 5px; -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-top-right-radius: 5px; -moz-border-radius-topright:5px; -webkit-border-top-right-radius:5px;}
+#resultOption .changeDateWrap ul li a.activeDate:hover{text-decoration: none;}
+#resultOption .listPilihan{margin-top: 10px; z-index: 99; margin-bottom: 10px;}
+
+#resultOption .listPilihan table{width: 100%; font-size: 11px; color: #666; margin-bottom: 5px;}
+#resultOption .listPilihan td{text-align: center; vertical-align: middle; border: 1px solid #ccc; padding: 10px 0; background: #ffffff;
+background: -moz-linear-gradient(top,  #ffffff 0%, #ededed 3%, #ffffff 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(3%,#ededed), color-stop(100%,#ffffff));
+background: -webkit-linear-gradient(top,  #ffffff 0%,#ededed 3%,#ffffff 100%);
+background: -o-linear-gradient(top,  #ffffff 0%,#ededed 3%,#ffffff 100%);
+background: -ms-linear-gradient(top,  #ffffff 0%,#ededed 3%,#ffffff 100%);
+background: linear-gradient(to bottom,  #ffffff 0%,#ededed 3%,#ffffff 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );}
+#resultOption .listPilihan td.active{background: #ffffff;
+background: -moz-linear-gradient(top,  #ffffff 0%, #61abd4 3%, #3182b0 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(3%,#61abd4), color-stop(100%,#3182b0));
+background: -webkit-linear-gradient(top,  #ffffff 0%,#61abd4 3%,#3182b0 100%);
+background: -o-linear-gradient(top,  #ffffff 0%,#61abd4 3%,#3182b0 100%);
+background: -ms-linear-gradient(top,  #ffffff 0%,#61abd4 3%,#3182b0 100%);
+background: linear-gradient(to bottom,  #ffffff 0%,#61abd4 3%,#3182b0 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#3182b0',GradientType=0 )}
+#resultOption .listPilihan td.customClass{background: #ffffff;
+background: -moz-linear-gradient(top,  #ffffff 0%, #d4ba61 3%, #c9a32f 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(3%,#d4ba61), color-stop(100%,#c9a32f));
+background: -webkit-linear-gradient(top,  #ffffff 0%,#d4ba61 3%,#c9a32f 100%);
+background: -o-linear-gradient(top,  #ffffff 0%,#d4ba61 3%,#c9a32f 100%);
+background: -ms-linear-gradient(top,  #ffffff 0%,#d4ba61 3%,#c9a32f 100%);
+background: linear-gradient(to bottom,  #ffffff 0%,#d4ba61 3%,#c9a32f 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c9a32f',GradientType=0 );}
+#resultOption .listPilihan td.customClass2{
+    background: #edebda; /* Old browsers */
+background: -moz-linear-gradient(top,  #edebda 0%, #f2d43e 3%, #feb645 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#edebda), color-stop(3%,#f2d43e), color-stop(100%,#feb645)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #edebda 0%,#f2d43e 3%,#feb645 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #edebda 0%,#f2d43e 3%,#feb645 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #edebda 0%,#f2d43e 3%,#feb645 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #edebda 0%,#f2d43e 3%,#feb645 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edebda', endColorstr='#feb645',GradientType=0 ); /* IE6-9 */
+
+}
+#resultOption .listPilihan .fLTable1{width: 90px;}
+#resultOption .listPilihan .fLTable1 span{display: block; color: #999;}
+#resultOption .listPilihan .fLTable1 span:first-child{font-size: 14px; color: #666;}
+#resultOption .listPilihan .fLTable2{width: 90px;}
+#resultOption .listPilihan .fLTable3{cursor: pointer;}
+#resultOption .listPilihan .cBFlight{clear: both; float: none; position: relative}
+#resultOption .listPilihan .flightPrice{font-size: 14px; color: #333}
+#resultOption .listPilihan td.active span{color: #FFF;}
+#resultOption .listPilihan td.active .flightPrice{color: #FFF;}
+#resultOption .listPilihan .fLTable3 .flightClassOption{color: #ababab; width: 110px; margin: 0 auto; cursor: pointer;}
+#resultOption .listPilihan .fLTable3 .active{color: #99cc00 ;}
+#resultOption .listPilihan .flightClassOption{position: relative;}
+#resultOption .listPilihan .flightClassOption span.icon{background:url(../../img/tiketux/classAvailable.png); background-size: 100% 100%; display:block; margin-top: 2px; width: 12px; height: 12px; float: left; margin-right: 5px;}
+#resultOption .listPilihan .active .flightClassOption span.icon{background:url(../../img/tiketux/classAvailableWhite.png); background-size: 100% 100%;}
+#resultOption .listPilihan td.active .flightClassOption{color: #ddd;}
+#resultOption .listPilihan td .airlineLogo{width: 80px; height: 36px; margin: 0 auto; display: block;}
+#resultOption .listPilihan td .classOptionPop{position: absolute; top: -20px; left: 110%; width: 250px; background: white; border: 3px solid #ababab; display: none;}
+#resultOption .listPilihan td .classOptionPop ul, #resultOption .listPilihan td .classOptionPop ul li{margin: 0; padding: 0; list-style-type: none;}
+#resultOption .listPilihan td .classOptionPop ul li{width: 100%; height: 40px; border-bottom: 1px solid #ccc; background: #ffffff;
+background: -moz-linear-gradient(top,  #ffffff 0%, #ededed 3%, #ffffff 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(3%,#ededed), color-stop(100%,#ffffff));
+background: -webkit-linear-gradient(top,  #ffffff 0%,#ededed 3%,#ffffff 100%);
+background: -o-linear-gradient(top,  #ffffff 0%,#ededed 3%,#ffffff 100%);
+background: -ms-linear-gradient(top,  #ffffff 0%,#ededed 3%,#ffffff 100%);
+background: linear-gradient(to bottom,  #ffffff 0%,#ededed 3%,#ffffff 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );}
+#resultOption .listPilihan td .classOptionPop ul li:hover{background: #daeef3 }
+#resultOption .listPilihan td .classOptionPop p{float: left; margin: 0; text-align: left; padding: 0}
+#resultOption .listPilihan td .classOptionPop p span{background: none; font-weight: bold; color: #333; font-size: 12px;}
+#resultOption .listPilihan td .classOptionPop .viewName{padding: 2px 8px; color: #999; font-size: 11px;}
+#resultOption .listPilihan td .classOptionPop .viewSeat{padding: 2px 8px; color: #999; font-size: 11px;}
+#resultOption .listPilihan td .classOptionPop .viewPrice{padding: 2px 8px; width: 120px; color: #999; font-size: 11px;}
+.valueClassPrice{float: none; position: relative;}
+.scrollList{height: 457px; overflow-y: scroll;}
+.listNote{color: red !important; margin-left: 0 !important; padding-left: 0 !important; font-size: 11px !important;}
+
+#passDetail{margin-top: 10px}
+#passDetail .passTab{float: left; border-right: 1px solid #CCC;}
+#passDetail .passTab, #passDetail .passTab li{margin: 0; padding: 0; list-style-type: none;}
+#passDetail .passTab li{padding: 7px; margin: 3px -1px 3px 0; color: #CCC; font-size: 12px; cursor: pointer;}
+#passDetail .passTab li.active, #passDetail .passTab li:hover.active{padding: 6px; border: 1px solid #CCC; color: #336699; border-right: 1px solid #FFF; border-top-left-radius: 5px; -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-bottom-left-radius: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; background: #FFF;}
+#passDetail .passTab li:hover{padding: 6px; color: #69C; border: 1px solid #F0F0F0; border-right: 1px solid #CCC; background: #F9F9F9; border-top-left-radius: 5px; -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-bottom-left-radius: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px;}
+#passDetail .passForm {margin-left: 100px;}
+#passDetail .passForm label{float: left; padding: 10px; color: #999; width: 95px;}
+#passDetail .passForm .formNote{margin-left: 105px; width: 200px; padding-top: 0;}
+#passDetail .passForm .formNote2{margin-left: 0; width: 260px; color: #333; padding-top: 0;}
+#passDetail .passForm .mirrorContact{margin-left: 10px; float: left;}
+#passDetail .passForm input{padding: 6px 8px 8px; margin-top: 3px;}
+#passDetail .passForm select.title{margin-top: 5px; width: 60px; height: 25px;}
+#passDetail .passForm select.nat, #passDetail .passForm select.passSave{margin-top: 5px; width: 190px; height: 25px;}
+#passDetail .passForm input[type="text"]:disabled{background: #eee;}
+#passDetail .passForm input.w170{width: 170px}
+#passDetail .passForm input.w100{width: 100px}
+#passDetail .passForm input.w30{width: 28px}
+#passDetail .passForm .hide{display: none;}
+
+#orderDetail{width: 100%; position: relative; padding-top: 20px;}
+#orderDetail .orderDetailPanel{margin-left: 20px; margin-bottom: 50px; height: 180px; margin-top: 20px; background: #FFF; position: relative; box-shadow: 0 8px 8px #CCC;}
+#orderDetail .grayGrad{width: 410px; height: 100%; position: absolute; top: 0; right: 0; background: #dbdbdb; background: -moz-linear-gradient(top,  #ffffff 0%, #dbdbbd 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#dbdbdb)); background: -webkit-linear-gradient(top,  #ffffff 0%,#dbdbdb 100%); background: -o-linear-gradient(top,  #ffffff 0%,#dbdbdb 100%); background: -ms-linear-gradient(top,  #ffffff 0%,#dbdbdb 100%); background: linear-gradient(to bottom,  #ffffff 0%,#dbdbdb 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dbdbdb',GradientType=0 );}
+#orderDetail .departIconDetail{background:#FFF url(../../img/tiketux/detailFlowDepart.jpg) center no-repeat; position: absolute; top: -18px; left: -18px; width: 10px; padding: 10px; height: 10px; border: 3px solid #CCC; border-radius: 20px;}
+#orderDetail .returnIconDetail{background:#FFF url(../../img/tiketux/detailFlowReturn.jpg) center no-repeat; position: absolute; top: -18px; left: -18px; width: 10px; padding: 10px; height: 10px; border: 3px solid #CCC; border-radius: 20px;}
+#orderDetail .whRound{background:url(../../img/tiketux/whiteHalfRound.png); width: 8px; height: 34px; position: absolute; top: 50%; margin-top: -17px; left: 250px; display: block;}
+#orderDetail p{margin: 0; padding: 0;}
+#orderDetail .title{position: absolute; top: -10px; left: 25px; font-size: 14px; color: #656565;}
+#orderDetail .hLine{position: absolute; top: 0; right: 0; width: 460px; height: 2px; background: #CCC;}
+#orderDetail .flightFrom{font-size: 26px; color: #CCC; position: absolute; top: 25px; left: 25px;}
+#orderDetail .flightTo{font-size: 26px; color: #CCC; position: absolute; top: 25px; right: 450px;}
+#orderDetail .flightIcon{background:url(../../img/tiketux/goTo.png); width: 15px; height: 15px; background-size: 100% 100%; position: absolute; top: 37px; left: 112px;}
+#orderDetail .flightTimeFrom{font-size: 12px; color: #CCC; position: absolute; top: 55px; right: 578px;}
+#orderDetail .flightTimeTo{font-size: 12px; color: #CCC; position: absolute; top: 55px; right: 450px;}
+#orderDetail .fCTitle{font-size: 12px; color: #CCC; position: absolute; top: 95px; left: 25px;}
+#orderDetail .fCCode{font-size: 12px; color: #999; font-size: 20px; font-weight: bold; position: absolute; top: 110px; left: 50px;}
+#orderDetail .qRCode{position: absolute; top: 100px; left: 164px;}
+#orderDetail .dotLine{position: absolute; top: 0; right: 260px; width: 1px; height: 100%; border-right: 1px dotted #CCC;}
+#orderDetail .maskTitle{position: absolute; top: 30px; left: 270px; color: #999;}
+#orderDetail .maskLogo{position: absolute; top: 65px; left: 276px; width: 100px; height: 44px;}
+#orderDetail .maskCode{position: absolute; top: 110px; left: 260px; text-align: center; width: 140px;}
+#orderDetail .dateLabel{position: absolute; top: 15px; left: 415px; font-size: 11px; color: #999;}
+#orderDetail .date{position: absolute; top: 30px; left: 415px; font-size: 12px; color: #333;}
+#orderDetail .adultLabel{position: absolute; top: 52px; left: 415px; font-size: 11px; color: #999;}
+#orderDetail .adultPass{position: absolute; top: 67px; left: 415px; font-size: 12px; color: #333; text-align: center; width: 40px;}
+#orderDetail .timeLimitLabel{position: absolute; top: 87px; left: 415px; font-size: 11px; color: #999;}
+#orderDetail .timeLimit{position: absolute; top: 102px; left: 415px; font-size: 12px; color: #333;}
+#orderDetail .statusLabel{position: absolute; top: 125px; left: 415px; font-size: 11px; color: #999;}
+#orderDetail .status{position: absolute; top: 140px; left: 415px; font-size: 14px; color: #666; text-transform: uppercase; width: 230px; text-align: center;}
+
+#orderDetailTrain{width: 100%; position: relative; padding-top: 20px;}
+#orderDetailTrain .orderDetailPanel{margin-left: 20px; margin-bottom: 50px; height: 180px; margin-top: 20px; background: #FFF; position: relative; box-shadow: 0 8px 8px #CCC;}
+#orderDetailTrain .grayGrad{width: 440px; height: 100%; position: absolute; top: 0; right: 0; background: #dbdbdb; background: -moz-linear-gradient(top,  #ffffff 0%, #dbdbbd 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#dbdbdb)); background: -webkit-linear-gradient(top,  #ffffff 0%,#dbdbdb 100%); background: -o-linear-gradient(top,  #ffffff 0%,#dbdbdb 100%); background: -ms-linear-gradient(top,  #ffffff 0%,#dbdbdb 100%); background: linear-gradient(to bottom,  #ffffff 0%,#dbdbdb 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dbdbdb',GradientType=0 );}
+#orderDetailTrain .departIconDetail{background:#FFF url(../../img/tiketux/detailFlowBusDepart.png) center no-repeat; position: absolute; top: -16px; left: -18px; width: 33px; height: 33px;}
+#orderDetailTrain .returnIconDetail{background:#FFF url(../../img/tiketux/detailFlowTrainReturn.png) center no-repeat; position: absolute; top: -16px; left: -18px; width: 33px; height: 33px;}
+#orderDetailTrain .whRound{background:url(../../img/tiketux/whiteHalfRound.png); width: 8px; height: 34px; position: absolute; top: 50%; margin-top: -17px; left: 250px; display: block;}
+#orderDetailTrain p{margin: 0; padding: 0;}
+#orderDetailTrain .title{position: absolute; top: -10px; left: 25px; font-size: 14px; color: #aaa;}
+#orderDetailTrain .hLine{position: absolute; top: 0; right: 0; width: 510px; height: 2px; background: #CCC;}
+#orderDetailTrain .flightFrom{font-size: 26px; color: #CCC; position: absolute; top: 25px; left: 25px;}
+#orderDetailTrain .flightTo{font-size: 26px; color: #CCC; position: absolute; top: 25px; right: 465px;}
+#orderDetailTrain .flightIcon{background:url(../../img/tiketux/goTo.png); width: 15px; height: 15px; background-size: 100% 100%; position: absolute; top: 37px; left: 105px;}
+#orderDetailTrain .flightTimeFrom{font-size: 12px; color: #CCC; position: absolute; top: 55px; right: 578px;}
+#orderDetailTrain .flightTimeTo{font-size: 12px; color: #CCC; position: absolute; top: 55px; right: 465px;}
+#orderDetailTrain .fCTitle{font-size: 12px; color: #CCC; position: absolute; top: 95px; left: 25px;}
+#orderDetailTrain .fCCode{font-size: 12px; color: #999; font-size: 20px; font-weight: bold; position: absolute; top: 110px; left: 50px;}
+#orderDetailTrain .qRCode{position: absolute; top: 100px; left: 144px;}
+#orderDetailTrain .dotLine{position: absolute; top: 0; right: 260px; width: 1px; height: 100%; border-right: 1px dotted #CCC;}
+#orderDetailTrain .maskTitle{position: absolute; top: 30px; left: 230px; color: #999;}
+#orderDetailTrain .maskKursi{position: absolute; top: 110px; left: 230px; color: #999;}
+#orderDetailTrain .maskKodeKursi{position: absolute; top: 130px; left: 230px; color: #666; font-size: 16px; width: 60px; text-align: right;}
+#orderDetailTrain .changeSeat{position: absolute; top: 127px; left: 310px; color: #FFF; padding: 5px 8px; cursor: pointer;}
+#orderDetailTrain .maskName{position: absolute; top: 50px; left: 230px; width: 160px; text-align: center; font-size: 22px; color: #666}
+#orderDetailTrain .maskCode{position: absolute; top: 80px; left: 230px; width: 160px; text-align: center;}
+#orderDetailTrain .dateLabel{position: absolute; top: 15px; left: 415px; font-size: 11px; color: #999;}
+#orderDetailTrain .date{position: absolute; top: 30px; left: 415px; font-size: 12px; color: #333;}
+#orderDetailTrain .adultLabel{position: absolute; top: 52px; left: 415px; font-size: 11px; color: #999;}
+#orderDetailTrain .adultPass{position: absolute; top: 67px; left: 415px; font-size: 12px; color: #333; text-align: center; width: 40px;}
+#orderDetailTrain .timeLimitLabel{position: absolute; top: 87px; left: 415px; font-size: 11px; color: #999;}
+#orderDetailTrain .timeLimit{position: absolute; top: 102px; left: 415px; font-size: 12px; color: #333;}
+#orderDetailTrain .statusLabel{position: absolute; top: 125px; left: 415px; font-size: 11px; color: #999;}
+#orderDetailTrain .status{position: absolute; top: 140px; left: 415px; font-size: 14px; color: #666; text-transform: uppercase; width: 230px; text-align: center;}
+
+#orderDetailBus{width: 100%; position: relative; padding-top: 20px;}
+#orderDetailBus .orderDetailPanel{margin-left: 20px; margin-bottom: 50px; height: 180px; margin-top: 20px; background: #FFF; position: relative; box-shadow: 0 8px 8px #CCC;}
+#orderDetailBus .grayGrad{width: 440px; height: 100%; position: absolute; top: 0; right: 0; background: #dbdbdb; background: -moz-linear-gradient(top,  #ffffff 0%, #dbdbbd 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#dbdbdb)); background: -webkit-linear-gradient(top,  #ffffff 0%,#dbdbdb 100%); background: -o-linear-gradient(top,  #ffffff 0%,#dbdbdb 100%); background: -ms-linear-gradient(top,  #ffffff 0%,#dbdbdb 100%); background: linear-gradient(to bottom,  #ffffff 0%,#dbdbdb 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dbdbdb',GradientType=0 );}
+#orderDetailBus .departIconDetail{background:#FFF url(../../img/tiketux/detailFlowBusDepart.png) center no-repeat; position: absolute; top: -16px; left: -18px; width: 33px; height: 33px;}
+#orderDetailBus .returnIconDetail{background:#FFF url(../../img/tiketux/detailFlowTrainReturn.png) center no-repeat; position: absolute; top: -16px; left: -18px; width: 33px; height: 33px;}
+#orderDetailBus .whRound{background:url(../../img/tiketux/whiteHalfRound.png); width: 8px; height: 34px; position: absolute; top: 50%; margin-top: -17px; left: 250px; display: block;}
+#orderDetailBus p{margin: 0; padding: 0;}
+#orderDetailBus .title{position: absolute; top: -10px; left: 25px; font-size: 14px; color: #aaa;}
+#orderDetailBus .hLine{position: absolute; top: 0; right: 0; width: 510px; height: 2px; background: #CCC;}
+#orderDetailBus .flightFrom{font-size: 15px; color: #CCC; position: absolute; top: 30px; left: 25px;}
+#orderDetailBus .flightTo{font-size: 15px; color: #CCC; position: absolute; top: 30px; right: 465px;}
+#orderDetailBus .flightIcon{background:url(../../img/tiketux/goTo.png); width: 15px; height: 15px; background-size: 100% 100%; position: absolute; top: 37px; left: 105px;}
+#orderDetailBus .flightTimeFrom{font-size: 12px; color: #CCC; position: absolute; top: 55px; right: 578px;}
+#orderDetailBus .flightTimeTo{font-size: 12px; color: #CCC; position: absolute; top: 55px; right: 465px;}
+#orderDetailBus .fCTitle{font-size: 12px; color: #CCC; position: absolute; top: 95px; left: 25px;}
+#orderDetailBus .fCCode{font-size: 12px; color: #999; font-size: 20px; font-weight: bold; position: absolute; top: 110px; left: 50px;}
+#orderDetailBus .qRCode{position: absolute; top: 100px; left: 144px;}
+#orderDetailBus .dotLine{position: absolute; top: 0; right: 260px; width: 1px; height: 100%; border-right: 1px dotted #CCC;}
+#orderDetailBus .maskTitle{position: absolute; top: 30px; left: 230px; color: #999;}
+#orderDetailBus .maskKursi{position: absolute; top: 110px; left: 230px; color: #999;}
+#orderDetailBus .maskKodeKursi{position: absolute; top: 130px; left: 230px; color: #666; font-size: 16px; width: 60px; text-align: right;}
+#orderDetailBus .changeSeat{position: absolute; top: 127px; left: 310px; color: #FFF; padding: 5px 8px; cursor: pointer;}
+#orderDetailBus .maskName{position: absolute; top: 50px; left: 230px; width: 160px; text-align: center; font-size: 22px; color: #666}
+#orderDetailBus .maskCode{position: absolute; top: 80px; left: 230px; width: 160px; text-align: center;}
+#orderDetailBus .dateLabel{position: absolute; top: 15px; left: 415px; font-size: 11px; color: #999;}
+#orderDetailBus .date{position: absolute; top: 30px; left: 415px; font-size: 12px; color: #333;}
+#orderDetailBus .adultLabel{position: absolute; top: 52px; left: 415px; font-size: 11px; color: #999;}
+#orderDetailBus .adultPass{position: absolute; top: 67px; left: 415px; font-size: 12px; color: #333; text-align: center; width: 40px;}
+#orderDetailBus .timeLimitLabel{position: absolute; top: 87px; left: 415px; font-size: 11px; color: #999;}
+#orderDetailBus .timeLimit{position: absolute; top: 102px; left: 415px; font-size: 12px; color: #333;}
+#orderDetailBus .statusLabel{position: absolute; top: 125px; left: 415px; font-size: 11px; color: #999;}
+#orderDetailBus .status{position: absolute; top: 140px; left: 415px; font-size: 14px; color: #666; text-transform: uppercase; width: 230px; text-align: center;}
+
+.masking{background: #000; opacity: .5; width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 9999; display: none;}
+.getTrainLayout{width: 600px; margin: 0 auto; position: absolute; top: 50%; left: 50%; margin-top: -290px; margin-left: -280px; z-index: 9999; padding: 10px; background: white; box-shadow: 0 0 50px #333; display: none;}
+
+.paymentBtn{float: right; color: white; padding: 8px; margin-top: 10px; margin-left: 35px; width: 280px; cursor: pointer;}
+
+
+.grayBtn{border: 1px solid #ccc; background: #cccccc; background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 5%, #999999 95%, #666666 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(5%,#cccccc), color-stop(95%,#999999), color-stop(100%,#666666)); background: -webkit-linear-gradient(top,  #eeeeee 0%,  #cccccc 5%,#999999 95%, #666666 100%); background: -o-linear-gradient(top,  #eeeeee 0%,  #cccccc 5%, #999999  95%, #666666 100%); background: -ms-linear-gradient(top,  #eeeeee 0%,  #cccccc 5%,#999999  95%, #666666 100%); background: linear-gradient(to bottom,  #eeeeee 0%,  #cccccc 5%,#999999  95%, #666666 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#999999',GradientType=0 );}
+
+.orangeBtn{border: 1px solid #ccc; background: #efebba; background: -moz-linear-gradient(top,  #efebba 0%, #eddf25 5%, #feb645 95%, #f99100 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efebba), color-stop(5%,#eddf25), color-stop(95%,#feb645), color-stop(100%,#f99100)); background: -webkit-linear-gradient(top,  #efebba 0%, #eddf25 5%, #feb645 95%, #f99100 100%); background: -o-linear-gradient(top,  #efebba 0%, #eddf25 5%, #feb645 95%, #f99100 100%); background: -ms-linear-gradient(top,  #efebba 0%,#eddf25 5%,#feb645 95%, #f99100 100%); background: linear-gradient(to bottom,  #efebba 0%,#eddf25 5%,#feb645 95%, #f99100 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebba', endColorstr='#f99100',GradientType=0 );}
+
+
+.paleGrayBtn{border: 1px solid #ccc; background: #eeeeee; background: -moz-linear-gradient(top,  #ffffff 0%, #eeeeee 5%, #aaaaaa 95%, #777777 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(5%,#eeeeee), color-stop(95%,#aaaaaa), color-stop(100%,#777777)); background: -webkit-linear-gradient(top,  #ffffff 0%,  #eeeeee 5%,#aaaaaa 95%, #777777 100%); background: -o-linear-gradient(top,  #ffffff 0%,  #eeeeee 5%, #aaaaaa  95%, #777777 100%); background: -ms-linear-gradient(top,  #ffffff 0%,  #eeeeee 5%,#aaaaaa 95%, #777777 100%); background: linear-gradient(to bottom,  #ffffff 0%,  #eeeeee 5%,#aaaaaa  95%, #777777 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#aaaaaa',GradientType=0 );}
+
+.blueBtn{border: 1px solid #2A7BAA; background: #64aed6; background: -moz-linear-gradient(top,  #CBE2F2 0%, #64aed6 5%, #2a7baa 95%, #0B6EA8 100%); background: -webkit-gradient(linear, left top, left bottom,color-stop(0%,#CBE2F2), color-stop(5%,#64aed6), color-stop(95%,#2a7baa), color-stop(100%,#0B6EA8)); background: -webkit-linear-gradient(top, #CBE2F2 0%, #64aed6 5%, #2a7baa  95%, #0B6EA8 100%); background: -o-linear-gradient(top, #CBE2F2 0%, #64aed6 5%, #2a7baa  95%, #0B6EA8 100%); background: -ms-linear-gradient(top,  #CBE2F2 0%, #64aed6 5%, #2a7baa  95%, #0B6EA8 100%); background: linear-gradient(to bottom,  #CBE2F2 0%, #64aed6 5%, #2a7baa  95%, #0B6EA8 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#64aed6', endColorstr='#2a7baa',GradientType=0 );}
+
+.paleBlueBtn{border: 1px solid #3197C6; background: #95CFED; background: -moz-linear-gradient(top,  #E1EDF2 0%, #95CFED 5%, #3197C6 95%, #1877B2 100%); background: -webkit-gradient(linear, left top, left bottom,color-stop(0%,#E1EDF2), color-stop(5%,#95CFED), color-stop(95%,#3197C6), color-stop(100%,#1877B2)); background: -webkit-linear-gradient(top, #E1EDF2 0%, #95CFED 5%, #3197C6 95%, #1877B2 100%); background: -o-linear-gradient(top, #E1EDF2 0%, #95CFED 5%, #3197C6  95%, #1877B2 100%); background: -ms-linear-gradient(top,  #E1EDF2 0%, #95CFED 5%, #3197C6 95%, #1877B2 100%); background: linear-gradient(to bottom,  #E1EDF2 0%, #95CFED 5%, #3197C6  95%, #1877B2 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#95CFED', endColorstr='#3197C6',GradientType=0 );}
+
+.rounded2{border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px;}
+.rounded5{border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+.bLRounded5{border-bottom-left-radius: 5px; -moz-border-radius-bottomleft:5px; -webkit-border-bottom-left-radius:5px;}
+.bRRounded5{border-bottom-right-radius: 5px; -moz-border-radius-bottomright:5px; -webkit-border-bottom-right-radius:5px;}
+.rounded8{border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px;}
+.rounded10{border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;}
+.rounded20{border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}
+
+.shadow{box-shadow: 0 0 8px #888;}
+
+.orangeTrain{color: #ffba00 !important}
+
+/* Train Layout */
+.trainLayout ul, li{margin: 0; padding: 0; list-style-type: none;}
+.trainLayout{
+	width: 145px;
+	height: 380px;
+	display: block;
+	position: relative;
+	margin-bottom: 20px;
+    margin-left: 150px;
+    left: 80px;
+    top: 60px;
+    background-image: url(../../img/tiketux/traveLayout.png);
+    background-repeat: no-repeat;
+}
+
+.trainLayout div{
+	height: 245px;
+	width: 140px;
+	position: absolute;
+	left: -6px;
+    margin-top: 30px;
+}
+
+.trainLayout li{
+	width: 100%;
+	float: left;
+}
+
+.trainLayout li li{
+	margin: 0;
+	cursor: pointer;
+    width: 44px;
+}
+
+.trainLayout li li.filled{
+    float: left;
+	margin: 0;
+	cursor: default;
+    width: 44px;
+}
+
+.seatLeft, .seatAvailable{
+	background: url(../../img/tiketux/seatLeft.png);
+	background-size: 100% 100%;
+	width: 40px;
+	height: 48px;
+	display:block;
+	float: left;
+}
+
+.seatRight{
+	background: url(../../img/tiketux/seatRight.png);
+	background-size: 100% 100%;
+	width: 23px;
+	height: 29px;
+	display:block;
+	float: left;
+}
+
+.filled .seatLeft, .seatFilled{
+	background: url(../../img/tiketux/seatLeftFilled.png);
+	background-size: 100% 100%;
+	width: 40px;
+	height: 48px;
+	display:block;
+	float: left;
+}
+
+.FilledLegend{
+	background: url(../../img/tiketux/seatLeftFilled.png);
+	background-size: 100% 100%;
+	width: 23px;
+	height: 29px;
+	display:block;
+	float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.AvailableLegend{
+    background: url(../../img/tiketux/seatLeft.png);
+	background-size: 100% 100%;
+	width: 23px;
+	height: 29px;
+	display:block;
+	float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+.ActiveLegend{
+    background: url(../../img/tiketux/seatLeftActive.png);
+	background-size: 100% 100%;
+	width: 23px;
+	height: 29px;
+	display:block;
+	float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+.filled .seatRight{
+	background: url(../../img/tiketux/seatRightFilled.png);
+	background-size: 100% 100%;
+	width: 23px;
+	height: 29px;
+	display:block;
+	float: left;
+}
+
+.active .seatLeft, .seatActive{
+	background: url(../../img/tiketux/seatLeftActive.png);
+	background-size: 100% 100%;
+	width: 40px;
+	height: 48px;
+	display:block;
+	float: left;
+}
+
+.active .seatRight{
+	background: url(../../img/tiketux/seatRightActive.png);
+	background-size: 100% 100%;
+	width: 23px;
+	height: 29px;
+	display:block;
+	float: left;
+}
+
+.checkSeatName{
+	font-size: 16px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666;
+	background: #ededed;
+	border: 2px solid #666;
+	padding: 5px 10px;
+	float: left;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.layoutLegendCtr{
+    border: 1px solid #DDD;
+    width: 100%;
+    height: 38px;
+    padding: 10px 0;
+    background: #f0f0f0; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f0f0f0 0%, #f9f9f9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f0f0), color-stop(100%,#f9f9f9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f0f0f0 0%,#f9f9f9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f0f0f0 0%,#f9f9f9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f0f0f0 0%,#f9f9f9 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f0f0f0 0%,#f9f9f9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#f9f9f9',GradientType=0 ); /* IE6-9 */
+    border-bottom-left-radius: 4px; -moz-border-radius-bottomleft:4px; -webkit-border-bottom-left-radius:4px;
+    border-bottom-right-radius: 4px; -moz-border-radius-bottomright:4px; -webkit-border-bottom-right-radius:4px;
+}
+
+.layoutLegend{
+	color: #666;
+	float: left;
+	font-size: 12px;
+	margin:11px 5px 0 5px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.chooseSeat{
+    padding: 10px 30px;
+    margin-right: 10px;
+    float: right;
+    color: #FFF;
+}
+
+.layoutTitle{
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.dataLayout{
+    width: 100%;
+    height: 40px;
+    padding: 5px 0 10px;
+    background: #F0F0F0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.dataLayout .trainName{
+    font-size: 22px;
+    color: #999;
+    display: block;
+}
+
+.dataLayout .trainCode{
+    font-size: 12px;
+    line-height: 10px;
+    display: block;
+}
+
+.seatAvailable, .seatFilled, .seatFilledLegend .seatActive{
+	margin: 5px 0 0 30px;
+    
+}
+
+
+
+/* UI Rewrite */
+.ui-widget{font-size: 0.8em}
+.searchForm .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header{padding-bottom: 4px !important;}
+.departDateContainer, .returnDateContainer{position: relative; width: 132px; height: 30px; margin-right: 10px; display: block; float: left;}
+.departDateContainer .ui-datepicker-trigger, .returnDateContainer .ui-datepicker-trigger{position: absolute; top: 5px; right: 2px; background: none; border: none;}
+.birthDayContainer{position: relative; width: 118px; float: left;}
+.birthDayContainer .ui-datepicker-trigger{position: absolute; top: 7px; right: 5px; background: none; border: none;}
+.ui-autocomplete {
+    width: 550px;
+    height: 200px;
+    position: relative;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+* html .ui-autocomplete {
+    height: 200px;
+}
+.ui-autocomplete-category{margin: 0; width: 150px; font-size: 12px; padding: 2px 0 2px 5px; color: #FFF; font-weight: bold; background: #64aed6; background: -moz-linear-gradient(top,  #CBE2F2 0%, #64aed6 5%, #2a7baa 95%, #0B6EA8 100%); background: -webkit-gradient(linear, left top, left bottom,color-stop(0%,#CBE2F2), color-stop(5%,#64aed6), color-stop(95%,#2a7baa), color-stop(100%,#0B6EA8)); background: -webkit-linear-gradient(top, #CBE2F2 0%, #64aed6 5%, #2a7baa  95%, #0B6EA8 100%); background: -o-linear-gradient(top, #CBE2F2 0%, #64aed6 5%, #2a7baa  95%, #0B6EA8 100%); background: -ms-linear-gradient(top,  #CBE2F2 0%, #64aed6 5%, #2a7baa  95%, #0B6EA8 100%); background: linear-gradient(to bottom,  #CBE2F2 0%, #64aed6 5%, #2a7baa  95%, #0B6EA8 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#64aed6', endColorstr='#2a7baa',GradientType=0 );}
+.ui-menu-item{margin: 2px 0 !important; width: 150px !important; padding: 2px 0 2px 2px !important; margin-right:10px !important;}
+.ui-menu-item a{font-size: 11px; color: #999;}
+.group1{float: right;}
+
+/* jQuery Select2 Rewrite */
+.select2-results, .select2-results li{margin-left: 5px !important; padding: 0;}
+
+.mendatar{
+    height: 245px;
+    width: 140px;
+    position: absolute;
+    left: -6px;
+    margin-top: 80px;
+}

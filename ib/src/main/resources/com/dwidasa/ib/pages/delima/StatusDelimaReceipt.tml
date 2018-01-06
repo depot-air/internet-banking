@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_3"></div>
+
+    <t:form class="formfield" t:id="statusDelimaReceipt" clientValidation="submit">
+        <fieldSet>
+            <legend>${message:transactionAccount}</legend>
+            <table>
+
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${cashInDelimaView.accountNumber}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+
+        <hr/>
+        <fieldSet>
+            <legend>${message:transferData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class = "first">
+                        <label>${message:delimaTransaction}</label>
+                    </td>
+                    <td class="last">
+                        <label>${delimaTransaction}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:transferCode}</label>
+                    </td>
+                    <td >
+                        <label>${cashInDelimaView.customerReference}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:receiverIdNumber}</label>
+                    </td>
+                    <td>
+                        <label>${cashInDelimaView.receiverIdNumber}</label>
+                    </td>
+                </tr>
+                <tr >
+                    <td>
+                        <label>${message:referenceNumber}</label>
+                    </td>
+                    <td>
+                        <label>${cashInDelimaView.referenceNumber}</label>
+                    </td>
+                </tr>
+                <tr class = "odd">
+                    <td>
+                        <label>${message:total}</label>
+                    </td>
+                    <td>
+                        <label>
+                            <t:output value="total" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+		 <t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>        
+		<input type="button"
+	   		   onclick="popupInfo('/delima/statusDelimaPrint')"
+	           class="grey_btn right" t:type="any" value="message:print"/> 
+    </t:form>
+</div>
+</html>
+
+
+
+

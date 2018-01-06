@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>${title}</title>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/print.css}"/>
+</head>
+
+<body>
+<div style="font-style: italic; text-align: right; color: gray; font-family: sans-serif; font-size: small;" >${transactionDateString}</div>
+<div id="print_wrap">
+	<br/>
+    <img src="${context:bprks/img/bprks_blue.png}" height="34" alt="BPRKS"/>
+    <h1>${title}</h1>
+    <hr/>
+    <div id="double_grid" title="${message:hintPrint}">
+    	<t:body/>
+    </div>
+    <div style="font-style: italic; text-align: right; color: gray; font-family: sans-serif; font-size: small;" >${transactionDateString}  ${referenceNumber}</div>
+    <p class="center" align="center">
+        <span class="upercase">${message:thanks}</span><br/>
+        <span class="upercase">${message:notePrint} </span>
+    </p>
+</div>
+</body>
+</html>

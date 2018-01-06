@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:tx="tapestry-library:tapx"
+      xmlns:p="tapestry:parameter">
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_7"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account cardNumber="transferView.cardNumber" accountNumber="transferView.accountNumber"
+                   status="odd"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:transferData}</legend>
+            <table>
+                <tbody>
+                <tr class="odd">
+                    <td class="first">
+                    	<t:label for="transferListSelect"/>
+                    </td>
+                    <td class="last"><span></span>
+                        <t:select t:id="transferListSelect" value="customerReference1" model="transferListModel" 
+                        	blankOption="never" validate="required" zone="bankZone" label="message:transferList"
+                        	onChange="updateChallenge($('transferListSelect').value.substring(0,50).trim())"
+                            onBlur="updateChallenge($('transferListSelect').value.substring(0,50).trim())"
+                         />
+                    </td>
+                </tr>
+                
+                <tr class="even">
+                    <td>
+                        <label>${message:bank}</label>
+                    </td>
+                    <td>
+                    	<t:zone t:id="bankZone" id="bankZone">
+                    		<input t:type="textField" t:id="bank" type="text" value="transferView.billerName" readOnly="true"/>
+                    	</t:zone>	
+                    </td>
+                </tr>
+                <tr class="odd">
+                	<td>
+                    	<label>${message:branch}</label>
+	                </td>
+	                <td>
+	                	
+						<t:Select t:id="select" t:model="literal:ATM BERSAMA,ALTO" t:validate = "required" t:value="jaringan" 
+						zone = "customReference"/>
+	                   
+	                </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <t:label for="amountTransfer"/>
+                    </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="amountTransfer" type="text" t:value="transferView.amount" label="message:amountTransfer"
+                               validate="required, regExp=^[1-9][0-9]+$" maxLength="30"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="news"/>
+                    </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="news" type="text" t:value="transferView.description"
+                               label="message:news" maxLength="30"/>
+                    </td>
+                </tr>
+              
+               
+	           <tr class="even">
+	                    <td>
+	                        <t:label for="custRefAtmb"/>
+	                    </td>
+	                    <td><span></span>
+	                    <t:zone t:id="customReference" id="customReference">
+	                    
+	                      <t:if test="!alto">
+	                      
+	                      	<input t:type="textField" t:id="custRefAtmb" type="text" t:value="transferView.custRefAtmb"
+	                               label="message:custRefAtmb" maxLength="16"/>
+	                      
+	                       <p:else>
+	                       	
+	                       	<input t:type="textField" t:id="custRefAtmb1" type="text" t:value="transferView.custRefAtmb"
+	                               label="message:custRefAtmb" maxLength="16" disabled="true"/>
+	                       
+	                       </p:else>
+	                               
+	                      </t:if>
+	                               
+	                    </t:zone>
+	                    </td>
+	            </tr>
+	            
+                
+                </tbody>
+            </table>
+        </fieldSet>
+       
+        <hr/>
+        <t:if test="merchant">
+			<t:token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge" mode="tokenType"/>			
+		</t:if>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </t:form>
+</div>
+</html>
+
+
+
+

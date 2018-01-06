@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="ct_right">
+    <div id="page_title">
+        <div class="ground_1"></div>
+        <div class="ground_2"><p>${message:title}</p></div>
+        <div class="ground_3"></div>
+    </div>
+    <form t:type="form" class="full-form" method="get" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:paymentconfirm transactionType="loanPaymentView.transactionType" cardNumber="loanPaymentView.cardNumber"
+                          accountNumber="loanPaymentView.accountNumber" billerName="loanPaymentView.billerName"
+                          customerReference="loanPaymentView.customerReference" amount="loanPaymentView.amount"
+                          tokenChallenge="tokenView.challenge" tokenType="tokenType" token="tokenView.token" token6Digit="tokenView.token"/>
+
+        <div id="form_submit_btn">
+            <t:submit t:id="next" value="message:next" class="btn_style"/>
+            <!--t:submit t:id="cancel" class="grey_btn ml10" value="message:cancel" mode="cancel"/-->
+        <a t:type="ActionLink" t:id="cancel" >
+			<input type="button" onclick="window.open(IB.fn.contextPath()+'/purchase/VoucherPurchaseInput');"
+            	class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        </div>
+    </form>
+</div>
+</html>

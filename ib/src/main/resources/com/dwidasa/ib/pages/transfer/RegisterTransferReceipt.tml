@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<div id="recipe_wrap">
+    <form t:type="form" t:id="registerTransferJournal" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+                    <tr class="odd">
+                        <td class="first">
+                            <label>${message:refNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.referenceNumber}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:date}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${nowDate} ${message:timeZone}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:rekDestination}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.customerReference}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:receiver}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferView.receiverName}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:status}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${status}</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
+</html>

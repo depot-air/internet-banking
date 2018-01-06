@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${nonTagListPaymentView.referenceNumber}" transactionDateString="${nonTagListPaymentView.transactionDateString}"  
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+       <table class="dg_first">
+           <tr>
+                <td class="firstcol" style="font-weight:bold;">
+                    <label class="upercase" style="font-weight:bold;">${message:transactionName}</label>
+                </td>
+                <td>
+                    <label>:</label>
+                </td>
+                <td>
+                    <label>${nonTagListPaymentView.transactionName}</label>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">
+                    <label class="upercase" style="font-weight:bold;">${message:customerReference}</label>
+                </td>
+                <td>
+                    <label>:</label>
+                </td>
+                <td>
+                    <label>${nonTagListPaymentView.customerReference}</label>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">
+                    <label class="upercase" style="font-weight:bold;">${message:registrationDate}</label>
+                </td>
+                <td>
+                    <label>:</label>
+                </td>
+                <td>
+                   <label>
+                       <t:output value="nonTagListPaymentView.registrationDate" format="longDate"/>
+                   </label>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">
+                    <label class="upercase" style="font-weight:bold;">${message:subscriberName}</label>
+                </td>
+                <td>
+                    <label>:</label>
+                </td>
+                <td >
+                    <label>${nonTagListPaymentView.subscriberName}</label>
+                </td>
+            </tr>
+            <tr >
+                <td style="font-weight:bold;">
+                    <label class="upercase" style="font-weight:bold;">${message:subscriberId}</label>
+                </td>
+                <td>
+                    <label>:</label>
+                </td>
+                <td >
+                    <label>${nonTagListPaymentView.subscriberId}</label>
+                </td>
+            </tr>
+            <tr>
+	            <td style="font-weight:bold;">
+	                <label class="upercase" style="font-weight:bold;">${message:amount}</label>
+	            </td>
+              	<td>
+                    <label>:</label>
+                </td>
+            	<td>
+	                <label>
+	                    ${message:rP}<t:output value="nonTagListPaymentView.amount" format="formatter"/>
+	                </label>
+	            </td>            
+        	</tr>
+            <tr>
+                <td style="font-weight:bold;">
+                    <label class="upercase" style="font-weight:bold;">${message:billerReference}</label>
+                </td>
+                <td>
+                    <label>:</label>
+                </td>
+                <td >
+                    <label>${nonTagListPaymentView.ProviderReference}</label>
+                </td>
+            </tr>
+            <tr>
+            	<td class="center" colSpan="3">${message:plnInfo}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">
+                    <label class="upercase" style="font-weight:bold;">${message:fee}</label>
+                </td>
+                <td>
+                    <label>:</label>
+                </td>
+                <td>
+                    <label>${message:rP}<t:output value="nonTagListPaymentView.fee" format="formatter"/></label>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">
+                    <label class="upercase" style="font-weight:bold;">${message:total}</label>
+                </td>
+                <td>
+                    <label>:</label>
+                </td>
+                <td>
+                    <label>${message:rP}<t:output value="nonTagListPaymentView.total" format="formatter"/></label>
+                </td>
+            </tr>
+            <tr/>
+            <tr/>
+            <tr/>
+            <tr/>
+<!--             <tr> -->
+<!--                 <td colSpan="3"  style="text-align: center; padding: 20px 0px 20px 0px;"> -->
+<!--                 	${message:plnInfo2}<br/> -->
+<!--                 	${message:plnInfo3} ${nonTagListPaymentView.unitPhone} -->
+<!--                 </td> -->
+<!--             </tr> -->
+        </table>
+
+<div id="note" align="center">
+        <t:loop source="footers" value="footer">
+        	<div id="note" align="center">             
+	            <label style="align:center;">${footer}</label>
+        	</div>
+        </t:loop>
+    </div>    
+        
+      </html>

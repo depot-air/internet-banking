@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${tvPaymentView.referenceNumber}" transactionDateString="${tvPaymentView.transactionDateString}"    
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+        <table class="dg_first">       
+
+	        	<tr>
+		            <td style="font-weight: bold;">${message:referenceNumber}</td>
+		            <td>:</td>
+		            <td>${tvPaymentView.referenceNumber}</td>
+		        </tr>
+		        <tr>
+		            <td style="font-weight: bold;">${message:customerReference}</td>
+		            <td>:</td>
+		            <td>${tvPaymentView.customerReference}</td>
+		        </tr>
+		        <tr>
+		            <td style="font-weight: bold;">${message:customerName}</td>
+		            <td>:</td>
+		            <td>${tvPaymentView.referenceName}</td>
+		        </tr>
+
+		        <t:if test="finnet">            	
+	                <tr class="odd">
+	                	<td style="font-weight: bold;">
+	                        <label>${message:billPeriod}</label>
+	                    </td>
+	                    <td>
+	                        <label>:</label>
+	                    </td>
+	                    <td class="last">
+	                        <label>
+	                            <t:output value="tvPaymentView.billPeriod1" format="dateList"/>
+	                            <t:if test="tvPaymentView.billPeriod2">, 
+	                            	<t:output value="tvPaymentView.billPeriod2" format="dateList"/>
+	                            </t:if>
+	                            <t:if test="tvPaymentView.billPeriod3">, 
+	                            	<t:output value="tvPaymentView.billPeriod3" format="dateList"/>
+	                            </t:if>
+	                        </label>
+	                    </td>
+	                </tr>
+	                <tr>
+	                	<td style="font-weight: bold;">
+	                        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:tagihan1}</label>
+	                    </td>
+	                    <td>
+	                        <label>:</label>
+	                    </td>
+	                    <td class="last">${message:curr}
+	                    	<label><t:output value="tvPaymentView.amount1" format="formatter"/></label>
+	                    </td>	                        
+	            	</tr>        	
+	                <t:if test="tvPaymentView.amount2">
+		                <tr class="odd">
+		                	<td style="font-weight: bold;">
+	                            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:tagihan2}</label>
+	                        </td>
+	                        <td>
+	                            <label>:</label>
+	                        </td>
+	                        <td class="last">${message:curr}
+		                    	<label><t:output value="tvPaymentView.amount2" format="formatter"/></label>
+	                        </td>	                        
+		            	</tr>    
+	                </t:if>
+	                <t:if test="tvPaymentView.amount3">   
+		                <tr>
+		                	<td style="font-weight: bold;">
+	                            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:tagihan3}</label>
+	                        </td>
+	                        <td>
+	                            <label>:</label>
+	                        </td>
+	                        <td class="last">${message:curr}
+		                    	<label><t:output value="tvPaymentView.amount3" format="formatter"/></label>
+	                        </td>	                        
+		            	</tr>      
+	                </t:if>
+	            </t:if>
+	            <tr>
+	                <td style="font-weight: bold;">${message:amount}</td>
+	                <td>:</td>
+	                <td>
+	                    ${message:curr} <t:output value="tvPaymentView.amount" format="formatter"/>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td style="font-weight: bold;">${message:fee}</td>
+	                <td>:</td>
+	                <td>
+	                    ${message:curr} <t:output value="tvPaymentView.fee" format="formatter"/>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td style="font-weight: bold;">${message:total}</td>
+	                <td>:</td>
+	                <td>
+	                    ${message:curr} <t:output value="tvPaymentView.total" format="formatter"/>
+	                </td>
+	            </tr>
+	            
+				<tr>
+					<td style="font-weight: bold;">${message:transactionDate}</td>
+	                <td>:</td>
+	                <td>
+	                    <t:output value="tvPaymentView.transactionDate" format="transDate"/>
+	                </td>
+				</tr> 
+				
+				<tr/>
+				<tr/>
+				<tr/>
+				<tr/>      
+		</table>
+        
+        <p class="center" align="center">center">
+	        <span class="upercase" style="font-weight:bold;">${message:footNote1}</span><br/>
+	        <span class="upercase" style="font-weight:bold;">${message:footNote2}</span><br/>
+		</p>
+</html>

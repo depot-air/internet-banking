@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_10"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:purchaseData}</legend>
+            <table>
+                
+				<tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${cardNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${accountNumber}</label>
+                    </td>
+                </tr>
+
+				<tr class="odd">
+                    <td class="first">
+                        <label>${message:tglKeberangkatan}</label>
+                    </td>
+                    <td  class="last">
+                       <label>${FormatTgl}</label>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label>${message:dari}</label>
+                    </td>
+                    <td>
+                       
+                               <label>${dari}</label>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td>
+                        <label>${message:tujuan}</label>
+                    </td>
+                    <td>
+                       
+                               <label>${tujuan}</label>
+                    </td>
+                </tr>
+                
+            </table>
+            
+            <fieldSet>
+            <legend>${message:jurusan}</legend>
+
+            <div class="table_grid">
+                <table width="100%">
+                    <thead>
+                    <tr>
+                        <th>${message:kode}</th>
+                        <th>${message:hargaTiket}</th>
+                        <th>${message:diskon}</th>
+<!--                         <th>${message:hargaAkhir}</th> -->
+<!--                         <th>${message:fasilitas}</th> -->
+<!--                         <th>${message:lokasi}</th> -->
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr t:type="loop" t:source="keretaDjatiPurchaseViews" t:value="tiketKeretaDjatiPurchaseView" class="prop:evenOdd.next" encoder="encoder">
+                        <td>
+                       <a t:type="eventlink" t:event="viewStatement" t:context="[tiketKeretaDjatiPurchaseView.kodeJurusan,tiketKeretaDjatiPurchaseView.ticketPricePerSheat, tiketKeretaDjatiPurchaseView.DepartID, tiketKeretaDjatiPurchaseView.vechileTypeCode]" href="#">
+                            ${tiketKeretaDjatiPurchaseView.kodeJurusan}
+                        </a> 
+                    	</td>
+                        <td><t:output value="tiketKeretaDjatiPurchaseView.ticketPricePerSheat" format="formatter"/></td> 
+                        <td><t:output value="tiketKeretaDjatiPurchaseView.TotalSheat" format="formatter"/></td>   
+<!--                         <td><t:output value="tiketKeretaDjatiPurchaseView.TotalEmptySheat" format="formatter"/></td>    -->
+<!--                         <td>${tiketKeretaDjatiPurchaseView.fasilitas}</td> -->
+<!--                         <td>${tiketKeretaDjatiPurchaseView.lokasiKeberangkatan}</td> -->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldSet>
+            
+        </fieldSet>
+        <hr/>
+      
+<!--          <a hRef="/ib/purchase/tiketKeretaDjatiPurchaseinput" > -->
+<!-- 			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/>  -->
+<!--         </a> -->
+		<t:submit t:id="cancel" value="message:back" class="grey_btn ml10"/>
+<!--         <t:submit t:id="next" value="message:next" class="grey_btn mr10"/> -->
+    </form>
+</div>
+</html>

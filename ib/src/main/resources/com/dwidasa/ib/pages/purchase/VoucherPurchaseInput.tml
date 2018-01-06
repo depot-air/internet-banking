@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_3"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account customerId="${voucherPurchaseView.customerId}" status="even"
+                   accountNumber="voucherPurchaseView.accountNumber"
+                   cardNumber="voucherPurchaseView.cardNumber"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:salesData}</legend>
+            <table>
+                <tbody>
+                    <t:if test="! merchant">
+	                    <tr class="odd">
+	                        <td class="first">
+	                            <t:label for="biller"/>
+	                        </td>
+	                        <td class="last"><span></span>
+	                            <t:select t:id="biller" value="voucherPurchaseView.billerCode" model="billerModel"
+	                                      blankOption="never" t:zone="billerProductZone" label="message:biller"/>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td>
+	                            <t:label for="billerProduct"/>
+	                        </td>
+	                        <td><span></span>
+	                            <t:zone t:id="billerProductZone" id="billerProductZone" update="show">
+	                                <t:select t:id="billerProduct" value="voucherPurchaseView.productCode"
+	                                          model="billerProductModel" blankOption="never" label="message:billerProduct"
+	                                          zone="productDenominationZone"/>
+	                            </t:zone>
+	                        </td>
+	                    </tr>
+	                    <tr class="odd">
+	                        <td>
+	                            <t:label for="productDenomination"/>
+	                        </td>
+	                        <td><span></span>                        	
+	                            <t:zone t:id="productDenominationZone" id="productDenominationZone" update="show">
+	                            <t:select t:id="productDenomination" value="voucherPurchaseView.denomination"
+	                                      model="productDenominationModel" blankOption="never"
+	                                      label="message:productDenomination"/>
+	                            </t:zone>
+	                        </td>
+	                    </tr>
+	                </t:if>
+                    <t:if test="merchant">
+	                    <tr class="odd">
+	                        <td class="first">
+	                            <t:label for="billerMerchant"/>
+	                        </td>
+	                        <td class="last"><span></span>
+	                            <t:select t:id="billerMerchant" value="voucherPurchaseView.billerCode" model="billerMerchantModel"
+	                                      blankOption="never" t:zone="billerProductMerchantZone" label="message:biller"/>
+	                        </td>
+	                    </tr>           
+	                    <tr>
+	                        <td>
+	                            <t:label for="billerProductMerchant"/>
+	                        </td>
+	                        <td><span></span>
+	                            <t:zone t:id="billerProductMerchantZone" id="billerProductMerchantZone" update="show">
+	                                <t:select t:id="billerProductMerchant" value="voucherPurchaseView.productCode"
+	                                          model="billerProductMerchantModel" blankOption="never" label="message:billerProduct"
+	                                          zone="productDenominationMerchantZone"/>
+	                            </t:zone>
+	                        </td>
+	                    </tr>
+                    	<tr class="odd" >
+	                        <td>
+	                            <t:label for="productDenominationMerchant"/>
+	                        </td>
+	                        <td><span></span>                        	
+	                            <t:zone t:id="productDenominationMerchantZone" id="productDenominationMerchantZone" update="show">
+	                            <t:select t:id="productDenominationMerchant" value="voucherPurchaseView.denomination"
+	                                      model="productDenominationMerchantModel" blankOption="never"
+	                                      label="message:productDenominationMerchant" zone="providerDenominationZone"/>
+	                            </t:zone>
+	                        </td>
+	                    </tr>
+	                    <tr >
+	                        <td>
+	                            <t:label for="providerDenomination"/>
+	                        </td>
+	                        <td>
+	                            <t:zone t:id="providerDenominationZone" id="providerDenominationZone" update="show">
+	                                <t:select t:id="providerDenomination" value="voucherPurchaseView.providerCode"
+	                                          model="providerDenominationModel" blankOption="never"
+	                                          label="message:providerDenomination"/>
+	                            </t:zone>
+	                        </td>
+	                    </tr>
+	               	</t:if>	               	
+                    <tr>
+                        <td>
+                            <t:label for="phoneNumber"/>
+                        </td>
+                        <td><span></span>
+                            <input t:id="phoneNumber" t:type="textField" type="text" label="message:phoneNumber"
+                                   validate="required, minLength=10, regExp=^[0-9]+$"
+                                   t:value="voucherPurchaseView.customerReference" maxLength="14"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </t:form>
+</div>
+
+</html>

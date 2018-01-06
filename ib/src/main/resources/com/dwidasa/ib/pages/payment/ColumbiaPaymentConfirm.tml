@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+<style type="text/css" media="print">
+BODY {
+	display: none;
+	visibility: hidden;
+}
+</style>
+
+<div id="main_content">
+	<span class="emb_left"></span> <span class="emb_right"></span> <span
+		class="emb_botleft"></span> <span class="emb_botright"></span> <span
+		class="emb_footrpt"></span>
+
+	<h2>${message:title}</h2>
+	<div class="ico_position ico_favorite_10"></div>
+
+	<form t:type="form" class="formfield" t:clientValidation="submit">
+		<t:errors banner="message:errorBanner" />
+		<fieldset>
+			<legend>${message:customerData}</legend>
+			<table>
+				<tr class="odd">
+					<td class="first"><label>${message:cardNumber}</label></td>
+					<td class="last"><label>${columbiaPaymentView.cardNumber}</label>
+					</td>
+				</tr>
+				<tr class="odd">
+					<td class="first"><label>${message:accountNumber}</label></td>
+					<td class="last"><label>${columbiaPaymentView.accountNumber}</label>
+					</td>
+				</tr>
+				
+			</table>
+
+		</fieldset>
+		<hr />
+		<fieldset>
+			<legend>${message:paymentData}</legend>
+		<table>
+			
+				<tr class="odd">
+					<td class="first"><label>${message:idpel}</label></td>
+					<td class="last"><label>${columbiaPaymentView.customerReference}</label></td>
+				</tr>
+				<tr class="even">
+					<td class="first"><label>${message:referenceName}</label></td>
+					<td class="last"><label>${columbiaPaymentView.referenceName}</label></td>
+				</tr>
+				<tr class="odd">
+					<td class="first"><label>${message:companyCode}</label></td>
+					<td class="last"><label>${columbiaPaymentView.columbiaCode}</label></td>
+				</tr>
+				<tr class="even">
+					<td class="first"><label>${message:nilaiAngsuran}</label></td>
+					<td class="last"><label>${message:curr}
+                            <t:output value="columbiaPaymentView.nilaiAngsuran" format="formatter"/>
+                        </label>
+                    </td>
+				</tr>
+				<tr class="odd">
+					<td class="first"><label>${message:paymentPeriod}</label></td>
+					<td class="last"><label>${columbiaPaymentView.paymentPeriod}</label></td>
+				</tr>
+				<tr class="even">
+					<td class="first"><label>${message:numOfBill}</label></td>
+					<td class="last"><label>${columbiaPaymentView.numOfBill}</label></td>
+				</tr>
+				<tr class="odd">
+					<td class="first"><label>${message:jatuhTempo}</label></td>
+					<td class="last"><label>${columbiaPaymentView.jatuhTempo}</label></td>
+				</tr>
+				<tr class="even">
+					<td class="first"><label>${message:minPayment}</label></td>
+					<td class="last">
+						<label>${message:curr}
+                            <t:output value="columbiaPaymentView.minimumPayment" format="formatter"/>
+                        </label>
+                    </td>
+				</tr>
+				<tr class="odd">
+					<td class="first"><label>${message:penalty}</label></td>
+					<td class="last">
+						<label>${message:curr}
+                            <t:output value="columbiaPaymentView.penaltyFee" format="formatter"/>
+                        </label>
+                    </td>
+				</tr>
+				<tr class="even">
+					<td class="first"><label>${message:amount}</label></td>
+					<td class="last">
+						<label>${message:curr}
+                            <t:output value="columbiaPaymentView.amount" format="formatter"/>
+                        </label>
+                    </td>
+				</tr>
+				<tr class = "odd">
+                    <td><label>${message:admin}</label></td>
+                    <td class="last">
+						<label>${message:curr}
+                            <t:output value="columbiaPaymentView.fee" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+				<tr class="even">
+					<td class="first"><label>${message:total}</label></td>
+					<td class="last">
+						<label>${message:curr}
+                            <t:output value="columbiaPaymentView.total" format="formatter"/>
+                        </label>
+                    </td>
+				</tr>
+				<tr class="odd">
+					<td class="first"><label>${message:transType}</label></td>
+					<td class="last"><label>${columbiaPaymentView.transType}</label></td>
+				</tr>		
+		</table>
+		</fieldset>
+		
+		<t:token token="tokenView.token" status="odd"
+			challenge="tokenView.challenge" mode="tokenType" />
+		<a hRef="columbiaPaymentInput"> <input type="button"
+			class="grey_btn ml10" t:type="any" value="Kembali" />
+		</a>
+		<t:submit t:id="send" class="green_btn mr10" value="message:send" />
+		
+	</form>
+</div>
+</html>

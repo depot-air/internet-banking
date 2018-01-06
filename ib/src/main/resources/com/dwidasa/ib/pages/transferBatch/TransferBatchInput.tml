@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_7"></div> 
+
+    <t:form class="formfield" clientValidation="submit" autofocus="false">
+        <t:errors banner="message:errorBanner"/>
+        <t:account accountNumber="transferBatchView.accountNumber" status="odd"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:transferData}</legend>
+            <table>
+                <tbody>
+                    <tr class="odd">
+                        <td class="first">
+                            <t:label for="batchList"/>
+                        </td>
+                        <td class="last">
+                            <t:select t:id="batchList" value="transferBatchView.batchId"
+                                      model="batchListModel" blankOption="never"
+                                      validate="required"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:transferType}</legend>
+            <table>
+                <tbody>
+                <t:radioGroup value="transferBatchView.transferType">
+                    <tr class="odd ">
+                        <td class="first">
+                            <t:radio t:id="transferNow" value="literal:1" label="message:transferNow"/>
+                            <t:label for="transferNow"/>
+                        </td>
+                        <td class="last"><span></span></td>
+                    </tr>
+                    <tr class="even">
+                        <td>
+                            <t:radio t:id="transferOnDate" value="literal:2" label="message:transferOnDate"/>
+                            <t:label for="transferOnDate"/>
+                        </td>
+                        <td><span></span>
+                            <tx:datefield value="transferBatchView.valueDate" t:id="transferDate"
+                                   format="${dateFieldFormat}"
+                                   validate="requiredIf=checkTransferOnDate, futureDate"/>
+                            (${dateFieldFormat})
+                        </td>
+                    </tr>                    
+                    <tr class="odd">
+                        <td>
+                            <t:radio t:id="periodicTransfer" value="literal:3" label="message:periodicTransfer"/>
+                            <t:label for="periodicTransfer"/>
+                        </td>
+                        <td><span></span></td>
+                    </tr>
+                    <t:radioGroup value="periodicTransferGroup">
+                        <tr class="even">
+                            <td>
+                                <t:radio t:id="every" class="radioGroup" value="literal:every"
+                                         label="message:every"/>
+                                <t:label for="every"/>
+                            </td>
+                            <td><span></span>
+                                <input t:type="textField" t:id="everyField" t:value="transferType1"
+                                       validate="requiredIf=checkEvery, regExp=^[0-9]+$"/>
+                                ${message:day}
+                            </td>
+                        </tr>
+                        <tr class="odd">
+                            <td>
+                                <t:radio t:id="everyDay" class="radioGroup" value="literal:everyDay"
+                                         label="message:everyDay"/>
+                                <t:label for="everyDay"/>
+                            </td>
+                            <td><span></span>
+                                <t:select t:id="day" blankOption="never" onchange="checkEveryDay"/>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>
+                                <t:radio t:id="everyDate" class="radioGroup" value="literal:everyDate"
+                                         label="message:everyDate"/>
+                                <t:label for="everyDate"/>
+                            </td>
+                            <td><span></span>
+                                <input t:type="textField" t:id="everyDateField" t:value="transferType3"
+                                       validate="requiredIf=checkEveryDate, regExp=^[0-9]+$"/>
+                            </td>
+                        </tr>
+                    </t:radioGroup>
+                    <tr class="odd">
+                        <td>
+                            <t:label for="endDate" class="radioGroup"/>
+                        </td>
+                        <td><span></span>
+                            <tx:datefield t:id="endDate" value="transferBatchView.endDate"
+                                   label="message:endDate" format="${dateFieldFormat}"
+                                   validate="requiredIf=checkEndDate, futureDate"/>
+                            (${dateFieldFormat})
+                        </td>
+                    </tr>
+                </t:radioGroup>
+                </tbody>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </t:form>
+</div>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_3"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account customerId="${mncLifePurchaseView.customerId}" status="even"
+                   accountNumber="mncLifePurchaseView.accountNumber"
+                   cardNumber="mncLifePurchaseView.cardNumber"/>
+        <hr/>
+        <fieldSet>
+<!--             <legend>${message:information}</legend> -->
+            <table>
+                <tbody>
+                	
+                <tr class="odd">
+                    <td class="first">
+ 	                   <t:label for="namatertanggung"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="namatertanggung" type="text"
+                               t:value="mncLifePurchaseView.namaTertanggung" label="message:namatertanggung"
+                               validate="required" maxLength="30"/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="first">
+ 	                   <t:label for="nomorKtp"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="nomorKtp" type="text"
+                               t:value="mncLifePurchaseView.CustomerReference" label="message:nomorKtp"
+                               validate="required" maxLength="20"/>
+                    </td>
+                </tr>
+
+				<t:radioGroup value="chooseValue" validate="required">
+                    <tr class="odd">
+                        <td class="first">
+                            <label>${message:jenisKelamin}</label>
+                        </td>
+                        <td class="last"><span></span>
+                            <input t:type="Radio" t:id="fromLaki" t:value="literal:fromLaki"/>
+                              <label>${message:lakiLaki}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input t:type="Radio" t:id="fromPerempuan" t:value="literal:fromPerempuan"/>
+                                                          <label>${message:perempuan}</label>
+                        </td>
+                    </tr>
+                    
+                    
+                </t:radioGroup>
+  
+  
+<!--   				<t:radioGroup value="chooseTipeDokumen" validate="required"> -->
+<!--                     <tr class="odd"> -->
+<!--                         <td class="first"> -->
+<!--                             <label>${message:tipeDokumen}</label> -->
+<!--                         </td> -->
+<!--                         <td class="last"><span></span> -->
+<!--                            <input t:type="Radio" t:id="fromPolis" t:value="literal:fromPolis"/> -->
+<!--                              <label>${message:p}</label> -->
+<!--                         </td> -->
+<!--                     </tr> -->
+<!--                     <tr> -->
+<!--                         <td></td> -->
+<!--                         <td> -->
+<!--                             <input t:type="Radio" t:id="fromKtp" t:value="literal:fromKtp"/> -->
+<!--                              <label>${message:k}</label> -->
+<!--                         </td> -->
+<!--                     </tr> -->
+                    
+                    
+<!--                 </t:radioGroup> -->
+                			
+                
+                <tr class="odd">
+                    <td class="first">
+ 	                   <t:label for="tempatLahir"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="tempatLahir" type="text"
+                               t:value="mncLifePurchaseView.tempatLahir" label="message:tempatLahir"
+                               validate="required" maxLength="30"/>
+                    </td>
+                </tr>
+                
+                <tr class="even">
+                    <td class="first">
+ 	                   <t:label for="tanggalLahir"/>
+ 	                </td>
+                    <td><span></span>
+                        <tx:datefield value="mncLifePurchaseView.tanggalLahir" t:id="tanggalLahir"
+                                   format="${dateFieldFormat}"
+                                   validate="required" label="message:tanggalLahir"/>
+                            (${dateFieldFormat})
+                    </td>
+                </tr>
+                
+                
+                <tr class="odd">
+                    <td class="first">
+ 	                   <t:label for="alamat"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="TextArea" t:id="alamat" type="text"
+                               t:value="mncLifePurchaseView.alamat" label="message:alamat"
+                               validate="required" maxLength="50"/>
+                    </td>
+                </tr>
+                
+                <tr class="even">
+                    <td class="first">
+ 	                   <t:label for="kota"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="kota" type="text"
+                               t:value="mncLifePurchaseView.kota" label="message:kota"
+                               validate="required" maxLength="30"/>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td class="first">
+ 	                   <t:label for="namaAhliWaris1"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="namaAhliWaris1" type="text"
+                               t:value="mncLifePurchaseView.namaAhliWaris1" label="message:namaAhliWaris1"
+                               validate="required" maxLength="30"/>
+                    </td>
+                </tr>
+                
+                <tr class="even">
+                    <td class="first">
+ 	                   <t:label for="namaAhliWaris2"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="namaAhliWaris2" type="text"
+                               t:value="mncLifePurchaseView.namaAhliWaris2" label="message:namaAhliWaris2"
+                               validate="required" maxLength="30"/>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td class="first">
+ 	                   <t:label for="namaAhliWaris3"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="namaAhliWaris3" type="text"
+                               t:value="mncLifePurchaseView.namaAhliWaris3" label="message:namaAhliWaris3"
+                               validate="required" maxLength="30"/>
+                    </td>
+                </tr>
+                
+                <tr class="even">
+                    <td class="first">
+ 	                   <t:label for="noHandphone"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="noHandphone" type="text"
+                               t:value="mncLifePurchaseView.noHp" label="message:noHandphone"
+                               validate="required" maxLength="15"/>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td class="first">
+ 	                   <t:label for="email"/>
+ 	                </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="email" type="text"
+                               t:value="mncLifePurchaseView.emailAddress" label="message:email"
+                               validate="required, Email" maxLength="50"/>
+                    </td>
+                </tr>
+				
+                </tbody>
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </t:form>
+</div>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrintMutation" title="message:title" 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+  	xmlns:p="tapestry:parameter">
+<div id="main_content">
+	<t:form class="formfield" t:id="accountStatement" clientValidation="submit">
+		<fieldSet>
+			<table class="dg_first">
+		        <tr class="odd">
+		            <td class="firstCenterHeader" style="font-weight:bold;">
+		                ${message:accountNumber}
+		            </td>
+		            <td>:</td>
+		            <td class="lastCenterHeader">
+		                ${accountView.accountNumber}
+		            </td>
+		        </tr>
+		        <tr>
+		            <td>
+		                ${message:statementPeriod}
+		            </td>
+		            <td>:</td>
+		            <td>
+		                <t:output value="startDate" format="prop:shortDate"/>
+		                ${message:to}
+		                <t:output value="endDate" format="prop:shortDate"/>
+		            </td>
+		        </tr>
+		        <tr class="odd">
+		            <td>
+		                ${message:currency}
+		            </td>
+		            <td>:</td>
+		            <td>
+		                ${accountView.currencyCode}
+		            </td>
+		        </tr>
+		    </table>
+		</fieldSet>
+		<hr/>
+        <fieldSet>
+            <legend>${message:statementData}</legend>
+
+            <div class="table_grid">
+                <table width="100%">
+                    <thead>
+                    <tr>
+                        <th>${message:date}</th>
+                        <th>${message:remark}</th>
+                        <th>${message:noRef}</th>
+                        <th>${message:amount}</th>
+                        <th>${message:balance}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr t:type="loop" t:source="asvList" t:value="asv" class="prop:evenOdd.next" encoder="encoder">
+                        <td><t:output value="asv.valueDate" format="prop:shortDate"/></td>
+                        <td>${asv.transactionName}</td>
+                        <td>${asv.referenceNumber}</td>
+                        <td class="tx_right">${asv.formattedAmount}</td>
+                        <td class="tx_right"><t:output value="asv.runningBalance" format="formatter"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldSet>
+        <hr/>
+    </t:form>
+</div>    
+    
+</html>

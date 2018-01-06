@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <fieldset>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:fromAccountNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${treasuryStageView.fromAccountNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:senderName}</label>
+                    </td>
+                    <td>
+                        <label>${treasuryStageView.senderName}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:toAccountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${treasuryStageView.toAccountNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:bankName}</label>
+                    </td>
+                    <td>
+                        <label>${treasuryStageView.bankName}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:bankCity}</label>
+                    </td>
+                    <td>
+                        <label>${treasuryStageView.bankCity}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:bankBranch}</label>
+                    </td>
+                    <td>
+                        <label>${treasuryStageView.bankBranch}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:receiverName}</label>
+                    </td>
+                    <td>
+                        <label>${treasuryStageView.receiverName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:transactionDate}</label>
+                    </td>
+                    <td>
+                        <label>
+                            <t:output value="treasuryStageView.transactionDate" format="longDate"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:transactionAmount}</label>
+                    </td>
+                    <td>
+                        <label>
+                            ${message:curr} <t:output value="treasuryStageView.transactionAmount" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                <t:if test="treasuryStageView.officerName">                
+	                <tr>
+	                    <td>
+	                        <label>${message:officerUsername}</label>
+	                    </td>
+	                    <td>
+	                        <label>
+	                        	${treasuryStageView.officerName}
+	                        </label>
+	                    </td>
+	                </tr>
+                </t:if>
+                <tr>
+                    <td>
+                        <label>${message:status}</label>
+                    </td>
+                    <td>
+                        <label>${treasuryStageView.status}</label>
+                    </td>
+                </tr>
+                
+                <t:if test="handled">                
+	                <tr>
+	                    <td>
+	                        <t:label for="changeStatus"/>
+	                    </td>
+	                    <td>
+	                        <t:select t:id="changeStatus" t:model="changeStatusList" value="changeStatus" blankOption="never" label="message:changeStatus"/>
+	                    </td>
+	                </tr>
+                </t:if>
+                
+            </table>
+        </fieldset>
+        <hr/>
+        <a hRef="../treasuryStagePenugasan" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a> 
+        <t:if test="handled">
+        	<t:submit t:id="save" class="grey_btn mr10" value="message:save" />
+        </t:if>
+        <t:if test="!handled">
+        	<input type="button"
+               onclick="popupInfo('/treasury/treasuryStagePrint')"
+               class="grey_btn right" t:type="any" value="message:print"/>
+        </t:if>
+        <!--t:if test="!failedSucceed">
+            <t:if test="handled">
+                <t:submit t:id="successBut" class="green_btn mr10" value="message:successBut"/>
+                <t:submit t:id="failedBut" class="green_btn mr10" value="message:failedBut"/>
+                <p:else>
+                    <t:submit t:id="handledBut" class="green_btn mr10" value="message:handledBut"/>
+                </p:else>
+            </t:if>
+        </t:if-->
+    </form>
+</div>
+</html>

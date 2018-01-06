@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${telkomPaymentView.referenceNumber}" transactionDateString="${telkomPaymentView.transactionDateString}" 
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol" style="font-weight:bold;">${message:referenceNumber}</td>
+                <td>:</td>
+                <td>${telkomPaymentView.referenceNumber}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:customerReference}</td>
+                <td>:</td>
+                <td>${telkomPaymentView.customerReference}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:customerName}</td>
+                <td>:</td>
+                <td>${telkomPaymentView.referenceName}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:billPeriods}</td>
+                <td>:</td>
+                <td>
+                    <t:output value="telkomPaymentView.billPeriod1" format="listDate"/>
+	                    <t:if test="telkomPaymentView.billPeriod2">, 
+	                    	<t:output value="telkomPaymentView.billPeriod2" format="listDate"/>
+	                    </t:if>
+		                    <t:if test="telkomPaymentView.billPeriod3">, 
+		                    	<t:output value="telkomPaymentView.billPeriod3" format="listDate"/>
+		                    </t:if>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:amount1}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="telkomPaymentView.amount1" format="formatter"/>
+                </td>
+            </tr>
+            <t:if test="telkomPaymentView.billPeriod2">
+	            <tr>
+	                <td style="font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:amount2}</td>
+	                <td>:</td>
+	                <td>${message:curr}
+	                    <t:output value="telkomPaymentView.amount2" format="formatter"/>
+	                </td>
+	            </tr>
+	        </t:if>
+            <t:if test="telkomPaymentView.billPeriod3"> 
+	            <tr>
+	                <td style="font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:amount3}</td>
+	                <td>:</td>
+	                <td>${message:curr}
+	                    <t:output value="telkomPaymentView.amount3" format="formatter"/>
+	                </td>
+	            </tr>
+            </t:if>
+            <tr>
+                <td style="font-weight:bold;">${message:amount}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="telkomPaymentView.amount" format="formatter"/>
+                </td>
+            </tr>            
+            <tr>
+                <td style="font-weight:bold;">${message:fee}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="telkomPaymentView.fee" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:total}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="telkomPaymentView.total" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:transactionDate}</td>
+                <td>:</td>
+                <td>
+                    <t:output value="telkomPaymentView.transactionDate" format="mediumDate"/>
+                </td>
+            </tr>
+            <tr/>
+            <tr/>
+            <tr/>
+            <tr/>
+            
+        </table>
+
+		
+        <p class="center" align="center">
+	        <br />
+	        <br />
+	        <span class="upercase" style="font-weight:bold;">${message:footNote1}</span><br/>
+	        <span class="upercase" style="font-weight:bold;">${message:footNote2}</span><br/>
+   		 </p>
+</html>

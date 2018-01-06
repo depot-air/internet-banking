@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<div id="recipe_wrap">
+   <form t:type="form" class="formfield" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+               
+                    <tr class="odd">
+                        <td>
+                            <label>${message:paymentCode}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${tiketKeretaDjatiPurchaseView.paymentCode}</label>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr >
+                        <td class="first">
+                            <label>${message:fromAccount}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${tiketKeretaDjatiPurchaseView.accountNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:noIdentitas}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${tiketKeretaDjatiPurchaseView.noIdentitas}</label>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label>${message:pemesan}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${tiketKeretaDjatiPurchaseView.pemesan}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="first">
+                            <label>${message:email}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${tiketKeretaDjatiPurchaseView.alamatPemesan}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first">
+                            <label>${message:noHp}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                             <label>${tiketKeretaDjatiPurchaseView.noHp}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:jurusan}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                             <label>${Jurusan}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:tglberangkat}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${FormatTgl}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:penumpang}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${Penumpang}</label>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label>${message:total}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+							<label><t:output value="HargaTiket" format="formatter"/></label>
+                        </td>
+                    </tr>
+                    
+                     <tr class="odd">
+                        <td>
+                            <label>${message:status}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${StatusDetil}</label>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+        <div id="note">
+            ${message:noteReceipt}
+        </div>
+        <t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>     
+		
+		<t:if test="StatusHistory">
+		
+		<p:else>
+			<input type="button"
+               onclick="popupInfo('/purchase/tiketKeretaDjatiPurchasePrint')"
+               class="grey_btn right" t:type="any" value="message:print"/>
+		
+		</p:else>
+		
+		</t:if>   		
+        
+    </form>
+</div>
+</html>

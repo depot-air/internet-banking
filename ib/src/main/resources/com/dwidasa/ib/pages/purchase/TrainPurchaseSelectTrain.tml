@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_13"></div>
+    
+    <t:form id="form" class="formfield" autofocus="false" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+	<fieldSet>
+	<legend>Hasil Pencarian Jadwal Kereta Api</legend>
+    <div id="fSResult">
+        <div id="resultOption" class="fLLeft2">
+            <hr />
+            <div class="dRCtr">
+                <p class="detailRoute"><span class="tx1">${view.originName}<b> (${view.originCode})</b></span>
+                <span class="arrowIcon"></span><span class="tx2">${view.destinationName}<b> (${view.destinationCode})</b></span>
+                <br/>
+                Berangkat: ${strDeparture}
+                <br/>${strPenumpang} 
+                </p>                
+            </div>
+            <div id="departList" class="listPilihan">
+            	<t:RadioGroup value="strSelectTrainClass">
+            	<t:Loop source="apiGetSchedule.trainSchedule" value="trainSchedule" formstate="none">
+	            	<table>
+	            		<t:Loop source="trainSchedule.subclassList" value="trainSubclass" formstate="none">
+	            			<tr>
+		                        <td class="fLTable1">
+		                        	<span class="trainName">${trainSchedule.trainName}</span>
+		                        	<span class="carNum">${trainSchedule.trainNo}</span>
+		                        	<span class="subClass">${trainSubclass.strClass} (${trainSubclass.subclass})</span>
+	                        	</td>
+		                        <td class="fLTable2">
+		                        	<span class="departCodeTime"><b>${view.originCode} </b><t:output value="trainSchedule.departureDate" format="dateTimeFormat"/></span><br />
+		                        	<span class="arriveCodeTime"><b>${view.destinationCode} </b><t:output value="trainSchedule.arrivalDate" format="dateTimeFormat"/></span>
+	                        	</td>
+		                        <td class="fLTable3 active">
+		                        	<t:if test="trainSubclass.available">
+		                        		<t:Radio value="${trainSchedule.trainNo}#${trainSubclass.subclass}" name="departFlightPrice" class="cBFlight"/>
+		                        		<span class="flightPrice">Sisa Kursi: ${trainSubclass.available}</span>
+		                        		<br/>
+		                            <p:else>
+		                            	<span class="flightPrice">HABIS</span><br/>
+		                            </p:else>
+		                            </t:if>
+		                            
+		                            <span class="flightPrice"><t:output value="trainSubclass.adultFare" format="formatter" /> IDR</span><br />
+		                        </td>
+                    		</tr>
+	            		</t:Loop>
+	            	</table>
+            	</t:Loop>
+            	</t:RadioGroup>
+            </div>
+        </div>
+    </div>
+    </fieldSet>
+	<t:submit t:id="back" class="grey_btn ml10" value="message:cancel" mode="cancel"/> 
+    <t:submit t:id="send" class="green_btn mr10" value="message:send"/>
+</t:form>
+</div>
+</html>
+    

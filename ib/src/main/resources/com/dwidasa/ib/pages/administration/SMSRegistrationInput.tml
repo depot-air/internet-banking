@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_9"></div>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+
+
+        <fieldSet>
+            <legend>${message:customerData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:customerName}</label>
+                    </td>
+                    <td class="last">
+                        <label>${senderName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:account}</label>
+                    </td>
+                    <td>
+                        <t:select t:id="account" value="smsRegistrationView.accountNumber" model="accountModel"
+                                  blankOption="never"
+                                  label="message:account"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:cellNo}</label>
+                    </td>
+                    <td>
+                        <input t:id="customerReference1" value="smsRegistrationView.customerReference" t:type="textField"
+                               validate="required, maxLength=15, regExp=^[0-9]+$" maxLength="15"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:tinNo}</label>
+                    </td>
+
+                    <td>
+                        <input t:id="tinNo" t:type="passwordfield" type="text"  autocomplete="off"
+                               t:value="smsRegistrationView.tinUssd"
+                               validate="required, maxLength=6, minLength=6, regExp=^[0-9]+$" maxLength="6" 
+                                />
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:tinNoConfirm}</label>
+                    </td>
+
+                    <td>
+                        <input t:id="tinNoConfirm" t:type="passwordfield" type="text"  autocomplete="off"
+                               t:value="tinNoConfirm"
+                               validate="required, maxLength=6,minLength=6, regExp=^[0-9]+$" maxLength="6" 
+                                />
+                    </td>
+                </tr>
+
+            </table>
+        </fieldSet>
+        <hr/>
+        <br/>
+        <t:submit t:id="next" value="message:next" class="green_btn mr10"/>
+    </form>
+</div>
+</html>

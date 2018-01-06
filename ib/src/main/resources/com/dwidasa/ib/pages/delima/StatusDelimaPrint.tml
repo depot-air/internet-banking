@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>${message:title}</title>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/print.css}"/>
+</head>
+
+<body>
+<div id="print_wrap">
+    <img src="${context:bprks/img/bprks_blue.png}" width="196" height="34" alt="BPRKS"/>
+
+    <h1>${message:title}</h1>
+    <hr/>
+    <h2>${subtitle}</h2>
+
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol">
+                    <label>${message:referenceNumber}</label>
+                </td>
+                 <td>:</td>
+                <td>
+                    <label>${cashInDelimaView.referenceNumber}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>${message:date}</label>
+                </td>
+                 <td>:</td>
+                <td>
+                    <label> <t:output value="date" format="longDate"/>
+            ${message:timeZone}</label>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <label>${message:receiverIdNumber}</label>
+                </td>
+                 <td>:</td>
+                <td>
+                    <label>${cashInDelimaView.receiverIdNumber}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>${message:transferCode}</label>
+                </td>
+                 <td>:</td>
+                <td>
+                    <label>${cashInDelimaView.customerReference}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>${message:total}</label>
+                </td>
+                 <td>:</td>
+                <td>
+                    <label>
+                    ${message:curr}
+                        <t:output value="total" format="formatter"/>
+                    </label>
+                </td>
+            </tr>
+        </table>
+        <br/>
+
+
+    <div class="clear"></div>
+    <br/>
+
+    <p>${message:footnote}</p>
+    <br/>
+
+    <p class="center" align="center">r">
+        <span class="upercase">${message:thanks}</span><br/>
+        <span class="upercase">${message:notePrint}</span>
+    </p>
+</div>
+</body>
+</html>

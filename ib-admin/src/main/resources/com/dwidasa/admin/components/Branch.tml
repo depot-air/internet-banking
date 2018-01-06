@@ -1,0 +1,57 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    <t:content>
+        <t:if test="activeBranch">
+            <h3 class="current">
+                ${menuName}
+                <t:if test="hasChildren">
+                    <span class="arrowopen"></span>
+                </t:if>
+            </h3>
+            <t:if test="hasChildren">
+                <div class="panel" style="display: block; background-color: transparent;">
+                    <ul>
+                        <t:body/>
+                    </ul>
+                </div>
+                <t:unless test="lastNode">
+                    <hr/>
+                    <p:else>
+                    &#160;
+                    </p:else>
+                </t:unless>
+                <p:else>
+                    <div class="panel"></div>
+                </p:else>
+            </t:if>
+
+            <p:else>
+                <h3>
+                    <t:if test="hasChildren">
+                        ${menuName}
+                        <span class="arrowclose"></span>
+                        <p:else>
+                            <t:eventlink class="single_menu" event="redirect" context="[node.location, node.parentId]">
+                                ${menuName}
+                            </t:eventlink>
+                        </p:else>
+                    </t:if>
+                </h3>
+                <div class="panel">
+                    <t:if test="hasChildren">
+                        <ul>
+                            <t:body/>
+                        </ul>
+                    </t:if>
+                </div>
+                <t:unless test="lastNode">
+                    <hr/>
+                    <p:else>
+                    &#160;
+                    </p:else>
+                </t:unless>
+            </p:else>
+        </t:if>
+    </t:content>
+</html>
+

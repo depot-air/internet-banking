@@ -1,0 +1,55 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      t:type="layout" title="message:title" group="message:group"
+      xmlns:p="tapestry:parameter">
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+
+	<h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_29"></div>
+
+    <form t:type="form" class="formfield" t:clientValidation="submit">
+
+        <t:errors banner="message:errorBanner"/>
+                <fieldSet>
+                    <table width="100%">
+                       <tr class="even">
+                            <td>
+                                <label>${message:referenceNumber}</label>
+                            </td>
+                            <td>
+                                <label>${resultView.referenceNumber}</label>
+                            </td>
+                        </tr>
+                        <tr class="odd">
+                            <td>
+                                <label>${message:date}</label>
+                            </td>
+                            <td>
+                                <label>${nowDate}</label>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>
+                                <label>${message:status}</label>
+                            </td>
+                            <td>
+                                <label>${status}</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldSet>
+
+       <!--  <t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>      -->   
+<!--         <input type="button" -->
+<!--                onclick="popupInfo('/administration/activateSoftTokenPrint')" -->
+<!--                class="grey_btn right" t:type="any" value="message:print"/>     -->
+    </form>
+</div>
+</html>

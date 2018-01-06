@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+
+<link type="text/css" rel="stylesheet" href="${context:bprks/css/kramatDjati/redmond/jquery-ui-1.10.4.custom.css}" />
+    <link type="text/css" rel="stylesheet" href="${context:bprks/css/kramatDjati/select2.css}" />
+    <link type="text/css" rel="stylesheet" href="${context:bprks/css/kramatDjati/style.css}" />
+    <script src="${context:bprks/js/kramatDjati/jquery.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/kramatDjati/jquery-ui.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/kramatDjati/select2.min.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/kramatDjati/fLSScript.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/kramatDjati/ajaxSearch.js}" type="text/javascript"></script>
+
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_10"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:purchaseData}</legend>
+            <table>
+                
+				<tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${cardNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${dariRekening}</label>
+                    </td>
+                </tr>
+
+				<tr class="odd">
+                    <td class="first">
+                        <label>${message:tglKeberangkatan}</label>
+                    </td>
+                    <td  class="last">
+                       <label>${FormatTgl}</label>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label>${message:dari}</label>
+                    </td>
+                    <td>
+                       
+                               <label>${dari}</label>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td>
+                        <label>${message:tujuan}</label>
+                    </td>
+                    <td>
+                       
+                               <label>${tujuan}</label>
+                    </td>
+                </tr>
+                
+                
+                 <tr>
+                    <td>
+                        <label>${message:kodeJurusan}</label>
+                    </td>
+                    <td>
+                       
+                               <label>${kodeJurusan}</label>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td>
+                        <label>${message:hargaTiket}</label>
+                    </td>
+                    <td>
+                       
+                               <label><t:output value="hargaTiket" format="formatter"/></label>
+                    </td>
+                </tr>
+               
+               
+                <tr>
+                    <td>
+                        <label>${message:berangkat}</label>
+                    </td>
+                    <td>
+                       
+                       <t:select t:id="bankName" t:value="locationName"
+                                  model="selectLocation" blankLabel="Pilih" validate="required"
+                                  blankOption="never" t:zone = "kursiZone"/>
+                
+                
+                    </td>
+                </tr>
+               
+            </table>
+
+<div class="airLines">
+    <div class="pMBtn">
+    <t:zone t:id="kursiZone" id="kursiZone" update="show">
+        <div class="pMBText rounded10">Pilih Nomor Kursi</div>
+            </t:zone>
+        <div class="aLOption rounded8">
+            <ul>
+            
+            
+            
+             <tr t:type="loop" t:source="AllKursi" t:value="tiketKeretaDjatiPurchaseView" encoder="encoder">
+                <li class="rounded5 aLList">
+                    <span class="airLogo kursi"></span>
+                    <p>${tiketKeretaDjatiPurchaseView.noKursi}</p>
+                   
+                    	<input type="checkbox" class="mKPL" value="djatiKursi${tiketKeretaDjatiPurchaseView.noKursi}" />
+                    
+                    <span class="aLTrans"></span>
+                    <span class="aLSelect"></span>
+                </li>
+                </tr>
+                
+            
+
+            </ul>
+            <div class="clear"></div>
+            <div class="bLRounded5 bRRounded5 optionControl">
+                <span class="cancelPBtn"></span>
+<!--                 <span class="resetPBtnDsb"></span> -->
+<!--                 <span class="resetPBtn"></span> -->
+                <span class="submitKBtnDsb"></span>
+                <span class="submitKursi"></span>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div id="djatiKursi1" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">1</p>
+    </div>
+    
+    <div id="djatiKursi2" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">2</p>
+    </div>
+    
+    <div id="djatiKursi3" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">3</p>
+    </div>
+    
+    <div id="djatiKursi4" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">4</p>
+    </div>
+    
+    <div id="djatiKursi5" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">5</p>
+    </div>
+    
+    <div id="djatiKursi6" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">6</p>
+    </div>
+    
+    <div id="djatiKursi7" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">7</p>
+    </div>
+    
+    <div id="djatiKursi8" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">8</p>
+    </div>
+    
+    <div id="djatiKursi9" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">9</p>
+    </div>
+    
+    <div id="djatiKursi10" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">10</p>
+    </div>
+    
+    
+    
+    <div id="djatiKursi11" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">11</p>
+    </div>
+    
+    <div id="djatiKursi12" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">12</p>
+    </div>
+    
+    <div id="djatiKursi13" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">13</p>
+    </div>
+    
+    <div id="djatiKursi14" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">14</p>
+    </div>
+    
+    <div id="djatiKursi15" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">15</p>
+    </div>
+    
+    <div id="djatiKursi16" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">16</p>
+    </div>
+    
+    <div id="djatiKursi17" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">17</p>
+    </div>
+    
+    <div id="djatiKursi18" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">18</p>
+    </div>
+    
+    <div id="djatiKursi19" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">19</p>
+    </div>
+    
+    <div id="djatiKursi20" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">20</p>
+    </div>
+    
+    
+    <div id="djatiKursi21" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">21</p>
+    </div>
+    
+    <div id="djatiKursi22" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">22</p>
+    </div>
+    
+    <div id="djatiKursi23" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">23</p>
+    </div>
+    
+    <div id="djatiKursi24" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">24</p>
+    </div>
+    
+    <div id="djatiKursi25" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">25</p>
+    </div>
+    
+    <div id="djatiKursi26" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">26</p>
+    </div>
+    
+    <div id="djatiKursi27" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">27</p>
+    </div>
+    
+    <div id="djatiKursi28" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">28</p>
+    </div>
+    
+    <div id="djatiKursi29" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">29</p>
+    </div>
+    
+    <div id="djatiKursi30" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">30</p>
+    </div>
+    
+    
+    <div id="djatiKursi31" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">31</p>
+    </div>
+    
+    <div id="djatiKursi32" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">32</p>
+    </div>
+    
+    <div id="djatiKursi33" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">33</p>
+    </div>
+    
+    <div id="djatiKursi34" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">34</p>
+    </div>
+    
+    <div id="djatiKursi35" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">35</p>
+    </div>
+    
+    <div id="djatiKursi36" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">36</p>
+    </div>
+    
+    <div id="djatiKursi37" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">37</p>
+    </div>
+    
+    <div id="djatiKursi38" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">38</p>
+    </div>
+    
+    <div id="djatiKursi39" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">39</p>
+    </div>
+    
+    <div id="djatiKursi40" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">40</p>
+    </div>
+    
+    
+    <div id="djatiKursi41" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">41</p>
+    </div>
+    
+    <div id="djatiKursi42" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">42</p>
+    </div>
+    
+    <div id="djatiKursi43" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">43</p>
+    </div>
+    
+    <div id="djatiKursi44" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">44</p>
+    </div>
+    
+    <div id="djatiKursi45" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">45</p>
+    </div>
+    
+    <div id="djatiKursi46" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">46</p>
+    </div>
+    
+    <div id="djatiKursi47" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">47</p>
+    </div>
+    
+    <div id="djatiKursi48" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">48</p>
+    </div>
+    
+    <div id="djatiKursi49" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">49</p>
+    </div>
+    
+    <div id="djatiKursi50" class="airLine rounded8">
+        <span class="aLImg kursi"></span>
+        <p class="aLName">50</p>
+    </div>
+    
+    
+</div>
+        <input t:type="textField" t:name="hiddendjatiKursi1" t:id="hiddendjatiKursi1" t:value="hiddendjati1" style="display:none" />    
+        <input t:type="textField" t:name="hiddendjatiKursi2" t:id="hiddendjatiKursi2" t:value="hiddendjati2" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi3" t:id="hiddendjatiKursi3" t:value="hiddendjati3" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi4" t:id="hiddendjatiKursi4" t:value="hiddendjati4" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi5" t:id="hiddendjatiKursi5" t:value="hiddendjati5" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi6" t:id="hiddendjatiKursi6" t:value="hiddendjati6" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi7" t:id="hiddendjatiKursi7" t:value="hiddendjati7" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi8" t:id="hiddendjatiKursi8" t:value="hiddendjati8" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi9" t:id="hiddendjatiKursi9" t:value="hiddendjati9" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi10" t:id="hiddendjatiKursi10" t:value="hiddendjati10" style="display:none" /> 
+        
+        <input t:type="textField" t:name="hiddendjatiKursi11" t:id="hiddendjatiKursi11" t:value="hiddendjati11" style="display:none" />    
+        <input t:type="textField" t:name="hiddendjatiKursi12" t:id="hiddendjatiKursi12" t:value="hiddendjati12" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi13" t:id="hiddendjatiKursi13" t:value="hiddendjati13" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi14" t:id="hiddendjatiKursi14" t:value="hiddendjati14" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi15" t:id="hiddendjatiKursi15" t:value="hiddendjati15" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi16" t:id="hiddendjatiKursi16" t:value="hiddendjati16" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi17" t:id="hiddendjatiKursi17" t:value="hiddendjati17" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi18" t:id="hiddendjatiKursi18" t:value="hiddendjati18" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi19" t:id="hiddendjatiKursi19" t:value="hiddendjati19" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi20" t:id="hiddendjatiKursi20" t:value="hiddendjati20" style="display:none" /> 
+        
+        <input t:type="textField" t:name="hiddendjatiKursi21" t:id="hiddendjatiKursi21" t:value="hiddendjati21" style="display:none" />    
+        <input t:type="textField" t:name="hiddendjatiKursi22" t:id="hiddendjatiKursi22" t:value="hiddendjati22" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi23" t:id="hiddendjatiKursi23" t:value="hiddendjati23" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi24" t:id="hiddendjatiKursi24" t:value="hiddendjati24" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi25" t:id="hiddendjatiKursi25" t:value="hiddendjati25" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi26" t:id="hiddendjatiKursi26" t:value="hiddendjati26" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi27" t:id="hiddendjatiKursi27" t:value="hiddendjati27" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi28" t:id="hiddendjatiKursi28" t:value="hiddendjati28" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi29" t:id="hiddendjatiKursi29" t:value="hiddendjati29" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi30" t:id="hiddendjatiKursi30" t:value="hiddendjati30" style="display:none" /> 
+        
+        <input t:type="textField" t:name="hiddendjatiKursi31" t:id="hiddendjatiKursi31" t:value="hiddendjati31" style="display:none" />    
+        <input t:type="textField" t:name="hiddendjatiKursi32" t:id="hiddendjatiKursi32" t:value="hiddendjati32" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi33" t:id="hiddendjatiKursi33" t:value="hiddendjati33" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi34" t:id="hiddendjatiKursi34" t:value="hiddendjati34" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi35" t:id="hiddendjatiKursi35" t:value="hiddendjati35" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi36" t:id="hiddendjatiKursi36" t:value="hiddendjati36" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi37" t:id="hiddendjatiKursi37" t:value="hiddendjati37" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi38" t:id="hiddendjatiKursi38" t:value="hiddendjati38" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi39" t:id="hiddendjatiKursi39" t:value="hiddendjati39" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi40" t:id="hiddendjatiKursi40" t:value="hiddendjati40" style="display:none" /> 
+        
+        <input t:type="textField" t:name="hiddendjatiKursi41" t:id="hiddendjatiKursi41" t:value="hiddendjati41" style="display:none" />    
+        <input t:type="textField" t:name="hiddendjatiKursi42" t:id="hiddendjatiKursi42" t:value="hiddendjati42" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi43" t:id="hiddendjatiKursi43" t:value="hiddendjati43" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi44" t:id="hiddendjatiKursi44" t:value="hiddendjati44" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi45" t:id="hiddendjatiKursi45" t:value="hiddendjati45" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi46" t:id="hiddendjatiKursi46" t:value="hiddendjati46" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi47" t:id="hiddendjatiKursi47" t:value="hiddendjati47" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi48" t:id="hiddendjatiKursi48" t:value="hiddendjati48" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi49" t:id="hiddendjatiKursi49" t:value="hiddendjati49" style="display:none" />  
+        <input t:type="textField" t:name="hiddendjatiKursi50" t:id="hiddendjatiKursi50" t:value="hiddendjati50" style="display:none" /> 
+         
+        </fieldSet>
+        <hr/>
+      
+		<a hRef="tiketuxInput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+<!-- 		<t:submit t:id="cancel" value="message:back" class="grey_btn ml10"/> -->
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </form>
+</div>
+</html>

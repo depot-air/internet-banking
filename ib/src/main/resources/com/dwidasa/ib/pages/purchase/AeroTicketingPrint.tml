@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${aeroTicketingView.referenceNumber}" transactionDateString="${aeroTicketingView.transactionDateString}" 
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter">
+<div id="main_content">
+
+	<form t:type="form" class="formfield" >
+        <h3>KEBERANGKATAN</h3>
+        <table class="dg_first">        	
+            <tr>
+                <td class="firstcol" style="font-weight: bold;">KODE BOOKING</td>
+                <td>:</td>
+                <td>${aeroTicketingView.departureFlight.bookInfo.bookCode}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">TOTAL HARGA TIKET</td>
+                <td>:</td>
+                <td>Rp. <t:output value="aeroTicketingView.total" format="formatter"/></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">NO PENERBANGAN</td>
+                <td>:</td>
+                <td>${aeroTicketingView.departureFlight.flightNumber}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">JADWAL</td>
+                <td>:</td>
+                <td><t:output value="aeroTicketingView.departureFlight.flightDate" format="mediumDate"/></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;"></td>
+                <td></td>
+                <td><t:output value="aeroTicketingView.departureFlight.etd" format="hhmm"/> - <t:output value="aeroTicketingView.departureFlight.eta" format="hhmm"/></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">RUTE PENERBANGAN</td>
+                <td>:</td>
+                <td>${aeroTicketingView.departureFlight.departureAirportCode} - ${aeroTicketingView.departureFlight.arrivalAirportCode}</td>
+            </tr>
+            <t:if test="departConnecting">
+                <tr>
+                    <td style="font-weight: bold;">NO CONN</td>
+                    <td>:</td>
+                    <td>${aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightFno}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">JADWAL CONN</td>
+                    <td>:</td>
+                    <td><t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightDate" format="mediumDate"/></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;"></td>
+                    <td></td>
+                    <td><t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightEtd" format="hhmm"/> - <t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightEta" format="hhmm"/></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">RUTE CONN</td>
+                    <td>:</td>
+                    <td>${aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightFrom} - ${aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightTo}</td>
+                </tr>
+            </t:if>
+            <t:if test="departConnecting2">
+                <tr>
+                    <td style="font-weight: bold;">NO CONN2</td>
+                    <td>:</td>
+                    <td>${aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightFno}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">JADWAL CONN2</td>
+                    <td>:</td>
+                    <td><t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightDate" format="mediumDate"/></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;"></td>
+                    <td></td>
+                    <td><t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightEtd" format="hhmm"/> - <t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightEta" format="hhmm"/></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">RUTE CONN2</td>
+                    <td>:</td>
+                    <td>${aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightFrom} - ${aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightTo}</td>
+                </tr>
+            </t:if>
+        </table>
+        <t:if test="departReturn">
+            <h3>KEMBALI</h3>
+            <table class="dg_first">
+                <tr>
+                    <td class="firstcol" style="font-weight: bold;">KODE BOOKING</td>
+                    <td>:</td>
+                    <td>${aeroTicketingView.returnFlight.bookInfo.bookCode}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">NO PENERBANGAN</td>
+                    <td>:</td>
+                    <td>${aeroTicketingView.returnFlight.flightNumber}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">JADWAL</td>
+                    <td>:</td>
+                    <td><t:output value="aeroTicketingView.returnFlight.flightDate" format="mediumDate"/> </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;"></td>
+                    <td></td>
+                    <td><t:output value="aeroTicketingView.returnFlight.etd" format="hhmm"/> - <t:output value="aeroTicketingView.returnFlight.eta" format="hhmm"/></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">RUTE PENERBANGAN</td>
+                    <td>:</td>
+                    <td>${aeroTicketingView.returnFlight.departureAirportCode} - ${aeroTicketingView.returnFlight.arrivalAirportCode}</td>
+                </tr>
+                <t:if test="departConnecting">
+                    <tr>
+                        <td style="font-weight: bold;">NO CONN</td>
+                        <td>:</td>
+                        <td>${aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightFno}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">JADWAL CONN</td>
+                        <td>:</td>
+                        <td><t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightDate" format="mediumDate"/></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"></td>
+                        <td></td>
+                        <td><t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightEtd" format="hhmm"/> - <t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightEta" format="hhmm"/></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">RUTE CONN</td>
+                        <td>:</td>
+                        <td>${aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightFrom} - ${aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightTo}</td>
+                    </tr>
+                </t:if>
+                <t:if test="departConnecting2">
+                    <tr>
+                        <td style="font-weight: bold;">NO CONN2</td>
+                        <td>:</td>
+                        <td>${aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightFno}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">JADWAL CONN2</td>
+                        <td>:</td>
+                        <td><t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightDate" format="mediumDate"/></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"></td>
+                        <td></td>
+                        <td><t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightEtd" format="hhmm"/> - <t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightEta" format="hhmm"/></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">RUTE CONN2</td>
+                        <td>:</td>
+                        <td>${aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightFrom} - ${aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightTo}</td>
+                    </tr>
+                </t:if>
+            </table>
+        </t:if>
+
+        <h3>DAFTAR PENUMPANG</h3>
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol" style="font-weight: bold;">NAMA LENGKAP</td>
+                <td>:</td>
+                <td>${aeroPassenger1.passengerFirstName} ${aeroPassenger1.passengerLastName}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">NOMOR IDENTITAS</td>
+                <td>:</td>
+                <td>${aeroPassenger1.passengerIdCard}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">TANGGAL LAHIR</td>
+                <td>:</td>
+                <td><t:output value="aeroPassenger1.passengerDob" format="mediumDate"/></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+        <t:if test="twoPassengers">
+            <table class="dg_first">
+                <tr>
+                    <td class="firstcol" style="font-weight: bold;">NAMA LENGKAP</td>
+                    <td>:</td>
+                    <td>${aeroPassenger2.passengerFirstName} ${aeroPassenger2.passengerLastName}</td>
+                </tr>
+                <t:if test="passanger2Adult">
+                    <tr>
+                        <td style="font-weight: bold;">NOMOR IDENTITAS</td>
+                        <td>:</td>
+                        <td>${aeroPassenger2.passengerIdCard}</td>
+                    </tr>
+                </t:if>
+                <tr>
+                    <td style="font-weight: bold;">TANGGAL LAHIR</td>
+                    <td>:</td>
+                    <td><t:output value="aeroPassenger2.passengerDob" format="mediumDate"/></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+        </t:if>
+        <t:if test="threePassengers">
+            <table class="dg_first">
+                <tr>
+                    <td class="firstcol" style="font-weight: bold;">NAMA LENGKAP</td>
+                    <td>:</td>
+                    <td>${aeroPassenger3.passengerFirstName} ${aeroPassenger3.passengerLastName}</td>
+                </tr>
+                <t:if test="passanger3Adult">
+                    <tr>
+                        <td style="font-weight: bold;">NOMOR IDENTITAS</td>
+                        <td>:</td>
+                        <td>${aeroPassenger3.passengerIdCard}</td>
+                    </tr>
+                </t:if>
+                <tr>
+                    <td style="font-weight: bold;">TANGGAL LAHIR</td>
+                    <td>:</td>
+                    <td><t:output value="aeroPassenger3.passengerDob" format="mediumDate"/></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+        </t:if>
+        <t:if test="fourPassengers">
+            <table class="dg_first">
+                <tr>
+                    <td class="firstcol" style="font-weight: bold;">NAMA LENGKAP</td>
+                    <td>:</td>
+                    <td>${aeroPassenger4.passengerFirstName} ${aeroPassenger4.passengerLastName}</td>
+                </tr>
+                <t:if test="passanger4Adult">
+                    <tr>
+                        <td style="font-weight: bold;">NOMOR IDENTITAS</td>
+                        <td>:</td>
+                        <td>${aeroPassenger4.passengerIdCard}</td>
+                    </tr>
+                </t:if>
+                <tr>
+                    <td style="font-weight: bold;">TANGGAL LAHIR</td>
+                    <td>:</td>
+                    <td><t:output value="aeroPassenger4.passengerDob" format="mediumDate"/></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+        </t:if>
+        <t:if test="fivePassengers">
+            <table class="dg_first">
+                <tr>
+                    <td class="firstcol" style="font-weight: bold;">NAMA LENGKAP</td>
+                    <td>:</td>
+                    <td>${aeroPassenger5.passengerFirstName} ${aeroPassenger5.passengerLastName}</td>
+                </tr>
+                <t:if test="passanger5Adult">
+                    <tr>
+                        <td style="font-weight: bold;">NOMOR IDENTITAS</td>
+                        <td>:</td>
+                        <td>${aeroPassenger5.passengerIdCard}</td>
+                    </tr>
+                </t:if>
+                <tr>
+                    <td style="font-weight: bold;">TANGGAL LAHIR</td>
+                    <td>:</td>
+                    <td><t:output value="aeroPassenger5.passengerDob" format="mediumDate"/></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+        </t:if>
+        <t:if test="sixPassengers">
+            <table class="dg_first">
+                <tr>
+                    <td class="firstcol" style="font-weight: bold;">NAMA LENGKAP</td>
+                    <td>:</td>
+                    <td>${aeroPassenger6.passengerFirstName} ${aeroPassenger6.passengerLastName}</td>
+                </tr>
+                <t:if test="passanger6Adult">
+                    <tr>
+                        <td style="font-weight: bold;">NOMOR IDENTITAS</td>
+                        <td>:</td>
+                        <td>${aeroPassenger6.passengerIdCard}</td>
+                    </tr>
+                </t:if>
+                <tr>
+                    <td style="font-weight: bold;">TANGGAL LAHIR</td>
+                    <td>:</td>
+                    <td><t:output value="aeroPassenger6.passengerDob" format="mediumDate"/></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+        </t:if>
+        <t:if test="sevenPassengers">
+            <table class="dg_first">
+                <tr>
+                    <td class="firstcol" style="font-weight: bold;">NAMA LENGKAP</td>
+                    <td>:</td>
+                    <td>${aeroPassenger7.passengerFirstName} ${aeroPassenger7.passengerLastName}</td>
+                </tr>
+                <t:if test="passanger7Adult">
+                    <tr>
+                        <td style="font-weight: bold;">NOMOR IDENTITAS</td>
+                        <td>:</td>
+                        <td>${aeroPassenger7.passengerIdCard}</td>
+                    </tr>
+                </t:if>
+                <tr>
+                    <td style="font-weight: bold;">TANGGAL LAHIR</td>
+                    <td>:</td>
+                    <td><t:output value="aeroPassenger7.passengerDob" format="mediumDate"/></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+        </t:if>
+	</form>
+
+</div>	         
+</html>

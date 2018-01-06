@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+<!--     
+    <t:if test="messageInfo">
+		<div id="divMessageInfo">
+			${messageInfo} 
+		</div>
+	</t:if>
+-->
+	<t:displayMessage/>	
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+    <t:errors banner="message:errorBanner"/>
+         <fieldset>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:fileName}</label>
+                    </td>
+                    <td class="last">
+                    	<input t:id="file" value="file" t:type="upload" validate="required"/>
+                        &nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    	<label>${message:notifDate}</label>
+                    </td>
+                    <td class="last">
+                    	<input t:id="notifDate" value="notifDate" t:type="datefield" validate="required"/>
+                        &nbsp;&nbsp;
+                    </td>
+                </tr>
+                                
+            </table>
+        </fieldset> 
+       
+       
+        <hr/>
+        <table t:type="grid" source="dataSource" row="fileBatch" rowsPerPage="pageSize" add="action" model="model"
+        	width="100%" t:mixins="gridSortingDisabled">
+            <t:parameter name="empty">
+                <div id="emptyData">
+                    ${message:emptyData}
+                </div>
+            </t:parameter>
+            <p:actionCell>
+                <a t:type="actionlink" t:id="approve" t:context="fileBatch.id" onClick="return confirm('${message:confirmApprove}');">${message:approve}</a>&#160;&#160;
+                <a t:type="actionlink" t:id="reject" t:context="fileBatch.id" onClick="return confirm('${message:confirmReject}');">${message:reject}</a>&#160;&#160;
+                <a t:type="actionlink" t:id="execute" t:context="fileBatch.id" onClick="return confirm('${message:confirmExecute}');">${message:execute}</a>&#160;&#160;
+                <a t:type="actionlink" t:id="pending" t:context="fileBatch.id" onClick="return confirm('${message:confirmPending}');">${message:pending}</a>&#160;&#160;
+                <a t:type="actionlink" t:id="delete" t:context="[fileBatch.id, fileBatch.fileName]" onClick="return confirm('${message:confirmDelete}');">${message:delete}</a>
+            </p:actionCell>
+        </table>
+        
+         <t:submit t:id="add" class="green_btn mr10" value="message:changeProfile"/>
+        
+        
+    </form>
+</div>
+</html>

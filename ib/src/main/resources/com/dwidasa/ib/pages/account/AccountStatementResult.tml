@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:if test="noErrorFlag">
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        ${message:accountNumber}
+                    </td>
+                    <td class="last">
+                        ${accountView.accountNumber}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first">
+                        ${message:customerName}
+                    </td>
+                    <td class="last">
+                        ${accountView.customerName}
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        ${message:statementPeriod}
+                    </td>
+                    <td>
+                        <t:output value="startDate" format="prop:shortDate"/>
+                        ${message:to}
+                        <t:output value="endDate" format="prop:shortDate"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:currency}
+                    </td>
+                    <td>
+                        ${accountView.currencyCode}
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:statementData}</legend>
+
+            <div class="table_grid">
+                <table width="100%">
+                    <thead>
+                    <tr>
+                        <th>${message:date}</th>
+                        <th>${message:remark}</th>
+                        <th>${message:noRef}</th>
+                        <th>&nbsp;</th>
+                        <th><div align="center">${message:amount}</div></th>
+                        <th><div align="center">${message:balance}</div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr t:type="loop" t:source="asvList" t:value="asv" class="prop:evenOdd.next" encoder="encoder">
+                        <td><t:output value="asv.valueDate" format="prop:shortDate"/></td>
+                        <td>${asv.transactionName}</td>
+                        <td>${asv.referenceNumber}</td>
+                        <td><i>${getTransactionIndicator(asv)}</i></td>
+                        <td class="tx_right">${asv.formattedAmount}</td>
+                        <td class="tx_right"><t:output value="asv.runningBalance" format="formatter"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:statementSummary}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <b>${message:beginningBalance}</b>
+                    </td>
+                    <td class="last">
+                        <div class="grid100right">
+                            <b><t:output value="beginningBalance" format="formatter"/></b>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:credit}
+                    </td>
+                    <td>
+                        <div class="grid100right">
+                            <t:output value="credit" format="formatter"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        ${message:debet}
+                    </td>
+                    <td>
+                        <div class="grid100right">
+                            <i>${message:leftCurly}<t:output value="debet" format="formatter"/>${message:rightCurly}</i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>${message:endingBalance}</b>
+                    </td>
+                    <td>
+                        <div class="grid100right">
+                            <b><t:output value="endingBalance" format="formatter"/></b>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+
+         <!--  <a t:type="EventLink" t:event="downloadFile" class="grey_btn mr10">Download</a>  -->
+        <!-- <t:eventlink t:event="downloadFile" style="text-decoration: none" class="grey_btn mr10">
+                <input type="button" value="Download"/>
+        </t:eventlink>  -->
+        <t:if test="merchant">
+        <button t:type="EventLink" type="button" t:event="downloadFile" style="text-decoration: none" class="grey_btn left">Download Csv</button>
+       	  <!-- http://192.168.77.31:8080/ib/account/statementresult:downloadfile -->
+       	  <!-- <input type="button"
+               onclick="/account/statementresult:downloadfile"
+               class="grey_btn right" t:type="any" value="Download"/> -->
+       	 </t:if>
+        <input type="button"
+               onclick="popupInfo('/account/accountStatementPrint')"
+               class="grey_btn right" t:type="any" value="message:print"/>
+        <!--t:submit t:id="print" value="message:print" class="grey_btn mr10"/-->
+        </t:if>
+    </t:form>
+</div>
+</html>

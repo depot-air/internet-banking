@@ -1,0 +1,312 @@
+﻿/*body{background: #F6F6F6 url(../img/gradient_texture.jpg) repeat-x; font-family: "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;}*/
+body{background: #F6F6F6 url(../img/gradient_texture.jpg) repeat-x; font-family:Arial, Helvetica, sans-serif;} input, select{border:1px solid #CCC; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;}
+#head{background:url(../img/horizontal_admin.png); height:36px; margin-top:20px; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; position:relative;}
+#languageForm {float:left}
+.logo{background:url(../img/general_admin.jpg); width:112px; height:19px; display:block; position:absolute; top:7px; left:10px;}
+.head_componen{position:absolute; top:10px; right:10px;}
+.head_componen select{border:none; background:none; color:#FC0; font-size:11px; float:left; margin-left:5px;}
+.head_componen p{color:#FFF; float:left; font-size:11px; font-weight:bold; margin-left:5px; white-space:nowrap;}
+.phone_ico{background:url(../img/general_admin.jpg) -112px 0; width:16px; height:16px; display:block;}
+#neck{margin-top:10px;}
+#neck h1{margin:0; padding:0; margin-left:5px; float:left;}
+#neck p{margin:0; margin-right:5px;}
+#neck hr{margin-bottom:12px;}
+#neck .date_time{float:right; padding-top:15px; font-size:11px; color:#666;}
+#neck .history_home{background:url(../img/transparent.png); width:12px; height:12px; display:block;}
+#neck ul{margin-left:5px; list-style-type:none; float:left;}
+#neck li{margin:0; padding:0; float:left; margin-right:10px;}
+#neck li p{margin-top:-4px;}
+#neck li.his_sep{background:url(../img/transparent.png) 0 -12px; width:6px; height:13px;}
+#neck li a{color:#333; text-decoration:none; font-size:11px;}
+#neck li a:hover{color:#09F;}
+#neck .user_log{float:right; font-size:11px; color:#333;}
+#neck .user_log a{color:#900; text-decoration:none;}
+#neck .user_log a:hover{text-decoration:underline;}
+#main_menu{position:relative; margin-bottom:20px;}
+#mm_title{background:url(../img/horizontal_admin.png) 0 -36px; padding:0 0 0 10px; font-size:14px; color:#FFF; height:25px; border-top-right-radius:5px; -moz-border-radius-topright:5px; -webkit-border-top-right-radius:5px; border-top-left-radius:5px; -moz-border-radius-topleft:5px; -webkit-border-top-left-radius:5px;}
+#mm_list_wraper{background-color:#FFF; width:210px; padding:0 10px; position:relative;}
+#mm_list_wraper .emb_left{background:url(../img/vertical.png); width:2px; position:absolute; top:0; bottom:0; left:-1px;}
+#mm_list_wraper .emb_right{background:url(../img/vertical.png) -2px 0; width:2px; position:absolute; top:0; bottom:0; right:-1px;}
+#mm_list_wraper .emb_botleft{background:url(../img/transparent.png) -12px -7px; width:7px; height:7px; position:absolute; bottom:-4px; left:-1px;}
+#mm_list_wraper .emb_botright{background:url(../img/transparent.png) -19px -7px; width:7px; height:7px; position:absolute; bottom:-4px; right:-1px;}
+#mm_list_wraper .emb_footrpt{background:url(../img/horizontal_admin.png) 0 -61px; height:3px; position:absolute; bottom:-4px; left:6px; right:6px;}
+#mm_list{margin:0; padding:0;}
+#mm_list h3{margin:0; padding:7px 0; position:relative; color:#333; font-size:12px; font-weight:bold; cursor:pointer;}
+#mm_list h3 span.arrowclose{background:url(../img/general_admin.jpg) -128px 0; width:11px; height:11px; position:absolute; top:11px; right:0;}
+#mm_list h3 span.arrowopen{background:url(../img/general_admin.jpg) -128px -11px; width:11px; height:11px; position:absolute; top:11px; right:0;}
+#mm_list h3:hover{color:#F90;}
+#mm_list hr{margin:0; padding:0; border-color:#d6d6d6;}
+#mm_list .panel{display:none;}
+#mm_list .panel ul{list-style-type:none; margin:0 padding:0;}
+#mm_list .panel ul li{margin:0; padding:0; margin-bottom:7px;}
+#mm_list .panel ul li.last{margin:0;}
+#mm_list .panel ul li a{color:#09F; text-decoration:none;}
+#mm_list .panel ul li a:hover{color:#F90;}
+#eula{background-color:#FFF; margin-left:5px; margin-right:5px; position:relative; margin-bottom:30px; padding:10px 0; border-top-right-radius:5px; -moz-border-radius-topright:5px; -webkit-border-top-right-radius:5px; border-top-left-radius:5px; -moz-border-radius-topleft:5px; -webkit-border-top-left-radius:5px;}
+#eula .emb_left{background:url(../img/vertical.png); width:2px; position:absolute; top:5px; bottom:0; left:-1px;}
+#eula .emb_right{background:url(../img/vertical.png) -2px 0; width:2px; position:absolute; top:5px; bottom:0; right:-1px;}
+#eula .emb_botleft{background:url(../img/transparent.png) -12px -7px; width:7px; height:7px; position:absolute; bottom:-4px; left:-1px;}
+#eula .emb_botright{background:url(../img/transparent.png) -19px -7px; width:7px; height:7px; position:absolute; bottom:-4px; right:-1px;}
+#eula .emb_footrpt{background:url(../img/horizontal_admin.png) 0 -61px; height:3px; position:absolute; bottom:-4px; left:6px; right:6px;}
+#eula h2{font-size:24px; margin:0; padding:0; margin-left:15px; margin-bottom:10px; font-weight:lighter; color:#333;}
+#eula h3{font-size:16px; margin-left:15px; margin-bottom:10px;}
+#eula p{margin:0 15px 15px; padding:0; text-indent:20px; color:#333;}
+#eula ul{margin-left:10px;}
+#activation_code{width:200px; height:22px; float:left; margin-left:25px; margin-right:10px;}
+#main_content{background-color:#FFF; margin-left:5px; position:relative; margin-bottom:30px; float:left; width:708px; padding:10px 0; border-top-right-radius:5px; -moz-border-radius-topright:5px; -webkit-border-top-right-radius:5px; border-top-left-radius:5px; -moz-border-radius-topleft:5px; -webkit-border-top-left-radius:5px;}
+#main_content .emb_left{background:url(../img/vertical.png); width:2px; position:absolute; top:5px; bottom:0; left:-1px;}
+#main_content .emb_right{background:url(../img/vertical.png) -2px 0; width:2px; position:absolute; top:5px; bottom:0; right:-1px;}
+#main_content .emb_botleft{background:url(../img/transparent.png) -12px -7px; width:7px; height:7px; position:absolute; bottom:-4px; left:-1px;}
+#main_content .emb_botright{background:url(../img/transparent.png) -19px -7px; width:7px; height:7px; position:absolute; bottom:-4px; right:-1px;}
+#main_content .emb_footrpt{background:url(../img/horizontal_admin.png) 0 -61px; height:3px; position:absolute; bottom:-4px; left:6px; right:6px;}
+#main_content h2{font-size:30px; margin:0; padding:0; margin-left:15px; margin-bottom:15px; font-weight:lighter; color:#333;}
+#main_content h3{font-size:16px; margin-left:15px;}
+#main_content h3 span{color:#09C; font-size:12px; font-style:italic;}
+#main_content p{margin-left:15px;}
+#main_content fieldset{margin-left:10px; margin-right:10px;}
+#main_content legend{color:#333; font-size:18px; padding-left:5px;}
+.table_grid{padding:10px; font-size:12px; color:#333;}
+.table_grid p{margin:0; padding:0; color:#333; font-size:18px; margin-left:5px !important;}
+.table_grid th{background-color:#666666; color:#FFF; font-weight:bold;}
+.table_grid th, .table_grid td{text-align:left; padding:5px;}
+.table_grid tr.even td {background:#F3F3F3 !important;}
+.h_welcome{height:433px;}
+.ujygy{
+	background:#036;
+}
+.formfield{margin-top:10px;}
+.formfield label, .formfield select, .formfield p{font-size:12px; color:#333;}
+.formfield input.radio{margin-left:10px; float:left;}
+.formfield p{float:left; margin:0; padding:2px 0 0 10px;}
+.formfield td{padding:5px 0 5px 5px;}
+.formfield tr.odd td {background:#F3F3F3;}
+.formfield td.first{width:200px;}
+.formfield td.last{width:480px;}
+.grey_btn{background:url(../img/horizontal_admin.png) 0 -64px; font-size:11px; height:26px; color:#FFF; border:none; cursor:pointer; padding:0 20px; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;}
+.green_btn{background:url(../img/horizontal_admin.png) 0 -151px; font-size:11px; height:26px; color:#FFF; border:none; cursor:pointer; padding:0 20px; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;}
+.centerize_btn{text-align:center; margin-bottom:50px;}
+#login_wrap{width:100%; padding:5% 0;}
+#login_title{background:url(../img/horizontal_admin.png) 0 -90px; height:33px; border-top-right-radius:10px; -moz-border-radius-topright:10px; -webkit-border-top-right-radius:10px; border-top-left-radius:10px; -moz-border-radius-topleft:10px; -webkit-border-top-left-radius:10px;}
+#login_title p{color:#FFF; padding:7px 0 0 15px; font-weight:bold;}
+#login_panel{width:350px; margin:0 auto; position:relative;}
+#login_content{width:350px; background-color:#FFF; position:relative;}
+#login_content form{padding:10px 0 0 30px;}
+#login_content label{font-size:12px;}
+#login_content input{width:180px; border:none; margin-top:5px;}
+#login_panel p.btm_txt{text-align:right; width:180px; font-size:11px; margin-top:40px; color:#666; float:left; margin-right:20px;}
+#verisign{margin-top:20px;}
+#login_content input.grey_btn{width:100px; margin-top:2px;}
+#token{width:60px;}
+#login_content #input{background:url(../img/horizontal_admin.png) 0 -123px repeat-x; height:28px; width:185px; margin:0 0 6px 6px; position:relative;}
+#input span.login_left{background:url(../img/general_admin.jpg) -80px -20px; width:6px; height:28px; position:absolute; top:0; left:-6px;}
+#input span.login_right{background:url(../img/general_admin.jpg) -86px -20px; width:6px; height:28px; position:absolute; top:0; right:-6px;}
+#login_content .emb_left{background:url(../img/vertical.png); width:2px; position:absolute; top:0; bottom:0; left:-1px;}
+#login_content .emb_right{background:url(../img/vertical.png) -2px 0; width:2px; position:absolute; top:0; bottom:0; right:-1px;}
+#login_content .emb_botleft{background:url(../img/transparent.png) -12px -7px; width:7px; height:7px; position:absolute; bottom:-4px; left:-1px;}
+#login_content .emb_botright{background:url(../img/transparent.png) -19px -7px; width:7px; height:7px; position:absolute; bottom:-4px; right:-1px;}
+#login_content .emb_footrpt{background:url(../img/horizontal_admin.png) 0 -61px; height:3px; position:absolute; bottom:-4px; left:6px; right:6px;}
+#login_image{background:url(../img/general_admin.jpg) 0 -20px; width:80px; height:116px; float:left; margin:25px 30px 0 25px}
+.left{float:left;}
+.ml10{float:left; margin-left:10px;}
+.ml25{margin-left:25px;}
+.right{float:right;}
+.mr10{float:right; margin-right:10px;}
+.border_1{border-left:1px solid #ccc; position:absolute; left:230px; top:110px; bottom:-2px;}
+.border_2{border-left:1px solid #ccc; position:absolute; left:470px; top:110px; bottom:-2px;}
+#recipe_wrap{width:708px; margin-left:5px; margin-bottom:30px; float:left; position:relative;}
+#recipe{background:url(../img/paper_format.png); width:628px; padding:10px 40px; margin-bottom:10px;}
+#logo_blue{background:url(../img/general_admin.jpg) -80px -48px; width:109px; height:19px;}
+#recipe hr{margin:10px 0;}
+#recipe_list table{width:100%;}
+#recipe_list td{padding:5px 0 5px 5px;}
+#recipe_list tr.odd td {background:#cccccc !important;}
+#recipe_list td.first{width:400px;}
+#recipe_list td.last{text-align:right; padding-right:5px;}
+#favorite_1, #favorite_2, #favorite_3, #favorite_4, #favorite_5, #favorite_6{width:230px; padding:13px 0 14px; text-align:center; float:left;}
+/* Favorit */
+a.fav_1{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_1:hover, .ico_favorite_1{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: 0 -60px;}
+/* Email */
+a.fav_2{background:url(../img/icon_sprite_admin.png) -60px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_2:hover, .ico_favorite_2{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -60px -60px;}
+/* Pulsa Isi Ulang */
+a.fav_3{background:url(../img/icon_sprite_admin.png) -120px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_3:hover, .ico_favorite_3{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -120px -60px;}
+/* Cek Status Pulsa */
+a.fav_4{background:url(../img/icon_sprite_admin.png) -180px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_4:hover, .ico_favorite_4{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -180px -60px;}
+/* PLN Pra Bayar */
+a.fav_5{background:url(../img/icon_sprite_admin.png) -240px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_5:hover, .ico_favorite_5{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -240px -60px;}
+/* Tambah daftar Penerima Transfer */
+a.fav_6{background:url(../img/icon_sprite_admin.png) -300px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_6:hover, .ico_favorite_6{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -300px -60px;}
+/* Transfer Intern BPRKS */
+a.fav_7{background:url(../img/icon_sprite_admin.png) -360px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_7:hover, .ico_favorite_7{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -360px -60px;}
+/* Transfer Batch */
+a.fav_8{background:url(../img/icon_sprite_admin.png) -420px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_8:hover, .ico_favorite_8{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -420px -60px;}
+/* Transfer Extern BPRKS */
+a.fav_9{background:url(../img/icon_sprite_admin.png) -480px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_9:hover, .ico_favorite_9{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -480px -60px;}
+/* Pembayaran PLN */
+a.fav_10{background:url(../img/icon_sprite_admin.png) -540px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_10:hover, .ico_favorite_10{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -540px -60px;}
+/* Pembayaran Telkom */
+a.fav_11{background:url(../img/icon_sprite_admin.png) -600px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_11:hover, .ico_favorite_11{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -600px -60px;}
+/* Pembayaran Internet */
+a.fav_12{background:url(../img/icon_sprite_admin.png) -660px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_12:hover, .ico_favorite_12{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -660px -60px;}
+/* Pembayaran Tiket Kereta Api */
+a.fav_13{background:url(../img/icon_sprite_admin.png) -720px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_13:hover, .ico_favorite_13{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -720px -60px;}
+/* Pembayaran TV */
+a.fav_14{background:url(../img/icon_sprite_admin.png) -780px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_14:hover, .ico_favorite_14{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -780px -60px;}
+/* Pembayaran Handphone Pasca Bayar */
+a.fav_15{background:url(../img/icon_sprite_admin.png) -840px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_15:hover, .ico_favorite_15{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -840px -60px;}
+/* Tambah Nomor Kartu */
+a.fav_16{background:url(../img/icon_sprite_admin.png) -900px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_16:hover, .ico_favorite_16{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -900px -60px;}
+/* Informasi Undian */
+a.fav_17{background:url(../img/icon_sprite_admin.png) -960px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_17:hover, .ico_favorite_17{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -960px -60px;}
+/* Portal */
+a.fav_18{background:url(../img/icon_sprite_admin.png) -1020px 0; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_18:hover, .ico_favorite_18{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -1020px -60px;}
+/* Laporan Batch Gagal */
+a.fav_19{background:url(../img/icon_sprite_admin.png) 0 -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_19:hover, .ico_favorite_19{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: 0 -180px;}
+/* Saldo Rekening */
+a.fav_20{background:url(../img/icon_sprite_admin.png) -60px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_20:hover, .ico_favorite_20{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -60px -180px;}
+/* Mutasi Rekering */
+a.fav_21{background:url(../img/icon_sprite_admin.png) -120px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_21:hover, .ico_favorite_21{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -120px -180px;}
+/* Histori Transaksi Rekening */
+a.fav_22{background:url(../img/icon_sprite_admin.png) -180px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_22:hover, .ico_favorite_22{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -180px -180px;}
+/* History Transaksi Gagal */
+a.fav_23{background:url(../img/icon_sprite_admin.png) -240px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_23:hover, .ico_favorite_23{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -240px -180px;}
+/* Activasi Transaksi */
+a.fav_24{background:url(../img/icon_sprite_admin.png) -300px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_24:hover, .ico_favorite_24{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -300px -180px;}
+/* ubah Password */
+a.fav_25{background:url(../img/icon_sprite_admin.png) -360px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_5:hover, .ico_favorite_25{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -360px -180px;}
+/* aktivasi email */
+a.fav_26{background:url(../img/icon_sprite_admin.png) -420px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_26:hover, .ico_favorite_26{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -420px -180px;}
+/* hapis daftar penerima transfer */
+a.fav_27{background:url(../img/icon_sprite_admin.png) -480px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_27:hover, .ico_favorite_27{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -480px -180px;}
+/* ubah profil */
+a.fav_28{background:url(../img/icon_sprite_admin.png) -540px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_28:hover, .ico_favorite_28{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -540px -180px;}
+/* Hapus Daftar Pembayaran */
+a.fav_29{background:url(../img/icon_sprite_admin.png) -600px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_29:hover, .ico_favorite_29{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -600px -180px;}
+/* Tambah Rekening */
+a.fav_30{background:url(../img/icon_sprite_admin.png) -660px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_30:hover, .ico_favorite_30{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -660px -180px;}
+/* Aktifkan Rekening */
+a.fav_31{background:url(../img/icon_sprite_admin.png) -720px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_31:hover, .ico_favorite_31{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -720px -180px;}
+/* Cash In */
+a.fav_32{background:url(../img/icon_sprite_admin.png) -780px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_32:hover, .ico_favorite_32{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -780px -180px;}
+/* Cash Out */
+a.fav_33{background:url(../img/icon_sprite_admin.png) -840px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_33:hover, .ico_favorite_33{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -840px -180px;}
+/* Refund */
+a.fav_34{background:url(../img/icon_sprite_admin.png) -900px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_34:hover, .ico_favorite_34{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -900px -180px;}
+/* Check Status */
+a.fav_35{background:url(../img/icon_sprite_admin.png) -960px -120px; display:block; width:60px; height:60px; margin:0 auto;}
+a.fav_35:hover, .ico_favorite_35{background:url(../img/icon_sprite_admin.png); display:block; width:60px; height:60px; margin:0 auto; background-position: -960px -180px;}
+.ico_position{position:absolute; top:10px; right:10px;}
+#footer{margin-bottom:10px; position:relative;}
+#footer hr{margin:10px 0;}
+#footer p{color:#666; font-size:9px; margin:0;}
+#footer p span.small_logo{background:url(../img/general_admin.jpg) -112px -16px; width:9px; height:9px; float:left; margin-right:5px; margin-top:2px;}
+#footer p.call_center{position:absolute; top:35px; right:0;}
+#foor_link{list-style-type:none; margin:0; padding:0; position:absolute; top:-3px; right:0;}
+#foor_link li{float:left; margin:0; padding:0; margin-left:10px;}
+#foor_link li p{padding-top:4px;}
+#foor_link li a{text-decoration:none; color:#09F; font-size:9px;}
+#foor_link li a:hover{text-decoration:underline;}
+.error_field{border:1px solid #C00;}
+.error_msg{float:right; margin-right:10px; padding:1px 10px 0 10px; color:#FFF; background-color:#C00; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; position:relative; font-weight:lighter;}
+.error_msg span{width:8px; height:11px; background:url(../img/transparent.png) -6px -14px; position:absolute; top:5px; left:-6px;}
+#notivy_yellow{width:580px; padding:10px 15px; background-color:#fff7d8; border:1px solid #ffcc99; position:relative; margin:0 auto; margin-top:20px; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;}
+#notivy_green{width:580px; padding:10px 15px; background-color:#dcffd8; border:1px solid #00ff06; position:relative; margin:0 auto; margin-top:20px; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;}
+#notivy_red{width:580px; padding:10px 15px; background-color:#ffd8d8; border:1px solid #ff0000; position:relative; margin:0 auto; margin-top:20px; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;}
+#notivy_message ol{margin:0; padding:0 }
+
+#notivy_message ol li{margin-left:20px;}
+#notivy_message p{text-align:center; margin:0; padding:0;}
+.datePicker{width:200px; !important;}
+.datePicker td{padding:3px 0 !important;}
+.datePicker .header{height:25px;}
+.datePicker .grid{height:150px;}
+.datePicker .footer{height:20px;}
+.datePicker .previousButton, .datePicker .nextButton{margin:6px;}
+.radioGroup{margin-left:25px;}
+input{float:left; margin-top:2px; margin-right:5px;}
+DIV.t-error {
+border: 1px solid #cc0000;
+margin: 4px 10px;
+padding: 0;
+border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+}
+DIV.t-error DIV {
+background-color: #CC0000;
+color: white;
+display: block;
+font-weight: bold;
+margin: 0;
+padding: 2px 10px;
+border-top-right-radius:5px; -moz-border-radius-topright:5px; -webkit-border-top-right-radius:5px; border-top-left-radius:5px; -moz-border-radius-topleft:5px; -webkit-border-top-left-radius:5px;
+}
+DIV.t-error UL {
+background-color: white;
+color: #CC0000;
+margin: 2px 0;
+list-style-type:none;
+border-bottom-right-radius:5px; -moz-border-radius-bottomright:5px; -webkit-border-bottom-right-radius:5px; border-bottom-left-radius:5px; -moz-border-radius-bottomleft:5px; -webkit-border-bottom-left-radius:5px;
+}
+DIV.t-error LI {
+margin-left: 10px !important;
+}
+DIV.t-error-single {
+background-color: #CC0000;
+color: white;
+display: block;
+margin: 0;
+padding: 2px;
+}
+
+.searchReference{background:url(../img/search.png); width:20px; height:20px; border:none; cursor:pointer; margin-left:5px;}
+.flleft{float:left;}
+
+DIV.t-data-grid-pager SPAN.current {
+    background-color: #274674;
+    border: 1px solid #011d45;
+    color: white;
+}
+
+TABLE.t-data-grid THEAD TR TH {
+    background-color: #274674;
+    border-bottom: 1px solid #011d45;
+    border-right: 1px solid #011d45;
+    padding: 1px 3px;
+    text-align: left;
+    white-space: nowrap;
+    width: 250px;
+}
+
+td.tx_right{text-align:right !important;}

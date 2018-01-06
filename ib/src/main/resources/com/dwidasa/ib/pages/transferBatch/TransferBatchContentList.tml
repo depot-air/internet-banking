@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+<style type="text/css">
+.amount {
+text-align: right;
+}
+.accountNumber, .action {
+text-align: center;
+}
+</style>
+<div id="main_content">
+	<span class="emb_left"></span> <span class="emb_right"></span> <span
+		class="emb_botleft"></span> <span class="emb_botright"></span> <span
+		class="emb_footrpt"></span>
+	<h2>${message:title}</h2>
+	
+	<t:form class="formfield" clientValidation="submit">
+	<fieldSet>
+            <legend>${message:batch}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:batchName}</label>
+                    </td>
+                    <td class="last">
+                        <label>${batch.batchName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:description}</label>
+                    </td>
+                    <td>
+                        <label>${batch.description} &#160;&#160;&#160;&#160;&#160;<t:eventlink t:id="editDetail" t:context="id">[ ${message:edit} ]</t:eventlink></label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:batchContent}</legend>
+			<table t:type="grid" source="dataSource" row="row"
+				rowsPerPage="pageSize" add="action" include="accountNumber, customerName, amount, description"
+				width="100%" t:mixins="gridSortingDisabled">
+				<t:parameter name="empty">
+					<div id="emptyData" style="margin-left:5px">${message:emptyData}</div>
+				</t:parameter>
+				<p:amountCell>
+					<t:output value="row.amount" format="formatter"/>
+				</p:amountCell>
+				<p:actionCell>
+	                <a t:type="actionlink" t:id="delete" t:context="row.id"
+						onClick="return confirm('${message:confirmDelete}');">${message:delete}</a>
+				</p:actionCell>
+			</table>
+			<br/>
+		<t:submit t:id="back" value="message:back" class="grey_btn ml10"
+			mode="cancel" />
+		<t:submit t:id="add" value="message:add" class="grey_btn mr10"
+			mode="cancel" />
+		</fieldSet>
+	</t:form>
+
+</div>
+
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+<span class="emb_left"></span>
+<span class="emb_right"></span>
+<span class="emb_botleft"></span>
+<span class="emb_botright"></span>
+<span class="emb_footrpt"></span>
+
+<h2>${message:title}</h2>
+
+<t:form class="formfield" clientValidation="submit">
+<t:errors banner="message:errorBanner"/>
+<fieldSet>
+    <legend>${message:accountData}</legend>
+    <table>
+
+        <tr class="odd">
+            <td class="first">
+                <label>${message:accountNumber}</label>
+            </td>
+            <td class="last">
+                <label>${refundDelimaView.accountNumber}</label>
+            </td>
+        </tr>
+    </table>
+</fieldSet>
+
+
+<hr/>
+
+<fieldSet>
+    <legend>${message:transferData}</legend>
+    <table>
+        <tr class="odd">
+            <td class="first">
+                <label>${message:transferCode}</label>
+            </td>
+            <td class="last ">
+                <label>${refundDelimaView.customerReference}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:amount}</label>
+            </td>
+            <td>
+                <label><t:output value="refundDelimaView.amount" format="formatter"/></label>
+
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:transferFee}</label>
+            </td>
+            <td>
+                <label><t:output value="refundDelimaView.providerFee" format="formatter"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:total}</label>
+            </td>
+            <td>
+                <label><t:output value="total" format="formatter"/></label>
+            </td>
+        </tr>
+
+    </table>
+</fieldSet>
+
+<hr/>
+
+<fieldSet>
+    <legend>${message:senderData}</legend>
+    <table>
+        <tr class="odd">
+            <td class="first">
+                <label>${message:name}</label>
+            </td>
+            <td class="last">
+                <label>${refundDelimaView.senderName}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:IdNumber}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.senderIdNumber}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:cardType}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.senderCardType}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:gender}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.senderGender}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:address}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.senderAddress}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:city}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.senderCity}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:postalCode}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.senderPostalCode}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:country}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.senderCountry}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:pob}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.senderPob}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:dob}</label>
+            </td>
+            <td>
+                <label>
+                    <t:output value="refundDelimaView.senderDob" format="mediumDate"/>
+                </label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:phone}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.senderPhoneNumber}</label>
+            </td>
+        </tr>
+    </table>
+</fieldSet>
+
+<hr/>
+
+
+<fieldSet>
+    <legend>${message:receiverData}</legend>
+    <table>
+
+        <tr class="odd">
+            <td class="first">
+                <label>${message:name}</label>
+            </td>
+            <td class="last">
+                <label>${refundDelimaView.receiverName}</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>${message:idNumber}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.receiverIdNumber}</label>
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <td>
+                <label>${message:cardType}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.receiverCardType}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:gender}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.receiverGender}</label>
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <td>
+                <label>${message:address}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.receiverAddress}</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>${message:city}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.receiverCity}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:postalCode}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.receiverPostalCode}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:country}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.receiverCountry}</label>
+            </td>
+
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:pob}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.receiverPob}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:dob}</label>
+            </td>
+            <td>
+                <t:output value="refundDelimaView.receiverDob" format="mediumDate"/>
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <td>
+                <label>${message:phone}</label>
+            </td>
+            <td>
+                <label>${refundDelimaView.receiverPhoneNumber}</label>
+            </td>
+        </tr>
+
+    </table>
+</fieldSet>
+
+
+<t:Token token="tokenView.token" token6Digit="tokenView.token" statud="even" challenge="tokenView.challenge"
+         mode="tokenType"/>
+
+<t:submit t:id="cancel" class="grey_btn ml10" value="message:cancel" mode="cancel"/>
+<t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+
+
+</t:form>
+</div>
+</html>
+
+
+
+

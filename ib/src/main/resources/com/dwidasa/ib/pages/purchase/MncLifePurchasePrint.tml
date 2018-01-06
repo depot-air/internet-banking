@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="" referenceNumber="${mcnMncLifePurchaseView.referenceNumber}" transactionDateString="${mcnMncLifePurchaseView.transactionDateString}"  
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+
+	<p class="center" align="center">
+		        <br />
+		        <br />
+			    <span class="upercase" style="font-weight:bold;">${message:header1}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:header2}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:header3}</span><br/>
+			   
+	    </p>
+
+        <table class="dg_first">
+<!--         	<tr> -->
+<!--             	<td class="center" colSpan="3" style="font-weight: bold;">${mcnMncLifePurchaseView.productName}</td> -->
+<!--             </tr> -->
+            <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:nomorPolis}</td>
+                <td>:</td>
+                <td>${mcnMncLifePurchaseView.NomoPolis1}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:tanggalawalpolis}</td>
+                <td>:</td>
+                <td>${FormatTglAwal} s/d ${FormatTglAkhir}</td>
+            </tr>
+            
+             <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:namatertanggung}</td>
+                <td>:</td>
+                <td>${mcnMncLifePurchaseView.namaTertanggung}</td>
+            </tr>
+            
+            <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:tempatLahir}</td>
+                <td>:</td>
+                <td>${mcnMncLifePurchaseView.tempatLahir}, ${FormatTgl}</td>
+            </tr>
+           
+           
+             <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:nomorKtp}</td>
+                <td>:</td>
+                <td>${mcnMncLifePurchaseView.CustomerReference}</td>
+            </tr>
+           
+         
+           
+             <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:alamat}</td>
+                <td>:</td>
+                <td>${mcnMncLifePurchaseView.alamat}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:kota}</td>
+                <td>:</td>
+                <td>${mcnMncLifePurchaseView.kota}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:namaAhliWaris1}</td>
+                <td>:</td>
+                <td>${mcnMncLifePurchaseView.namaAhliWaris1}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:namaAhliWaris2}</td>
+                <td>:</td>
+                <td>${mcnMncLifePurchaseView.namaAhliWaris2}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:namaAhliWaris3}</td>
+                <td>:</td>
+                <td>${mcnMncLifePurchaseView.namaAhliWaris3}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:premiAsuransi}</td>
+                <td>:</td>
+                <td>Rp. 55.000</td>
+            </tr>
+           
+            <tr/>
+            <tr/>
+        </table>
+       
+        <p class="center" align="center">
+		        <br />
+			    <span class="upercase" style="font-weight:bold;">${message:footNote1}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footNote2}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footNote3}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footNote4}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footNote5}</span><br/>
+			    
+			    <br />
+			    <span class="upercase" style="font-weight:bold;">${message:footdownNote1}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdownNote2}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdownNote3}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdownNote4}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdownNote5}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdownNote6}</span><br/>
+			    
+			    <br />
+			    <span class="upercase" style="font-weight:bold;">${message:footdown1Note}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdown2Note}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdown3Note}</span><br/>
+			    
+	    </p>
+	   		 
+       
+</html>

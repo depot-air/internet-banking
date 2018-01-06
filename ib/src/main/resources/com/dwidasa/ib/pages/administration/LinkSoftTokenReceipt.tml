@@ -1,0 +1,55 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      t:type="layout" title="message:title" group="message:group"
+      xmlns:p="tapestry:parameter">
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+
+	<h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_29"></div>
+	<hr/>
+    <form t:type="form" class="formfield" t:clientValidation="submit">
+
+        <t:errors banner="message:errorBanner"/>
+        
+       
+        <fieldSet>
+<!--             <legend>${message:information}</legend> -->
+            <table>
+                <tbody>
+<!--         		<tr class="even"> -->
+<!--                     <td class="first"> -->
+<!--  	                   <label>${message:perangkat}</label> -->
+<!--  	                </td> -->
+<!--                     <td><span></span> -->
+<!--                         <label>${namaPerangkat}</label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+				<div id="notivy_yellow">
+            		<div id="notivy_message">
+                		${message:noteEmailChangeInput1}<br/>
+                		
+               		</div>
+           		 </div>
+                
+					
+			</tbody>
+			</table>
+			</fieldSet>
+		<hr/>
+		
+                 
+<!--         <div id="form_submit_btn"> -->
+        	
+<!--             <t:submit t:id="send" value="message:send" class="grey_btn mr10"/> -->
+          
+<!--         </div> -->
+        
+    </form>
+</div>
+</html>

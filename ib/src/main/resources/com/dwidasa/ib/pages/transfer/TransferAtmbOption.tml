@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_9"></div>
+    <hr/>
+
+    <form t:type="form" class="formfield" t:clientValidation="submit">
+        <fieldSet>
+            <legend>${message:transferData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="bankName"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="bankName" t:value="transferView.billerCode"
+                                  model="billerModel" blankLabel="Pilih" validate="required"
+                                  blankOption="never" label="message:bankName"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </form>
+</div>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="Delima"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+<span class="emb_left"></span>
+<span class="emb_right"></span>
+<span class="emb_botleft"></span>
+<span class="emb_botright"></span>
+<span class="emb_footrpt"></span>
+
+<h2>${message:title}</h2>
+
+<div class="ico_position ico_favorite_3"></div>
+
+<t:form class="formfield" clientValidation="submit">
+<t:errors banner="${message:errorBanner}"/>
+
+<fieldSet>
+<legend>${message:sumberDana}</legend>
+<table>
+    <tr class="odd">
+        <td class="first">
+            <label>${message:accountNumber}</label>
+        </td>
+        <td class="last">
+            <label>${cashInDelimaView.accountNumber}</label>
+        </td>
+    </tr>
+</table>
+</fieldSet>
+<hr/>
+
+<fieldSet>
+    <legend>${message:transferData}</legend>
+    <table>        
+        <tr class="odd">
+            <td class="first">
+                <label>${message:customerReference}</label>
+            </td>
+            <td class="last">
+                <label>${cashInDelimaView.customerReference}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:nominalTransfer}</label>
+            </td>
+            <td>
+                <label><t:output value="cashInDelimaView.amount" format="formatter"/></label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:transferFee}</label>
+            </td>
+            <td>
+                <label><t:output value="cashInDelimaView.providerFee" format="formatter"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:total}</label>
+            </td>
+            <td>
+              <label><t:output value="total" format="formatter"/></label>
+            </td>
+        </tr>
+    </table>
+</fieldSet>
+
+<hr/>
+
+
+<fieldSet>
+    <legend>${message:senderData}</legend>
+    <table>
+        
+        <tr class="odd">
+            <td class="first">
+                <label>${message:senderName}</label>
+            </td>
+            <td class="last">
+                <label>${cashInDelimaView.senderName}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:senderId}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.senderIdNumber}</label>
+            </td>
+        </tr>
+		<tr class="odd">
+            <td>
+                <label>${message:senderPob}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.senderPob}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:senderDob}</label>
+            </td>
+            <td>
+                <label><t:output value="cashInDelimaView.senderDob" format="mediumDate"/></label>
+            </td>
+        </tr>
+        
+        <tr class="odd">
+            <td>
+                <label>${message:senderPhone}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.senderPhoneNumber}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:senderAddress}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.senderAddress}</label>
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <td>
+                <label>${message:senderCity}</label>
+            </td>
+            <td>
+                <label>${cashIndelimaView.senderCity}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:senderCountry}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.senderCountry}</label>
+            </td>
+        </tr>
+        
+        <tr class="odd">
+            <td>
+                <label>${message:senderProfession}</label>
+            </td>
+            <td>
+                <label>${cashIndelimaView.senderProfession}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:senderNationality}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.senderNationality}</label>
+            </td>
+        </tr>        
+    </table>
+</fieldSet>
+
+<fieldSet>
+    <legend>${message:news}</legend>
+    <table>      
+        <tr class="odd">
+            <td class="first">
+                <label>${message:newsMoneySource}</label>
+            </td>
+            <td class="last">
+                <label>${cashInDelimaView.newsMoneySource}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:newsMoneyPurpose}</label>
+            </td>
+            <td class="last">
+                <label>${cashInDelimaView.newsMoneyPurpose}</label>
+            </td>
+        </tr>
+    </table>
+</fieldSet>
+
+<hr/>
+
+<fieldSet>
+    <legend>${message:receiverData}</legend>
+    <table>
+        <tr class="odd">
+            <td class="first">
+                <label>${message:receiverName}</label>
+            </td>
+            <td class="last">
+                <label>${cashInDelimaView.receiverName}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:senderId}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.senderIdNumber}</label>
+            </td>
+        </tr>
+		<tr class="odd">
+            <td>
+                <label>${message:senderPob}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.senderPob}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:senderDob}</label>
+            </td>
+            <td>
+                <label><t:output value="cashInDelimaView.senderDob" format="mediumDate"/></label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:receiverPhone}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.receiverPhoneNumber}</label>
+            </td>
+        </tr>        
+        <tr>
+            <td>
+                <label>${message:receiverAddress}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.receiverAddress}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:receiverCity}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.receiverCity}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:receiverCountry}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.receiverCountry}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:receiverProfession}</label>
+            </td>
+            <td>
+                <label>${cashIndelimaView.receiverProfession}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:receiverNationality}</label>
+            </td>
+            <td>
+                <label>${cashInDelimaView.receiverNationality}</label>
+            </td>
+        </tr>   
+    </table>
+</fieldSet>
+<hr/>
+<t:Token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge"
+         mode="tokenType"/>
+
+
+<!--t:submit t:id="cancel" class="grey_btn ml10" value="message:cancel" mode="cancel"/-->
+<a t:type="ActionLink" t:id="cancel" >
+	<input type="button" onclick="window.open(IB.fn.contextPath()+'/purchase/VoucherPurchaseInput');"
+    	class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+</a>
+<t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+</t:form>
+</div>
+</html>
+
+
+
+

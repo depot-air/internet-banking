@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_10"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account accountNumber="plnPaymentView.accountNumber" cardNumber="plnPaymentView.cardNumber"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:paymentData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="providerCode"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="providerCode" t:model="providerModel" blankOption="never" value="plnPaymentView.providerCode"
+                                  label="message:providerCode"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colSpan="2">
+                        <label>${message:description}</label>
+                    </td>
+                </tr>
+                <t:radioGroup value="chooseValue">
+                    <tr class="odd">
+                        <td>
+                            <t:radio t:id="fromId" value="literal:fromId" class="radio" label="message:fromId"/>
+                            <t:label for="fromId"/>
+                        </td>
+                        <td>
+                            <input t:id="customerReference1" t:type="textField"
+                                   validate="requiredIf=checkFromId, regExp=^[0-9]+$, minLength=12" maxLength="12"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input t:type="checkBox" t:id="saveBox" value="saveBoxValue" label="message:saveBox"/>
+                            <t:label for="saveBox"/>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <t:radio t:id="fromList" value="literal:fromList" class="radio" label="message:fromList"/>
+                            <t:label for="fromList"/>
+                        </td>
+                        <td>
+                            <t:select t:id="customerReference2" t:model="customerReferenceModel" blankOption="never" validate="requiredIf=checkFromList"/>
+                        </td>
+                    </tr>
+                </t:radioGroup>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </form>
+</div>
+</html>

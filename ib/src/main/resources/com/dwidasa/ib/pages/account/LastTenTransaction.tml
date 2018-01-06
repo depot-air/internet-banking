@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+
+    <t:form class="formfield" t:id="accountStatement" clientValidation="submit">
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        ${message:accountNumber}
+                    </td>
+                    <td class="last">
+                        ${accountView.accountNumber}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first">
+                        ${message:customerName}
+                    </td>
+                    <td class="last">
+                        ${accountView.customerName}
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        ${message:currency}
+                    </td>
+                    <td>
+                        ${accountView.currencyCode}
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:statementData}</legend>
+
+            <div class="table_grid">
+                <table width="100%">
+                    <thead>
+                    <tr>
+                        <th>${message:date}</th>
+                        <th>${message:remark}</th>
+                        <th>${message:noRef}</th>
+                        <th>${message:amount}</th>
+                        <th>${message:balance}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr t:type="loop" t:source="asvList" t:value="asv" class="prop:evenOdd.next" encoder="encoder">
+                        <td><t:output value="asv.valueDate" format="prop:shortDate"/></td>
+                        <td>${asv.description}</td>
+                        <td>${asv.referenceNumber}</td>
+                        <td class="tx_right">${asv.formattedAmount}</td>
+                        <td class="tx_right"><t:output value="asv.runningBalance" format="formatter"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:statementSummary}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        ${message:beginningBalance}
+                    </td>
+                    <td class="last">
+                        <div class="grid100right">
+                            <t:output value="beginningBalance" format="formatter"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:credit}
+                    </td>
+                    <td>
+                        <div class="grid100right">
+                            <t:output value="credit" format="formatter"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        ${message:debet}
+                    </td>
+                    <td>
+                        <div class="grid100right">
+                        	<t:if test="notNullDebet">
+                            	${message:leftCurly}<t:output value="debet" format="formatter"/>${message:rightCurly}
+                            </t:if>	
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:endingBalance}
+                    </td>
+                    <td>
+                        <div class="grid100right">
+                            <t:output value="endingBalance" format="formatter"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+
+        <t:submit t:id="back" value="message:back" class="grey_btn ml10"/>
+        
+        <!--input type="button"
+               onclick="popupInfo('/account/accountStatementPrint')"
+               class="grey_btn right" t:type="any" value="message:print"/-->
+        <!--t:submit t:id="print" value="message:print" class="grey_btn mr10"/-->
+    </t:form>
+</div>
+</html>

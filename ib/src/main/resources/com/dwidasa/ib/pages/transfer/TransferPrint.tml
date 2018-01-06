@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${transferView.referenceNumber}" transactionDateString="${transferView.transactionDateString}"   
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<table class="dg_first">
+    <tr>
+        <td class="firstcol" style="font-weight:bold;">${message:date}</td>
+        <td>:</td>
+        <td>
+        	<t:output value="transferView.transactionDate" format="mediumDate"/>
+		</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:time}</td>
+        <td>:</td>
+        <td>
+        	<t:output value="transferView.transactionDate" format="time"/>
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:noReferensi}</td>
+        <td>:</td>
+        <td>${transferView.referenceNumber}</td>
+    </tr>
+<!--     <tr> -->
+<!--         <td>${message:cardNumber}</td> -->
+<!--         <td>:</td> -->
+<!--         <td>${transferView.cardNumber}</td> -->
+<!--     </tr> -->
+    <tr>
+        <td style="font-weight:bold;">${message:acountSource}</td>
+        <td>:</td>
+        <td>${transferView.accountNumber}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:reference}</td>
+        <td>:</td>
+        <td>${transferView.customerReference}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:receiver}</td>
+        <td>:</td>
+        <td>${transferView.receiverName}
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:amount}</td>
+        <td>:</td>
+        <td>${message:curr}
+        	<t:output value="transferView.amount" format="formatter"/>
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:description}</td>
+        <td>:</td>
+        <td>${getDashIfEmpty(transferView.description)}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:transferType}</td>
+        <td>:</td>
+        <td>${typeTransfer}</td>
+    </tr>                
+    <tr>
+    	<td style="font-weight:bold;">${message:status}</td>
+        <td>:</td>
+        <td>${status}</td>
+    </tr>
+	<tr/>
+	<tr/>
+	<tr/>   		
+</table>
+	
+	<p class="center" align="center">
+	    <span class="upercase" style="font-weight:bold;">${message:footNote1}</span><br/>
+	    <span class="upercase" style="font-weight:bold;">${message:footNote2}</span><br/>
+	    <span class="upercase" style="font-weight:bold;">${message:footNote3}</span><br/>
+   	</p>
+</html>

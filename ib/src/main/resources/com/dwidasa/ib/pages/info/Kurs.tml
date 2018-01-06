@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>BPR KS Internet Banking</title>
+<link rel="shortcut icon" href="bprks.ico" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/text.css" />
+<link rel="stylesheet" type="text/css" href="css/960.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <div id="main_content">
+        <h2>${message:title}</h2>
+        <fieldSet>
+            <div class="table_grid">
+            <table width="100%">
+		        <thead>
+			        <tr>
+				        <th>${message:titlecolumn1}</th>
+				        <th>${message:titlecolumn2}</th>
+				        <th>${message:titlecolumn3}</th>
+				        <th>${message:titlecolumn4}</th>
+			        </tr>
+		        </thead>
+                <tbody>
+                    <tr t:type="loop" t:source="allExchangeRates" t:value="exchangeRate" class="prop:evenOdd.next">
+                         <td>${exchangeRate.currency}</td>
+                         <td>${exchangeRate.country}</td>
+                         <td>${exchangeRate.buyPrice}</td>
+                         <td>${exchangeRate.soldPrice}</td>
+                     </tr>
+                </tbody>
+            </table>
+            </div>
+        </fieldSet>
+        <p><li>${message:note} ${nowDate}.</li></p>
+    </div>
+</body>
+</html>

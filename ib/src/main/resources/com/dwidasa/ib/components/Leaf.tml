@@ -1,0 +1,19 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    <t:content>
+    	<t:if test="activeNode">
+	        <li class="active">
+	            <t:eventlink event="redirect" context="[node.location, node.parentId]">
+	                ${menuName}
+	            </t:eventlink>
+	        </li>
+        <p:else>
+        	<li>
+	            <t:eventlink event="redirect" context="[node.location, node.parentId]">
+	                ${menuName}
+	            </t:eventlink>
+	        </li>
+        </p:else>
+        </t:if>
+    </t:content>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_13"></div>
+    
+    <t:form id="form" class="formfield" autofocus="false" clientValidation="none">
+        <t:errors banner="message:errorBanner"/>
+	<fieldset>
+	<legend>Info Perjalanan (Kode Booking: ${view.bookingCode})</legend>
+	<table class="t-data-grid">
+		<thead>
+		<tr>
+		<th>Nama / Nomor Kereta Api</th>
+		<th>Berangkat</th>
+		<th>Tiba</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>${view.trainName} / ${view.trainNumber}</td>
+			<td>${view.originName} (${view.originCode})<br/>${strDeparture}</td>
+			<td>${view.destinationName} (${view.destinationCode})<br/>${strArrival}</td>
+		</tr>
+		</tbody>
+	</table>
+    </fieldset>
+    <fieldset>
+	<legend>Info Penumpang</legend>
+	<table class="t-data-grid">
+		<thead>
+		<tr>
+		<th>Nama</th>
+		<th>Nomor Identitas</th>
+		<th>Tipe</th>
+		<th style="padding-right:0px">Tempat Duduk</th>
+		</tr>
+		</thead>
+		<tbody>
+		<t:loop t:source="view.passengerList" value="passenger" formstate="none">
+		<tr>
+		<td>${passenger.strName}</td>
+		<td>${passenger.idNumber}</td>
+		<td>${passenger.strType}</td>
+		<td style="padding-right:0px">${passenger.strSeat}</td>
+		</tr>
+		</t:loop>
+		</tbody>
+	</table>
+	<t:submit t:id="changeSeat" class="green_btn mr10" value="Pindah Kursi"/>
+    </fieldset>
+    <fieldset>
+	<legend>Info Harga</legend>
+	<table class="t-data-grid">
+		<thead>
+		<tr>
+		<th>Tipe Penumpang</th>		
+		<th>Jumlah Penumpang</th>
+		<th style="width:85px;padding-right:0px">Harga Satuan</th>
+		<th style="width:100px;padding-left:0px"></th>
+		<th style="width:70px;padding-right:0px; padding-left:15px">Total Harga</th>
+		<th style="width:100px;padding-left:0px"></th>
+		</tr>
+		</thead>
+		<tbody>
+		<t:if test="view.adult">		
+		<tr>
+		<td>Dewasa</td>
+		<td>${view.adult}</td>
+		<td style="padding-right:0px">Rp.</td>
+		<td style="text-align:right; padding-left:0px"><t:output value="view.adultFare" format="formatter"/></td>
+		<td style="padding-right:0px; padding-left:15px">Rp.</td>
+		<td style="text-align:right; padding-left:0px"><t:output value="view.totalAdultFare" format="formatter"/></td>
+		</tr>
+		</t:if>
+		<t:if test="view.child">		
+		<tr>
+		<td>Anak</td>
+		<td>${view.child}</td>
+		<td style="padding-right:0px">Rp.</td>
+		<td style="text-align:right;padding-left:0px"><t:output value="view.childFare" format="formatter"/></td>
+		<td style="padding-right:0px; padding-left:15px">Rp.</td>
+		<td style="text-align:right; padding-left:0px"><t:output value="view.totalChildFare" format="formatter"/></td>
+		</tr>
+		</t:if>
+		<t:if test="view.infant">		
+		<tr>
+		<td>Infant</td>
+		<td>${view.infant}</td>
+		<td style="padding-right:0px">Rp.</td>
+		<td style="text-align:right;padding-left:0px"><t:output value="view.infantFare" format="formatter"/></td>
+		<td style="padding-right:0px; padding-left:15px">Rp.</td>
+		<td style="text-align:right; padding-left:0px"><t:output value="view.totalInfantFare" format="formatter"/></td>
+		</tr>
+		</t:if>
+		<tr>
+		<td>Convenience Fee</td>
+		<td></td><td></td><td></td>
+		<td style="padding-right:0px; padding-left:15px">Rp.</td>
+		<td style="text-align:right;padding-left:0px"><t:output value="view.fee" format="formatter"/></td>
+		</tr>
+		<t:if test="view.discount">
+		<tr>
+		<td>Diskon</td>
+		<td></td><td></td><td></td>
+		<td style="padding-right:0px; padding-left:15px">Rp.</td>
+		<td style="text-align:right;padding-left:0px"><t:output value="view.discount" format="formatter"/></td>
+		</tr>
+		</t:if>
+		<tr>
+		<td></td><td></td><td></td>
+		<td style="text-align:right"><strong>Total</strong></td>
+		<td style="padding-right:0px; padding-left:15px"><strong>Rp.</strong></td>
+		<td style="text-align:right;padding-left:0px"><strong><t:output value="view.totalPay" format="formatter"/></strong></td>
+		</tr>		
+		</tbody>
+	</table>
+    </fieldset>
+    <t:token token="tokenView.token" token6Digit="tokenView.token" challenge="tokenView.challenge" mode="tokenType"/>
+    <t:submit t:id="send" class="green_btn mr10" value="message:send"/>
+    <t:submit t:id="back" class="grey_btn ml10" value="message:cancel" mode="cancel"/> 
+</t:form>
+</div>
+</html>
+    
+    

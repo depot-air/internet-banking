@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${plnPurchaseView.referenceNumber}" transactionDateString="${plnPurchaseView.transactionDateString}" 
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter">
+<div id="main_content">  
+	<form t:type="form" class="formfield" >
+        <b><t:errors banner="message:blank"/></b>
+        <table class="dg_first">        	
+            <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:customerReference}</td>
+                <td>:</td>
+                <td>${plnPurchaseView.meterNumber}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:customerId}</td>
+                <td>:</td>
+                <td>${plnPurchaseView.customerReference}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:referenceName}</td>
+                <td>:</td>
+                <td>${plnPurchaseView.referenceName}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:powerCategory}</td>
+                <td>:</td>
+                <td>${plnPurchaseView.powerCategory}${message:va}</td>
+            </tr>
+            <tr>
+            
+                <td style="font-weight: bold;">
+                	<t:if test="gsp">
+                    	${message:gspRef}
+                    </t:if>	
+                	<t:if test="! gsp">
+                    	${message:sybRef}
+                    </t:if>	
+                </td>
+                <td>:</td>                
+                <td>${plnPurchaseView.gspRef}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:paymentAmount}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <!--
+                    <t:output value="plnPurchaseView.paymentAmount" format="formatter"/>
+                    -->
+                    <t:output value="plnPurchaseView.amount" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:fee}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="plnPurchaseView.fee" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:stamp}</td>
+                <td>:</td>
+                <td>${message:curr}
+<!--                     <t:output value="plnPurchaseView.stamp" format="formatter"/> -->
+					${getcurrencyFormat(plnPurchaseView.stamp)}
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:ppn}</td>
+                <td>:</td>
+                <td>${message:curr}
+<!--                     <t:output value="plnPurchaseView.ppn" format="formatter"/> -->
+					${getcurrencyFormat(plnPurchaseView.ppn)}
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:ppj}</td>
+                <td>:</td>
+                <td>${message:curr}
+<!--                     <t:output value="plnPurchaseView.ppj" format="formatter"/> -->
+					${getcurrencyFormat(plnPurchaseView.ppj)}
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:installment}</td>
+                <td>:</td>
+                <td>${message:curr}
+<!--                     <t:output value="plnPurchaseView.installment" format="formatter"/> -->
+					${getcurrencyFormat(plnPurchaseView.installment)}
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:tokenAmount}</td>
+                <td>:</td>
+                <td>${message:curr}
+<!--                     <t:output value="plnPurchaseView.tokenAmount" format="formatter"/> -->
+                	${getcurrencyFormat(plnPurchaseView.tokenAmount)}
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:kwh}</td>
+                <td>:</td>
+                <td>${plnPurchaseView.kwh}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:tokenNumber}</td>
+                <td>:</td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+            	<td class="center" colSpan="3" style="font-weight: bold; font-size: 18pt;">${vTokenNumber}</td>
+            </tr>
+            <tr/>
+            <tr/>
+            <tr/>
+            <tr/>
+                 	
+        </table>
+	</form>
+	
+	<t:if test="success">
+	    <t:loop source="footers" value="footer">
+	    	<div id="note" align="center">           
+	            <label style="align:center;">${footer}</label>
+	    	</div>
+	    </t:loop>
+	</t:if>
+</div>	         
+</html>

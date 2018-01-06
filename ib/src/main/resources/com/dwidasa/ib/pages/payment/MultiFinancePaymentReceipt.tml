@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="recipe_wrap">
+    <form t:type="form" t:id="plnPaymentReceipt" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+                    <tr class="odd">
+                        <td class="first">
+                            <label>${message:referenceNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${multiFinancePaymentView.referenceNumber}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:dateTime}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                           <label>
+                               <t:output value="multiFinancePaymentView.transactionDate" format="longDate"/>
+                               ${message:timeZone}
+                           </label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:cardNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${getMasked(multiFinancePaymentView.cardNumber)}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:accountNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${multiFinancePaymentView.accountNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:payment}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:paymentValue}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Nomor Kontrak</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${multiFinancePaymentView.numKontrak}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>Nama Pelanggan</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${multiFinancePaymentView.namaPelanggan}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Deskripsi</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                         <td class="last">
+                            <label>${multiFinancePaymentView.deskripsi}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:admin}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">${message:curr}
+                            <label><t:output value="multiFinancePaymentView.fee" format="formatter"/></label>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label>Minimal Pembayaran</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">${message:curr}
+                            <label><t:output value="multiFinancePaymentView.amount" format="formatter"/></label>
+                        </td>
+                    </tr>
+                    
+                    <tr class="odd">
+                        <td>
+                            <label>Total</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">${message:curr}
+                            <label><t:output value="Total" format="formatter"/></label>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label>${message:status}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${StatusDetil}</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="note" >
+            ${message:noteReceipt}
+        </div>
+		<t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>
+		
+		<t:if test="StatusHistory">
+		
+		<p:else>
+		
+		<input type="button" onclick="popupInfo('/payment/multiFinancePaymentPrint')"
+			class="grey_btn right" t:type="any" value="message:print" />
+               
+		</p:else>
+		
+		</t:if>   
+		
+    </form>
+</div>
+</html>

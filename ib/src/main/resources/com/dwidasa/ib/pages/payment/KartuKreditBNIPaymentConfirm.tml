@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_11"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${getMasked(kartuKreditBNIPaymentView.cardNumber)}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${kartuKreditBNIPaymentView.accountNumber}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:paymentData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:customerReference}</label>
+                    </td>
+                    <td class="last">
+                        <label>${kartuKreditBNIPaymentView.customerReference}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:referenceName}</label>
+                    </td>
+                    <td>
+ 						<input t:type="textField" t:id="amount" type="text"
+                               t:value="kartuKreditBNIPaymentView.amount"
+                               validate="Required, regExp=^[0-9]+$" maxLength="19" />
+                    </td>
+                </tr>
+<!--                 <tr class="odd"> -->
+<!--                     <td> -->
+<!--                         <label>${message:providerName}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <label>${telkomPaymentView.providerName}</label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td colSpan="2"> -->
+                        
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td style="font-weight: bold; text-align: right;"> -->
+<!--                         <label >${message:detail}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 <tr class="odd"> -->
+<!--                     <td> -->
+<!--                         <label>${message:billPeriod}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <label> -->
+<!--                             <t:output value="telkomPaymentView.billPeriod1" format="dateList"/> -->
+<!--                             <t:if test="telkomPaymentView.billPeriod2">,  -->
+<!--                             <t:output value="telkomPaymentView.billPeriod2" format="dateList"/> -->
+<!--                             </t:if> -->
+<!--                             <t:if test="telkomPaymentView.billPeriod3">,  -->
+<!--                             <t:output value="telkomPaymentView.billPeriod3" format="dateList"/> -->
+<!--                             </t:if> -->
+<!--                         </label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td> -->
+<!--                         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:amount1}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <label>${message:curr} -->
+<!--                             <t:output value="telkomPaymentView.amount1" format="formatter"/> -->
+<!--                         </label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 <t:if test="telkomPaymentView.billPeriod2"> -->
+<!--                 <tr class="odd"> -->
+<!--                     <td> -->
+<!--                         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:amount2}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <label>${message:curr} -->
+<!--                             <t:output value="telkomPaymentView.amount2" format="formatter"/> -->
+<!--                         </label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 </t:if> -->
+<!--                 <t:if test="telkomPaymentView.billPeriod3">                 -->
+<!--                 <tr> -->
+<!--                     <td> -->
+<!--                         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:amount3}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <label>${message:curr} -->
+<!--                             <t:output value="telkomPaymentView.amount3" format="formatter"/> -->
+<!--                         </label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 </t:if> -->
+<!--                 <tr> -->
+<!--                     <td colSpan="2"> -->
+                        
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 <tr class="odd"> -->
+<!--                     <td> -->
+<!--                         <label>${message:amount}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <label>${message:curr} -->
+<!--                             <t:output value="telkomPaymentView.amount" format="formatter"/> -->
+<!--                         </label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td> -->
+<!--                         <label>${message:admin}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <label>${message:curr} -->
+<!--                             <t:output value="telkomPaymentView.fee" format="formatter"/> -->
+<!--                         </label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--                 <tr class="odd"> -->
+<!--                     <td> -->
+<!--                         <label>${message:total}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <label>${message:curr} -->
+<!--                             <t:output value="telkomPaymentView.total" format="formatter"/> -->
+<!--                         </label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <t:token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge"
+                 mode="tokenType"/>
+        <a hRef="kartuKreditBNIPaymentInput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+    </form>
+</div>
+</html>

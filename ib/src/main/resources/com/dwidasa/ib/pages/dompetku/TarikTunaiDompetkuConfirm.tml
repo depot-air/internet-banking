@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_3"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${cashInDompetkuView.cardNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${cashInDompetkuView.accountNumber}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:paymentData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:nomorHandphone}</label>
+                    </td>
+                  
+                    <td class="last">
+                    
+                    <label>${cashInDompetkuView.msiSDN}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:namaCustomer}</label>
+                    </td>
+                    <td>
+                    
+                    <label>${cashInDompetkuView.namaCustomer}</label>
+                       
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                    	<label>${message:rupiahTopUp}</label>
+                    </td>
+                    <td>
+                    
+                    <label>${message:curr}
+                            <t:output value="cashInDompetkuView.nominalTopUp" format="formatter"/>
+                        </label>
+                      
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <t:label for="token"/>
+                    </td>
+                    <td>
+                        <input t:type="textField" t:id="token" type="text"
+                               t:value="cashInDompetkuView.token" label="message:token"
+                               validate="required, regExp=^[0-9]+$" maxLength="6" />
+                    </td>
+                </tr>
+                
+                
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <t:token token="tokenView.token" token6Digit="tokenView.token" challenge="tokenView.challenge" mode="tokenType"/>
+        <a hRef="tariktunaiDompetkuinput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+    </form>
+</div>
+</html>

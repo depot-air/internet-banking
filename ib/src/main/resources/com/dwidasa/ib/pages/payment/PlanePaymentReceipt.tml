@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="ct_right">
+    <div id="page_title">
+        <div class="ground_1"></div>
+        <div class="ground_2"><p>${message:title}</p></div>
+        <div class="ground_3"></div>
+    </div>
+    <form t:type="form" class="full-form" t:id="planePaymentReceipt"
+          clientValidation="submit">
+        <t:errors/>
+        <h4>${message:paymentData}</h4>
+        <div class="page_panel">
+            <div class="ground_1"></div>
+            <div class="ground_2"></div>
+            <div class="ground_3"></div>
+            <div class="ground_4"></div>
+            <div class="ground_5"></div>
+            <div class="ground_6"></div>
+            <div class="main_form">
+                <fieldSet>
+                    <table>
+                        <tr class="even">
+                            <td>
+                                <label>${message:referenceNumber}</label>
+                            </td>
+                            <td>
+                                <label>${planePaymentView.referenceNumber}</label>
+                            </td>
+                        </tr>
+                        <tr class="odd">
+                            <td>
+                                <label>${message:dateTime}</label>
+                            </td>
+                            <td>
+                               <label>${dateTime}</label>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>
+                                <label>${message:cardNumber}</label>
+                            </td>
+                            <td>
+                                <label>${planePaymentView.cardNumber}</label>
+                            </td>
+                        </tr>
+                        <tr class="odd">
+                            <td>
+                                <label>${message:accountNumber}</label>
+                            </td>
+                            <td>
+                                <label>${planePaymentView.accountNumber}</label>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>
+                                <label>${message:payment}</label>
+                            </td>
+                            <td>
+                                <label>${message:paymentValue}</label>
+                            </td>
+                        </tr>
+                        <tr class="odd">
+                            <td>
+                                <label>${message:biller}</label>
+                            </td>
+                            <td>
+                                <label>${planePaymentView.billerName}</label>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>
+                                <label>${message:bookingCode}</label>
+                            </td>
+                            <td>
+                                <label>${planePaymentView.customerReference}</label>
+                            </td>
+                        </tr>
+                        <tr class="odd">
+                            <td>
+                                <label>${message:total}</label>
+                            </td>
+                            <td>
+                                <label><t:output value="total" format="formatter"/></label>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>
+                                <label>${message:status}</label>
+                            </td>
+                            <td>
+                                <label>${status}</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldSet>
+            </div>
+        </div>
+        <div id="note" >
+        ${message:noteReceipt}
+        </div>
+        <div id="form_submit_btn">
+            <t:submit t:id="save" value="message:save" class="btn_style"/>
+            <t:submit t:id="print" value="message:print" class="btn_style"/>
+            <t:submit t:id="back" value="message:back" class="btn_style"/>
+        </div>
+    </form>
+
+</div>
+</html>

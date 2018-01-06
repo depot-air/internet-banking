@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_3"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${trainPaymentView.cardNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${trainPaymentView.accountNumber}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:paymentData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:biller}</label>
+                    </td>
+                    <td class="last">
+                        <label>${trainPaymentView.billerName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:bookingCode}</label>
+                    </td>
+                    <td>
+                        <label>${trainPaymentView.customerReference}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:passengerName}</label>
+                    </td>
+                    <td>
+                        <label>${trainPaymentView.referenceName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:numOfPassenger}</label>
+                    </td>
+                    <td>
+                        <label>${trainPaymentView.numOfPassenger}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:tripInfo}</label>
+                    </td>
+                    <td>
+                        <label>${trainPaymentView.tripInfo}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:departureDate}</label>
+                    </td>
+                    <td>
+                        <label><t:output value="trainPaymentView.departureDate" format="longDate"/></label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:amount}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="trainPaymentView.amount" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:fee}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="trainPaymentView.fee" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:total}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="trainPaymentView.total" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <t:token token="tokenView.token" token6Digit="tokenView.token" challenge="tokenView.challenge" mode="tokenType"/>
+        <a hRef="trainpaymentinput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+    </form>
+</div>
+</html>

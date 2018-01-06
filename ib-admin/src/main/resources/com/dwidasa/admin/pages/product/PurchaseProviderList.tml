@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" t:id="purchaseProviderList" clientValidation="submit">
+        <fieldset>
+            <legend>${message:subtitleProduct}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:transactionType}</label>
+                    </td>
+                    <td class="last">
+                        <label>${transactionType}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:billerCode}</label>
+                    </td>
+                    <td>
+                        <label>${biller.billerCode}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:billerName}</label>
+                    </td>
+                    <td>
+                        <label>${biller.billerName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:productCode}</label>
+                    </td>
+                    <td>
+                        <label>${billerProduct.productCode}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:productName}</label>
+                    </td>
+                    <td>
+                        <label>${billerProduct.productName}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>${message:subtitleDenomination}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:denomination}</label>
+                    </td>
+                    <td class="last">
+                        <label><t:output value="denomination" format="formatter"/></label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>${message:subtitleProvider}</legend>
+
+            <table t:type="grid" source="dataSource" row="row" rowsPerPage="pageSize" add="action" exclude="id"
+                   	reorder="providerCode,providerName,price,fee,action" width="100%" t:mixins="gridSortingDisabled">
+                <t:parameter name="empty">
+                    <div id="emptyData">
+                        ${message:emptyData}
+                    </div>
+                </t:parameter>
+                <p:actionCell>
+                    <a t:type="pagelink" t:page="product/PurchaseProviderDetail" t:context="row.id">${message:edit}</a>
+                    &nbsp;
+                    <a t:type="actionlink" t:id="delete" t:context="row.id" onClick="return confirm('${message:confirmDelete}');">${message:delete}</a>
+                </p:actionCell>
+                <p:priceCell>
+                    <t:output value="row.price" format="formatter"/>
+                </p:priceCell>
+                <p:feeCell>
+                    <t:output value="row.fee" format="formatter"/>
+                </p:feeCell>
+            </table>
+
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="defaultProvider"/>
+                    </td>
+                    <td >
+                        <t:select t:id="defaultProvider" t:model="providerListModel" value="defaultProviderName" blankOption="never" label="message:defaultProvider"/>
+                    </td>
+                    <td >
+                    	<t:submit t:id="save" value="message:save" class="grey_btn" />
+                    </td>
+                </tr>
+            </table>
+
+	        <br/>
+	        <a hRef="../purchaseproductlist" >
+				<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+	        </a>
+            <t:submit t:id="add" value="message:add" class="grey_btn mr10" mode="cancel"/>
+        </fieldset>
+        
+    </form>
+</div>
+</html>

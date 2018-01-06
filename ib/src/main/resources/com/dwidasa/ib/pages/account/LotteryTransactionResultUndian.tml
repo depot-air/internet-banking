@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        
+        <t:if test="Kosong">
+        
+        <p:else>
+        
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        ${message:accountNumber}
+                    </td>
+                    <td class="last">
+                        ${AccountNumber}
+                    </td>
+                </tr>
+                
+                <tr class="even">
+                    <td class="first">
+                        ${message:kodeUndian}
+                    </td>
+                    <td class="last">
+                        ${jenisUndian}
+                    </td>
+                </tr>
+                
+                
+<!--                 <tr class="odd"> -->
+<!--                     <td class="first"> -->
+<!--                         ${message:awalPeriode} -->
+<!--                     </td> -->
+<!--                     <td class="last"> -->
+<!--                         ${AwalPeriod} -->
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+                <tr class="odd">
+                    <td class="first">
+                        ${message:tglawalPeriode}
+                    </td>
+                    <td class="last">
+                        ${TglAwalPeriode} - ${TglAkhirPeriode}
+                    </td>
+                </tr>
+               
+                
+                <tr class="even">
+                    <td class="first">
+                        ${message:total}
+                    </td>
+                    <td class="last">
+                    	<t:output value="TotalPerolehan" format="formatter"/>
+                    </td>
+                </tr>
+                
+                
+            </table>
+        </fieldSet>
+        <hr/>
+		<fieldSet>
+            <legend>${message:undianData}</legend>
+
+            <div class="table_grid">
+                <table width="100%">
+                    <thead>
+                    <tr>
+                        <th>${message:numberUndian}</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr t:type="loop" t:source="AllLotteryTransaction" t:value="lotteryView" class="prop:evenOdd.next" t:encoder="encoder">
+                       
+                        <td>${lotteryView.nomorUndian}</td>
+                        
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+<!-- 			<table t:type="grid" source="AllLotteryTransaction" row="lotteryView" rowsPerPage="pageSize"  -->
+<!--               include="nomorUndian" width="100%" t:mixins="gridSortingDisabled"> -->
+<!--             <t:parameter name="empty"> -->
+<!--                 <div id="emptyData"> -->
+<!--                     ${message:emptyData} -->
+<!--                 </div> -->
+<!--             </t:parameter> -->
+            
+<!--         	</table> -->
+        	
+        	<ul id="pagination">
+        	
+            	<li>
+            	
+            	<t:if test="firstPage">
+				<a t:type="pagelink" page="account/lotterytransactionresultundian" id="First" context="[page, 1]">First</a>
+				<p:else>
+				<a t:type="pagelink" page="account/lotterytransactionresultundian" id="First" context="[page, 1]" class="active">First</a>
+				</p:else>
+            	</t:if>
+            	
+            	</li>
+            	
+                <li t:type="loop" source="NoAwalPag..NoPaging" value="index">
+				<t:if test="Enable">
+		        <a t:type="pagelink" page="account/lotterytransactionresultundian" id="${index}" context="[page, index]">${index}</a>
+				<p:else>
+				<a t:type="pagelink" page="account/lotterytransactionresultundian" id="${index}" context="[page, index]" class="active">${index}</a>
+				 </p:else>
+            	</t:if>
+            	</li>
+                
+                
+                <li>
+                
+                <t:if test="LastPage">
+                <a t:type="pagelink" page="account/lotterytransactionresultundian" id="next"
+				context="[page, TotalPage]">Next</a>
+                <p:else>
+                <a t:type="pagelink" page="account/lotterytransactionresultundian" id="next"
+				context="[page, pageNext]" class="active" disabled="false">Next</a>
+                </p:else>
+            	</t:if>
+                
+                </li>
+                
+            </ul>
+            
+        </fieldSet>
+        
+        <t:submit t:id="cancel" value="message:back" class="grey_btn ml10"/>
+        
+        </p:else>
+        
+        </t:if>
+        
+		
+    
+    </t:form>
+	</div>
+	
+</html>

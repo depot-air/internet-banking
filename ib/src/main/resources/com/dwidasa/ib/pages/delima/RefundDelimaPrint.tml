@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>${message:title}</title>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/print.css}"/>
+</head>
+
+<body>
+<t:form>
+<t:errors banner="message:errorBanner"/>
+<div id="print_wrap">
+    <img src="${context:bprks/img/bprks_blue.png}" width="196" height="34" alt="BPRKS"/>
+
+    <h1>${message:title}</h1>
+    <hr/>
+    <h2>${message:subtitle}</h2>
+
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol">
+                    <label>${message:senderId}</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <label>${refundDelimaView.senderIdNumber}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>${message:referenceNumber}</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <label>${refundDelimaView.referenceNumber}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>${message:transferCode}</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <label>${refundDelimaView.customerReference}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>${message:accountNumber}</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <label>${refundDelimaView.accountNumber}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>${message:nominalTransfer}</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <label>
+                    ${message:curr}
+                        <t:output value="refundDelimaView.amount" format="formatter"/>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>${message:transferFee}</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <label>
+                    ${message:curr}
+                        <t:output value="refundDelimaView.providerFee" format="formatter"/>
+                    </label>
+                </td>
+            </tr>
+        </table>
+        <br/>
+
+
+   
+    <div class="clear"></div>
+    <br/>
+
+    <p>${message:footnote}</p>
+    <br/>
+
+   <p class="center" align="center">
+        <span class="upercase">${message:thanks}</span><br/>
+        <span class="upercase">${message:notePrint} </span>
+    </p>
+</div>
+</t:form>
+</body>
+</html>

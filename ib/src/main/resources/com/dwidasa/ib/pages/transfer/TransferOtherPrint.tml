@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${transferView.referenceNumber}" transactionDateString="${transferView.transactionDateString}"  
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+<table class="dg_first">
+    <tr>
+        <td class="firstcol" style="font-weight:bold;">${message:referenceNumber}</td>
+        <td>:</td>
+        <td>${transferView.referenceNumber}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:dateTime}</td>
+        <td>:</td>
+        <td><t:output value="transferView.transactionDate" format="longDate"/>
+        ${message:timeZone}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:cardNumber}</td>
+        <td>:</td>
+        <td>${transferView.cardNumber}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:fromAccount}</td>
+        <td>:</td>
+        <td>${transferView.accountNumber}</td>
+    </tr>
+    <tr>
+    	<td style="font-weight:bold;">${message:receiverBank}</td>
+    	<td>:</td>
+    	<td>${transferView.billerName}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:toAccount}</td>
+        <td>:</td>
+        <td>${transferView.customerReference}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:receiverName}</td>
+        <td>:</td>
+        <td>${transferView.receiverName}
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:cost}</td>
+        <td>:</td>
+        <td><t:output value="transferView.fee" format="formatter"/>
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:amount}</td>
+        <td>:</td>
+        <td><t:output value="transferView.amount" format="formatter"/>
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:total}</td>
+        <td>:</td>
+        <td><t:output value="transferView.totalDebetAmount" format="formatter"/>
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:description}</td>
+        <td>:</td>
+        <td>${getDashIfEmpty(transferView.description)}
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:transferType}</td>
+        <td>:</td>
+        <td>${message:transferNow}
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:status}</td>
+        <td>:</td>
+        <td>${status}
+        </td>
+    </tr>
+</table>
+</html>

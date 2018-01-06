@@ -1,0 +1,4 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<div id="dataholder"/>
+	<div id="datadisplay" style="font-family: monospace;"/>
+</t:container>

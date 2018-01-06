@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:tx="tapestry-library:tapx"
+      xmlns:p="tapestry:parameter">
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_20"></div>
+
+    <t:form class="formfield" t:id="accountSummary" clientValidation="submit">
+        <fieldSet>
+            <legend>${message:ownerData}</legend>
+            <table>
+                <tbody>
+                
+                <t:if test="StatusJenisDeposito">
+                
+                	<tr class="odd">
+                    	<td class="first">${message:noBilyet}</td>
+                    	<td class="last">${accountView.accountNumber}</td>
+                	</tr>
+                
+               
+                
+                <p:else>
+                
+                
+                <t:if test = "StatusJenisLoan">
+                
+                
+                	<tr class="odd">
+                    	<td class="first">${message:noPinjaman}</td>
+                    	<td class="last">${accountView.accountNumber}</td>
+                	</tr>
+                	
+                	                	
+                	<p:else>
+                	
+                	<tr class="odd">
+                    	<td class="first">${message:customerName}</td>
+                    	<td class="last">${accountView.customerName}</td>
+                	</tr>
+                
+                	<tr>
+                    	<td>${message:accountNumber}</td>
+                    	<td>${accountView.accountNumber}</td>
+                	</tr>
+                	
+                	</p:else>
+                	
+                
+                </t:if>
+                	
+                	
+                	
+                </p:else>
+                	
+                
+                </t:if>
+                
+                
+                
+                </tbody>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tbody>
+                
+                <t:if test="StatusJenisDeposito">
+
+						<tr class="odd">
+                    		<td class="first">${message:jangkaWaktu}</td>
+                    		<td class="last">${accountView.JangkaWaktu}</td>
+                		</tr>
+                		
+                		<tr>
+                    		<td>${message:penempatan}</td>
+                    		<td>${TglPenempatan}</td>
+                		</tr>
+                		
+                		<tr class="odd">
+                    		<td>${message:tglJthTempo}</td>
+                    		<td>${TglJatuhTempo}</td>
+                		</tr>
+                		
+                		<tr>
+                    		<td>${message:sukuBunga}</td>
+	               			<td>${SukuBunga}</td>
+                		</tr>
+                		
+                		<tr class="odd">
+                    		<td>${message:balance}</td>
+                    		<td>${accountView.currencyCode}
+                        	<t:output value="accountView.availableBalance" format="formatter"/>
+                    		</td>
+                		</tr>
+
+					<p:else>
+					
+						<t:if test = "StatusJenisLoan">
+                
+                
+                	<tr class="odd">
+                    		<td class="first">${message:originalAmount}</td>
+                    		<td class="last">${accountView.currencyCode} 
+                    		<t:output value="accountView.pokokPinjaman" format="formatter"/>
+                    		</td>
+                		</tr>
+                		<tr>
+                    		<td>${message:outStanding}</td>
+                    		<td>${accountView.currencyCode} 
+                    		<t:output value="accountView.sisaPinjaman" format="formatter"/>
+                    		</td>
+                		</tr>
+                		<tr class="odd">
+                    		<td>${message:monthlyRepayment}</td>
+                    		<td>${accountView.currencyCode} 
+                    		<t:output value="accountView.jumlahAngsuran" format="formatter"/>
+                    		</td>
+                		</tr>
+                		<tr >
+                    		<td>${message:tglJatuhTempo}</td>
+                    		<td>
+                        	${DueDate}
+                    		</td>
+                	</tr>
+                	
+                	                	
+                	<p:else>
+                	
+                	<tr class="odd">
+                    		<td class="first">${message:accountName}</td>
+                    		<td class="last">${accountView.accountName}</td>
+                		</tr>
+                		<tr>
+                    		<td>${message:productName}</td>
+                    		<td>${accountView.productName}</td>
+                		</tr>
+                		<tr class="odd">
+                    		<td>${message:currency}</td>
+                    		<td>${accountView.currencyCode}</td>
+                		</tr>
+                		<tr>
+                    		<td>${message:balance}</td>
+                    		<td>
+                        	<t:output value="accountView.availableBalance" format="formatter"/>
+                    		</td>
+                	</tr>
+                	
+                	</p:else>
+                	
+                
+                </t:if>
+						
+						
+                		
+                		
+					
+					</p:else>
+
+					
+                </t:if>
+                
+                
+               
+                </tbody>
+            </table>
+        </fieldSet>
+        
+        <t:if test="StatusJenisDeposito">
+        
+        <t:submit t:id="backDepot" value="message:back" class="grey_btn ml10"/>
+        
+        <p:else>
+        
+        <t:if test = "StatusJenisLoan">
+        
+        <t:submit t:id="backLoan" value="message:back" class="grey_btn ml10"/>
+        
+        <p:else>
+        
+        <hr/>
+        <fieldSet>
+            <legend>${message:statementData}</legend>
+            <table>
+                <tbody>
+                <tr class="odd">
+                    <td class="first">
+                        ${message:statementPeriod}
+                    </td>
+                    <td class="last">
+                        <div class="date_picker_inline">
+                            <tx:datefield t:id="startDate" value="startDate"
+                                   format="prop:shortDate" validate="required"/>
+                        </div>
+                        <div class="date_picker_inline">${message:to}</div>
+                        <div class="date_picker_inline">
+                            <tx:datefield t:id="endDate" value="endDate"
+                                   format="prop:shortDate" validate="required"/>
+                        </div>
+                        <div class="date_picker_inline">(${shortPattern})</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </fieldSet>
+        <hr/>
+        
+        <t:submit t:id="back" value="message:back" class="grey_btn ml10"/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+        
+        
+        </p:else>
+        
+        </t:if>
+        
+        	
+        
+        </p:else>
+        
+        </t:if>
+        
+    </t:form>
+</div>
+</html>

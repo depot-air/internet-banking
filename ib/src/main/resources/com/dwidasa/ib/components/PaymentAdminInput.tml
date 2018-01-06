@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<t:content>
+    <h4>${message:transferData}</h4>
+
+    <div class="page_panel">
+        <div class="ground_1"></div>
+        <div class="ground_2"></div>
+        <div class="ground_3"></div>
+        <div class="ground_4"></div>
+        <div class="ground_5"></div>
+        <div class="ground_6"></div>
+        <table t:type="grid" source="dataSource" row="row" rowsPerPage="5" t:model="mymodel">
+            <t:parameter name="empty">
+                <div id="emptyData">
+                    ${message:emptyData}
+                </div>
+            </t:parameter>
+            <p:deleteCell>
+                <input t:type="checkBox" t:id="delete" value="delete"/>
+            </p:deleteCell>
+        </table>
+    </div>
+    <t:token token="token" mode="tokenType"/>
+</t:content>
+</html>

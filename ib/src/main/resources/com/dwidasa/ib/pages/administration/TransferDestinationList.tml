@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${strTitle}</h2>
+	<div class="ico_position ico_favorite_28"></div>
+	<t:form class="formfield" clientValidation="submit">
+		<t:if test="listNotEmpty">
+			<t:grid t:source="list" t:row="record" t:id="grid" t:mixins="gridSortingDisabled" 
+		   				t:include="billerName, data3, customerReference"
+		   				t:add="select"
+		   				t:reorder="select, data3, billerName, customerReference"
+		   				t:encoder="encoder"
+		   				t:rowClass="prop:evenodd.next"
+		   				t:rowsPerPage="1000">
+					<t:parameter name="customerReferenceCell">
+						${record.customerReference}
+		   			</t:parameter>
+		   			<p:selectheader>
+	                	<t:checkBox t:id="selectAllCheckbox" value="selectAll" t:mixins="boundcheckBox"/>
+	        		</p:selectheader>
+	        		<p:selectcell>
+	                	<t:checkBox value="currentSelected" t:mixins="boundcheckBox" master="selectAllCheckbox"/>
+	        		</p:selectcell>	   	
+		   	</t:grid>	   		
+	   	<p:else>
+			<div style="width:100%; text-align:center">
+	   			${strListEmpty}
+	   		</div> 
+		</p:else>	   		
+	   	</t:if>
+		<div id="button" style="width: 100%; text-align: center">
+			<t:if test="listNotEmpty">
+	   			<t:submitDelete class="grey_btn w200" t:id="delete" value="message:delete"/>
+	   		</t:if>
+   		</div>
+	</t:form>
+</div>
+</html>

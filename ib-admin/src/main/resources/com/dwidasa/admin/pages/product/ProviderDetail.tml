@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" t:id="providerDetail" clientValidation="submit" autofocus="false">
+        <fieldset>
+            <legend>${subtitle}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="providerCode"/>
+                    </td>
+                    <td class="last">
+                        <input t:id="providerCode" value="provider.providerCode" t:type="textfield"
+                               validate="required" label="message:providerCode"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="providerName"/>
+                    </td>
+                    <td>
+                        <input t:id="providerName" value="provider.providerName" t:type="textfield"
+                               validate="required" label="message:providerName"/>
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        <t:label for="description"/>
+                    </td>
+                    <td>
+                        <input t:id="description" value="provider.description" t:type="textfield"
+                               label="message:description"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="inquiry"/>
+                    </td>
+                    <td>
+                        <t:select t:id="inquiry" value="provider.inquiry" validate="required"
+                        	label="message:inquiry" t:model="Y=${message:ya},N=${message:tidak}"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:submit t:id="add" class="green_btn mr10" value="prop:action"/>
+    </form>
+</div>
+</html>

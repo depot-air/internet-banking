@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Cache-control" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <title>${message:mainTitle}</title>
+     <link rel="shortcut icon" href="${context:bprks/bprks.ico}"/> 
+    <!--  <link href="css/style.css" type="text/css" rel="stylesheet"></link> -->
+</head>
+<body>
+<div class="container_24">
+	<div id="head" class="grid_24">
+        <div class="headerTriangle">
+			<a href="" title="" class="companyLogo">BPR Karyajatnika <br /> Sadaya</a>
+		</div>
+        <h1>Internet Banking</h1>
+        <p class="user_log"><span class="date_time"></span><span style="display:none;" id="serverTime">${currentTime}</span> | <b>${user.name}</b> | <a t:type="actionlink" t:id="logout">${message:logout}</a></p>
+        <span class="headShade"></span>
+        <ul>
+            <li><t:eventlink t:event="gotoHome" title="Home" class="history_home"></t:eventlink></li>
+            <li class="his_sep">&nbsp;</li>
+            <li><p>${group}</p></li>
+            <li class="his_sep">&nbsp;</li>
+        </ul>
+     
+        
+    </div>
+    
+    <br></br>
+    
+    <div id="main_menu" class="grid_6">
+    	
+    		
+    
+        <span class="topMenuShade"></span>
+        
+        <div class="panel"></div>
+        
+<!--         <t:if test="status"> -->
+        
+        
+<!--         	<t:pagelink page="info/inboxList" style="font-weight:bold;"><h3>INBOX : ${countUnread}</h3></t:pagelink> -->
+        	
+<!--         <p:else> -->
+        
+<!--         	<t:pagelink page="info/inboxList" style="font-weight:bold;"><h3>INBOX</h3></t:pagelink> -->
+        
+<!--         </p:else> -->
+        
+<!--         </t:if> -->
+        
+        
+        <div id="mm_list_wraper">
+			
+   	      		
+         
+            <div id="mm_list">
+            
+            	<hr />
+            	
+            	<t:if test="status">
+            	
+            		<h3>Email<span class="emailBadge">${countUnread}</span></h3>
+            		
+            	<p:else>
+            	
+            		<h3>Email</h3>
+            		
+            	</p:else>
+      	
+            	</t:if>
+   	      		
+   	      		
+                <div class="panel">
+                
+                	<ul>
+                    	<li><a href="/ib/info/inboxList" title="Inbox">Inbox</a></li>            
+                    </ul>
+                    
+                </div>
+                <hr />
+                
+                <t:tree source="roots"/>
+                
+            </div>
+        </div>
+        <div class="panel"></div>
+        <span class="bottomMenuShade"></span>
+    </div>
+    <t:alerts/>
+    <t:body/>
+    <div class="clear"></div>
+    <div id="footer" class="grid_24">
+        <p><span class="small_logo"></span>${message:mainTitle}</p>
+        <ul id="foor_link" class="right">
+            <li><a href="">${message:termOfUse}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:privacy}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:security}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:contactUs}</a></li>
+        </ul>
+        <span class="footerShade"></span>
+        <p>${message:copyright}</p>
+
+        <p class="call_center">${message:callCenter}</p>
+    </div>
+</div>
+</body>
+</html>

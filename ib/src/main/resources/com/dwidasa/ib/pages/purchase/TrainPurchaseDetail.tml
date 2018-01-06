@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_13"></div>
+    
+    <t:form id="form" class="formfield" autofocus="false" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+	<fieldset>
+	<legend>Data Penumpang</legend>
+    <div id="fSResult">
+        <div id="passDetail" class="fLLeft">
+            <ul class="passTab">
+                <t:loop t:source="view.passengerList" index="index" value="passenger" formState="none">
+                	<t:if test="index">
+                		<li class="pass${index}">${passenger.label}</li>
+                		<p:else>
+                		<li class="pass${index} active">${passenger.label}</li>	
+                		</p:else>
+                	</t:if>
+                	
+                </t:loop>
+            </ul>
+            <div class="passForm">                              
+                <t:loop t:source="view.passengerList" index="index" value="passenger" formState="iteration">
+	                <div class="${getFormClass()}">
+	                    <label>Tipe Penumpang</label>
+	                    <input type="text" name="passType" value="${passenger.label}" disabled="disabled" class="w170" /><br /><br />
+	                    <label>Nama Depan</label>
+	                    <t:TextField type="text" name="firstName" value="passenger.firstName" class="w170" /><br /><br />
+	                    <label>Nama Belakang</label>
+	                    <t:TextField type="text" name="lastName" value="passenger.lastName" class="w170" /><br /><br />
+	                    <t:if test="adult">
+	                    	<label>No. Identitas</label>
+		                    <t:TextField type="text" name="iDNumber" value="passenger.idNumber" class="w170" /><br /><br />
+		                    <label>No. Handphone</label>
+		                    <input type="tel" name="mobileNumber" value="+62" class="w30" />
+		                    <t:TextField type="tel" name="mobileNumber" value="passenger.phone" class="w150" />
+	                    </t:if>
+	                </div>
+                </t:loop>
+            </div>
+            
+        </div>
+        <div id="detailPrice" class="fLRight rounded10">
+            <span class="detailBtmTrainBg"></span>
+            <h4>Detail Pemesanan</h4>
+            <div class="bgTotalPriceTrain">
+                <p class="lbTotalPrice">Harga Total <b>IDR</b></p>
+                <p class="totalPrice"><t:output value="view.amount" format="formatter"/></p>
+            </div>
+            <p class="detailRoute"><span class="tx1">${view.originName} (${view.originCode})</span><span class="arrowIcon"></span><span class="tx2">${view.destinationName} (${view.destinationCode})</span></p>
+            <hr class="hrDetail" />
+            <p class="labelDepart">Berangkat<span class="departDate">${strDeparture}</span></p>
+            <div class="flightLogoAndCode departLogoAndCode" style="height: 40px;">
+            <span class="carName">${view.trainName} (${view.trainNumber})</span><b class="carNum">${view.strClass} (${view.subclass})</b></div>
+            <div class="detailFlowTrain departFlow">
+                <span class="departTrainIconFlow"></span>
+                <span class="departCityCode">${view.originCode}</span>
+                <span class="arriveCityCode">${view.destinationCode}</span>
+                <span class="departTime">${getStrTime(view.departureDate)}</span>
+                <span class="arriveTime">${getStrTime(view.arrivalDate)}</span>
+            </div>
+            <p class="labelTitle">Tarif</p>
+            <div id="dFPriceDetail">
+            	<t:if test="view.adult">
+                	<p class="priceCtr"><span class="passNum">${view.adult}</span> Dewasa 
+                	<span class="passPrice"><t:output value="view.adultFare" format="formatter"/> IDR</span></p>
+                </t:if>
+                <t:if test="view.child">
+                	<p class="priceCtr"><span class="passNum">${view.child}</span> Anak 
+                	<span class="passPrice"><t:output value="view.childFare" format="formatter"/> IDR</span></p>
+               	</t:if>
+               	<t:if test="view.infant">
+                	<p class="priceCtr"><span class="passNum">${view.infant}</span> Bayi 
+                	<span class="passPrice"><t:output value="view.infantFare" format="formatter"/> IDR</span></p>
+               	</t:if>
+                <p class="priceCtr priceTotal"><span class="passPrice"><t:output value="view.amount" format="formatter"/> IDR</span></p>
+            </div>
+            <hr class="hrDetail" />            
+            <p class="footNote">*) Harga belum termasuk biaya administrasi</p>
+        </div>
+    </div>
+    </fieldset>
+    <t:submit t:id="send" class="green_btn mr10" value="message:send"/>
+    <t:submit t:id="back" class="grey_btn ml10" value="message:cancel" mode="cancel"/> 
+</t:form>
+</div>
+</html>
+    

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${transferView.referenceNumber}" transactionDateString="${transferView.transactionDateString}"  
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<table class="dg_first">
+	<tr>
+        <td class="firstcol" style="font-weight:bold;">${message:date}</td>
+        <td>:</td>
+        <td><t:output value="transferView.transactionDate" format="longDate"/>
+        ${message:timeZone}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:noReferensi}</td>
+        <td>:</td>
+        <td>${transferView.referenceNumber}</td>
+    </tr>    
+    <tr>
+        <td style="font-weight:bold;">${message:terminalId}</td>
+        <td>:</td>
+        <td>${transferView.terminalIdView}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:fromBankName}</td>
+        <td>:</td>
+        <td>${message:transferSenderBankName}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:cardNumber}</td>
+        <td>:</td>
+        <td>${transferView.cardNumber}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:acountSource}</td>
+        <td>:</td>
+        <td>${transferView.accountNumber}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:senderName}</td>
+        <td>:</td>
+        <td>${transferView.senderName}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:bankName}</td>
+        <td>:</td>
+        <td>${transferView.billerName}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:reference}</td>
+        <td>:</td>
+        <td>${transferView.customerReference}</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:receiver}</td>
+        <td>:</td>
+        <td>${transferView.receiverName}
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;">${message:amount}</td>
+        <td>:</td>
+        <td><t:output value="transferView.amount" format="formatter"/>
+        </td>
+    </tr>
+	<tr>
+		<t:if test = "alto">
+		<td style="font-weight:bold;">${message:keterangan}</td>
+		<p:else>
+		<td style="font-weight:bold;">${message:custRefAtmb}</td>
+		</p:else>
+		</t:if>
+        
+        <td>:</td>
+        <td>
+        	<t:if test="alto">
+                <label>${transferView.description}</label>
+            </t:if>
+            <t:if test="!alto">
+                <label>${transferView.custRefAtmb}</label>
+            </t:if>
+        </td>
+    </tr>
+    
+    <t:if test = "alto">
+    
+    <p:else>
+     <tr>
+        <td style="font-weight:bold;">${message:keterangan}</td>
+        <td>:</td>
+        <td>${transferView.News}</td>
+    </tr>
+    
+    
+    </p:else>
+    </t:if>
+   
+        
+        
+</table>
+
+	<div style="text-align:center">
+            ${note1}
+        </div>
+        <div style="text-align:center">
+            ${note2}
+        </div>
+        <div style="text-align:center">
+            ${message:transferNote1}
+       </div>
+        <div style="text-align:center">
+            ${message:transferNote2}
+        </div>
+</html>

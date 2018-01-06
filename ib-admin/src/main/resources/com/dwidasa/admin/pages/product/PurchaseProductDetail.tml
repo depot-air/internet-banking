@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" t:id="purchaseProductDetail" clientValidation="submit">
+        <fieldset>
+            <legend>${message:subtitleProduct}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="transactionType"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="transactionType" t:model="transactionTypeModel" value="transactionType"
+                                  zone="productNameZone" blankOption="never" label="message:transactionType"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="productName"/>
+                    </td>
+                    <td>
+                        <t:zone t:id="productNameZone" id="productNameZone">
+                            <t:select t:id="productName" t:model="productNameModel" value="productCode"
+                                      blankOption="never" label="message:productName"/>
+                        </t:zone>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>${message:subtitleDenomination}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="denomination"/>
+                    </td>
+                    <td class="last">
+                        <input t:id="denomination" value="productDenomination.denomination" t:type="textfield"
+                               validate="required, regexp=^[0-9]+$" label="message:denomination"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:submit t:id="add" class="green_btn mr10" value="message:save"/>
+    </form>
+</div>
+</html>

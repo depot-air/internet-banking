@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title"  referenceNumber="${waterPaymentView.referenceNumber}" transactionDateString="${waterPaymentView.transactionDateString}"
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+        <table class="dg_first">
+        
+         	<tr>
+                <td style="font-weight:bold;">${message:customerReference}</td>
+                <td>:</td>
+                <td>${waterPaymentView.customerReference}</td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight:bold;">${message:referenceName}</td>
+                <td>:</td>
+                <td>${waterPaymentView.referenceName}</td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight:bold;">${message:billDate}</td>
+                <td>:</td>
+                <td><t:output value="JmlTagihan" format="formatter"/>/
+                	<t:output value="waterPaymentView.billDate" format="shortDate"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight:bold;">${message:kubikasi}</td>
+                <td>:</td>
+                <td>
+                
+                	${waterPaymentView.reserved1}
+<!--                 	<t:output value="waterPaymentView.billDate" format="shortDate"/> -->
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td style="font-weight:bold;">${message:billDateTgh}</td>
+                <td>:</td>
+                <td>${message:curr}
+                	<t:output value="waterPaymentView.amount" format="formatter"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight:bold;">${message:tunggakan}</td>
+                <td>:</td>
+                <td>${message:curr}
+<!--                 	 <td>${TunggakanDanDenda}</td> -->
+                    <t:output value="TunggakanDanDenda" format="formatter"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight:bold;">${message:retribusi}</td>
+                <td>:</td>
+                 <td>${message:curr}
+<!--                 	 ${waterPaymentView.reserved2} -->
+                     <t:output value="Retribusi" format="formatter"/> 
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight:bold;">${message:admin}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="waterPaymentView.fee" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:total}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="waterPaymentView.total" format="formatter"/>
+                </td>
+            </tr>
+            
+            
+			
+            <tr/>
+            <tr/>
+            <tr/>
+            <tr/>
+            
+        </table>
+        <p class="center" align="center">
+		      
+			    <span>${message:Note1SBY}</span><br/>
+			    <span>${message:note2}</span><br/>
+	    </p>
+	    
+</html>

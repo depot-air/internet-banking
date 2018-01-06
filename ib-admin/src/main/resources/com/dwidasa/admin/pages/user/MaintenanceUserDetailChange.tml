@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+    <t:errors banner="message:errorBanner"/>
+        <fieldset>
+            <legend>${subtitle}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                    	<label>${message:userName}</label>
+                    </td>
+                    <td class="last">
+                    	${user.userName}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="name"/>
+                    </td>
+                    <td>
+                        <input t:id="name" value="User.name" t:type="textfield"
+                               validate="required" label="message:name"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="role"/>
+                    </td>
+                    <td>
+                    	<t:select model="roleListModel" value="User.roleId"
+                          t:id="role" blankOption="never"
+                          label="message:role" validate="required"/>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="email"/>
+                    </td>
+                    <td>
+                        <input t:id="email" value="User.email" t:type="textfield"
+                               validate="required" label="message:email"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="phone"/>
+                    </td>
+                    <td>
+                        <input t:id="phone" value="User.phone" t:type="textfield"
+                               validate="required" label="message:phone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="status"/>
+                    </td>
+                    <td>
+                        <t:select model="statusListModel" value="statusList"
+                          t:id="status" blankOption="never"
+                          label="message:status" validate="required"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>${message:subtitlePassword}</legend>
+            <table>
+                <tr class = "odd">
+                    <td class ="first">
+                        <t:label for="password"/>
+                    </td>
+                    <td class="last">
+                        <input t:id="password" value="password" t:type="passwordfield"
+                                label="message:password"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="confirmPassword"/>
+                    </td>
+                    <td>
+                        <input t:id="confirmPassword" value="confirmPassword" t:type="passwordfield"
+                                label="message:confirmPassword"/>
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
+        <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:submit t:id="add" class="green_btn mr10" value="prop:action"/>
+    </form>
+</div>
+</html>

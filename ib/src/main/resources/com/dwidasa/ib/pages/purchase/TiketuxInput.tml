@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+ 
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_10"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account accountNumber="djatiPurchaseView.accountNumber" cardNumber="djatiPurchaseView.cardNumber"/>
+        <hr/>
+<!--         <fieldSet> -->
+<!--             <legend>${message:purchaseData}</legend><br></br> -->
+
+<!-- 		<table> -->
+<!--                 <tbody> -->
+                
+<!--                 <tr class="odd"> -->
+<!-- 		                        <td class="first"> -->
+<!-- 		                            <t:label for="biller"/> -->
+<!-- 		                        </td> -->
+<!-- 		                        <td class="last"><span></span> -->
+<!-- 		                            <t:select t:id="biller" value="djatiPurchaseView.productCode" model="billerModel" -->
+<!-- 		                                      blankOption="never" t:zone="billerProviderZone" label="message:biller"/> -->
+<!-- 		                        </td> -->
+<!-- 		                    </tr> -->
+                
+<!--                 <tr > -->
+<!--                     <td class="first"> -->
+<!--  	                   <label>Tanggal Keberangkatan</label> -->
+<!--  	                </td> -->
+<!--                     <td class = "last"><span></span> -->
+                    
+<!--                     <tx:datefield value="djatiPurchaseView.tglKeberangkatan" t:id="transactionDate" -->
+<!--                                    format="${dateFieldFormat}" -->
+<!--                                    validate="required"/> -->
+<!--                             (${dateFieldFormat}) -->
+                         
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+<!--                 <tr class="odd"> -->
+<!--                     <td class="first"> -->
+<!--  	                   <label>Keberangkatan</label> -->
+<!--  	                </td> -->
+<!--                     <td class = "last"><span></span> -->
+
+<!--                     <t:zone t:id="billerProviderZone" id="billerProviderZone" update="show"> -->
+                    
+<!-- 							 <t:select t:id="dari" t:value="djatiPurchaseView.dari" -->
+<!--                                   model="selectKotaAsal" t:zone = "kotaAsalAgenZone"  blankLabel="Pilih" validate="required" -->
+<!--                                   /> -->
+                                  
+<!--                                   </t:zone> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+                
+<!--                 <tr> -->
+<!--                     <td class="first"> -->
+<!--  	                   <t:label for="tujuan"/> -->
+<!--  	                </td> -->
+<!--                     <td><span></span> -->
+                    
+<!--                     <t:zone t:id="kotaAsalAgenZone" id="kotaAsalAgenZone" update="show"> -->
+
+<!-- 							<t:select t:id="tujuan" t:value="djatiPurchaseView.tujuan" -->
+<!--                                   model="selectKotaTujuan" blankLabel="Pilih" validate="required" -->
+<!--                                   /> -->
+<!-- 				     </t:zone>  -->
+                       
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+                
+<!--                 </tbody> -->
+                
+<!--                 </table> -->
+
+
+<div class="tiketTux"></div>
+<div class="searchFormTrain">    
+
+	<label><strong>Agen</strong></label><br/>
+	<t:select class="departInput" t:id="biller" placeHolder="Stasiun Asal" value="djatiPurchaseView.productCode" t:model="billerModel" blankOption="never" t:zone="billerProviderZone"/>
+    <br/>
+    
+    					<label><strong>Tanggal Keberangkatan</strong></label><br/>
+	                    <tx:datefield value="djatiPurchaseView.tglKeberangkatan" t:id="transactionDate"
+                                   format="${dateFieldFormat}"
+                                   validate="required"/>
+                            (${dateFieldFormat})
+                            <br/><br/>
+
+	<label><strong>Dari</strong></label><br/>
+    <t:zone t:id="billerProviderZone" id="billerProviderZone" update="show">
+    <t:select class="departInput" t:id="dari" placeHolder="Stasiun Asal" value="djatiPurchaseView.dari" t:model="selectKotaAsal" blankOption="never" t:zone="kotaAsalAgenZone"/>
+    </t:zone>
+    <label><strong>Tujuan</strong></label><br/>
+    <t:zone t:id="kotaAsalAgenZone" id="kotaAsalAgenZone" update="show">
+    <t:select class="arriveInput" t:id="tujuan" placeHolder="Stasiun Tujuan" value="djatiPurchaseView.tujuan" t:model="selectKotaTujuan" blankOption="never"/>
+    </t:zone>
+    
+    <br/>
+<!--     <span class="departDateContainer"> -->
+<!--         <t:textfield id="departDate" name="departDate" class="departDate" placeHolder="Keberangkatan" value="djatiPurchaseView.tglKeberangkatan"  /> -->
+<!--     </span> -->
+    
+    
+    <input type="submit" class="submitSearchBtn blueBtn" value="Proses Pencarian" />
+</div>
+
+
+<!--         </fieldSet> -->
+<!--         <hr/> -->
+<!--         <input type="submit" value="1" class="nextimage" enable="true"/> -->
+<!--         <t:submit t:id="next" value="message:next" class="grey_btn mr10"/> -->
+    </form>
+</div>
+</html>

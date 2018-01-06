@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_9"></div>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account accountNumber="transferView.accountNumber" cardNumber="transferView.cardNumber"/>
+        <hr/>
+        
+        <fieldSet>
+            <legend>${message:transferData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:bankName}</label>
+                    </td>
+                    <td class="last">
+                        <label>${transferView.billerName}</label>
+                    </td>
+                </tr>
+                <tr>
+		            <td colSpan="2">
+		                <label>${message:receiveNumber}</label>
+		            </td>
+		        </tr>
+                	   <t:radioGroup value="chooseValue" validate="required">
+		                    <tr class="odd">
+		                        <td>
+		                            <t:radio t:id="fromId" value="literal:fromId" class="radio" label="message:fromId"/>
+		                            <t:label for="fromId"/>
+		                        </td>
+		                        <td>
+		                            <input t:id="customerReference1" t:type="textField"
+		                                validate="requiredIf=checkFromId, minLength=3, regExp=^[0-9]+$" maxLength="19"
+		                            	/>
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                        <td>
+		                        </td>
+		                        <td>
+		                            <input t:type="checkBox" t:id="saveBox" value="saveBoxValue" label="message:saveBox"/>
+		                            <t:label for="saveBox"/>
+		                        </td>
+		                    </tr>
+		                    <tr class="odd">
+		                        <td>
+		                            <t:radio t:id="fromList" value="literal:fromList" class="radio" label="message:fromList"/>
+		                            <t:label for="fromList"/>
+		                        </td>
+		                        <td>
+		                            <t:select t:id="customerReference2" t:model="fromListModel" blankOption="never" validate="requiredIf=checkFromList"		                            	
+                            			onclick="document.getElementById('fromList').checked = true"
+                            		/>
+		                        </td>
+		                    </tr>
+                			</t:radioGroup>
+               
+               <tr class="even">
+                    <td>
+                        <t:label for="amountTransfer"/>
+                    </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="amountTransfer" type="text"
+                               t:value="transferView.amount" label="message:amountTransfer"
+                               validate="required,min=10000, regExp=^[0-9]+$"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="news"/>
+                    </td>
+                    <td><span></span>
+                        <input t:type="textField" t:id="news" type="text" t:value="transferView.description"
+                               label="message:news" maxLength="50"/>
+                    </td>
+                </tr>
+                <t:if test="!alto">
+	                <tr class="even">
+	                    <td>
+	                        <t:label for="custRefAtmb"/>
+	                    </td>
+	                    <td><span></span>
+	                        <input t:type="textField" t:id="custRefAtmb" type="text" t:value="transferView.custRefAtmb"
+	                               label="message:custRefAtmb" maxLength="16"/>
+	                    </td>
+	                </tr>
+                </t:if>
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <!--div id="note" style="color:red;">
+            ${message:confirm}
+        </div-->
+        <br/>
+        <t:if test="merchant">
+			<t:token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge" mode="tokenType"/>
+		</t:if>	
+        <t:submit t:id="cancel" value="message:cancel" class="grey_btn ml10" mode="cancel"/>
+        <t:submit t:id="next" value="message:next" class="green_btn mr10"/>
+    </form>
+</div>
+</html>

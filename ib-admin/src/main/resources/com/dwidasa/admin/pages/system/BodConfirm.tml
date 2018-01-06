@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+
+    <t:form class="formfield" clientValidation="submit" t:id="form">
+    	<t:errors banner="message:errorBanner"/>
+		<div style="margin-left:17px">
+		${strMessage}
+		</div>        
+		<br/>        
+        <t:submit t:id="cancel" class="grey_btn ml10" value="message:cancel" mode="cancel"/>
+        <t:submit t:id="process" class="green_btn mr10" value="message:process"/>
+    </t:form>
+</div>
+
+</html>

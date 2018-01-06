@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${smsRegistrationView.referenceNumber}" transactionDateString="${smsRegistrationView.transactionDateString}"   
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol">${message:referenceNumber}</td>
+                <td>:</td>
+                <td>${smsRegistrationView.referenceNumber}</td>
+            </tr>
+            <tr>
+                <td>${message:customerName}</td>
+                <td>:</td>
+                <td>${smsRegistrationView.referenceName}</td>
+            </tr>
+            <tr>
+                <td>${message:account}</td>
+                <td>:</td>
+                <td>${smsRegistrationView.accountNumber}</td>
+            </tr>
+            <tr>
+                <td>${message:cellNo}</td>
+                <td>:</td>
+                <td>${smsRegistrationView.customerReference}</td>
+            </tr>
+            <tr>
+                <td>${message:activationCode}</td>
+                <td>:</td>
+                <td>${smsRegistrationView.activationCode}</td>
+            </tr>
+            <tr>
+                <td>${message:status}</td>
+                <td>:</td>
+                <td>${message:success}</td>
+            </tr>
+        </table>
+        <div id="note" >
+            <b>${smsRegistrationView.information}</b>
+        </div>
+</html>

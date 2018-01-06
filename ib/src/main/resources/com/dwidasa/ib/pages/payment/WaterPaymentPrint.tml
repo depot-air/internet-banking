@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title"  referenceNumber="${waterPaymentView.referenceNumber}" transactionDateString="${waterPaymentView.transactionDateString}"
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol" style="font-weight:bold;">${message:referenceNumber}</td>
+                <td>:</td>
+                <td>${waterPaymentView.referenceNumber}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:billerName}</td>
+                <td>:</td>
+                <td>${waterPaymentView.billerName}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:cardNumber}</td>
+                <td>:</td>
+                <td>${getMasked(waterPaymentView.cardNumber)}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:customerReference}</td>
+                <td>:</td>
+                <td>${waterPaymentView.customerReference}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:referenceName}</td>
+                <td>:</td>
+                <td>${waterPaymentView.referenceName}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:billReference}</td>
+                <td>:</td>
+                <td>${waterPaymentView.billReference}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:billDate}</td>
+                <td>:</td>
+                <td>
+                	<t:output value="waterPaymentView.billDate" format="shortDate"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:amount}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="waterPaymentView.amount" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:penalty}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="waterPaymentView.penalty" format="formatter"/>
+                </td>
+            </tr>
+            <t:if test="palyja">
+            <tr>
+            	<td class="center" colSpan="3" style="font-weight:bold;">${message:Note1Palyja}</td>
+            </tr>
+            </t:if>
+            <t:if test="BillerName">
+            	
+            
+<!--             	<tr>	 -->
+<!--             	<td class="center" colSpan="3" style="font-weight:bold;">${message:Note1PamSemarang}</td> -->
+<!--             	</tr> -->
+            	
+            	<p:else>
+            	
+            	<t:if test = "! palyja">
+            	
+            		<td class="center" colSpan="3" style="font-weight:bold;">${message:Note1Aetra}</td>
+            		
+            		<tr>
+            			<td class="center" colSpan="3" style="font-weight:bold;">${message:note2}</td>
+           			 </tr>   
+            		
+            	</t:if>
+            	
+            	</p:else>
+            	
+            </t:if>
+            
+                     
+			<tr>
+                <td style="font-weight:bold;">${message:admin}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="waterPaymentView.fee" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:total}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="waterPaymentView.total" format="formatter"/>
+                </td>
+            </tr>
+            <tr/>
+            <tr/>
+            <tr/>
+            <tr/>
+            
+        </table>
+        
+        <t:if test="BillerName">
+        <p class="center" align="center">
+		      
+			    <span>${message:Note1PamSemarang}</span><br/>
+			    <span>${message:note2}</span>
+	    </p>
+	    </t:if>
+        
+</html>

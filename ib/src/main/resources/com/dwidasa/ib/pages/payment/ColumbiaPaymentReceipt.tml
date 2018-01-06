@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+
+<div id="recipe_wrap">
+	<form t:type="form" t:id="columbiaPaymentReceipt"
+		clientValidation="submit">
+		<div id="recipe">
+			<div id="logo_blue"></div>
+			<hr />
+			<div id="recipe_list">
+				<table>
+					<tr class="odd">
+						<td class="first"><label>${message:noReferensi}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${columbiaPaymentView.referenceNumber}</label>
+						</td>
+					</tr>
+					<tr class="even">
+						<td><label>${message:transactionDate}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label> <t:output
+									value="columbiaPaymentView.transactionDate" format="longDate" />
+								${message:timeZone}
+						</label></td>
+					</tr>
+					<tr class="odd">
+						<td class="first"><label>${message:idpel}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${columbiaPaymentView.customerReference}</label></td>
+					</tr>
+					<tr class="even">
+						<td class="first"><label>${message:referenceName}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${columbiaPaymentView.referenceName}</label></td>
+					</tr>
+
+					<tr class="odd">
+						<td class="first"><label>${message:companyCode}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${columbiaPaymentView.columbiaCode}</label></td>
+					</tr>
+					<tr class="even">
+						<td class="first"><label>${message:nilaiAngsuran}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${message:curr} <t:output
+									value="columbiaPaymentView.nilaiAngsuran" format="formatter" />
+						</label></td>
+					</tr>
+					<tr class="odd">
+						<td class="first"><label>${message:paymentPeriod}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${columbiaPaymentView.paymentPeriod}</label></td>
+					</tr>
+					<tr class="even">
+						<td class="first"><label>${message:numOfBill}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${columbiaPaymentView.numOfBill}</label></td>
+					</tr>
+					<tr class="odd">
+						<td class="first"><label>${message:jatuhTempo}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${columbiaPaymentView.jatuhTempo}</label></td>
+					</tr>
+					<tr class="even">
+						<td class="first"><label>${message:minPayment}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${message:curr} <t:output
+									value="columbiaPaymentView.minimumPayment" format="formatter" />
+						</label></td>
+					</tr>
+					<tr class="even">
+						<td class="first"><label>${message:penalty}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${message:curr} <t:output
+									value="columbiaPaymentView.penaltyFee" format="formatter" />
+						</label></td>
+					</tr>
+					<tr class="odd">
+						<td class="first"><label>${message:amount}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${message:curr} <t:output
+									value="columbiaPaymentView.amount" format="formatter" />
+						</label></td>
+					</tr>
+					<tr>
+						<td><label>${message:admin}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${message:curr} <t:output
+									value="columbiaPaymentView.fee" format="formatter" />
+						</label></td>
+					</tr>
+
+					<tr class="even">
+						<td class="first"><label>${message:total}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${message:curr} <t:output
+									value="columbiaPaymentView.total" format="formatter" />
+						</label></td>
+					</tr>
+					<tr class="odd">
+						<td class="first"><label>${message:transType}</label></td>
+						<td><label>|</label></td>
+						<td class="last"><label>${columbiaPaymentView.transType}</label></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left" />
+		</t:if>
+
+		<t:if test="StatusHistory">
+
+			<p:else>
+
+				<input type="button"
+					onclick="popupInfo('/payment/columbiaPaymentPrint')"
+					class="grey_btn right" t:type="any" value="message:print" />
+
+			</p:else>
+
+		</t:if>
+	</form>
+</div>
+</html>

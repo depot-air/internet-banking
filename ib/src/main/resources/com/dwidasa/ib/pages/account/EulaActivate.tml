@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>${message:mainTitle}</title>
+    <link rel="shortcut icon" href="bprks.ico"/>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/reset.css}"/>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/text.css}"/>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/960.css}"/>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/style.css}"/>
+</head>
+
+<body>
+	<div class="container_24">
+		<div id="head" class="grid_24">
+        	<a href="" title="BPR KS" class="logo"></a>
+
+	        <div class="head_componen">
+	            <p>${message:help}</p>
+	            <p><span class="phone_ico"></span></p>
+	            <p>${message:phone}</p>
+	        </div>
+    	</div>
+    	<div id="neck" class="grid_24">
+	        <h1>${message:ib}</h1>
+	        <p class="date_time"></p>
+	        <hr/>
+    	</div>
+    	<div class="clear"></div>
+    	<div id="login_wrap">
+	        <div id="login_panel">
+	            <div id="login_title" class="center"><p>${message:title}</p></div>
+	            <div id="login_content">
+	                <span class="emb_left"></span>
+	                <span class="emb_right"></span>
+	                <span class="emb_botleft"></span>
+	                <span class="emb_botright"></span>
+	                <span class="emb_footrpt"></span>
+	
+	                <form t:type="form" class="full-form" t:id="loginForm">
+	                    <fieldSet>
+	                    	<p>${message:info}</p>
+	                    		<label>${message:username}</label><br/>
+	                    		<div id="input"><span class="login_left"></span><span class="login_right"></span></div>
+	                    		
+	                    		<label>${message:code}</label><br/>
+	                    		<div id="input"><span class="login_left"></span><span class="login_right"></span></div>
+	                    		
+	                    		<t:submit id="next" value="message:next" class="grey_btn"/>
+	                    		
+<!-- 	                        <label t:type="label" t:for="username">${message:username}</label><br/> -->
+	
+<!-- 	                        <div id="input"><span class="login_left"></span><span class="login_right"></span><input -->
+<!-- 	                                t:type="textField" t:id="username" autocomplete="off"/></div> -->
+<!-- 	                        <label t:type="label" t:for="password" class="short">${message:tin}</label><br/> -->
+	
+<!-- 	                        <div id="input"><span class="login_left"></span><span class="login_right"></span><input -->
+<!-- 	                                type="password" t:type="passwordfield" t:id="password" autocomplete="off"/></div> -->
+<!-- 	                        <t:submit value="message:login" class="grey_btn"/> -->
+	                    </fieldSet>
+	                </form>
+	                <div class="clear">&#160;</div>
+<!-- 	                <div style="text-align:center; color:red">${error}</div> -->
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	
+	<t:form>
+	</t:form>
+</body>
+</html>

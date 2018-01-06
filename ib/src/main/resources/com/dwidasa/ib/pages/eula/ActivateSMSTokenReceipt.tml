@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:tx="tapestry-library:tapx"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+	<h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_29"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>            	
+	    	<table >              
+                <tr>                	
+                    <td colSpan="2">
+                        <div id="notivy_yellow">
+					    <div id="notivy_message" align="center">
+					        ${message:activation}
+					        <br />
+					        ${message:youCan}
+					    </div>
+					</div>
+                    </td>
+                </tr>
+            </table>
+            <table> 
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:reffNo}</label>
+                    </td>
+                    <td>
+                        <label>:</label>
+                    </td>
+                    <td class="last">
+                        <label>${reffNoValue}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+    	<hr/>
+    </t:form>
+</div>
+</html>

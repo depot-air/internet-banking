@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_3"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account accountNumber="cashInDompetkuView.accountNumber" cardNumber="cashInDompetkuView.cardNumber"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:paymentData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="nomorHandphone"/>
+                    </td>
+                  
+                    <td class="last">
+                         <input t:type="textField" t:id="nomorHandphone" type="text"
+                               t:value="cashInDompetkuView.msiSDN" label="message:nomorHandphone"
+                               validate="required" maxLength="20"/>
+                    </td>
+                </tr>
+<!--                 <tr> -->
+<!--                     <td> -->
+<!--                         <t:label for="namaCustomer"/> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                          <input t:type="textField" t:id="namaCustomer" type="text" -->
+<!--                                t:value="cashInDompetkuView.nama" label="message:namaCustomer" -->
+<!--                                validate="required" maxLength="20"/> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+                <tr>
+                    <td>
+                        <t:label for="rupiahTopUp"/>
+                    </td>
+                    <td>
+                        <input t:type="textField" t:id="rupiahTopUp" type="text"
+                               t:value="cashInDompetkuView.nominalTopUp" label="message:rupiahTopUp"
+                               validate="required, regExp=^[0-9]+$" />
+                    </td>
+                </tr>
+                
+                
+                
+                
+            </table>
+        </fieldSet>
+        <hr/>
+
+		<a hRef="dompetkuOtherInput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </form>
+</div>
+</html>

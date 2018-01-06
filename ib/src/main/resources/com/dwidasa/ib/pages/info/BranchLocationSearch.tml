@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+    <t:form class="formfield" clientValidation="submit" t:zone="searchZone">
+    	<fieldSet>
+            <table>
+                <tr class="odd">
+                	<td class="first">
+	                	<label>${message:searchData}</label>	
+                	</td>
+                	<td class="last">
+        				<input t:type="textField" t:id="strSearch"/>&#160;&#160;
+                	</td>
+                </tr>
+            </table>
+            <t:submit t:id="search" class="grey_btn mr10" value="message:search" />
+        </fieldSet>
+    </t:form>
+    <hr />
+    <t:zone t:id="searchZone">
+    	<t:if test="locations">
+        <div class="table_grid">
+        	<t:if test="strSearch">
+            	<p>${strSearchResult} <t:if test="searchMax">${message:topten}</t:if></p>
+            	<p:else>
+            	<p>${message:showAll} <t:if test="searchMax">${message:topten}</t:if></p>
+            	</p:else>
+            </t:if>
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>${message:titleColumn1}</th>
+                    <th>${message:titleColumn2}</th>
+                    <th>${message:titleColumn3}</th>
+                    <th>${message:titleColumn4}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr t:type="Loop" t:source="locations" t:value="location" class="prop:evenOdd.next">
+                    <td>${location.description}</td>
+                    <td>${location.street}</td>
+                    <td>${location.city}</td>
+                    <t:if test="isHaveMap(location)">
+                    	<td><t:outputRaw t:value="showMapLink(location)"/></td>
+                    	<p:else>
+                    	<td>
+                    	${message:notAvailable}
+                    	</td>
+                    	</p:else>
+                    </t:if>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </t:if>
+    </t:zone>
+    </div>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_15"></div>
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account customerId="hpPaymentView.customerId" status="even"
+                   accountNumber="hpPaymentView.accountNumber"
+                   cardNumber="hpPaymentView.cardNumber"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:paymentData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="biller"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="biller" value="hpPaymentView.billerCode" t:model="billerModel"
+                                  blankOption="never" label="message:biller" t:zone="providerZone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colSpan="2">
+                        <label>${message:description}</label>
+                    </td>
+                </tr>
+                <t:radioGroup value="chooseValue">
+                    <tr class="odd">
+                        <td>
+                            <t:radio t:id="fromId" value="literal:fromId" class="radio" label="message:fromId"/>
+                            <t:label for="fromId"/>
+                        </td>
+                        <td>
+                            <input t:id="customerReference1" t:type="textField"
+                                   validate="requiredIf=checkFromId,regExp=^[0-9]+$, minLength=10" maxLength="13"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input t:type="checkBox" t:id="saveBox" value="saveBoxValue" label="message:saveBox"/>
+                            <t:label for="saveBox"/>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <t:radio t:id="fromList" value="literal:fromList" class="radio" label="message:fromList"/>
+                            <t:label for="fromList"/>
+                        </td>
+                        <td>
+                            <t:zone t:id="hpNoZone" id="hpNoZone" update="show">
+                            <t:select t:id="customerReference2" t:model="customerReferenceModel"
+                                      blankOption="never" validate="requiredIf=checkFromList"/>
+                            </t:zone>
+                        </td>
+                    </tr>
+                </t:radioGroup>
+                <tr>
+                    <td class="first">
+                        <t:label for="provider"/>
+                    </td>
+                    <td class="last">
+                        <t:zone t:id="providerZone" id="providerZone" update="show">
+                            <t:select t:id="provider" t:model="providerModel" blankOption="never"
+                                      value="hpPaymentView.providerCode" label="message:provider"/>
+                        </t:zone>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </t:form>
+</div>
+</html>

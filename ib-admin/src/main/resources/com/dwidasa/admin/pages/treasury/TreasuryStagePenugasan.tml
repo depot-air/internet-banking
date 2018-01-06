@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <t:form class="formfield" clientValidation="submit" >
+        <fieldSet>
+            <legend>${message:searchData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="status"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="status" t:model="statusList" value="status" blankOption="never" label="message:status"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="startDate"/>
+                    </td>
+                    <td>
+                        <tx:datefield t:id="startDate" value="startDate" label="message:startDate"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="endDate"/>
+                    </td>
+                    <td>
+                        <tx:datefield t:id="endDate" value="endDate" label="message:endDate"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+
+        <t:submit t:id="reset" class="grey_btn ml10" value="message:reset" mode="cancel"/>
+        <t:submit t:id="search" class="grey_btn mr10" value="message:search"/>
+        <br/>
+        <br/>
+        <hr/>
+        <table t:type="grid" t:source="treasuryStages" t:model="model" t:row="row" rowsPerPage="pageSize" t:encoder="treasuryStageEncoder" 
+               t:add="select" t:reorder="select" 
+               t:include="referenceNumber, transactionDate, fromAccountNumber, bankName, toAccountNumber, receiverName, transactionAmount, status"
+               width="100%" t:mixins="gridSortingDisabled">
+            <p:selectCell>
+                <input t:id="select" t:type="checkBox" value="currentSelected"/>
+            </p:selectCell>   
+            <t:parameter name="empty">
+                <div id="emptyData">
+                    ${message:emptyData}
+                </div>
+            </t:parameter>
+            <p:referenceNumberCell>
+                <a t:type="pagelink" t:page="treasury/TreasuryStageDetail" t:context="row.id">${row.referenceNumber}</a>
+            </p:referenceNumberCell>
+            <p:transactionDateCell>
+            	<t:output value="row.transactionDate" format="prop:longDate"/>
+            </p:transactionDateCell>
+            <p:transactionAmountCell>
+                <t:output value="row.transactionAmount" format="formatter"/>
+            </p:transactionAmountCell>
+        </table>
+        <hr/>
+        <fieldSet>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="officer"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="officer" t:model="officerListModel" value="officerUsername" blankOption="never" label="message:officer"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <t:submit t:id="process" class="grey_btn mr10" value="message:process"/>
+    </t:form>
+</div>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        ${message:accountNumber}
+                    </td>
+                    <td class="last">
+                        ${lotteryView.accountNumber}
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+		<fieldSet>
+            <legend>${message:undianData}</legend>
+            <t:if test="lotteryView">
+            <table>                       
+            	<tr class="odd">
+                    <td class="first">
+                        <label>${message:transactionDate}</label>
+                    </td>
+                    <td>:</td>
+                    <td class="last">
+                    	<label><t:output value="lotteryView.transactionDate" format="longDate"/></label>
+                    </td>
+                </tr>
+           
+                <tr class="even">
+                    <td>
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td>:</td>
+                    <td>
+                    	<label>${lotteryView.cardNumber}</label>
+                    </td>
+                </tr>
+        		<tr class="odd">
+                    <td>
+                        <label>${message:customerName}</label>
+                    </td>
+                    <td>:</td>
+                    <td>
+                    	<label>${customerName}</label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:period}</label>
+                    </td>
+                    <td>:</td>
+                    <td>
+                    	<label>${lotteryView.periodMonth} ${lotteryView.periodYear}</label>
+                    </td>
+                </tr>	                
+                <tr class="odd">
+                	<td>
+                        <label>${message:start}</label>
+                    </td>
+                    <td>:</td>
+ 		 			<td>
+  						<label>${lotteryView.startPointNumber}</label>
+            		</td>         
+                </tr>                  
+                <tr class="even">
+                	<td>
+                        <label>${message:end}</label>
+                    </td>
+                    <td>:</td>
+ 		 			<td>
+  						<label>${lotteryView.endPointNumber}</label>
+            		</td>         
+                </tr>   
+           </table>
+            <p:else> 
+            <table>   
+                <tr class="odd">
+                	<td class="first"></td>
+ 		 			<td>
+ 		 				<h2 align="center">Data Undian Anda Tidak Ditemukan</h2>
+            		</td>         
+                </tr>  
+            </table>    
+            </p:else>
+            </t:if>
+        </fieldSet>
+		
+    <t:submit t:id="back" value="message:back" class="grey_btn mr10"/>
+    
+    </t:form>
+	</div>
+	
+</html>

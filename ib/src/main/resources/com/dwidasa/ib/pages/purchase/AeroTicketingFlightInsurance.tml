@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:tx="tapestry-library:tapx"
+      xmlns:p="tapestry:parameter">
+
+    <link type="text/css" rel="stylesheet" href="${context:bprks/css/aero/redmond/jquery-ui-1.10.4.custom.css}" />
+    <link type="text/css" rel="stylesheet" href="${context:bprks/css/aero/select2.css}" />
+    <link type="text/css" rel="stylesheet" href="${context:bprks/css/aero/style.css}" />
+    <script src="${context:bprks/js/aero/jquery.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/aero/jquery-ui.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/aero/select2.min.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/aero/aeroInsurance.js}" type="text/javascript"></script>
+    <script>
+        $("#noAssurance, #yesAssurance, #yesMudik, #yesTravel").change(function () {
+            console.log("$(this).attr('id')=" + $(this).attr('id'));
+            if ($(this).attr('id') === "noAssurance") {
+                console.log("no assurance is selected");
+                objAeroTiketingView.assuranceType = null;
+            } else if ($(this).attr('id') === "yesAssurance" || $(this).attr('id') === "yesMudik") {
+                console.log("yes assurance is selected");
+                objAeroTiketingView.assuranceType = "SIMAS MUDIK";
+            } else {
+                console.log("yes assurance is selected");
+                objAeroTiketingView.assuranceType = "SIMAS TRAVEL";
+            }
+            hiddenAeroTicketingView  = JSON.stringify(objAeroTiketingView);
+            $('#hiddenAeroTicketingView').val(hiddenAeroTicketingView);
+
+        });
+
+    </script>
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>Pemesanan Tiket Pesawat</h2>
+
+    <div class="ico_position ico_favorite_36"></div>
+        <form t:type="form" class="formfield" clientValidation="submit">
+	        <t:errors banner="message:errorBanner"/>
+	        
+	        <fieldSet>
+	            <legend>Asuransi</legend>
+                <div id="fSResult">
+                    <div id="passDetail" class="fLLeft">
+                        <div id="asuransi">
+                            <table>
+                                <tr>
+                                    <td class="col1">
+                                        <img src="${context:bprks/img/aero/asuransi.png}" width="45" alt="" />
+                                    </td>
+                                    <td class="col2">
+                                        <p class="prologue">Apakah Menggunakan Asuransi?</p>
+                                        <p class="subPrologue"><i>Yakini perjalanan anda aman dengan asuransi</i></p>
+                                        <div class="opsiAsuransi">
+                                            <ul>
+                                                <t:radioGroup value="chooseValue">
+                                                <li>
+                                                    <!--<input type="radio" name="asuransi" value="tidak"></input>
+                                                    <p>Tidak Terima Kasih</p>-->
+                                                    <t:radio t:id="noAssurance" value="literal:Tidak" class="radio" />
+                                                    <p><label class="formNote2" for="noAssurance">Tidak, terima kasih</label></p>
+                                                </li>
+                                                <t:if test="voltras">
+                                                <li>
+                                                    <!--<input type="radio" name="asuransi" value="asuransi_01"></input>
+                                                    <p>Sinarmas Mudik (Rp10,000) / Penumpang</p>-->
+                                                    <t:radio t:id="yesAssurance" value="literal:Iya" class="radio" />
+                                                    <p><label class="formNote2" for="yesAssurance">Iya, silahkan</label></p>
+                                                </li>
+                                                </t:if>
+                                                <t:if test="aeroticket">
+                                                <li>
+                                                    <!--<input type="radio" name="asuransi" value="asuransi_02"></input>
+                                                    <p>Sinarmas Mudik (Rp10,000) / Penumpang</p>-->
+                                                    <t:radio t:id="yesMudik" value="literal:Mudik" class="radio" />
+                                                    <p><label class="formNote2" for="yesMudik">Sinarmas Mudik (Rp10,000) / Penumpang</label></p>
+                                                </li>
+                                                <li>
+                                                    <t:radio t:id="yesTravel" value="literal:Mudik" class="radio" />
+                                                    <p><label class="formNote2" for="yesTravel">Sinarmas Travel (Rp15,000) / Penumpang</label></p>
+                                                </li>
+                                                </t:if>
+                                                </t:radioGroup>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="detailPrice" class="fLRight rounded10">
+                        <span class="detailBtmBg"></span>
+                        <h4>Detail Pemesanan</h4>
+                        <div class="subtitle">Keberangkatan</div>
+                        <div id="detailBerangkat" class="subDetail">
+                            <p class="departDate"><t:output value="aeroTicketingView.departureFlight.etd" format="mediumFormat"/></p>
+                            <div class="flightLogoAndCode departLogoAndCode">
+                                <span class="flightLogo ${getDepartLogo()}"></span>
+                                <p class="flightCode">${aeroTicketingView.departureFlight.flightNumber}</p>
+                                <div class="flightRoute" id="departDetail">
+                                    <p class="flight float"><span class="city" id="departCityFrom">${aeroTicketingView.departureFlight.departureAirportFullName}</span><br /><span class="airport" id="departFrom">${aeroTicketingView.departureFlight.departureAirportCode}</span><span class="time" id="departEtd"><t:output value="aeroTicketingView.departureFlight.etd" format="hhmm"/></span></p>
+                                    <span class="arrow float"></span>
+                                    <p class="flight float"><span class="city" id="departCityTo">${aeroTicketingView.departureFlight.arrivalAirportFullName}</span><br /><span class="airport" id="departTo">${aeroTicketingView.departureFlight.arrivalAirportCode}</span><span class="time" id="departEta"><t:output value="aeroTicketingView.departureFlight.eta" format="hhmm"/></span></p>
+                                </div>
+
+                                <t:if test="departConnecting">
+                                    <p class="flightCode flightCodeConnecting" id="departFlightCodeConnecting">${aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightFno}</p>
+                                    <div class="flightRoute flightRouteConnecting" id="departConnecting">
+                                        <p class="flight float"><span class="city" id="departConnectingCityFrom">${aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightCityFrom}</span><br /><span class="airport" id="departConnectingFrom">${aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightFrom}</span><span class="time" id="departConnectingEtd"><t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightEtd" format="hhmm"/></span></p>
+                                        <span class="arrow float"></span>
+                                        <p class="flight float"><span class="city" id="departConnectingCityTo">${aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightCityTo}</span><br /><span class="airport" id="departConnectingTo">${aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightTo}</span><span class="time" id="departConnectingEta"><t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight.connectingFlightEta" format="hhmm"/></span></p>
+                                    </div>
+                                </t:if>
+
+                                <t:if test="departConnecting2">
+                                    <p class="flightCode flightCodeConnecting2" id="departFlightCodeConnecting2">${aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightFno}</p>
+                                    <div class="flightRoute flightRouteConnecting2" id="departConnecting2">
+                                        <p class="flight float"><span class="city" id="departConnecting2CityFrom">${aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightCityFrom}</span><br /><span class="airport" id="departConnecting2From">${aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightFrom}</span><span class="time" id="departConnecting2Etd"><t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightEtd" format="hhmm"/></span></p>
+                                        <span class="arrow float"></span>
+                                        <p class="flight float"><span class="city" id="departConnecting2CityTo">${aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightCityTo}</span><br /><span class="airport" id="departConnecting2To">${aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightTo}</span><span class="time" id="departConnecting2Eta"><t:output value="aeroTicketingView.departureFlight.aeroConnectingFlight2.connectingFlightEta" format="hhmm"/></span></p>
+                                    </div>
+                                </t:if>
+                            </div>
+                        </div>
+                        <t:if test="returnFlight">
+                            <div class="subtitle" id="subTitleReturn" >Kembali</div>
+                            <div id="detailKembali" class="subDetail">
+                                <p class="departDate"><t:output value="aeroTicketingView.returnFlight.etd" format="mediumFormat"/></p>
+                                <div class="flightLogoAndCode returnLogoAndCode">
+                                    <span class="flightLogo ${getReturnLogo()}"></span>
+                                    <p class="flightCode">${aeroTicketingView.returnFlight.flightNumber}</p>
+                                    <div class="flightRoute" id="returnDetail">
+                                        <p class="flight float"><span class="city" id="returnCityFrom">${aeroTicketingView.returnFlight.departureAirportFullName}</span><br /><span class="airport" id="returnFrom">${aeroTicketingView.returnFlight.departureAirportCode}</span><span class="time" id="returnEtd"><t:output value="aeroTicketingView.returnFlight.etd" format="hhmm"/></span></p>
+                                        <span class="arrow float"></span>
+                                        <p class="flight float"><span class="city" id="returnCityTo">${aeroTicketingView.returnFlight.arrivalAirportFullName}</span><br /><span class="airport" id="returnTo">${aeroTicketingView.returnFlight.arrivalAirportCode}</span><span class="time" id="returnEta"><t:output value="aeroTicketingView.returnFlight.eta" format="hhmm"/></span></p>
+                                    </div>
+
+                                    <t:if test="returnConnecting">
+                                        <p class="flightCode flightCodeConnecting" id="returnFlightCodeConnecting">${aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightFno}</p>
+                                        <div class="flightRoute flightRouteConnecting" id="returnConnecting">
+                                            <p class="flight float"><span class="city" id="returnConnectingCityFrom">${aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightCityFrom}</span><br /><span class="airport" id="returnConnectingFrom">${aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightFrom}</span><span class="time" id="returnConnectingEtd"><t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightEtd" format="hhmm"/></span></p>
+                                            <span class="arrow float"></span>
+                                            <p class="flight float"><span class="city" id="returnConnectingCityTo">${aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightCityTo}</span><br /><span class="airport" id="returnConnectingTo">${aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightTo}</span><span class="time" id="returnConnectingEta"><t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight.connectingFlightEta" format="hhmm"/></span></p>
+                                        </div>
+                                    </t:if>
+
+                                    <t:if test="returnConnecting2">
+                                        <p class="flightCode flightCodeConnecting2" id="returnFlightCodeConnecting2">${aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightFno}</p>
+                                        <div class="flightRoute flightRouteConnecting2" id="returnConnecting2">
+                                            <p class="flight float"><span class="city" id="returnConnecting2CityFrom">${aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightCityFrom}</span><br /><span class="airport" id="returnConnecting2From">${aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightFrom}</span><span class="time" id="returnConnecting2Etd"><t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightEtd" format="hhmm"/></span></p>
+                                            <span class="arrow float"></span>
+                                            <p class="flight float"><span class="city" id="returnConnecting2CityTo">${aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightCityTo}</span><br /><span class="airport" id="returnConnecting2To">${aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightTo}</span><span class="time" id="returnConnecting2Eta"><t:output value="aeroTicketingView.returnFlight.aeroConnectingFlight2.connectingFlightEta" format="hhmm"/></span></p>
+                                        </div>
+                                    </t:if>
+
+                                </div>
+                            </div>
+
+                        </t:if>
+
+                        <div class="detailHarga">
+                            <t:if test="aeroticket">
+                            <div id="aeroDepartPrice">
+                                <p>Harga Keberangkatan</p>
+                                <hr />
+                                <table>
+                                    <tr>
+                                        <td class="col1">${aeroTicketingView.totalAdult} Adult</td>
+                                        <td class="col2">Rp. <span id="departAdultPrice"><t:output value="aeroTicketingView.departureFlight.adultPassengerSummary.total" format="formatter"/></span></td>
+                                    </tr>
+                                    <t:if test="aeroChildPassenger">
+                                        <tr>
+                                            <td class="col1">${aeroTicketingView.totalChildren} Child</td>
+                                            <td class="col2">Rp. <span id="departChildPrice"><t:output value="aeroTicketingView.departureFlight.childPassengerSummary.total" format="formatter"/></span></td>
+                                        </tr>
+                                    </t:if>
+                                    <t:if test="aeroInfantPassenger">
+                                        <tr>
+                                            <td class="col1">${aeroTicketingView.totalInfant} Infant</td>
+                                            <td class="col2">Rp. <span id="departInfantPrice"><t:output value="aeroTicketingView.departureFlight.infantPassengerSummary.total" format="formatter"/></span></td>
+                                        </tr>
+                                    </t:if>
+                                    <tr>
+                                        <td colspan="2" class="subTotal">Rp. <span id="departPrice"><t:output value="aeroTicketingView.departureFlight.total" format="formatter"/></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <t:if test="returnFlight">
+                                <div id="aeroReturnPrice">
+                                    <p>Harga Kembali</p>
+                                    <hr />
+                                    <table>
+                                        <tr>
+                                            <td class="col1">${aeroTicketingView.totalAdult} Adult</td><!--2 Adult-->
+                                            <td class="col2">Rp. <span id="returnAdultPrice"><t:output value="aeroTicketingView.returnFlight.adultPassengerSummary.total" format="formatter"/></span></td><!--1,200,000-->
+                                        </tr>
+                                        <t:if test="aeroChildPassenger">
+                                            <tr>
+                                                <td class="col1">${aeroTicketingView.totalChildren} Child</td>
+                                                <td class="col2">Rp. <span id="returnChildPrice"><t:output value="aeroTicketingView.returnFlight.childPassengerSummary.total" format="formatter"/></span></td>
+                                            </tr>
+                                        </t:if>
+                                        <t:if test="aeroInfantPassenger">
+                                            <tr>
+                                                <td class="col1">${aeroTicketingView.totalInfant} Infant</td>
+                                                <td class="col2">Rp. <span id="returnInfantPrice"><t:output value="aeroTicketingView.returnFlight.infantPassengerSummary.total" format="formatter"/></span></td>
+                                            </tr>
+                                        </t:if>
+                                        <tr>
+                                            <td colspan="2" class="subTotal">Rp. <span id="returnPrice"><t:output value="aeroTicketingView.returnFlight.total" format="formatter"/></span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </t:if>
+                            </t:if>
+                            <div id="allInsurance">
+                                <table>
+                                    <tr>
+                                        <td class="col1">Harga Tiket</td>
+                                        <td class="col2">Rp. <span id="ticketPrice"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col1">Asuransi</td>
+                                        <td class="col2">Rp. <span id="insurancePrice"></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div id="allTotalPrice">
+                                <p>Harga Total</p>
+                                <hr />
+                                <table>
+                                    <tr>
+                                        <td colspan="2" class="total" >Rp. <span id="totalPrice"><t:output value="aeroTicketingView.total" format="formatter"/></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <input t:type="textField" t:name="hiddenAeroTicketingView" t:id="hiddenAeroTicketingView" t:value="hiddenAeroTicketingView" style="display:none" />
+                </div>
+
+                <br /><br /><br /><br />
+                <hr/>
+                <!--<input type="submit" class="submitSearchBtn blueBtn mr10" value="Lanjutkan" />-->
+                <a hRef="aeroticketingflightdetail" >
+                    <input type="button" class="grey_btn ml10" t:type="any" value="Kembali"/>
+                </a>
+                <t:submit t:id="next" value="Lanjutkan" class="green_btn mr10"  />
+            </fieldSet>
+    	</form>
+	</div>
+</html>

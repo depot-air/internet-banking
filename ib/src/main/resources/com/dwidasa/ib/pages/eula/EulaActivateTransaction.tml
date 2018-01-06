@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<body>
+<div id="main_content">
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_29"></div>
+    <t:form>
+   			<t:errors banner="message:errorBanner"/>
+  	</t:form>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+	    <fieldSet> 
+	        <table >
+	        	<tr class="odd">
+	                <td width="300">
+	                    ${message:silakanPilih}&nbsp;&nbsp;${message:divide}&nbsp;&nbsp;
+	                </td>
+	                <td width="400">
+	                <t:if test="MerchantSoft">
+	                	<t:select t:id="SoftTokenType" blankOption="never" />
+	                 <p:else>
+	                 	<t:if test="merchant">
+	                 	<t:select t:id="merchantType" blankOption="never" />
+	                 	<p:else>
+	                 	<t:select t:id="IndividualType" blankOption="never" />
+	                 	
+	                 	</p:else>
+	                 	</t:if>
+	                	
+	                </p:else>
+	                </t:if>
+	                </td>	        	
+	        	</tr>
+	        	<tr>
+	                <td></td>
+	                <td>
+	                	<t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+	                </td>	        	
+	        	</tr>
+	        </table>              
+	    </fieldSet>    	
+	</form>	    
+</div>
+</body>
+</html>

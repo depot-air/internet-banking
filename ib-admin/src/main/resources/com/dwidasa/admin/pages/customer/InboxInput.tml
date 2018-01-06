@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+<!--     
+    <t:if test="messageInfo">
+		<div id="divMessageInfo">
+			${messageInfo} 
+		</div>
+	</t:if>
+-->
+	<t:displayMessage/>	
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+    <t:errors banner="message:errorBanner"/>
+        <fieldset>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:subject}</label>
+                    </td>
+                    <td class="last">
+                        <input t:type="text" t:id="title"/>
+                        &nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    	<label>${message:content}</label>
+                    </td>
+                    <td class="last">
+                        <input t:type="text" t:id="Content"/>
+                        &nbsp;&nbsp;
+                    </td>
+                </tr>
+                
+<!--                 <tr class="odd"> -->
+<!--                     <td> -->
+<!--                     	<label>${message:all}</label> -->
+<!--                     </td> -->
+<!--                     <td class="last"> -->
+<!--                         <input t:type="checkBox" t:id="all"/> -->
+<!--                         &nbsp;&nbsp; -->
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+                <t:radioGroup value="chooseValue" validate="required">
+                    	<tr class="odd">
+                        <td class="first">
+                            <label>Jenis Customer</label>
+                        </td>
+                        <td class="last"><span></span>
+                            <input t:type="Radio" t:id="fromMerchant" t:value="literal:fromMerchant" validate="required"/>
+                              <label>Merchant</label>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td></td>
+                        <td>
+                            <input t:type="Radio" t:id="fromIndividual" t:value="literal:fromIndividual" validate="required"/>
+                              <label>Individual</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td></td>
+                        <td>
+                            <input t:type="Radio" t:id="fromMerchantIndividual" t:value="literal:fromMerchantIndividual" validate="required"/>
+                              <label>Merchant Dan Individual</label>
+                        </td>
+                    </tr>
+                    
+               	 </t:radioGroup>
+                
+                
+                
+                                
+            </table>
+        </fieldset>  
+       
+       
+       <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:if test="inbox.id">
+
+        <t:submit t:id="update" class="green_btn mr10" value="message:changeProfile"/>
+       
+        <p:else>
+
+        <t:submit t:id="save" class="green_btn mr10" value="message:save"/>
+        
+        </p:else>
+        </t:if>
+        
+        
+        
+        
+    </form>
+</div>
+</html>

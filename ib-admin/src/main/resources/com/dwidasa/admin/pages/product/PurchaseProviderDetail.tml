@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" t:id="purchaseProviderDetail" clientValidation="submit">
+        <fieldset>
+            <legend>${message:subtitleProduct}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:transactionType}</label>
+                    </td>
+                    <td class="last">
+                        <label>${transactionType}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:billerCode}</label>
+                    </td>
+                    <td>
+                        <label>${biller.billerCode}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:billerName}</label>
+                    </td>
+                    <td>
+                        <label>${biller.billerName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:productCode}</label>
+                    </td>
+                    <td>
+                        <label>${billerProduct.productCode}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:productName}</label>
+                    </td>
+                    <td>
+                        <label>${billerProduct.productName}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>${message:subtitleDenomination}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:denomination}</label>
+                    </td>
+                    <td class="last">
+                        <label><label><t:output value="denomination" format="formatter"/></label></label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>${message:subtitleProvider}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="providerName"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="providerName" t:model="providerNameModel" value="providerCode"
+                                  blankOption="never" label="message:providerName" validate="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="price"/>
+                    </td>
+                    <td>
+                        <input t:id="price" value="providerDenomination.price" t:type="textfield"
+                               label="message:price" validate="required, regexp=^[0-9]+$" translate="numberFormat:##0"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="fee"/>
+                    </td>
+                    <td>
+                        <input t:id="fee" value="providerDenomination.fee" t:type="textfield"
+                               label="message:fee" validate="required, regexp=^[0-9]+$" translate="numberFormat:##0"/>
+                    </td>
+                </tr>
+            </table>
+            <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+            <t:submit t:id="add" class="green_btn mr10" value="prop:action"/>
+        </fieldset>
+        <hr/>
+    </form>
+</div>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title"
+	referenceNumber="${columbiaPaymentView.referenceNumber}"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+
+<table class="dg_first">
+	<tr>
+		<td>${message:transactionDate}</td>
+		<td>:</td>
+		<td><t:output value="columbiaPaymentView.transactionDate"
+				format="mediumDate" /></td>
+	</tr>
+	<tr>
+		<td style="font-weight: bold;">${message:noReferensi}</td>
+		<td>:</td>
+		<td>${columbiaPaymentView.referenceNumber}</td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:idpel}</label></td>
+		<td><label>:</label></td>
+		<td class="last"><label>${columbiaPaymentView.customerReference}</label></td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:referenceName}</label></td>
+		<td><label>:</label></td>
+		<td class="last"><label>${columbiaPaymentView.referenceName}</label></td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:companyCode}</label></td>
+		<td><label>:</label></td>
+		<td class="last"><label>${columbiaPaymentView.columbiaCode}</label></td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:nilaiAngsuran}</label></td>
+		<td><label>:</label></td>
+		<td class="last"><label>${columbiaPaymentView.nilaiAngsuran}</label></td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:paymentPeriod}</label></td>
+		<td><label>:</label></td>
+		<td class="last"><label>${columbiaPaymentView.paymentPeriod}</label></td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:numOfBill}</label></td>
+		<td><label>:</label></td>
+		<td class="last"><label>${columbiaPaymentView.numOfBill}</label></td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:jatuhTempo}</label></td>
+		<td><label>:</label></td>
+		<td class="last"><label>${columbiaPaymentView.jatuhTempo}</label></td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:minPayment}</label></td>
+		<td><label>:</label></td>
+		<td class="last">
+			<label>${message:curr}
+		    	<t:output value="columbiaPaymentView.minimumPayment" format="formatter"/>
+		    </label>
+        </td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:penalty}</label></td>
+		<td><label>:</label></td>
+		<td class="last">
+			<label>${message:curr}
+	    		<t:output value="columbiaPaymentView.penaltyFee" format="formatter"/>
+	    	</label>
+        </td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:amount}</label></td>
+		<td><label>:</label></td>
+		<td class="last">
+			<label>${message:curr}
+	    		<t:output value="columbiaPaymentView.amount" format="formatter"/>
+	    	</label>
+        </td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:admin}</label></td>
+		<td><label>:</label></td>
+		<td class="last">
+			<label>${message:curr}
+		  	  <t:output value="columbiaPaymentView.fee" format="formatter"/>
+		    </label>
+        </td>
+	</tr>
+	
+	<tr>
+		<td class="first"><label>${message:total}</label></td>
+		<td><label>:</label></td>
+		<td class="last">
+			<label>${message:curr}
+	    		<t:output value="columbiaPaymentView.total" format="formatter"/>
+	    	</label>
+        </td>
+	</tr>
+	<tr>
+		<td class="first"><label>${message:transType}</label></td>
+		<td><label>:</label></td>
+		<td class="last"><label>${columbiaPaymentView.transType}</label></td>
+	</tr>
+</table>
+<p class="center" align="center">
+	<span class="upercase" style="font-weight: bold;">${message:footNote1}</span><br />
+	<span class="upercase" style="font-weight: bold;">${message:footNote2}</span><br />
+</p>
+
+</html>

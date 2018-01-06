@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <!--a href="#" title="Tambahkan ke Menu Favorit" class="ico_position ico_fav_off">Add to Favorite</a--> 
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${transferBatchView.accountNumber}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:transferData}</legend>
+            <table>
+                <tbody>
+                    <tr class="odd">
+                        <td class="first">
+                            <label>${message:batchName}</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferBatchView.batchName}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:description}</label>
+                        </td>
+                        <td>
+                            <label>${transferBatchView.batchDescription}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="first">
+                            <label>${message:transferType}</label>
+                        </td>
+                        <td class="last">
+                            <label>${getStrTransferType(transferBatchView.transferType)}</label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--table t:type="grid" source="transferBatchView.transferBatchContentList" row="row"
+				rowsPerPage="pageSize" include="accountNumber, customerName, amount"
+				width="100%" t:mixins="gridSortingDisabled">
+				<p:amountCell>
+					<t:output value="row.amount" format="formatter"/>
+				</p:amountCell>
+			</table-->
+        </fieldSet>
+        <hr/>
+        <t:token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge" mode="tokenType"/>
+        <a hRef="input" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        <t:submit t:id="send" class="green_btn mr10" value="message:send"/>
+    </t:form>
+</div>
+</html>

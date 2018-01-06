@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position  ico_favorite_6"></div>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <hr/>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:rekDestination}</label>
+                    </td>
+                    <td class="last"><span></span>
+                        <label>${transferView.customerReference}</label>
+                    </td>
+                </tr>
+                <tr >
+                    <td>
+                        <label>${message:destinationName}</label>
+                    </td>
+                    <td><span></span>
+                        <label>${transferView.receiverName}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:token token="tokenView.token" token6Digit="tokenView.token" challenge="tokenView.challenge" mode="tokenType"/>
+        <div id="note"  style="color:red;">
+            ${message:confirmation}
+        </div>
+        <br/>
+        <a hRef="registertransferinput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>        
+        <t:submit t:id="send" value="message:send" class="green_btn mr10"/>
+    </form>
+</div>
+</html>

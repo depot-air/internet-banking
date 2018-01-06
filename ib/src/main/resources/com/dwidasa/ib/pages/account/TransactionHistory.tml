@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:tx="tapestry-library:tapx"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account customerId="accountView.customerId" status="even"
+                   accountNumber="accountView.accountNumber" cardNumber="accountView.cardNumber"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:historyData}</legend>
+            <table>
+                <tr class="odd">
+                    <td colSpan="2">${message:choosePeriod}</td>
+                </tr>
+                <t:radioGroup value="periodValue">
+                    <tr>
+                        <td colSpan="2">
+                            <t:radio t:id="todayRadio" value="literal:today" label="message:today"/>
+                            <t:label for="todayRadio"/>
+                        </td>
+                    </tr>
+
+                    <tr class="odd">
+                        <td colSpan="2">
+                            <t:radio t:id="historyRadio" value="literal:range" label="message:range"/>
+                            <t:label for="historyRadio"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first">
+                            <t:label for="startDate" class="radioGroup" t:id="lblStartDate" onclick="document.getElementById('historyRadio').checked = true"/>
+                        </td>
+                        <td class="last">
+                            <div class="date_picker_inline" onclick="document.getElementById('historyRadio').checked = true">
+                                <tx:datefield t:id="startDate" value="startDate" onclick="document.getElementById('historyRadio').checked = true"
+                                       format="prop:shortDate" validate="requiredIf=checkHistoryFrom" label="message:from"/>
+                            </div>
+                            <div class="date_picker_inline" onclick="document.getElementById('historyRadio').checked = true">(${shortPattern})</div>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <t:label for="endDate" class="radioGroup" t:id="lblEndDate" onclick="document.getElementById('historyRadio').checked = true"/>
+                        </td>
+                        <td>
+                            <div class="date_picker_inline" onclick="document.getElementById('historyRadio').checked = true">
+                                <tx:datefield t:id="endDate" value="endDate" onclick="document.getElementById('historyRadio').checked = true"
+                                       format="prop:shortDate" validate="requiredIf=checkHistoryFrom" label="message:to"/>
+                            </div>
+                            <div class="date_picker_inline" onclick="document.getElementById('historyRadio').checked = true">(${shortPattern})</div>
+                        </td>
+                    </tr>
+                </t:radioGroup>
+                <tr>
+                    <td colSpan="2">${message:chooseType}</td>
+                </tr>
+                <t:radioGroup value="transactionType">
+                    <tr class="odd">
+                        <td colSpan="2">
+                            <t:radio t:id="allTransactionRadio" value="literal:all"
+                                     label="message:allTransaction"/>
+                            <t:label for="allTransactionRadio"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <t:radio t:id="typeTransactionRadio" value="literal:choose"
+                                     label="message:chooseTransaction"/>
+                            <t:label for="typeTransactionRadio"/>
+                        </td>
+                        <td>
+                            <t:select t:id="transactionTypeSelect" value="accountView.transactionType" onclick="document.getElementById('typeTransactionRadio').checked = true"
+                                      model="transactionTypeModel" blankOption="never" label="message:transactionType"/>
+                        </td>
+                    </tr>
+                </t:radioGroup>
+                <tr class="odd">
+                    <td colSpan="2">${message:note}</td>
+                </tr>
+                <tr>
+                    <td colSpan="2">
+                       <label style="color:red;">${message:max31Days}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </t:form>
+</div>
+</html>

@@ -1,0 +1,48 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:tx="tapestry-library:tapx"
+  	xmlns:p="tapestry:parameter">
+<script src="${context:bprks/js/aero/aeroPassengerInput.js}" type="text/javascript"></script>
+
+<t:content>
+    <fieldSet>
+        <label>Dari daftar</label>
+        <t:select  class="passSave" t:id="pass1FromList" t:model="customerReferenceModel" blankOption="never"
+            value="aeroPassenger.parent" /><br /><br />
+        <t:if test="adult">
+            <label>Title</label>
+            <t:select model="titleModel" value="aeroPassenger.passengerTitle"
+                      t:id="titleAdult" blankOption="never"
+                      label="message:title" validate="required"/><br /><br />
+        </t:if>
+        <t:if test="child">
+            <label>${message:type}</label>
+            <input type="text" name="passType" value="Anak-anak" disabled="disabled" class="w170" /><br /><br />
+        </t:if>
+        <t:if test="infant">
+            <label>${message:type}</label>
+            <input type="text" name="passType" value="Bayi" disabled="disabled" class="w170" /><br /><br />
+        </t:if>
+        <label>${message:firstName}</label>
+        <input t:id="firstName" t:type="textField" type="text" class="w170"
+            t:value="aeroPassenger.passengerFirstName" maxLength="15" validate="required"/><br /><br />
+        <label>${message:lastName}</label>
+        <input t:id="lastName" t:type="textField" type="text" class="w170"
+            t:value="aeroPassenger.passengerLastName" maxLength="15" validate="required"/><br /><br />
+        <label>${message:birthDate}</label>
+        <!--<span class="birthDayContainer">-->
+        <span class="departDateContainer">
+            <input t:type="dateField" t:name="passengerDob" id="passengerDob" class="passengerDob" placeholder="Tanggal Lahir" format="${dateFieldFormat}" validate="required" t:value="aeroPassenger.passengerDob" />
+        </span><br /><br />
+        <label>${message:country}</label>
+        <t:select model="countryModel" value="aeroPassenger.country"
+                          t:id="country" blankOption="never"
+                          label="message:country" validate="required"/><br /><br />
+
+        <t:if test="adult">
+            <label>${message:idCard}</label>
+            <input t:id="idCard" t:type="textField" type="text" label="message:idCard"
+                   t:value="aeroPassenger.passengerIdCard" maxLength="15" validate="required"/><br /><br />
+        </t:if>
+    </fieldSet>
+</t:content>
+</html>

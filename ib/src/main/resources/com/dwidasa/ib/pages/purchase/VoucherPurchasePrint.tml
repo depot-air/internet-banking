@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${voucherPurchaseView.referenceNumber}" transactionDateString="${voucherPurchaseView.transactionDateString}"  
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+
+		<t:if test="ISB">
+		
+		<table class="dg_first">
+        	<tr>
+            	<td class="center" colSpan="3" style="font-weight: bold;">${voucherPurchaseView.productName}</td>
+            </tr>
+            
+            <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:phoneNumber}</td>
+                <td>:</td>
+                <td>${voucherPurchaseView.customerReference}</td>
+            </tr>
+            
+<!--              <tr> -->
+<!--                 <td class="firstcol" style="font-weight: bold;">Serial Number</td> -->
+<!--                 <td>:</td> -->
+<!--                 <td>${voucherPurchaseView.serialNumber}</td> -->
+<!--             </tr> -->
+            
+            
+            <tr>
+                <td style="font-weight: bold;">${message:denomination}</td>
+                <td>:</td>
+                <td>${message:curr} <t:output value="denomination" format="formatter"/></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:serialNumber}</td>
+                <td>:</td>
+                <td>${voucherPurchaseView.serialNumber}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:windowPeriod}</td>
+                <td>:</td>
+                <td><t:output value="voucherPurchaseView.windowPeriod" format="mediumDate"/></td>
+            </tr>
+            <tr/>
+            <tr/>
+        </table>
+        
+        
+        <p:else>
+        
+        
+        <table class="dg_first">
+        	<tr>
+            	<td class="center" colSpan="3" style="font-weight: bold;">${voucherPurchaseView.productName}</td>
+            </tr>
+            <tr>
+                <td class="firstcol" style="font-weight: bold;">${message:phoneNumber}</td>
+                <td>:</td>
+                <td>${voucherPurchaseView.customerReference}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:denomination}</td>
+                <td>:</td>
+                <td>${message:curr} <t:output value="denomination" format="formatter"/></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:serialNumber}</td>
+                <td>:</td>
+                <td>${voucherPurchaseView.serialNumber}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">${message:windowPeriod}</td>
+                <td>:</td>
+                <td><t:output value="voucherPurchaseView.windowPeriod" format="mediumDate"/></td>
+            </tr>
+            <tr/>
+            <tr/>
+        </table>
+        
+        
+        </p:else>
+		
+		
+		
+		</t:if>
+        
+        
+        <t:if test="! telkomsel">
+	        <p class="center" align="center">
+		        <br />
+		        <br />
+			    <span class="upercase" style="font-weight:bold;">${message:footNote}</span><br/>
+	   		 </p>
+	   	</t:if>
+        <t:if test="telkomsel">
+	        <p class="center" align="center" style="font-size:75%;">
+		        <span class="upercase">${message:transaksiBerhasil1}</span><br/>
+		        <span class="upercase">${message:transaksiBerhasil2}</span><br/><br/>
+		        <span class="upercase">${message:npwpTelkomsel}</span><br/><br/>
+		        <span class="upercase">${message:wismaMulia1}</span><br/>
+		        <span class="upercase">${message:wismaMulia2}</span><br/>
+		        <span class="upercase">${message:wismaMulia3}</span><br/>
+		        <span class="upercase">${message:wismaMulia4}</span><br/><br/>
+		        <span class="upercase">${message:untukKeluhan1}</span><br/>
+		        <span class="upercase">${message:untukKeluhan2}</span><br/>
+		        <span class="upercase">${message:untukKeluhan3}</span><br/>
+	   		 </p>
+	   	</t:if>
+</html>

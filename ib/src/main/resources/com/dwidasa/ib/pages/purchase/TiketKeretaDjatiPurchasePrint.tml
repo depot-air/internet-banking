@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${tiketKeretaDjatiPurchaseView.referenceNumber}" transactionDateString="${tiketKeretaDjatiPurchaseView.transactionDateString}"  
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">  
+	<form t:type="form" class="formfield" >
+        <b><t:errors banner="message:blank"/></b>
+        <table class="dg_first">
+        
+			<tr>
+                <td style="font-weight: bold;"><font size="2">${message:fromAccount}</font></td>
+                <td>:</td>
+                <td><font size="2">${tiketKeretaDjatiPurchaseView.accountNumber}</font></td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight: bold;"><font size="2">${message:noTransaksi}</font></td>
+                <td>:</td>
+                <td><font size="2">${tiketKeretaDjatiPurchaseView.transactionID}</font></td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight: bold;"><font size="2">${message:paymentCode}</font></td>
+                <td>:</td>
+                <td><font size="2">${tiketKeretaDjatiPurchaseView.paymentCode}</font></td>
+            </tr>
+            
+        	 <tr>
+                <td  style="font-weight: bold;"><font size="2">${message:pemesan}</font></td>
+                <td>:</td>
+                <td><font size="2">${tiketKeretaDjatiPurchaseView.pemesan}</font></td>
+            </tr>
+            
+            <tr>
+                <td  style="font-weight: bold;"><font size="2">${message:noIdentitas}</font></td>
+                <td>:</td>
+                <td><font size="2">${tiketKeretaDjatiPurchaseView.noIdentitas}</font></td>
+            </tr>
+           
+           <tr>
+                <td style="font-weight: bold;"><font size="2">${message:noHp}</font></td>
+                <td>:</td>
+                <td><font size="2">${tiketKeretaDjatiPurchaseView.noHp}</font></td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight: bold;"><font size="2">${message:jurusan}</font></td>
+                <td>:</td>
+                <td><font size="2">${Jurusan}</font></td>
+            </tr>
+            
+            <tr>
+                <td  style="font-weight: bold;"><font size="2">${message:kotaTujuan}</font></td>
+                <td>:</td>
+                <td><font size="2">${tiketKeretaDjatiPurchaseView.tujuan}</font></td>
+            </tr>
+            
+             <tr>
+                <td  style="font-weight: bold;"><font size="2">${message:tglberangkat}</font></td>
+                <td>:</td>
+                <td><font size="2">${FormatTgl}</font></td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight: bold;"><font size="2">${message:lokasiKeberangkatan}</font></td>
+            </tr>
+            
+             <tr>
+              
+                <td><font size="2">${LokasiKeberangkatan}</font></td>
+            </tr>
+            
+            
+            <tr>
+                <td style="font-weight: bold;"><font size="2">${message:jmlKursi}</font></td>
+                <td>:</td>
+                <td><font size="2">${tiketKeretaDjatiPurchaseView.totalEmptySheat}</font></td>
+            </tr>
+            
+             <tr>
+                <td class="firstcol" style="font-weight: bold;"><font size="2">${message:penumpang}</font></td>
+                <td>:</td>
+                <td><font size="2">${Penumpang}</font></td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight: bold;"><font size="2">${message:total}</font></td>
+                <td>:</td>
+                <td><font size="2">${message:curr} <t:output value="HargaTiket" format="formatter"/></font></td>
+            </tr>
+            
+            <tr/>
+            <tr/>
+        </table>
+        
+        <p class="center" align="center">
+		      
+			    <span><font size="1">${message:Note1SBY}</font></span><br/>
+			    <span><font size="1">${message:note2}</font></span><br/>
+			    <span><font size="1">${message:note3}</font></span><br/>
+			    <span><font size="2">${message:kosong}</font></span><br/>
+	    </p>
+	    
+	   
+	    <p class="center" align="center">
+		        
+			    <span><font size="2">${message:ket1}</font></span><br/>
+			    <span><font size="2">${message:ket2}</font></span><br/>
+	    </p>
+	    
+	    
+	    	<table class="dg_first">
+	    	
+	    	<tr class="center" align = "center">
+                <td class="firstcol" style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2">${message:paymentCode}</font></td>
+                <td>:</td>
+                <td><font size="2">${tiketKeretaDjatiPurchaseView.paymentCode}</font></td>
+            </tr>
+            
+            <tr class="center" align = "center">
+                <td class="firstcol" style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2">${message:penumpang}</font></td>
+                <td>:</td>
+                <td><font size="2">${Penumpang}</font></td>
+            </tr>
+            
+	    	
+	    	</table>
+	    	
+	   
+	    <p class="center" align="center">
+		      
+			    <span><font size="1">${message:Note1SBY}</font></span><br/>
+			    <span><font size="1">${message:note2}</font></span><br/>
+			    <span><font size="1">${message:note3}</font></span><br/>
+	    </p>
+	    
+        
+        </form>
+        </div>
+        
+</html>

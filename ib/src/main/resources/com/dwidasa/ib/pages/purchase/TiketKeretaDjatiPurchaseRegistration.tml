@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+      
+<!-- <head> -->
+<!--     <link rel="stylesheet" type="text/css" href="${context:bprks/css/links_and_submits.css}"/> -->
+<!-- </head> -->
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_10"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+      
+        <fieldSet>
+            <legend>${message:purchaseData}</legend>
+            <table>
+            
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:fromAccount}</label>
+                    </td>
+                    <td class="last">
+                        <label>${tiketKeretaDjatiPurchaseView.accountNumber}</label>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="first">
+                        <label>${message:kotaAsal}</label>
+                    </td>
+                    <td class="last">
+                        <label>${tiketKeretaDjatiPurchaseView.dari}</label>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:kotaTujuan}</label>
+                    </td>
+                    <td class="last">
+                        <label>${tiketKeretaDjatiPurchaseView.tujuan}</label>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="first">
+                        <label>${message:jurusan}</label>
+                    </td>
+                    <td class="last">
+                        <label>${tiketKeretaDjatiPurchaseView.kodeJurusan}</label>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:tglKeberangkatan}</label>
+                    </td>
+                    <td class="last">
+                        <label>${FormatTgl}</label>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label>${message:lokasi}</label>
+                    </td>
+                    <td class="last">
+                        <label>${lokasi}</label>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td>
+                        <label>${message:kursi}</label>
+                    </td>
+                    <td class="last">
+                        <label>${detailKursi}</label>
+                    </td>
+                </tr>
+                
+				<tr>
+                    <td class="first">
+                        <label>${message:hargaTiket}</label>
+                    </td>
+                    <td class="last">
+                       <label><t:output value="HargaTiket" format="formatter"/></label>
+                    </td>
+                </tr>
+                
+<!--                 <tr class="odd"> -->
+                
+<!--                     <td> -->
+<!--                         <label>${message:administrasi}</label> -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <label>${tiketKeretaDjatiPurchaseView.accountNumber}</label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+
+<!-- 				<tr> -->
+<!--                     <td class="first"> -->
+<!--                         <label>${message:total}</label> -->
+<!--                     </td> -->
+<!--                     <td  class="last"> -->
+<!--                        <label>${totalKursi}</label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+   
+                
+            </table>
+            
+            <hr/>
+            
+            <legend>${message:Registrasi}</legend>
+            
+            <table>
+            
+            
+            <tr class="odd">
+                    <td class="first">
+ 	                   <t:label for="noIdentitas"/>
+ 	                </td>
+                    <td class="last"><span></span>
+                        <input t:type="textField" t:id="noIdentitas" type="text"
+                               t:value="tiketKeretaDjatiPurchaseView.noIdentitas" label="message:noIdentitas"
+                               t:validate="required" maxLength="20"/>
+                    </td>
+                </tr>
+                
+                
+            <tr>
+                    <td class="first">
+ 	                   <t:label for="pemesan"/>
+ 	                </td>
+                    <td class="last"><span></span>
+                        <input t:type="textField" t:id="pemesan" type="text"
+                               t:value="tiketKeretaDjatiPurchaseView.pemesan" label="message:pemesan"
+                               t:validate="required" maxLength="30"/>
+                    </td>
+                </tr>
+            
+            
+            <tr  class="odd">
+                    <td class="first">
+ 	                   <t:label for="email"/>
+ 	                </td>
+                    <td class="last"><span></span>
+                        <input t:type="textArea" t:id="email" type="text"
+                               t:value="tiketKeretaDjatiPurchaseView.alamatPemesan" label="message:email"
+                               t:validate="required" maxLength="30"/>
+                    </td>
+                </tr>
+                
+             <tr>
+                    <td class="first">
+ 	                   <t:label for="noHp"/>
+ 	                </td>
+                    <td class="last"><span></span>
+                        <input t:type="textField" t:id="noHp" type="text"
+                               t:value="tiketKeretaDjatiPurchaseView.noHp" label="message:noHp"
+                               t:validate="required, regExp=^[0-9][0-9]+$" maxLength="16"/>
+                    </td>
+                </tr>
+                
+              <t:if test="JmlNamaPenumpang">
+              
+              	<tr  class="odd">
+                    <td class="first">
+ 	                   <t:label for="namaPenumpang1"/>${NoBangkuPertama}
+ 	                </td>
+                    <td class="last"><span></span>
+                        <input t:type="textField" t:id="namaPenumpang1" type="text"
+                               t:value="tiketKeretaDjatiPurchaseView.namaPenumpang1" label="message:namaPenumpang1"
+                               t:validate="required" t:maxlength="20"/>
+                    </td>
+                </tr>
+                
+             <tr>
+                    <td class="first">
+ 	                   <t:label for="namaPenumpang2"/>${NoBangkuKedua}
+ 	                </td>
+                    <td class="last"><span></span>
+                        <input t:type="textField" t:id="namaPenumpang2" type="text"
+                               t:value="tiketKeretaDjatiPurchaseView.namaPenumpang2" label="message:namaPenumpang2"
+                               t:validate="required" t:maxlength="20"/>
+                    </td>
+                </tr>
+              
+              <p:else>
+              
+              	<tr class="odd">
+                    <td class="first">
+ 	                   <t:label for="namaPenumpang1"/>${NoBangkuPertama}
+ 	                </td>
+                    <td class="last"><span></span>
+                        <input t:type="textField" t:id="namaPenumpang11" type="text"
+                               t:value="tiketKeretaDjatiPurchaseView.namaPenumpang1" label="message:namaPenumpang1"
+                               t:validate="required" t:maxlength="20"/>
+                    </td>
+                </tr>
+              
+              </p:else>
+              
+              </t:if>
+            
+            </table>
+             
+                
+            
+        </fieldSet>
+        <hr/>
+        <a hRef="tiketKeretaDjatiPurchaseInput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+<!--         <t:submit t:id="cancel" value="message:back" class="grey_btn ml10"/> -->
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </form>
+</div>
+</html>

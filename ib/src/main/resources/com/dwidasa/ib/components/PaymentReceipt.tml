@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<t:content>
+    <table>
+        <tr class="odd">
+            <td class="first">
+                <label>${message:referenceNumber}</label>
+            </td>
+            <td>
+                <label>|</label>
+            </td>
+            <td class="last">
+                <label>${referenceNumber}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:dateTime}</label>
+            </td>
+            <td>
+                <label>|</label>
+            </td>
+            <td class="last">
+                <label><t:output value="dateTime" format="longDate"/> ${message:timeZone}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:cardNumber}</label>
+            </td>
+            <td>
+                <label>|</label>
+            </td>
+            <td class="last">
+                <label>${cardNumber}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:rekeningNumber}</label>
+            </td>
+            <td>
+                <label>|</label>
+            </td>
+            <td class="last">
+                <label>${accountNumber}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:billerName}</label>
+            </td>
+            <td>
+                <label>|</label>
+            </td>
+            <td class="last">
+                <label>${billerName}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${fromIdMessage}</label>
+            </td>
+            <td>
+                <label>|</label>
+            </td>
+            <td class="last">
+                <label>${customerReference}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:amount}</label>
+            </td>
+            <td>
+                <label>|</label>
+            </td>
+            <td class="last">
+                <label>
+                    <t:output value="amount" format="formatter"/>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>${message:providerName}</label>
+            </td>
+            <td>
+                <label>|</label>
+            </td>
+            <td class="last">
+                <label>${providerName}</label>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <label>${message:status}</label>
+            </td>
+            <td>
+                <label>|</label>
+            </td>
+            <td class="last">
+                <label>${status}</label>
+            </td>
+        </tr>
+    </table>
+</t:content>
+</html>

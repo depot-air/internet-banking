@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:tx="tapestry-library:tapx"
+      xmlns:p="tapestry:parameter">
+
+
+<div id="main_content">
+<span class="emb_left"></span>
+<span class="emb_right"></span>
+<span class="emb_botleft"></span>
+<span class="emb_botright"></span>
+<span class="emb_footrpt"></span>
+
+<h2>${message:title}</h2>
+
+<div class="ico_position ico_favorite_3"></div>
+
+<t:form class="formfield" clientValidation="submit">
+<t:errors banner="${message:errorBanner}"/>
+
+<t:Account cardNumber="cashToBankDelimaView.cardNumber" accountNumber="cashToBankDelimaView.accountNumber"
+           status="odd"/>
+
+<hr/>
+
+<fieldSet>
+    <legend>${message:transferData}</legend>
+    <table>
+        <tr class="odd">
+            <td class="first">
+                <t:label for="nominalTransfer">${message:nominalTransfer}</t:label>
+            </td>
+            <td class="last">
+                <input t:type="TextField" t:id="nominalTransfer" type="text"
+                       value="cashToBankDelimaView.amount"
+                       validate="required, regExp=^[0-9]+$"/>
+            </td>
+        </tr>
+    </table>
+</fieldSet>
+
+<hr/>
+
+<fieldSet>
+    <legend>${message:senderData}</legend>
+    <table>
+        <tr class="odd">
+            <td class="first">
+                <t:label for="senderName"/>
+            </td>
+            <td class="last">
+                <input t:type="textField" t:id="senderName" type="text"
+                       value="cashToBankDelimaView.senderName"
+                       label="message:senderName" validate="required"/>
+            </td>
+        </tr>
+
+       	<tr>
+            <td>
+                <t:label for="senderPob"/>
+            </td>
+            <td>
+                <input t:id="senderPob" t:type="textField" type="text"
+                       value="cashToBankDelimaView.senderPob"
+                       label="message:senderPob" validate="required"/>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <t:label for="senderDob"/>
+            </td>
+            <td>
+                <tx:datefield t:id="senderDob" type="text"
+                       value="cashToBankDelimaView.senderDob"
+                       format="${dateFieldFormat}"
+                       label="message:senderDob" validate="required"/>
+                       (${dateFieldFormat})
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <t:label for="senderId"/>
+            </td>
+            <td>
+                <input t:id="senderId" t:type="textField" type="text"
+                       value="cashToBankDelimaView.senderIdNumber"
+                       label="message:senderId" validate="required, maxLength=25, regExp=^[0-9]+$"/>
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <td>
+                <t:label for="senderPhone"/>
+            </td>
+            <td>
+            	<input type="text" size="4" value="+62" />
+                <input t:id="senderPhone" t:type="textField" type="text"
+                       value="cashToBankDelimaView.senderPhoneNumber"
+                       label="message:senderPhone" validate="required, minLength=8, regExp=^[0-9]+$"/>
+                ${message:phoneExample}
+            </td>
+        </tr>
+        <tr >
+            <td>
+                <t:label for="senderAddress"/>
+            </td>
+            <td>
+                <input t:id="senderAddress" t:type="textArea" rows="3" cols="25"
+                       value="cashToBankDelimaView.senderAddress"
+                       label="message:senderAddress" validate="required"/>
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <td>
+                <t:label for="senderCity"/>
+            </td>
+            <td>
+                <input t:id="senderCity" t:type="textField" type="text"
+                       value="cashToBankDelimaView.senderCity"
+                       label="message:senderCity" validate="required"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <t:label for="senderCountry"/>
+            </td>
+            <td>
+                <t:select model="countryModel" value="cashToBankDelimaView.senderCountry"
+                          t:id="senderCountry" blankOption="never"
+                          label="message:senderCountry" validate="required"/>
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <td>
+                <t:label for="senderProfession"/>
+            </td>
+            <td>
+                <input t:id="senderProfession" t:type="textField" type="text"
+                       value="cashToBankDelimaView.senderProfession"
+                       label="message:senderProfession" validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <t:label for="senderNationality"/>
+            </td>
+            <td>
+                <t:select model="countryModel" value="cashToBankDelimaView.senderNationality"
+                          t:id="senderNationality" blankOption="never"
+                          label="message:senderNationality" validate="required"/>
+            </td>
+        </tr>
+    </table>
+</fieldSet>
+
+<fieldSet>
+    <legend>${message:news}</legend>
+    <table>
+        <tr class="odd">
+            <td class="first">
+                <t:label for="newsMoneySource">${message:newsMoneySource}</t:label>
+            </td>
+            <td class="last">
+                <input t:type="TextField" t:id="newsMoneySource" type="text"
+                       value="cashToBankDelimaView.newsMoneySource"
+                       validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="first">
+                <t:label for="newsMoneyPurpose">${message:newsMoneyPurpose}</t:label>
+            </td>
+            <td class="last">
+                <input t:type="TextField" t:id="newsMoneyPurpose" type="text"
+                       value="cashToBankDelimaView.newsMoneyPurpose"
+                       validate="required"/>
+            </td>
+        </tr>
+    </table>
+</fieldSet>
+
+<hr/>
+
+<fieldSet>
+    <legend>${message:receiverData}</legend>
+    <table>
+    
+        <tr class="odd">
+            <td>
+                <t:label for="receiverPhone"/>
+            </td>
+            <td>
+            	<input type="text" size="4" value="+62" />
+                <input t:id="receiverPhone" t:type="textField" type="text"
+                       value="cashToBankDelimaView.receiverPhoneNumber"
+                       label="message:receiverPhone" validate="required, minLength=8, regExp=^[0-9]+$"/>
+                ${message:phoneExample}
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="first">
+                <t:label for="receiverName"/>
+            </td>
+            <td class="last">
+                <input t:type="textField" t:id="receiverName" type="text" value="cashToBankDelimaView.receiverName"
+                       label="message:receiverName" validate="required"
+                        />
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <td>
+                <t:label for="receiverAddress"/>
+            </td>
+            <td>
+                <input t:id="receiverAddress" t:type="textArea" rows="3" cols="25"
+                       value="cashToBankDelimaView.receiverAddress"
+                       label="message:receiverAddress" validate="required"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <t:label for="receiverCity"/>
+            </td>
+            <td>
+                <input t:id="receiverCity" t:type="textField" type="text"
+                       value="cashToBankDelimaView.receiverCity"
+                       label="message:receiverCity" validate="required"/>
+            </td>
+        </tr>
+    
+        <tr class="odd">
+            <td>
+                <t:label for="receiverCountry"/>
+            </td>
+            <td>
+                <t:select model="literal:Indonesia" value="cashToBankDelimaView.receiverCountry"
+                          t:id="receiverCountry" blankOption="never"
+                          label="message:receiverCountry" validate="required"/>
+            </td>
+        </tr>
+        
+		<tr>
+            <td class="first">
+                <t:label for="receiverBank"/>
+            </td>
+            <td class="last">
+                <t:select t:id="receiverBank" t:value="cashToBankDelimaView.receiverBank"
+                          model="bankModel" blankLabel="Pilih" validate="required"
+                          blankOption="never" label="message:receiverBank"/>
+            </td>
+        </tr>
+                
+        <tr class="odd">
+            <td>
+                <t:label for="receiverAccount"/>
+            </td>
+            <td>
+                <input t:id="receiverAccount" t:type="textField" type="text"
+                       value="cashToBankDelimaView.receiverAccount"
+                       label="message:receiverAccount" validate="required"/>
+            </td>
+        </tr>
+    </table>
+</fieldSet>
+<hr/>
+<t:Token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge"
+         mode="tokenType"/>
+
+    <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+</t:form>
+</div>
+</html>

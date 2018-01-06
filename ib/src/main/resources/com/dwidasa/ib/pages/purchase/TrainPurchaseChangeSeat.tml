@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_13"></div>
+    
+    <t:form id="form" class="formfield" autofocus="false" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+	<fieldset>
+    <legend>Pindah Kursi</legend>
+    <table>
+	<tbody>
+	    <tr class="odd">
+	        <td class="first">
+	        	Kereta Api
+	        </td>
+	        <td class="last">
+	        	${view.trainName} (${view.trainNumber})
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	        	Rute Perjalanan
+	        </td>
+	        <td>
+	        	${view.originName} (${view.originCode}) - ${view.destinationName} (${view.destinationCode}) 
+	        </td>
+	    </tr>
+	    <tr class="odd">
+	        <td>
+	        	Berangkat
+	        </td>
+	        <td>
+	        	${strDeparture}
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	        	Tiba
+	        </td>
+	        <td>
+	        	${strArrival}
+	        </td>
+	    </tr>
+	    <tr class="odd">
+	        <td class="first">
+	        	Jumlah Penumpang
+	        </td>
+	        <td>
+	        	${strPenumpang}
+	        </td>
+	    </tr>
+	    <tr>
+	        <td class="first">
+	        	Kelas
+	        </td>
+	        <td>
+	        	${view.strClass} (${view.subclass})
+	        </td>
+	    </tr>
+	    <tr class="odd">
+	        <td class="first">
+	        	Kereta
+	        </td>
+	        <td>
+	        	<t:select t:id="wagon" value="selectedWagon" model="wagonModel" validate="required"/>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	        	Kursi
+	        </td>
+	        <td>
+	        	<t:loop t:source="view.passengerList" t:value="passenger" formstate="none" index="index">
+	        		<t:if test="hasSeat">
+		        		<span id="seat${index}">${passenger.seatRow}${passenger.seatCol}</span>&#160;&#160;
+		        		<input id="btnChangeSeat${index}" type="button" class="changeSeat blueBtn" value="Ganti Kursi" style="float:none;color:white"/>
+	        			<br/>
+	        		</t:if>
+	        	</t:loop>
+	        </td>
+	    </tr>
+		</tbody>
+	</table>
+    </fieldset>
+    <t:submit t:id="send" class="green_btn mr10" value="message:send"/>
+    <t:submit t:id="back" class="grey_btn ml10" value="message:cancel" mode="cancel"/>
+    <t:loop t:source="trainChooseSeat.trainWagonList" value="trainWagon" formstate="none">
+    	<span id="${trainWagon.wagonCode}-${trainWagon.wagonNumber}" style="display:none">
+    		<span id="rowCount">${trainWagon.rowCount}</span>
+    		<span id="colCount">${trainWagon.colCount}</span>
+    		<span id="noSeat">${trainWagon.noSeat}</span>
+    		<span id="filledSeat">${trainWagon.filledSeat}</span>
+    		<span id="activeSeat">${trainWagon.activeSeat}</span>
+    	</span>
+    </t:loop>    
+    <t:hidden t:id="selectedSeat" value="trainChooseSeat.selectedSeat"/>
+</t:form>
+</div>
+<div class="masking"></div>
+<div class="getTrainLayout rounded5">
+    <p class="layoutTitle">Pilih tempat duduk</p>
+    <div class="dataLayout">
+        <span class="wagon" style="font-size:18px;padding-top:25px">Kereta:
+        	<span id="wagonName">
+        		${view.wagonCode}-${view.wagonNumber}
+        	</span>
+        </span> 			
+    </div>
+    <div class="trainLayout"><div id="seatLayout"></div></div>
+    <div class="layoutLegendCtr">
+        <span class="seatFilled"></span>
+        <span class="layoutLegend">Kursi sudah di isi</span>
+        <span class="seatAvailable"></span>
+        <span class="layoutLegend">Kursi masih tersedia</span>
+        <span class="seatActive"></span>
+        <span class="layoutLegend">Kursi yang anda pilih</span>
+        <span class="checkSeatName"></span>
+        <input type="button" class="chooseSeat blueBtn" value="Pilih Kursi" />
+        <input type="button" class="cancelChooseSeat blueBtn" value="Batalkan" />
+    </div>
+</div>
+
+</html>
+    
+    

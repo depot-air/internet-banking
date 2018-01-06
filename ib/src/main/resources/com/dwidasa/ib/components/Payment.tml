@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<t:content>
+    <fieldSet>
+        <legend>${message:paymentData}</legend>
+        <table>
+            <tr class="odd">
+                <td colSpan="2">
+                    <label>${message:description}</label>
+                </td>
+            </tr>
+            <t:radioGroup value="chooseValue" >
+                <tr class="even">
+                    <td>
+                        <t:radio t:id="fromId" value="literal:fromId" class="radio" label="prop:fromIdMessage"/>
+                        <t:label for="fromId"/>
+                    </td>
+                    <td>
+                        <input t:id="customerReference1" t:type="textField"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                    </td>
+                    <td>
+                        <input t:type="checkBox" t:id="saveBox" value="saveBoxValue" label="message:saveBox"/>
+                        <t:label for="saveBox"/>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <t:radio t:id="fromList" value="literal:fromList" class="radio" label="message:fromList"/>
+                        <t:label for="fromList"/>
+                    </td>
+                    <td>
+                        <t:select t:id="customerReference2" t:model="customerReferenceModel"
+                                  blankOption="never" />
+                    </td>
+                </tr>
+            </t:radioGroup>
+            <tr class="odd">
+                <td class="first">
+                    <t:label for="providerCode"/>
+                </td>
+                <td class="last">
+                    <t:select t:id="providerCode" t:model="providerModel" blankOption="never"
+                              label="prop:providerMessage"/>
+                </td>
+            </tr>
+        </table>
+    </fieldSet>
+</t:content>
+</html>

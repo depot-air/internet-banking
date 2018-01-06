@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" 
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<table class="dg_first">
+	<tr>
+        <td class="firstcol">${message:date}</td>
+        <td>:</td>
+        <td><t:output value="transferView.transactionDate" format="longDate"/>
+        ${message:timeZone}</td>
+    </tr>
+    <tr>
+        <td>${message:noReferensi}</td>
+        <td>:</td>
+        <td>${transferView.referenceNumber}</td>
+    </tr>    
+    <tr>
+        <td>${message:terminalId}</td>
+        <td>:</td>
+        <td>${transferView.terminalIdView}</td>
+    </tr>
+    <tr>
+        <td>${message:fromBankName}</td>
+        <td>:</td>
+        <td>${message:transferSenderBankName}</td>
+    </tr>
+    <tr>
+        <td>${message:cardNumber}</td>
+        <td>:</td>
+        <td>${transferView.cardNumber}</td>
+    </tr>
+    <tr>
+        <td>${message:acountSource}</td>
+        <td>:</td>
+        <td>${transferView.accountNumber}</td>
+    </tr>
+    <tr>
+        <td>${message:senderName}</td>
+        <td>:</td>
+        <td>${transferView.senderName}</td>
+    </tr>
+    <tr>
+        <td>${message:bankName}</td>
+        <td>:</td>
+        <td>${transferView.billerName}</td>
+    </tr>
+    <tr>
+        <td>${message:reference}</td>
+        <td>:</td>
+        <td>${transferView.customerReference}</td>
+    </tr>
+    <tr>
+        <td>${message:receiver}</td>
+        <td>:</td>
+        <td>${transferView.receiverName}
+        </td>
+    </tr>
+    <tr>
+        <td>${message:amount}</td>
+        <td>:</td>
+        <td><t:output value="transferView.amount" format="formatter"/>
+        </td>
+    </tr>
+    <tr>
+        <td>${message:fee}</td>
+        <td>:</td>
+        <td><t:output value="transferView.fee" format="formatter"/>
+        </td>
+    </tr>
+    <tr>
+        <td>${message:total}</td>
+        <td>:</td>
+        <td><t:output value="transferView.totalDebetAmount" format="formatter"/>
+        </td>
+    </tr>   
+	<tr>
+        <td>${message:custRefAtmb}</td>
+        <td>:</td>
+        <td>${transferView.custRefAtmb}
+        </td>
+    </tr>
+</table>
+</html>

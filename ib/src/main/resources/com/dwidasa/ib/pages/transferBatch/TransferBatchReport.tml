@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account customerId="accountView.customerId" status="even"
+                   accountNumber="accountView.accountNumber" cardNumber="accountView.cardNumber" blankOption="never"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:historyData}</legend>
+            <table>
+            	<tr class="odd">
+                        <td class="first">
+                            <t:label for="batchList"/>
+                        </td>
+                        <td class="last">
+                            <t:select t:id="batchList" value="batchId"
+                                      model="batchListModel" blankOption="never"
+                                      validate="required"/>
+                        </td>
+                    </tr>
+                <tr>
+                    <td colSpan="2">${message:choosePeriod}</td>
+                </tr>
+                <t:radioGroup value="periodValue">
+                    <tr class="odd">
+                        <td colSpan="2">
+                            <t:radio t:id="todayRadio" value="literal:today" label="message:today"/>
+                            <t:label for="todayRadio"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan="2">
+                            <t:radio t:id="historyRadio" value="literal:range" label="message:range"/>
+                            <t:label for="historyRadio"/>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="first">
+                            <t:label for="startDate" class="radioGroup"/>
+                        </td>
+                        <td class="last">
+                            <div class="date_picker_inline">
+                                <tx:datefield t:id="startDate" value="startDate"
+                                       format="prop:shortDate" validate="required" label="message:from"/>
+                            </div>
+                            <div class="date_picker_inline">(${shortPattern})</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <t:label for="endDate" class="radioGroup"/>
+                        </td>
+                        <td>
+                            <div class="date_picker_inline">
+                                <tx:datefield t:id="endDate" value="endDate"
+                                       format="prop:shortDate" validate="required" label="message:to"/>
+                            </div>
+                            <div class="date_picker_inline">(${shortPattern})</div>
+                        </td>
+                    </tr>
+                </t:radioGroup>                
+                <tr class="odd">
+                    <td colSpan="2">${message:note}</td>
+                </tr>
+                <tr>
+                    <td colSpan="2">
+                        <label class="radioGroup">${message:max31Days}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </t:form>
+</div>
+</html>

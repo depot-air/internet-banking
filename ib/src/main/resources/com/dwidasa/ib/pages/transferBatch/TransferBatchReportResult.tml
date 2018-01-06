@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+    <fieldSet>
+            <table style="margin-bottom:0px">
+                <tr>
+                    <td>
+                        ${message:accountNumber}
+                    </td>
+                    <td>:</td>
+                    <td>
+                        ${accountNumber}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:period}
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <t:output value="startDate" format="prop:shortDate"/>
+                        <t:if t:test="multipleDays">
+	                        ${message:to}
+	                        <t:output value="endDate" format="prop:shortDate"/>
+                        </t:if>
+                    </td>
+                </tr>
+            </table>
+            <t:if test="transferBatchList">
+            <div class="table_grid" style="margin-bottom: 0px">
+                <table width="100%" style="margin-bottom: 0px; border-bottom: 1px solid gray">
+                    <thead>
+                    <tr>
+                    	<th>${message:valueDate}</th>
+                        <th>${message:batchName}</th>
+                        <th>${message:status}</th>
+                        <th>${message:referenceNo}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr t:type="loop" t:source="transferBatchList" t:value="row" class="prop:evenOdd.next" formState="none">
+                    	<td>${getStrDate(row.valueDate)}</td>
+                   		<td>${row.batchName}</td>
+                   		<td>${getStrStatus(row.status)}</td>
+                        <td>
+                        	<t:eventlink event="showDetail" context="[row.id]"> 
+                                ${row.referenceNumber}
+                            </t:eventlink>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="note">
+	   			${message:clickRefno}
+	   		</div>
+            <p:else>
+            <div id="note">
+            ${message:emptyData}
+            </div>
+            </p:else>
+            </t:if>
+        	<t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        </fieldSet>
+    </t:form>
+</div>
+</html>

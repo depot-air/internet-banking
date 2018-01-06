@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="ct_right">
+    <div id="page_title">
+        <div class="ground_1"></div>
+        <div class="ground_2"><p>${message:title}</p></div>
+        <div class="ground_3"></div>
+    </div>
+    <form t:type="form" class="full-form" clientValidation="submit">
+        <h4>${message:cardData}</h4>
+        <div class="page_panel">
+            <t:errors banner="message:errorBanner"/>
+            <div class="ground_1"></div>
+            <div class="ground_2"></div>
+            <div class="ground_3"></div>
+            <div class="ground_4"></div>
+            <div class="ground_5"></div>
+            <div class="ground_6"></div>
+            <div class="main_form">
+                <fieldSet>
+                    <table>
+                        <tr class="odd">
+                            <td>
+                                <label>${message:registerCardNumber}</label>
+                            </td>
+                            <td>
+                                <label>${accountView.cardNumber}</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldSet>
+            </div>
+        </div>
+        <t:token token="tokenView.token" token6Digit="tokenView.token" challenge="tokenView.challenge" mode="tokenType"/>
+
+        <div id="form_submit_btn">
+            <t:submit t:id="send" value="message:send" class="btn_style"/>
+            <!--t:submit t:id="cancel" class="grey_btn ml10" value="message:cancel" mode="cancel"/-->
+	        <a t:type="ActionLink" t:id="cancel" >
+				<input type="button" onclick="window.open(IB.fn.contextPath()+'/purchase/VoucherPurchaseInput');"
+	            	class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+	        </a>
+        </div>
+    </form>
+</div>
+</html>

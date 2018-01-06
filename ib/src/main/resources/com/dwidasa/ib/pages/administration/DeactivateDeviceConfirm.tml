@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="ct_right">
+    <div id="page_title">
+        <div class="ground_1"></div>
+        <div class="ground_2"><p>${message:title}</p></div>
+        <div class="ground_3"></div>
+    </div>
+    <form t:type="form" class="full-form" t:clientValidation="submit">
+    <t:errors banner="message:errorBanner"/>
+
+        <h4>${message:accountData}</h4>
+            <div class="page_panel">
+            <div class="ground_1"></div>
+            <div class="ground_2"></div>
+            <div class="ground_3"></div>
+            <div class="ground_4"></div>
+            <div class="ground_5"></div>
+            <div class="ground_6"></div>
+            <div class="main_form">
+                <fieldSet>
+                    <table>
+                        <tr class="even">
+                            <td>
+                                <label class = "setter">${message:userId}</label>
+                            </td>
+                            <td class="setter2">
+                                <label>${userId}</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldSet>
+            </div>
+        </div>
+
+
+        <h4>${message:applicationData}</h4>
+        <div class="page_panel">
+            <div class="ground_1"></div>
+            <div class="ground_2"></div>
+            <div class="ground_3"></div>
+            <div class="ground_4"></div>
+            <div class="ground_5"></div>
+            <div class="ground_6"></div>
+            <div class="main_form">
+                <fieldSet>
+                    <table>
+                        <tr class="even">
+                            <td class="setter">
+                                <label >${message:applicationDeactivate}</label>
+                            </td>
+                            <td class = "setter2">
+                                  <label>${imeNumber}</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldSet>
+            </div>
+        </div>
+        <t:token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge" mode="tokenType"/>
+
+        <div id="form_submit_btn">
+            <t:submit t:id="next" value="message:next" onClick = "return confirmClick()" class="btn_style"/>
+        </div>
+    </form>
+</div>
+</html>

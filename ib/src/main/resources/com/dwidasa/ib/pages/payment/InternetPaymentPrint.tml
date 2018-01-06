@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" referenceNumber="${internetPaymentView.referenceNumber}" transactionDateString="${internetPaymentView.transactionDateString}" 
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol" style="font-weight:bold;">${message:referenceNumber}</td>
+                <td>:</td>
+                <td>${internetPaymentView.referenceNumber}</td>
+            </tr>
+<!--             <tr> -->
+<!--                 <td>${message:accountNumber}</td> -->
+<!--                 <td>:</td> -->
+<!--                 <td>${internetPaymentView.accountNumber}</td> -->
+<!--             </tr> -->
+<!--             <tr> -->
+<!--                 <td>${message:biller}</td> -->
+<!--                 <td>:</td> -->
+<!--                 <td>${internetPaymentView.billerName}</td> -->
+<!--             </tr> -->
+            <tr>
+                <td style="font-weight:bold;">${message:customerReference}</td>
+                <td>:</td>
+                <td>${internetPaymentView.customerReference}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:customerName}</td>
+                <td>:</td>
+                <td>${internetPaymentView.referenceName}</td>
+            </tr>
+             <tr>
+                <td style="font-weight:bold;">${message:bulanBayar}</td>
+                <td>:</td>
+                <td>${paidPeriods}</td>
+            </tr>
+<!--             <tr> -->
+<!--                 <td>${message:amount}</td> -->
+<!--                 <td>:</td> -->
+<!--                 <td><t:output value="internetPaymentView.amount" format="formatter"/></td> -->
+<!--             </tr> -->
+             <tr>
+                <td style="font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:amount1}</td>
+                <td>:</td>
+                <td><t:output value="internetPaymentView.amount1" format="formatter"/></td>
+            </tr>
+            <t:if test="internetPaymentView.amount2">
+             <tr>
+                <td style="font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:amount2}</td>
+                <td>:</td>
+                <td><t:output value="internetPaymentView.amount2" format="formatter"/></td>
+            </tr>
+            </t:if>
+            <t:if test="internetPaymentView.amount3">
+             <tr>
+                <td style="font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${message:amount3}</td>
+                <td>:</td>
+                <td><t:output value="internetPaymentView.amount3" format="formatter"/></td>
+            </tr>
+            </t:if>
+            <tr>
+                <td style="font-weight:bold;">${message:admin}</td>
+                <td>:</td>
+                <td>
+                    <t:output value="internetPaymentView.fee" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:total}</td>
+                <td>:</td>
+                <td>
+                    <t:output value="internetPaymentView.total" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:transactionDate}</td>
+                <td>:</td>
+                <td>
+                    <t:output value="internetPaymentView.transactionDate" format="mediumDate"/>
+                </td>
+            </tr>
+            <tr/>
+            <tr/>
+            <tr/>
+            <tr/>
+            
+        </table>
+        
+        <p class="center">
+	        <br />
+	        <br />
+	        <span class="upercase" style="font-weight:bold;">${message:footNote1}</span><br/>
+	        <span class="upercase" style="font-weight:bold;">${message:footNote2}</span><br/>
+   		 </p>
+</html>

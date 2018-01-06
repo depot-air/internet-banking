@@ -1,0 +1,69 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html t:type="layout" title="message:title"
+xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+xmlns:p="tapestry:parameter">
+
+<div id="ct_right">
+    <div id="page_title">
+        <div class="ground_1"></div>
+        <div class="ground_2"><p>${message:title}</p></div>
+        <div class="ground_3"></div>
+    </div>
+    <t:zone t:id="requestZone" id ="requestZone" update="show">
+    <form t:type="form" class="full-form" t:id="activateDeviceInput"
+    t:clientValidation="submit" t:zone="requestZone">
+        <t:errors banner="message:errorBanner"/>
+        <h4>${message:request}</h4>
+
+        <div class="page_panel">
+            <div class="ground_1"></div>
+            <div class="ground_2"></div>
+            <div class="ground_3"></div>
+            <div class="ground_4"></div>
+            <div class="ground_5"></div>
+            <div class="ground_6"></div>
+            <div class="main_form">
+                <fieldSet>
+                    <table>
+                        <tr class="even">
+                            <td>
+                                <label>${message:activateRequest}</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldSet>
+            </div>
+        </div>
+
+
+        <div id="form_submit_btn">
+            <t:submit t:id="request" value="message:requestButton" disabled = "requestButton" class="btn_style" />
+        </div>
+          <t:loop t:source = "requestLoop" >
+            <h4>${message:requestCode}</h4>
+
+         <div class="page_panel" >
+             <div class="ground_1"></div>
+             <div class="ground_2"></div>
+             <div class="ground_3"></div>
+             <div class="ground_4"></div>
+             <div class="ground_5"></div>
+             <div class="ground_6"></div>
+             <div class="main_form">
+                 <fieldSet>
+                    <table>
+                        <tr class="even">
+                            <td>
+                                <label>${noReference}</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldSet>
+             </div>
+         </div>
+         </t:loop>
+    </form>
+
+</t:zone>
+</div>
+        </html>

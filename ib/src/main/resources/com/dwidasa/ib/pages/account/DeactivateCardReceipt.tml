@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<div id="recipe_wrap">
+    <form t:type="form" t:id="deactiveCardReceipt" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+                    <tr class="even">
+                        <td class="first">
+                            <label>${message:referenceNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${accountView.referenceNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:date}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${nowDate} ${message:timeZone}</label>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td>
+                            <label>${message:cardNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${accountView.cardNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:status}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${status}</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <t:submit t:id="back" value="message:back" class="grey_btn left"/>
+<!--         <t:submit t:id="print" value="message:print" class="grey_btn right"/> -->
+    </form>
+</div>
+</html>

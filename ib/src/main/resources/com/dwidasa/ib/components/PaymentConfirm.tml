@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<t:content>
+    <h4>${message:accountData}</h4>
+
+    <div class="page_panel">
+        <div class="ground_1"></div>
+        <div class="ground_2"></div>
+        <div class="ground_3"></div>
+        <div class="ground_4"></div>
+        <div class="ground_5"></div>
+        <div class="ground_6"></div>
+        <div class="main_form">
+            <fieldSet>
+                <table>
+                    <tr class="even">
+                        <td class="setter">
+                            <label>${message:cardNumber}</label>
+                        </td>
+                        <td class="setter2">
+                            <label>${cardNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:accountNumber}</label>
+                        </td>
+                        <td>
+                            <label>${accountNumber}</label>
+                        </td>
+                    </tr>
+                </table>
+            </fieldSet>
+        </div>
+    </div>
+
+    <h4>${message:paymentData}</h4>
+
+    <div class="page_panel">
+        <div class="ground_1"></div>
+        <div class="ground_2"></div>
+        <div class="ground_3"></div>
+        <div class="ground_4"></div>
+        <div class="ground_5"></div>
+        <div class="ground_6"></div>
+        <div class="main_form">
+            <fieldSet>
+                <table>
+                    <tr class="even">
+                        <td class="setter">
+                            <label>${billerMessage}</label>
+                        </td>
+                        <td class="setter2">
+                            <label>${billerName}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${fromIdMessage}</label>
+                        </td>
+                        <td>
+                            <label>${customerReference}</label>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td>
+                            <label>${message:amount}</label>
+                        </td>
+                        <td>
+                            <label><t:output value="amount" format="formatter"/></label>
+                        </td>
+                    </tr>
+                </table>
+            </fieldSet>
+        </div>
+    </div>
+    <hr/>
+    <t:token token="token" status="odd" challenge="tokenChallenge"
+             mode="tokenType"/>
+
+</t:content>
+</html>

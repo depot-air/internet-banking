@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:tx="tapestry-library:tapx"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+	<h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_29"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="inputPassword">${message:enterPassword}</t:label>
+                    </td>
+                    <td class="last">
+                        <input t:id="inputPassword" t:type="passwordfield" type="text" autocomplete="off" />       
+                    </td>                            
+                </tr>
+                <tr class="even">
+                    <td>
+                        <t:label for="idInputSerial">${message:enterSerialNumber}</t:label>
+                    </td>
+                    <td>
+                        <input t:id="idInputSerial" t:type="textField" type="text" t:value="inputSerial" maxLength="10"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="idInputApply">${message:reenterSerialNumber}</t:label>
+                    </td>
+                    <td>
+                       <!--  <input t:id="idReInputSerial" t:type="textField" type="text" autocomplete="off" t:value="reInputSerial" /> -->
+                  	    <input t:id="idInputApply" t:type="textField" type="text" autocomplete="off" t:value="inputApply" maxLength="6"/>
+                  
+                    </td>
+                </tr>
+                <tr>
+                    <td colSpan="2"></td>
+                </tr>
+                <tr>
+                    <td colSpan="2"></td>
+                </tr>
+            </table>
+            
+	        <hr/>
+	    	<t:submit t:id="cancel" value="message:cancel" mode="cancel" class="grey_btn ml10" />
+	    	<t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+	        
+        </fieldSet>        	     
+    </t:form>    
+</div>
+
+</html>

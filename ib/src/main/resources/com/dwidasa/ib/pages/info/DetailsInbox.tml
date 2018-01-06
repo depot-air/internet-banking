@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <head></head>
+    
+    <t:form class="formfield" t:id="inboxDetail" clientValidation="submit">
+    
+    <body>
+<!--     <div id="main_content"> -->
+<!--         <h2>PEMBERITAHUAN</h2> -->
+
+<!--         <table width = "100%"> -->
+           
+<!--             <tr> -->
+<!--                 <td>Perihal</td> -->
+<!--                 <td>${inbox.title}</td> -->
+<!--             </tr> -->
+<!--             <tr> -->
+<!--                 <td>Berita</td> -->
+<!--                 <td>${inbox.content}</td> -->
+<!--             </tr> -->
+<!--         </table> -->
+<!--         <t:submit t:id="back" value="Kembali" class="grey_btn left"/> -->
+<!--     </div> -->
+
+		
+		<div id="main_content">
+    	<a href="/ib/info/inboxList" title="" class="backToEmailList">Back</a>
+        <h2>Pemberitahuan</h2>
+        <div class="table_grid_email">
+        	<table width="100%">
+                <tr>
+                	<td>From</td>
+                    <td>:</td>
+                    <td>BPR KS</td>
+                </tr>
+                <tr>
+                	<td>Title</td>
+                    <td>:</td>
+                    <td><img src="img/broadcast.png" class="broadcastIcon" alt="" /> <b>${inbox.title}</b></td>
+                </tr>
+                <tr>
+                	<td>Date</td>
+                    <td>:</td>
+                    <td>${DateFormat}</td>
+                </tr>
+            </table>
+       		<div class="isiEmail">
+            	<p>
+                	${inbox.content}<br /><br />
+                    
+                </p>
+            </div>
+        </div>
+   
+    </div>
+
+
+    </body>
+    
+    </t:form>
+</html>

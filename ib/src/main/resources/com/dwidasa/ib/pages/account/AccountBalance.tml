@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<body>
+<div id="main_content">
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_20"></div>
+    <t:form>
+   			<t:errors banner="message:errorBanner"/>
+  	</t:form>
+  	<t:if test="errorFlag">
+    <fieldSet>
+        <legend>${message:accountData}</legend>
+        <div class="table_grid">
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>${message:accountNumber}</th>
+                    <th>${message:productName}</th>
+                    <th>${message:currency}</th>
+                    <th>${message:balance}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr t:type="loop" t:source="accountViewList" t:value="accountView" class="prop:evenOdd.next">
+                    <td>
+                        <!--<t:actionlink t:id="statement" context="[1, accountView.generated]">-->
+                            ${accountView.accountNumber}
+                        <!--</t:actionlink> -->
+                    </td>
+                    <td>${accountView.productName}</td>
+                    <td>${accountView.currencyCode}</td>
+                    <td class="tx_right">
+                    <t:output value="accountView.availableBalance" format="formatter"/>
+                       <!--  <t:actionlink t:id="lastN" context="[2, accountView.generated]">
+                            <t:output value="accountView.availableBalance" format="formatter"/>
+                        </t:actionlink> -->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </fieldSet>
+    </t:if>
+    <!--
+    <t:if test="errorFlag">
+    <p>
+        ${message:foot1}
+        <br/>
+        ${message:foot2}
+    </p>
+    </t:if>
+    -->
+</div>
+</body>
+</html>

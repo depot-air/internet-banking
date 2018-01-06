@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<div id="recipe_wrap">
+    <form t:type="form" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+                    <tr class="${evenOdd.next}">
+                        <td class="first" style="width:300px">
+                            <label>${message:noReferensi}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${view.referenceNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                        <td>
+                            <label>${message:date}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <t:output value="view.transactionDate" format="longDate"/>
+                            ${message:timeZone}
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                        <td>
+                            <label>${message:cardNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${view.cardNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                        <td>
+                            <label>${message:acountSource}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${view.accountNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                        <td>
+                            <label>Kode Booking</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${view.bookingCode}</label>
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                        <td>
+                            <label>Nama / Nomor Kereta Api</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${view.trainName} / ${view.trainNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                    	<td>
+                            <label>Berangkat</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${view.originName} (${view.originCode}), <t:output t:value="view.departureDate" format="shortDate"/> </label>
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                    	<td>
+                            <label>Tiba</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${view.destinationName} (${view.destinationCode}), <t:output t:value="view.arrivalDate" format="shortDate"/></label>
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                    	<td>
+                            <label>Jumlah Penumpang</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${view.strPassenger}</label>
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                        <td>
+                            <label>Harga Tiket</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label><t:output value="view.amount" format="formatter"/></label>
+                        </td>
+                    </tr>
+                    <tr class="${evenOdd.next}">
+                        <td>
+                            <label>Convenience Fee</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label><t:output value="view.fee" format="formatter"/></label>
+                        </td>
+                    </tr>
+                    <t:if test="view.discount">
+						<tr class="${evenOdd.next}">
+					        <td>
+					        	<label>Diskon</label>
+					        </td>
+					        <td>
+                        	    <label>|</label>
+                      		</td>
+					        <td class="last">
+					        	<t:output value="view.discount" format="formatter"/>
+					        </td>
+					    </tr>
+				    </t:if>
+				    <tr class="${evenOdd.next}">
+				        <td>
+				        	<label>Total Pembayaran</label>
+			        	</td>
+				        <td>
+                        	<label>|</label>
+                     	</td>
+				        <td class="last">
+				        	<t:output value="view.totalPay" format="formatter"/>
+				        </td>
+				    </tr>
+                    
+                    <tr class="${evenOdd.next}">
+                        <td>
+                            <label>${message:status}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${StatusDetil}</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="note">
+            ${message:noteReceipt}
+        </div>
+        <t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>
+		
+		<t:if test="StatusHistory">
+		
+		<p:else>
+		
+		<input type="button"
+               onclick="popupInfo('/purchase/trainPurchasePrint')"
+               class="grey_btn right" t:type="any" value="message:print"/>
+               
+		</p:else>
+		
+		</t:if>   		
+		
+        
+    </form>
+</div>
+</html>

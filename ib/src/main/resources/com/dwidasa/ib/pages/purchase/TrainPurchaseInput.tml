@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_13"></div>
+    
+    <t:form id="form" class="formfield" autofocus="false" clientValidation="none">
+        <t:errors banner="message:errorBanner"/>
+        <t:account cardNumber="view.cardNumber" accountNumber="view.accountNumber"
+                   status="odd"/>
+<hr/>
+<div class="KAILogo"></div>
+<div class="searchFormTrain">    
+    <input type="hidden" name="airType" class="airType" value="fTReturn" />
+    <t:select class="departInput" id="origin" placeHolder="Stasiun Asal" value="origin" t:model="originModel" blankOption="always"/>
+    <br/>
+    <t:select class="arriveInput" id="destination" placeHolder="Stasiun Tujuan" value="destination" t:model="originModel" blankOption="always"/>
+    <br/>
+    <span class="departDateContainer">
+        <t:textfield id="departDate" name="departDate" class="departDate" placeHolder="Keberangkatan" value="strDate"  />
+    </span>
+    <br /><br />
+    <div class="passCountCtr">
+        <span class="labPass">Dewasa</span><br />
+        <span class="reduceValue rounded5">--</span>
+        <t:textfield id="fieldAdultValue" value="view.adult" class="passCount" max="10"/>
+        <span class="increaseValue rounded5">+</span>
+    </div>
+    <div class="passCountCtr">
+        <span class="labPass">Anak</span>
+        <div class="miniInfo">
+            <span class="rounded5">Usia 3 - &lt;10 Tahun</span>
+        </div><br />
+        <span class="reduceValue rounded5">--</span>
+        <t:textfield id="fieldChildValue" value="view.child" class="passCount" max="10"/>
+        <span class="increaseValue rounded5">+</span>
+    </div>
+    <div class="passCountCtr">
+        <span class="labPass">Infant</span>
+        <div class="miniInfo">
+            <span class="rounded5">Usia 0 - &lt;3 Tahun</span>
+        </div><br />
+        <span class="reduceValue rounded5">--</span>
+        <t:textfield id="fieldBabyValue" value="view.infant" class="passCount" max="10"/>
+        <span class="increaseValue rounded5">+</span>
+    </div>
+    
+    <input type="submit" class="submitSearchBtn blueBtn" value="Proses Pencarian" />
+</div>
+</t:form>
+<br/><br/><br/><br/><br/><br/><strong>Keterangan:</strong> Pembelian tiket dapat dilakukan untuk keberangkatan yang lebih dari 8 jam.
+</div>
+</html>
+    

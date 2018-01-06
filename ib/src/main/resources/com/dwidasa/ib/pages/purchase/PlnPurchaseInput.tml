@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_10"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account accountNumber="plnPurchaseView.accountNumber" cardNumber="plnPurchaseView.cardNumber"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:purchaseData}</legend>
+            <table>
+                <tr class="odd">
+                    <td colSpan="2">
+                        <label>${message:description}</label>
+                    </td>
+                </tr>
+                <t:radioGroup value="chooseValue">
+                    <tr>
+                        <td class="first">
+                            <t:radio t:id="fromId" value="literal:fromId" class="radio"/>
+                            <t:label for="fromId">${message:fromId}</t:label>
+                        </td>
+                        <td class="last">
+                            <input t:id="customerReference1" t:type="textField" validate="requiredIf=checkFromId, regExp=^[0-9]+$, minLength=11" maxLength="12"/>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                        </td>
+                        <td>
+                            <input t:type="checkBox" t:id="saveBox" value="saveBoxValue"/>
+                            <t:label for="saveBox">${message:saveBox}</t:label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <t:radio t:id="fromList" value="literal:fromList" class="radio"/>
+                            <t:label for="fromList">${message:fromList}</t:label>
+                        </td>
+                        <td>
+
+                            <t:select t:id="customerReference2" t:model="customerReferenceModel" validate="requiredIf=checkFromList"
+                                      blankOption="never"/>
+                        </td>
+                    </tr>
+                </t:radioGroup>
+                <tr class="odd">
+                    <td>
+                        <t:label for="amount">${message:amount}</t:label>
+                    </td>
+                    <td>
+                        <t:select t:id="amount" t:model="amountModel" t:value="plnPurchaseView.denomination"
+                                  blankOption="never" zone="providerZone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="setter">
+                        <t:label for="providerCode">${message:providerCode}</t:label>
+                    </td>
+                    <td class="setter2">
+                        <t:zone t:id="providerZone" update="show">
+                            <t:select t:id="providerCode" t:value="plnPurchaseView.providerCode"
+                                      t:model="providerModel" blankOption="never"/>
+                        </t:zone>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </form>
+</div>
+</html>

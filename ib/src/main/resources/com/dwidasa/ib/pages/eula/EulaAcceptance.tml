@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>${message:mainTitle}</title>
+    <link rel="shortcut icon" href="${context:bprks/bprks.ico}"/>
+     <script>
+		function printpage()
+	  	{
+	  		window.print()
+	  	}
+	</script>
+</head>
+
+<body>
+<div class="container_24">
+	<div id="head" class="grid_24">
+        <div class="headerTriangle">
+			<a href="" title="" class="companyLogo">BPR Karyajatnika <br /> Sadaya</a>
+		</div>
+        <h1>Internet Banking</h1>
+        <p class="user_log"><span class="date_time"></span><span style="display:none;" id="serverTime">${currentTime}</span> | <b>${user.name}</b> | <a t:type="actionlink" t:id="logout">${message:logout}</a></p>
+        <span class="headShade"></span>
+        <ul>
+            <li><t:eventlink t:event="gotoHome" title="Home" class="history_home"></t:eventlink></li>
+            <li class="his_sep">&nbsp;</li>
+            <li><p>${message:syaratDanKetentuan}</p></li>
+        </ul>
+    </div>
+    
+    <div class="clear"></div>
+    
+    <div id="eula">
+        <h3>${message:APengertianIstilah}</h3>
+        <ol>
+        	<li><b>${message:internetBanking}</b> ${message:ibAdalah}</li>
+        	<li><b>${message:bprks}</b> ${message:bprksAdalah}</li>
+        	<li><b>${message:nasabah}</b> ${message:nasabahAdalah}</li>
+        	<li><b>${message:nasabahPengguna}</b> ${message:nasabahPenggunaAdalah}</li>
+        	<li><b>${message:pin}</b> ${message:pinAdalah}</li>
+        	<li><b>${message:userId}</b> ${message:userIdAdalah}</li>
+        	<li><b>${message:autherizedKey}</b> ${message:autherizedKeyAdalah}</li>
+        </ol>
+        
+	 	<div align="center">
+			<br /><p><b>${message:denganMemilihSetuju}</b></p>
+			<br />	
+			<t:form>
+        		<t:submit t:id="agree" value="message:agree" class="grey_btn"/>&nbsp;&nbsp;
+				<t:submit t:id="cancel" value="message:notAgree" class="grey_btn" mode="cancel"/>&nbsp;&nbsp; 
+				<input type="button" value="Cetak" class="grey_btn" onclick="printpage()"/>
+			</t:form>	
+		</div>
+    </div>
+    
+    <div id="footer" class="grid_24">
+        <p><span class="small_logo"></span>${message:mainTitle}</p>
+        <ul id="foor_link" class="right">
+            <li><a href="">${message:termOfUse}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:privacy}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:security}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:contactUs}</a></li>
+        </ul>
+        <span class="footerShade"></span>
+        <p>${message:copyright}</p>
+        <p class="call_center">${message:callCenter}</p>
+    </div>
+</div>
+</body>
+</html>

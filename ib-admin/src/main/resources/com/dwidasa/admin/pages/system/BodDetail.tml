@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<script type="text/javascript">
+function showTrace(traceInfo) {
+	$('traceInfo').innerHTML = traceInfo;
+	window1.showCenter(true);		
+}
+</script>
+
+<style type="text/css">
+a.tip {
+	color:blue;
+	border-bottom: 1px dashed blue;
+	text-decoration: none;	
+}
+</style>      
+
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <fieldset>
+            <legend>${message:subtitle}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:processDate}</label>
+                    </td>
+                    <td class="last">
+                        <label>${getStrDate(process.processDate)}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:startTime}</label>
+                    </td>
+                    <td>
+                        <label>${getStrDateTime(process.startTime)}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:finishTime}</label>
+                    </td>
+                    <td>
+                        <label>${getStrDateTime(process.finishTime)}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:duration}</label>
+                    </td>
+                    <td>
+                        <label>${getStrDuration(process.startTime, process.finishTime)}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:status}</label>
+                    </td>
+                    <td>
+                        <label>${getStrStatus(process.status)}
+                        <t:if test="inProcess">
+                        	&#160;<img src="${context:bprks/img/wait.gif}"/>
+                        </t:if></label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:user}</label>
+                    </td>
+                    <td>
+                        <label>${userName}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <table t:type="grid" source="dataSource" row="row" rowsPerPage="pageSize" add="duration"
+                   include="taskName,startTime,finishTime,status" 
+                   reorder="taskName,startTime,finishTime,duration,status"
+                   width="100%" t:mixins="gridSortingDisabled">
+                <t:parameter name="empty">
+                    <div id="emptyData">
+                    </div>
+                </t:parameter>
+                 <p:startTimeCell>
+	            	${getStrDateTime(row.startTime)}
+	            </p:startTimeCell>
+	            <p:finishTimeCell>
+	            	${getStrDateTime(row.finishTime)}
+	            </p:finishTimeCell>
+	            <p:durationCell>
+	            	${getStrDuration(row.startTime, row.finishTime)}
+	            </p:durationCell>
+	            <p:statusCell>
+	            	<t:if test="row.trace">
+	            		<a class="tip" href="javascript:showTrace('${getStrTrace(row.trace)}')">${getStrStatus(row.status)}
+	            		<!-- <span>Trace: ${row.trace}</span> --></a>
+	            	<p:else>
+	            		${getStrStatus(row.status)}
+	            	</p:else>
+	            	</t:if>
+	            </p:statusCell>                
+            </table>
+        </fieldset>
+        <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:if test="inProcess">
+        <t:submit t:id="refresh" class="grey_btn mr10" value="message:refresh" mode="cancel"/>
+        </t:if>
+    </form>
+</div>
+<div t:id="window1">
+    <div id="traceInfo"/>
+</div>
+</html>

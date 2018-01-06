@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+<!--         <fieldSet> -->
+<!--             <legend>${message:accountData}</legend> -->
+<!--             <table> -->
+<!--                 <tr class="odd"> -->
+<!--                     <td class="first"> -->
+<!--                         ${message:accountNumber} -->
+<!--                     </td> -->
+<!--                     <td class="last"> -->
+<!--                         ${lotteryView.accountNumber} -->
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+<!--                 <tr class="even"> -->
+<!--                     <td class="first"> -->
+<!--                         ${message:jenisUndian} -->
+<!--                     </td> -->
+<!--                     <td class="last"> -->
+<!--                         ${lotteryView.kodeUndian} -->
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+                
+<!--                 <tr class="odd"> -->
+<!--                     <td class="first"> -->
+<!--                         ${message:bulanTahun} -->
+<!--                     </td> -->
+<!--                     <td class="last"> -->
+                        
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+<!--                 <tr class="even"> -->
+<!--                     <td class="first"> -->
+<!--                         ${message:totalPerolehan} -->
+<!--                     </td> -->
+<!--                     <td class="last"> -->
+                        
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+<!--             </table> -->
+<!--         </fieldSet> -->
+<!--         <hr/> -->
+		<fieldSet>
+            <legend>${message:undianData}</legend>
+
+            <div class="table_grid">
+                <table width="100%">
+                    <thead>
+                    <tr>
+                        <th>${message:accountNumber}</th>
+<!--                         <th>${message:kodeUndian}</th> -->
+                        <th>${message:jenisUndian}</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr t:type="loop" t:source="lotteryViews" t:value="lotteryView" class="prop:evenOdd.next" encoder="encoder">
+                        <td>
+                       <a t:type="eventlink" t:event="viewStatement" t:context="[lotteryView.accountNumber,lotteryView.kodeUndian,lotteryView.jenisUndian]" href="#">
+                            ${lotteryView.accountNumber}
+                        </a> 
+                    	</td>
+                        
+<!--                         <td>${lotteryView.kodeUndian}</td> -->
+                        <td>${lotteryView.jenisUndian}</td>
+                        
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldSet>
+		
+    	
+    
+    </t:form>
+	</div>
+	
+</html>

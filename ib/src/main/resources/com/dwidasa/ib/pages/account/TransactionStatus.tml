@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:tx="tapestry-library:tapx"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_22"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <t:account customerId="accountView.customerId" status="even"        
+                   accountNumber="accountView.accountNumber" cardNumber="accountView.cardNumber"/>
+        <hr/>
+        <fieldSet>
+            <legend>${message:transactionData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="transactionTypeSelect"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="transactionTypeSelect" value="accountView.transactionType"
+                                  model="transactionTypeModel" blankOption="never" label="message:transactionType"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="transactionStatusSelect"/>
+                    </td>
+                    <td>
+                        <t:select t:id="transactionStatusSelect" value="status" model="transactionStatusModel"
+                                  blankOption="never" label="message:transactionStatus"/>
+                    </td>
+                </tr>
+                <!--
+                <tr class="odd">
+                    <td>
+                        <t:label for="startDate"/>
+                    </td>
+                    <td>
+                        <div class="date_picker_inline">
+                            <tx:datefield t:id="startDate" value="startDate"
+                                   format="prop:shortDate" validate="required" label="message:transactionPeriod"/>
+                        </div>
+                        <div class="date_picker_inline">(${shortPattern})</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="endDate"/>
+                    </td>
+                    <td>
+                        <div class="date_picker_inline">
+                            <tx:datefield t:id="endDate" value="endDate"
+                                   format="prop:shortDate" validate="required" label="message:to"/>
+                        </div>
+                        <div class="date_picker_inline">(${shortPattern})</div>
+                    </td>
+                </tr>
+                -->
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </t:form>
+</div>
+</html>

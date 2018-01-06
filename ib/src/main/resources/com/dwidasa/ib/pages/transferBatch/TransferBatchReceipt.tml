@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<div id="recipe_wrap">
+    <form t:type="form" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue">${message:title}</div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+                    <tr class="even">
+                        <td>
+                            <label>${message:date}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <t:output value="transferBatchView.transactionDate" format="longDate"/>
+                            ${message:timeZone}
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:accountSource}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferBatchView.accountNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td>
+                            <label>${message:batch}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferBatchView.batchName}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:description}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${transferBatchView.batchDescription}</label>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td>
+                            <label>${message:transferType}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${getStrTransferType(transferBatchView.transferType)}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:status}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${getStrStatus(transferBatchView.status)}</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--table t:type="grid" source="transferBatchView.transferBatchContentList" row="row"
+				rowsPerPage="pageSize" include="accountNumber, customerName, amount, status"
+				width="100%" t:mixins="gridSortingDisabled">
+				<p:amountCell>
+					<t:output value="row.amount" format="formatter"/>
+				</p:amountCell>
+				<p:statusCell>
+					${getStrStatus(row.status)}
+				</p:statusCell>
+			</table-->
+        </div>
+        <div id="note">
+            ${message:noteReceipt}
+        </div>
+        <t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>
+        <input type="button"
+               onclick="popupInfo('/transferBatch/transferBatchPrint')"
+               class="grey_btn right" t:type="any" value="message:print"/>
+    </form>
+</div>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <t:form class="formfield" t:id="maintenancePaymentList" clientValidation="submit">
+        <fieldset>
+            <legend>${message:searchData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="transactionType"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="transactionType" t:model="transactionTypeModel" value="transactionType"
+                                  zone="productNameZone" blankOption="never" label="message:transactionType"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="productName"/>
+                    </td>
+                    <td>
+                        <t:zone t:id="productNameZone" id="productNameZone" update="show">
+                            <t:select t:id="productName" t:model="productNameModel" value="productId"
+                                      blankOption="never" label="message:productName"/>
+                        </t:zone>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <t:submit t:id="reset" class="grey_btn ml10" value="message:reset" mode="cancel"/>
+        <t:submit t:id="search" class="grey_btn mr10" value="message:search"/>
+        <br/>
+        <br/>
+        <hr/>
+        <table t:type="grid" source="dataSource" row="row" rowsPerPage="pageSize" add="action"
+               reorder="productCode,productName,providerName,fee,isActive" exclude="id"
+               width="100%" t:mixins="gridSortingDisabled">
+            <t:parameter name="empty">
+                <div id="emptyData">
+                    ${message:emptyData}
+                </div>
+            </t:parameter>
+            <p:feeCell>
+            	 <t:output value="row.fee" format="formatter"/>
+            </p:feeCell>
+            <p:actionCell>
+                <a t:type="pagelink" t:page="product/MaintenancePaymentDetail" t:context="row.id">${message:edit}</a>
+                &nbsp;
+                <a t:type="actionlink" t:id="delete" t:context="row.id" onClick="return confirm('${message:confirmDelete}');">${message:delete}</a>
+           		&nbsp;
+                <t:if test="${row.isActive}">
+                
+                <a t:type="actionlink" t:id="update" t:context="[row.id, FALSE]">Non Active</a>
+                <p:else>
+                
+                <a t:type="actionlink" t:id="updateActive" t:context="[row.id, TRUE]">Active</a>
+                </p:else>
+                </t:if> 
+            </p:actionCell>
+        </table>
+
+        <t:submit t:id="add" value="message:add" class="grey_btn mr10" mode="cancel"/>
+    </t:form>
+</div>
+
+</html>

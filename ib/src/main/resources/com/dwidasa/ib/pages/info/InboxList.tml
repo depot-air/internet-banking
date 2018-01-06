@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <head></head>
+    
+ 
+    <t:form class="formfield" t:id="inboxList" clientValidation="submit">
+    
+    <body>
+    <div id="main_content">
+<!--     	<a type="submit" title="" class="deleteEmail">Delete</a> -->
+ 		
+        <h1>${message:title}</h1>
+
+        <div class="table_grid_email">
+        <table width = "100%">
+            <tr>
+                <th><input type="checkbox" value="1" class="toggleCheckAll" /></th>
+                <th>Title</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            <tr t:type="loop" t:source="allInbox" t:value="inboxCustomer" t:encoder="encoder">
+                <td><input t:id="check" t:type="checkbox" value="check"/></td>
+                
+                <t:if test="getStatus(inboxCustomer.status)">
+               
+                 <td style="font-weight:bold;"><t:actionlink t:id="viewwrite" t:context="[inboxCustomer.inboxId, inboxCustomer.id]" class="unread">${inboxCustomer.inbox.title}</t:actionlink></td>
+                 <td style="font-weight:bold;">${DateFormat}</td>
+            	 <td>
+            	 
+            	 <t:actionlink t:id="delete" t:context="${inboxCustomer.id}" onclick="return confirm('Apakah anda yakin akan menghapus ? ')" title="Hapus" class="deleteEmailRow"></t:actionlink>
+            	 </td>
+            	
+                <p:else>
+                
+        
+          		<td><t:actionlink t:id="viewread" t:context="[inboxCustomer.inboxId, inboxCustomer.id]">${inboxCustomer.inbox.title}</t:actionlink></td>
+            	<td>${DateFormat}</td>
+            	<td>
+            	 
+            	 <t:actionlink t:id="deleteUnread" t:context="${inboxCustomer.id}" onclick="return confirm('Apakah anda yakin akan menghapus ? ')" title="Hapus" class="deleteEmailRow"></t:actionlink>
+            	 </td>
+                
+                </p:else>
+                
+                </t:if>
+                
+            
+            </tr>
+        </table>
+        
+        	<ul id="pagination">
+        	
+            	<li>
+            	
+            	<t:if test="firstPage">
+				<a t:type="pagelink" page="info/inboxList" id="First" context="[page, 1]">First</a>
+				<p:else>
+				<a t:type="pagelink" page="info/inboxList" id="First" context="[page, 1]" class="active">First</a>
+				</p:else>
+            	</t:if>
+            	
+            	</li>
+            	
+                <li t:type="loop" source="NoAwalPag..NoPaging" value="index">
+				<t:if test="Enable">
+		        <a t:type="pagelink" page="info/inboxList" id="${index}" context="[page, index]">${index}</a>
+				<p:else>
+				<a t:type="pagelink" page="info/inboxList" id="${index}" context="[page, index]" class="active">${index}</a>
+				 </p:else>
+            	</t:if>
+            	</li>
+                
+                
+                <li>
+                
+                <t:if test="LastPage">
+                <a t:type="pagelink" page="info/inboxList" id="next"
+				context="[page, TotalPage]">Next</a>
+                <p:else>
+                <a t:type="pagelink" page="info/inboxList" id="next"
+				context="[page, pageNext]" class="active" disabled="false">Next</a>
+                </p:else>
+            	</t:if>
+                
+                </li>
+                
+            </ul>
+            
+            
+        </div>
+        
+        
+        <t:submitDelete class="grey_btn w200" t:id="delete1" value="Delete" />
+        
+    </div>
+    </body>
+    
+     </t:form>
+     
+     
+
+
+     
+  
+</html>

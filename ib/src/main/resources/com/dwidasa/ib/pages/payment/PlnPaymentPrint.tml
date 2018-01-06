@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title"  referenceNumber="${plnPaymentView.referenceNumber}" transactionDateString="${plnPaymentView.transactionDateString}"
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+        <table class="dg_first">
+            <tr>
+                <td class="firstcol" style="font-weight:bold;">${message:customerId}</td>
+                <td>:</td>
+                <td>${plnPaymentView.customerReference}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:referenceName}</td>
+                <td>:</td>
+                <td>${plnPaymentView.referenceName}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:powerCategory}</td>
+                <td>:</td>
+                <td>${plnPaymentView.powerCategory}${message:va}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:paidPeriods}</td>
+                <td>:</td>
+                <td>${paidPeriods}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:standMeter}</td>
+                <td>:</td>
+                <td>${plnPaymentView.previousMeter} - ${plnPaymentView.currentMeter}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:amount}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="plnPaymentView.amount" format="formatter"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="font-weight:bold;">
+                	<t:if test="gsp">
+                    	<label>${message:gspRef}</label>
+                    </t:if>	
+                	<t:if test="! gsp">
+                    	<label>${message:sybRef}</label>
+                    </t:if>	
+				</td>
+                <td>:</td>
+                <td>${vGspRef}</td>
+            </tr>
+            <tr>
+            	<td class="center" colSpan="3">${message:note}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:fee}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="plnPaymentView.fee" format="formatter"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:total}</td>
+                <td>:</td>
+                <td>${message:curr}
+                    <t:output value="plnPaymentView.total" format="formatter"/>
+                </td>
+            </tr>        
+        </table>
+
+        <div id="tunggakan" align="center">
+            <label style="align:center;">${vNoteReceipt}</label>
+        </div>
+        
+        <t:if test="vNote">
+        	
+        	
+        	<p:else>
+        		
+        		<div id="note" align="center">
+	   		<t:if test="gsp">     
+	   			<label style="align:center;">${message:thanks}</label>
+	   		</t:if>	
+        	</div>   
+        	
+        	</p:else>
+        
+        </t:if>
+	   	    
+        
+<!--         <t:loop source="footers" value="footer"> -->
+<!--         	<div id="note" align="center"> -->
+<!--             	label style="align:center;">${plnPaymentView.informasiStruk}</label             -->
+<!-- 	            <label style="align:center;">${message:thanks}</label> -->
+<!--         	</div> -->
+<!--         </t:loop> -->
+
+		<p class="center" align="center">
+		      
+			    <span class="upercase">${message:rincian}</span><br/>
+			    <span class="upercase">${message:informasi}</span><br/>
+			    <span class="upercase">${message:hub} ${plnPaymentView.UnitPhone}</span><br/>
+			    
+			    
+	    </p>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_6"></div>
+
+    <form t:type="form" class="formfield" t:clientValidation="submit">
+        <fieldSet>
+            <legend>${message:transferData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="bankName"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="bankName" t:value="transferView.billerCode"
+                                  model="billerModel" blankLabel="Pilih" validate="required"
+                                  blankOption="never" label="message:bankName"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="rekDestination"/>
+                    </td>
+                    <td>
+                        <input t:id="rekDestination" t:type="textField" type="text"
+                               t:value="transferView.customerReference" label="message:rekDestination"
+                               validate="required, regExp=^[0-9]+$" maxLength="20"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="rekOwner"/>
+                    </td>
+                    <td>
+                        <input t:id="rekOwner" t:type="textField" type="text" name="OwnerField"
+                               t:value="transferView.receiverName" label="message:rekOwner" validate="required" maxLength="50"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="branchName"/>
+                    </td>
+                    <td>
+                        <input t:id="branchName" t:type="textField" type="text" name="branchNameField"
+                               t:value="transferView.branchName" label="message:branchName" validate="required" maxLength="50"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="branchCity"/>
+                    </td>
+                    <td>
+                        <input t:id="branchCity" t:type="textField" type="text" name="branchCityField"
+                               t:value="transferView.branchCity" label="message:branchCity" validate="required" maxLength="50"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+    </form>
+</div>
+</html>

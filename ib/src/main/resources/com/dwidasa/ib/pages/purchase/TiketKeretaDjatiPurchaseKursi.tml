@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:tx="tapestry-library:tapx">
+
+<link type="text/css" rel="stylesheet" href="${context:bprks/css/newKramatDjati/redmond/jquery-ui-1.10.4.custom.css}" />
+<!--     <link type="text/css" rel="stylesheet" href="${context:bprks/css/newKramatDjati/select2.css}" /> -->
+    <link type="text/css" rel="stylesheet" href="${context:bprks/css/newKramatDjati/style.css}" />
+    <script src="${context:bprks/js/newKramatDjati/jquery.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/newKramatDjati/jquery-ui.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/newKramatDjati/jquery.qrcode.js}" type="text/javascript"></script>
+    <script src="${context:bprks/js/newKramatDjati/fLQScript.js}" type="text/javascript"></script>
+
+
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_10"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:purchaseData}</legend>
+            <table>
+                
+				<tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${getMasked(cardNumber)}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${dariRekening}</label>
+                    </td>
+                </tr>
+
+				<tr class="odd">
+                    <td class="first">
+                        <label>${message:tglKeberangkatan}</label>
+                    </td>
+                    <td  class="last">
+                       <label>${FormatTgl}</label>
+                    </td>
+                </tr>
+                
+                <tr >
+                    <td>
+                        <label>${message:hargaTiket}</label>
+                    </td>
+                    <td>
+                       
+                               <label><t:output value="hargaTiket" format="formatter"/></label>
+                    </td>
+                </tr>
+               
+               
+                <tr class="odd">
+                    <td>
+                        <label>${message:berangkat}</label>
+                    </td>
+                    <td>
+                       
+                       <t:select t:id="bankName" t:value="locationName"
+                                  model="selectLocation" blankLabel="Pilih" validate="required"
+                                  blankOption="never"/>
+                
+                
+                    </td>
+                </tr>
+               
+            </table>
+
+	<legend>Silahkan Pilih Kursi</legend>
+    <div id="orderDetailBus">
+        <div class="departIDetail orderDetailPanel">
+            <span class="grayGrad"></span>
+            <span class="dotLine"></span>
+            <span class="departIconDetail"></span>
+            <span class="hLine"></span>
+            <b class="title">Bus berangkat</b>
+            <p class="flightFrom">${dari}</p>
+            <span class="flightIcon"></span>
+            <p class="flightTo">${tujuan}</p>
+            <p class="fCTitle">Kode Jurusan</p>
+            <p class="fCCode">${kodeJurusan}</p>
+            <p class="maskTitle">Bus</p>
+            <span class="maskName">Kramat Djati</span>
+            <p class="maskKursi">Nomor Kursi</p>
+            
+            <p class="maskKodeKursi">
+            <span class="checkSeatName"></span>
+            </p>
+            <input id="btnChangeSeat${getAllColAndSeatNotEmpty()}" type="button" class="changeSeat orangeBtn" value="Pilih Kursi" />
+	       
+           
+            <p class="dateLabel">Tanggal Keberangkatan</p>
+            <p class="date">${FormatTgl}</p>
+            <p class="statusLabel">Status</p>
+            <b class="status">Konfirmasi</b>
+        </div>
+       
+    </div>
+    
+      <input t:type="textField" t:name="selectNomorKursi" t:id="selectNomorKursi" t:value="selectNomorKursi" style="display:none" />  
+    
+        
+        </fieldSet>
+        <hr/>
+      
+		<a hRef="tiketKeretaDjatiPurchaseInput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+<!-- 		<t:submit t:id="cancel" value="message:back" class="grey_btn ml10"/> -->
+        <t:submit t:id="next" value="message:next" class="grey_btn mr10"/>
+        
+    </form>
+</div>
+
+<div class="masking"></div>
+<div class="getTrainLayout rounded5">
+    <p class="layoutTitle">Pilih tempat duduk</p>
+    <div class="dataLayout">
+        <span class="trainName">Kramat Djati</span>
+        <span class="trainCode">${kodeJurusan}, ${dari} - ${tujuan}</span>
+    </div>
+    <div class="trainLayout"><div class="layout4" totalSeat="${getTotalPerShet()}"></div></div>
+    <div class="layoutLegendCtr">
+        <span class="seatFilled"></span>
+        <span class="layoutLegend">Sudah di isi</span>
+        <span class="seatAvailable"></span>
+        <span class="layoutLegend">Masih tersedia</span>
+        <span class="seatActive"></span>
+        <span class="layoutLegend">Kursi yang pilih</span>
+        <span class="checkSeatName"></span>
+        <input type="button" class="chooseSeat orangeBtn" value="Pilih" />
+        <input type="button" class="cancelChooseSeat blueBtn" value="Batalkan" />
+    </div>
+</div>
+
+
+</html>

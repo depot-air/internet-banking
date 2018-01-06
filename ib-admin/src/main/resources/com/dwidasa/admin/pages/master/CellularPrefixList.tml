@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <t:form class="formfield" t:id="form" clientValidation="submit">
+    	<t:errors banner="message:errorBanner"/>
+        <fieldset>
+            <legend>${message:searchData}</legend>
+            <table>
+            	<t:radiogroup value="searchCriteria">
+                    <tr class="odd">
+                        <td>
+                            <t:radio t:id="inputSearch" value="literal:input" label="message:inputSearch"/>
+                            <t:label for="inputSearch"/>
+                        </td>
+                        <td>
+                        	<t:textfield t:id="inputPrefix" t:value="inputPrefix" validate="requiredIf=checkInputSearch"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <t:radio t:id="selectSearch" value="literal:select" label="message:selectSearch"/>
+                            <t:label for="selectSearch"/>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+	                    <td class="first"  >
+	                        &#160;&#160;&#160;&#160;&#160;&#160;<t:label for="transactionType"/>
+	                    </td>
+	                    <td class="last">
+	                        <t:select t:id="transactionType" t:model="transactionTypeModel" value="transactionType" t:validate="required"
+	                                 label="message:transactionType" t:zone="productZone"/>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td>
+	                        &#160;&#160;&#160;&#160;&#160;&#160;<t:label for="productName"/>
+	                    </td>
+	                    <td>
+	                     	<t:zone t:id="productZone">
+	                        	<t:select t:id="productName" t:model="productNameModel" value="billerProductId" t:validate="required"
+	                                 label="message:productName"/>
+	                        </t:zone>
+	                    </td>
+	                </tr>
+                </t:radiogroup>
+            </table>
+        </fieldset>
+
+        <t:submit t:id="reset" class="grey_btn ml10" value="message:reset" mode="cancel"/>
+        <t:submit t:id="search" class="grey_btn mr10" value="message:search"/>
+        <br/>
+        <br/>
+        <hr/>
+        <table t:type="grid" source="dataSource" row="row" rowsPerPage="pageSize" add="action"
+               include="productName, prefix" width="100%" t:mixins="gridSortingDisabled">
+            <t:parameter name="empty">
+                <div id="emptyData">
+                	<t:if test="searchCriteria">
+                    	${message:emptyData}
+                    </t:if>
+                </div>
+            </t:parameter>
+            <p:actionCell>
+                <a t:type="pagelink" t:page="master/CellularPrefixDetail" t:context="row.id">${message:edit}</a>
+                &nbsp;
+                <a t:type="actionlink" t:id="delete" t:context="row.id" onClick="return confirm('${message:confirmDelete}');">${message:delete}</a>
+            </p:actionCell>
+        </table>
+
+        <t:submit t:id="add" value="message:add" class="grey_btn mr10" mode="cancel"/>
+    </t:form>
+</div>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>${message:mainTitle}</title>
+    <link rel="shortcut icon" href="${context:bprks/bprks.ico}"/>
+    
+</head>
+<script>
+function popSeal(urlLink) {
+        myWindow=window.open(urlLink,'_blank','width=600,height=600,toolbar=1,scrollbars=1,location=1');
+        myWindow.focus();
+    }
+</script>
+<body>
+<div class="container_24">
+    <div id="head" class="grid_24">
+        <div class="headerTriangle">
+			<a href="" title="" class="companyLogo">BPR Karyajatnika <br /> Sadaya</a>
+		</div>
+        <h1>Internet Banking</h1>
+        <p class="user_log"><span class="date_time"></span><span style="display:none;" id="serverTime">${currentTime}</span></p>
+        <!-- <p class="user_log">${message:help} <img src="${context:bprks/img/phone.jpeg}" width="16px" height="16px"/> ${message:phone}</p> -->
+        <span class="headShade"></span>
+    </div>
+    <div id="login_wrap">
+        <div id="login_panel">
+            <div id="login_title"><p>${message:title}</p></div>
+            <div id="login_content">
+                <span class="emb_left"></span>
+                <span class="emb_right"></span>
+                <span class="emb_botleft"></span>
+                <span class="emb_botright"></span>
+                <span class="emb_footrpt"></span>
+
+                <div id="login_image"></div>
+                <form t:type="form" class="full-form" t:id="loginForm">
+                	<fieldSet>
+                        <label t:type="label" t:for="username">${message:username}</label><br/>
+                        <div id="input">
+                        	<span class="login_left"></span>
+                        	<span class="login_right"></span>
+                        	<input t:type="textField" t:id="username" autocomplete="off"/>
+                        </div>
+                        <label t:type="label" t:for="password" class="short">${message:tin}</label><br/>
+                        <div id="input">
+                        	<span class="login_left"></span>
+                        	<span class="login_right"></span>
+                        	<input type="password" t:type="passwordfield" t:id="password" autocomplete="off" maxLength="6"/>
+                        </div>
+                        <!--
+                        ${message:kaptcha}<br/>
+                        <div id="input">
+                        	<span class="login_left"></span>
+                        	<span class="login_right"></span>
+                            <t:KaptchaField t:image="kaptchaImage" visible="true" label="kode captcha"/>
+                        </div>
+                        <t:KaptchaImage t:id="kaptchaImage"/><br/>
+                        -->
+                        <t:submit value="message:login" class="grey_btn"/>
+                    </fieldSet>
+                </form>
+                <div class="clear">&#160;</div>
+                <div style="text-align:center; color:red">${error}</div>
+            </div>
+            <p class="btm_txt">${message:encrypt1}<br/>${message:encrypt2}</p>
+            <div class="verisign">
+           		<a href="javascript:popSeal('https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=ib.bprks.co.id&amp;lang=en')"><img src="${context:bprks/img/verisign.png}" /></a>
+        	</div>                         
+        </div>
+        <div id="notivy_yellow">
+            <div id="notivy_message">
+                <ol><b>PERHATIAN</b>
+                    <li>Situs ini lebih baik ditampilkan dengan menggunakan browser <b>Firefox</b>.</li>
+                    <li>Anda harus menggunakan <b>Token</b> atau <b>SMS Token</b> setiap kali Anda melakukan transaksi finansial.</li>
+                </ol>
+            </div>
+        </div>
+        
+    </div>
+    <div id="footer" class="grid_24">
+        <p><span class="small_logo"></span>${message:mainTitle}</p>
+        <ul id="foor_link" class="right">
+            <li><a href="">${message:termOfUse}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:privacy}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:security}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:contactUs}</a></li>
+        </ul>
+        <span class="footerShade"></span>
+        <p>${message:copyright}</p>
+        <p class="call_center">${message:callCenter}</p>
+    </div>
+</div>
+
+</body>
+</html>

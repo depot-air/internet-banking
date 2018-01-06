@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+<!--     
+    <t:if test="messageInfo">
+		<div id="divMessageInfo">
+			${messageInfo} 
+		</div>
+	</t:if>
+-->
+	<t:displayMessage/>	
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+    
+        <table t:type="grid" source="dataSource" row="inbox" rowsPerPage="pageSize" add="action" include="title, content"
+        	width="100%" t:mixins="gridSortingDisabled">
+            <t:parameter name="empty">
+                <div id="emptyData">
+                    ${message:emptyData}
+                </div>
+            </t:parameter>
+            <p:actionCell>
+                <a t:type="pagelink" t:page="customer/InboxInput" t:context="inbox.id">${message:edit}</a>
+                &nbsp;
+                <a t:type="actionlink" t:id="delete" t:context="inbox.id" onClick="return confirm('${message:confirmDelete}');">${message:delete}</a>
+            	&nbsp;
+            	<a t:type="pagelink" t:page="customer/InboxCustomerList" t:context="inbox.id">${message:ListCustomer}</a>
+            </p:actionCell>
+        </table>
+        
+        
+         <t:submit t:id="add" class="green_btn mr10" value="message:changeProfile"/>
+        
+        
+    </form>
+</div>
+</html>

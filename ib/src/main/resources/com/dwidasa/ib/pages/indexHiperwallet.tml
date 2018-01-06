@@ -1,0 +1,27 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      t:type="layout" title="message:title" group="message:group"
+      xmlns:p="tapestry:parameter">
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <span class="border_1"></span>
+    <span class="border_2"></span>
+
+    <h2>Favorit</h2>
+        <div class="ico_position ico_favorite_1"></div>
+        <br /><br />
+        <hr />
+        <div id="favorite_1">
+        	<a href="account/statement" title="" class="fav_3"></a><br />
+            <p>Mutasi Rekening</p>
+        </div>
+        <div id="favorite_2">
+        	<a href="account/balance" title="" class="fav_8"></a><br />
+            <p>Saldo Rekening</p>
+        </div>
+</div>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_10"></div>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${plnPaymentView.cardNumber}</label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${plnPaymentView.accountNumber}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:paymentData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:customerReference}</label>
+                    </td>
+                    <td class="last">
+                        <label>${plnPaymentView.customerReference}</label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:referenceName}</label>
+                    </td>
+                    <td>
+                        <label>${plnPaymentView.referenceName}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:totalBill}</label>
+                    </td>
+                    <td>
+                        <label>${totalBill}</label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:amount1}</label>
+                    </td>
+                    <td>
+                        <label>${paidPeriod1} ${message:curr} <t:output value="plnPaymentView.amount1" format="formatter"/></label>
+                    </td>
+                </tr>
+                <t:if test="plnPaymentView.amount2">
+	                <tr class="odd">
+	                    <td>
+	                        <label>${message:amount2}</label>
+	                    </td>
+	                    <td>
+	                        <label>${paidPeriod2} ${message:curr} <t:output value="plnPaymentView.amount2" format="formatter"/></label>
+	                    </td>
+	                </tr>
+                </t:if>
+                <t:if test="plnPaymentView.amount3">                
+	                <tr class="even">
+	                    <td>
+	                        <label>${message:amount3}</label>
+	                    </td>
+	                    <td>
+	                        <label>${paidPeriod3} ${message:curr} <t:output value="plnPaymentView.amount3" format="formatter"/></label>
+	                    </td>
+	                </tr>
+                </t:if>
+                <t:if test="plnPaymentView.amount4">
+	                <tr class="odd">
+	                    <td>
+	                        <label>${message:amount4}</label>
+	                    </td>
+	                    <td>
+	                        <label>${paidPeriod4} ${message:curr} <t:output value="plnPaymentView.amount4" format="formatter"/></label>
+	                    </td>
+	                </tr>
+                </t:if>
+                <tr class="even">
+                    <td>
+                        <label>${message:totalAmount}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr} <t:output value="plnPaymentView.amount" format="formatter"/></label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:fee}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr} <t:output value="plnPaymentView.fee" format="formatter"/></label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:penaltyFee}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr} <t:output value="plnPaymentView.penaltyFee" format="formatter"/></label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:total}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr} <t:output value="plnPaymentView.total" format="formatter"/></label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:tarifDaya}</label>
+                    </td>
+                    <td>
+                        <label>${plnPaymentView.powerCategory}&nbsp;${message:va}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <t:token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge" mode="tokenType"/>        
+        <a hRef="plnpaymentinput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>        
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+    </form>
+</div>
+</html>

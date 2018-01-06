@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" t:id="treasuryDetail" clientValidation="submit">
+        <fieldset>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:referenceNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${transaction.referenceNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:transactionDate}</label>
+                    </td>
+                    <td>
+                        <label>
+                            <t:output value="transaction.transactionDate" format="longDate"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:fromAccountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${transaction.fromAccountNumber}</label>
+                    </td>
+                </tr>
+                <!--tr>
+                    <td>
+                        <label>${message:senderName}</label>
+                    </td>
+                    <td>
+                        <label>${customer.customerName}</label>
+                    </td>
+                </tr-->
+                <tr class="odd">
+                    <td>
+                        <label>${message:bankName}</label>
+                    </td>
+                    <td>
+                        <label>${bankName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:branchName}</label>
+                    </td>
+                    <td>
+                        <label>${transferView.branchName}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:branchCity}</label>
+                    </td>
+                    <td>
+                        <label>${transferView.branchCity}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:toAccountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${transaction.toAccountNumber}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:receiverName}</label>
+                    </td>
+                    <td>
+                        <label>${transferView.receiverName}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:transactionAmount}</label>
+                    </td>
+                    <td>${message:curr}
+                        <label>
+                            <t:output value="transaction.transactionAmount" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:fee}</label>
+                    </td>
+                    <td>${message:curr}
+                        <label>
+                            <t:output value="transaction.fee" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:total}</label>
+                    </td>
+                    <td>
+                        ${message:curr}
+                        <label>
+                            <t:output value="total" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:news}</label>
+                    </td>
+                    <td>
+                        <label>${transferView.news}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:status}</label>
+                    </td>
+                    <td>
+                        <label>${status}</label>
+                    </td>
+                </tr>
+                <!--tr class="odd">
+                    <td>
+                        <label>${message:handledBy}</label>
+                    </td>
+                    <td>
+                        <label>${user.userName}</label>
+                    </td>
+                </tr-->
+            </table>
+        </fieldset>
+        <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:if test="!failedSucceed">
+            <t:if test="handled">
+                <t:submit t:id="successBut" class="green_btn mr10" value="message:successBut"/>
+                <t:submit t:id="failedBut" class="green_btn mr10" value="message:failedBut"/>
+                <p:else>
+                    <t:submit t:id="handledBut" class="green_btn mr10" value="message:handledBut"/>
+                </p:else>
+            </t:if>
+        </t:if>
+    </form>
+</div>
+</html>

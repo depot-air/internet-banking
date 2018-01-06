@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>${message:mainTitle}</title>
+    <link rel="shortcut icon" href="bprks.ico"/>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/reset.css}"/>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/text.css}"/>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/960.css}"/>
+    <link rel="stylesheet" type="text/css" href="${context:bprks/css/style.css}"/>
+</head>
+
+<body>
+<div class="container_24">
+    <div id="head" class="grid_24">
+        <a href="" title="BPR KS" class="logo"></a>
+
+        <div class="head_componen">
+            <p>${message:language}</p>
+
+            <form t:type="form" t:id="languageForm">
+                <t:select t:id="availableLanguages" model="availableLanguages" value="selectedLanguage"
+                          blankOption="never" onchange="this.form.submit()"/>
+            </form>
+            <p>${message:help}</p>
+
+            <p><span class="phone_ico"></span></p>
+
+            <p>${message:phone}</p>
+        </div>
+    </div>
+
+    <div id="neck" class="grid_24">
+        <h1>${message:ib}</h1>
+
+        <p class="date_time"></p>
+        <hr/>
+        <ul>
+            <li><a href="" title="Home" class="history_home"></a></li>
+            <li class="his_sep">&nbsp;</li>
+            <li><p><a href="" title="Pembelian">${message:title}</a></p></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <form t:type="form" class="full-form" t:id="eula"
+          t:clientValidation="submit">
+            <span class="emb_left"></span>
+            <span class="emb_right"></span>
+            <span class="emb_botleft"></span>
+            <span class="emb_botright"></span>
+            <span class="emb_footrpt"></span>
+
+            <h2>${message:introduction}</h2>
+
+            <h3>${message:ib}</h3>
+
+            <p>${message:ibContent}</p>
+
+            <h3>${message:bankName}</h3>
+
+            <p>${message:bankNameContent}</p>
+            <hr/>
+            <h2>${message:condition}</h2>
+            <ul>
+                <li>${message:condition1}</li>
+                <li>${message:condition2}</li>
+                <li>${message:condition3}</li>
+                <li>${message:condition4}</li>
+            </ul>
+
+        <div class="centerize_btn">
+            <t:submit t:id="agree" value="message:agree" class="grey_btn"/>
+            <t:submit t:id="disagree" value="message:disagree" class="grey_btn"/>
+            <t:submit t:id="print" value="message:print" class="grey_btn"/>
+        </div>
+    </form>
+    <div id="footer" class="grid_24">
+        <p><span class="small_logo"></span>${message:mainTitle}</p>
+        <ul id="foor_link" class="right">
+            <li><a href="">${message:termOfUse}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:privacy}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:security}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:contactUs}</a></li>
+        </ul>
+        <hr/>
+        <p>${message:copyright}</p>
+
+        <p class="call_center">${message:callCenter}</p>
+    </div>
+</div>
+</body>
+</html>

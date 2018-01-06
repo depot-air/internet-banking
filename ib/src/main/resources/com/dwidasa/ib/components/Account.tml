@@ -1,0 +1,20 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<t:content>
+    <fieldSet>
+        <legend class="accountData">${message:accountData}</legend>
+        <table>
+            <tr class="odd">
+                <td class="first">
+                    <t:label for="accountNumber"/>
+                </td>
+                <td class="last">
+                    <t:select t:id="accountNumber" t:model="accountModel" blankoption="never" t:zone="billerAccount"
+                              label="message:accountNumber"/>
+                    <t:zone t:id="billerAccount" id="billerAccount" update="show">
+    			   </t:zone>
+                </td>
+            </tr>
+        </table>
+    </fieldSet>
+</t:content>
+</html>

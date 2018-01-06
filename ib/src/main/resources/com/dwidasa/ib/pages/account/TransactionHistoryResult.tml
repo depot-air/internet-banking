@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_22"></div>
+
+    <t:form class="formfield" t:id="transactionHistoryResult" clientValidation="submit">
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        ${message:accountNumber}
+                    </td>
+                    <td class="last">
+                        ${accountView.accountNumber}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:period}
+                    </td>
+                    <td>
+                        <t:output value="startDate" format="prop:shortDate"/>
+                        ${message:to}
+                        <t:output value="endDate" format="prop:shortDate"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        ${message:currency}
+                    </td>
+                    <td>
+                        ${accountView.currencyCode}
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+        <fieldSet>
+            <legend>${message:historyData}</legend>
+            <div class="table_grid">
+                <table width="100%">
+                    <thead>
+                    <tr>
+                    	<th>${message:transactionDate}</th>
+                        <th>${message:transactionType}</th>
+                        <th>${message:customerReference}</th>
+                        <th class="tx_right">${message:nominal}</th>
+                        <th>${message:status}</th>
+                        <th>${message:referenceNo}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr t:type="loop" t:source="asvList" t:value="asv" class="prop:evenOdd.next" t:formState="none">
+                    	<td>${getStrDateTime(asv.transactionDate)}</td>
+                        <td>${asv.transactionName}</td>
+                    	<td>${asv.customerReference}</td>
+                    	<td class="tx_right"><t:output format="formatter" value="asv.amount"/></td>
+                    	<td>${rowStatus}</td>
+                        <td>
+                        	<t:eventlink t:event="viewDetail" t:context="[asv.transactionId, rowStatus]">${asv.referenceNumber}</t:eventlink>                            
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        ${message:note}
+                    </td>
+                    <td class="last"></td>
+                </tr>
+                <tr class="even">
+                    <td colSpan="2">
+                        ${message:clickRefno}
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <t:submit t:id="back" value="message:back" class="grey_btn ml10"/>
+    </t:form>
+</div>
+</html>

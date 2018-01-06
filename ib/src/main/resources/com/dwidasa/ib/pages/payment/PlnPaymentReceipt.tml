@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="recipe_wrap">
+    <form t:type="form" t:id="plnPaymentReceipt" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:customerReference}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${plnPaymentView.customerReference}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:referenceName}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${plnPaymentView.referenceName}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:tarifDaya}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${plnPaymentView.powerCategory}${message:va}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:billPeriod}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>
+                                ${paidPeriods}
+                            </label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:standMeter}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>
+                                ${plnPaymentView.previousMeter} - ${plnPaymentView.currentMeter}
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:amount}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:curr}
+                                <t:output value="plnPaymentView.amount" format="formatter"/>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                        	<t:if test="gsp">
+                            	<label>${message:gspRef}</label>
+                            </t:if>	
+                        	<t:if test="! gsp">
+                            	<label>${message:sybRef}</label>
+                            </t:if>	
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>
+                                ${vGspRef}
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>${message:fee}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:curr}
+                                <t:output value="plnPaymentView.fee" format="formatter"/>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:total}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:curr}
+                                <t:output value="plnPaymentView.total" format="formatter"/>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:status}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${StatusDetil}</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="tunggakan" align="center">
+            <label style="align:center;">${vNoteReceipt}</label>
+        </div>
+        <t:loop source="footers" value="footer">
+        	<div id="note">
+            	<!--label style="align:center;">${plnPaymentView.informasiStruk}</label-->            
+	            <label style="align:center;">${footer}</label>
+        	</div>
+        </t:loop>
+		<t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>        
+       
+       <t:if test="StatusHistory">
+		
+		<p:else>
+		
+		<input type="button"
+               onclick="popupInfo('/payment/plnPaymentPrint')"
+               class="grey_btn right" t:type="any" value="message:print"/>
+               
+		</p:else>
+		
+		</t:if>   		
+		
+       	 
+     
+    </form>
+</div>
+</html>

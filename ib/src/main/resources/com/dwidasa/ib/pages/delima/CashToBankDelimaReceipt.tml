@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<div id="recipe_wrap">
+<form t:type="form" t:id="cashInDelimaReceipt" clientValidation="submit">
+<div id="recipe">
+<div id="logo_blue"></div>
+<hr/>
+<div id="recipe_list">
+<table>
+    <legend>${message:cashInData}</legend>
+    <tr class="odd">
+        <td class="first">
+            <label>${message:referenceNumber}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.referenceNumber}</label>
+        </td>
+    </tr>
+    <tr>
+        <td class="first">
+            <label>${message:date}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <t:output value="cashToBankDelimaView.transactionDate" format="longDate"/>
+            ${message:timeZone}
+        </td>
+    </tr>
+    <tr class="odd">
+        <td class="first">
+            <label>${message:cardNumber}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.cardNumber}</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:delima}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${message:delimaCashIn}</label>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>
+            <label>${message:transferCode}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.customerReference}</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:amount}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>
+                <t:output value="cashToBankDelimaView.amount" format="formatter"/>
+            </label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:transferFee}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>
+                <t:output value="cashToBankDelimaView.providerFee" format="formatter"/>
+            </label>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>
+            <label>${message:status}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label class="last">${StatusDetil}</label>
+        </td>
+    </tr>
+</table>
+<hr/>
+
+<table>
+    <legend>${message:senderData}</legend>
+    <tr class="odd">
+        <td class="first">
+            <label>${message:senderName}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.senderName}</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:senderPob}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.senderPob}</label>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>
+            <label>${message:senderDob}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <t:output value="cashToBankDelimaView.senderDob" format="mediumDate"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:senderId}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.senderIdNumber}</label>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>
+            <label>${message:senderPhone}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.senderPhoneNumber}</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:senderAddress}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.senderAddress}</label>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>
+            <label>${message:senderCity}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.senderCity}</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:senderCountry}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.senderCountry}</label>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>
+            <label>${message:senderProfession}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.senderProfession}</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:senderNationality}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.senderNationality}</label>
+        </td>
+    </tr>
+</table>
+<table>
+    <legend>${message:news}</legend>
+    <tr class="odd">
+        <td class="first">
+            <label>${message:newsMoneySource}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.newsMoneySource}</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:newsMoneyPurpose}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.newsMoneyPurpose}</label>
+        </td>
+    </tr>
+</table>
+<hr/>
+
+<table>
+    <legend>${message:receiverData}</legend>
+    <tr class="odd">
+        <td>
+            <label>${message:receiverPhone}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.receiverPhoneNumber}</label>
+        </td>
+    </tr>
+    <tr>
+        <td class="first">
+            <label>${message:receiverName}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.receiverName}</label>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>
+            <label>${message:receiverAddress}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.receiverAddress}</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:receiverCity}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.receiverCity}</label>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>
+            <label>${message:receiverCountry}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.receiverCountry}</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>${message:receiverBank}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.receiverBank}</label>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>
+            <label>${message:receiverAccount}</label>
+        </td>
+        <td>
+            <label>|</label>
+        </td>
+        <td class="last">
+            <label>${cashToBankDelimaView.receiverAccount}</label>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+<t:if test="fromHistory">
+	<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+</t:if>      
+	<t:if test="StatusHistory">
+		
+		<p:else>
+		
+		<input type="button"
+	   onclick="popupInfo('/delima/cashToBankDelimaPrint')"
+	   class="grey_btn right" t:type="any" value="message:print"/> 
+               
+		</p:else>
+		
+		</t:if>   	
+		  
+
+</form>
+</div>
+</html>

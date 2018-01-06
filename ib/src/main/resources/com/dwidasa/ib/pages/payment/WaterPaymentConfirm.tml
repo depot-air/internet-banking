@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+    <div class="ico_position ico_favorite_10"></div>
+
+	<form t:type="form" class="formfield" method="get" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        
+        <fieldSet>
+            <legend>${message:accountData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:cardNumber}</label>
+                    </td>
+                    <td class="last">
+                        <label>${getMasked(waterPaymentView.cardNumber)}</label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:accountNumber}</label>
+                    </td>
+                    <td>
+                        <label>${waterPaymentView.accountNumber}</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+		<fieldSet>
+            <legend>${message:paymentData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:customerReference}</label>
+                    </td>
+                    <td class="last">
+                        <label>${waterPaymentView.customerReference}</label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:billerName}</label>
+                    </td>
+                    <td>
+                        <label>${waterPaymentView.billerName}</label>
+                    </td>
+                </tr>            
+                <tr class="odd">
+                    <td>
+                        <label>${message:referenceName}</label>
+                    </td>
+                    <td>
+                        <label>${waterPaymentView.referenceName}</label>
+                    </td>
+                </tr> 
+                <tr class="even">
+                    <td>
+                        <label>${message:billReference}</label>
+                    </td>
+                    <td>
+                        <label>${waterPaymentView.billReference}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:billDate}</label>
+                    </td>
+                    <td>
+                    	<t:if test="BillerName">
+                    	
+                    		<label><t:output value="JmlTagihan" format="formatter"/>/
+	                        	<t:output value="waterPaymentView.billDate" format="shortDate"/>
+	                    	</label>
+                    		
+                    	<p:else>
+                    		
+                    		<label>
+	                        	<t:output value="waterPaymentView.billDate" format="shortDate"/>
+	                    	</label>
+                    	
+                    	</p:else>
+                    	</t:if>
+	                    
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:amount}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="waterPaymentView.amount" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                
+                <t:if test="BillerName">
+                
+                <tr class="odd">
+                    <td>
+                        <label>${message:kubikasi}</label>
+                    </td>
+                    <td>
+                        <label>
+                            ${waterPaymentView.reserved1}
+                        </label>
+                    </td>
+                </tr>
+                
+                <tr class="even">
+                    <td>
+                        <label>${message:Retribusi}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="Retribusi" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                
+                <tr class = "odd">
+                    <td>
+                        <label>${message:admin}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="waterPaymentView.fee" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:penaltySBY}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="waterPaymentView.penalty" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                 <tr class="odd">
+                    <td>
+                        <label>${message:total}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="waterPaymentView.total" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                
+                <p:else>
+                
+                <tr class="odd">
+                    <td>
+                        <label>${message:admin}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="waterPaymentView.fee" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <label>${message:penalty}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="waterPaymentView.penalty" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                 <tr class="odd">
+                    <td>
+                        <label>${message:total}</label>
+                    </td>
+                    <td>
+                        <label>${message:curr}
+                            <t:output value="waterPaymentView.total" format="formatter"/>
+                        </label>
+                    </td>
+                </tr>
+                
+                </p:else>
+                
+                </t:if>
+                
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <t:token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge"
+                 mode="tokenType"/>
+        <a hRef="waterpaymentinput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+    </form>
+</div>
+</html>

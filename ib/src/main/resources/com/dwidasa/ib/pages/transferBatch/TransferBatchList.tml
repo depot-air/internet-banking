@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+	<span class="emb_left"></span> <span class="emb_right"></span> <span
+		class="emb_botleft"></span> <span class="emb_botright"></span> <span
+		class="emb_footrpt"></span>
+	<h2>${message:title}</h2>
+	<div class="ico_position ico_favorite_6"></div>
+
+	<t:form class="formfield" clientValidation="submit">
+		<table t:type="grid" source="dataSource" row="row"
+			rowsPerPage="pageSize" add="action" include="batchName, description"
+			width="100%" t:mixins="gridSortingDisabled">
+			<t:parameter name="empty">
+				<div id="emptyData" style="margin-left:17px">${message:emptyData}</div>
+			</t:parameter>
+			<p:actionCell>
+				<t:eventlink t:event="viewDetail" t:context="row.id">${message:edit}</t:eventlink>
+                &nbsp;
+                <a t:type="actionlink" t:id="delete" t:context="row.id"
+					onClick="return confirm('${message:confirmDelete}');">${message:delete}</a>
+			</p:actionCell>
+		</table>
+		<div id="notivy_yellow">
+			<div id="notivy_message" style="margin-left: 15px">${message:note}</div>
+		</div>
+		<br/>
+		<hr />
+		<t:submit t:id="add" value="message:add" class="grey_btn mr10"
+			mode="cancel" />
+	</t:form>
+
+</div>
+
+
+</html>

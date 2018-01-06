@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<link type="text/css" rel="stylesheet" href="${context:bprks/css/aero/style.css}" />
+
+<t:content>
+    <fieldSet>
+        <table>
+            <tbody>
+            <tr class="odd">
+	            <t:if test="appl1">
+	                <td class="first" colSpan="2">${message:msgAppl1}</td>
+	            </t:if>
+	            <t:if test="appl2">
+	                <td class="first"><label>${message:msgAppl2}</label></td>
+	                <td class="last"><label style="font-weight: bold;"><span id="tokenChallenge">${displayChallenge}</span></label></td>
+	            </t:if>
+	            <!--t:if test="softToken">
+	                <td class="first" colSpan="2">${message:msgSoftToken}</td>
+	            </t:if-->
+	            <t:if test="smsToken">
+	                <td class="first" colSpan="2">${message:msgSmsToken}</td>
+	            </t:if>
+            </tr>
+			
+            <tr class="even">
+                <td class="first">
+                    <t:label for="token">
+                    	<t:if test="appl1">
+	                    	${message:appl1}
+	                    </t:if>
+	                    <t:if test="appl2">
+	                    	${message:appl2}
+	                    </t:if>	                    
+	                    <!--t:if test="softToken">
+	                    	${message:softToken}
+	                    </t:if-->
+	                    <t:if test="smsToken">
+	                    	${message:smsToken}
+	                    </t:if>
+                    </t:label>
+                </td>
+                <td class="last">
+                	<t:if test="sixDigit">
+                		<input t:id="token6Digit" t:type="passwordField" autoComplete="off" validate="required, regExp=^[0-9]+$, minLength=6, maxLength=6" maxLength="6" />
+                	</t:if>  
+                	<t:if test="!sixDigit">
+                		<input t:id="token" t:type="passwordField" autoComplete="off" validate="required, regExp=^[0-9]+$, minLength=8, maxLength=8" maxLength="8" />
+            		</t:if>             	
+                </td>
+            </tr>
+                 
+            </tbody>
+        </table>
+    </fieldSet>
+</t:content>
+</html>

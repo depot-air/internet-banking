@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"      
+      xmlns:tx="tapestry-library:tapx">
+<style type="text/css">
+td.activityType, table.t-data-grid thead tr th.activityType, td.deliveryChannel, table.t-data-grid thead tr th.deliveryChannel, td.deliveryChannelId, table.t-data-grid thead tr th.deliveryChannelId {
+	width: 20px;
+}
+td.created, table.t-data-grid thead tr th.created {
+	width: 120px;
+}
+td.referenceNumber, table.t-data-grid thead tr th.referenceNumber, td.username, table.t-data-grid thead tr th.username {
+	width: 80px;
+}
+td.activityData, table.t-data-grid thead tr th.activityData {
+	width: 310px;
+}
+</style>
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+    <h2>${message:title}</h2>
+
+    <t:form class="formfield" clientValidation="submit">
+        <fieldset>
+            <legend>${message:searchData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="transactionType"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="transactionType" t:model="transactionTypeModel" t:value="transactionType"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:periode}</label>
+                    </td>
+                    <td>
+                        <tx:dateField t:id="startDate" value="startDate" size="12" style="float: none"
+                        	format="prop:shortDate" validate="required, acrossField=validateDate"/>
+                        &#160;${message:to}&#160;
+                        <tx:dateField t:id="endDate" value="endDate" size="12" style="float: none"
+                        	format="prop:shortDate" validate="required"/>
+                        (${shortPattern})
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="username"/>
+                    </td>
+                    <td class="last">
+                    	<input t:id="username" value="strUsername" t:type="textfield" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <t:submit t:id="reset" class="grey_btn ml10" value="message:reset" mode="cancel"/>
+        <t:submit t:id="search" class="grey_btn mr10" value="message:search"/>
+        <br/>
+        <br/>
+        <hr/>
+        <table t:type="grid" source="dataSource" row="row" rowsPerPage="pageSize" 
+              include="created, username, activityData, referenceNumber" 
+              width="100%" t:mixins="gridSortingDisabled">
+            <t:parameter name="empty">
+                <div id="emptyData">
+                </div>
+            </t:parameter>
+            <p:createdCell>
+            	<t:output value="row.created" format="prop:longDate"/>
+            </p:createdCell>
+        </table>
+        <t:if test="notEmpty">
+        	<div style="margin-left:15px"><t:eventlink t:event="export">${message:export}</t:eventlink></div>
+        </t:if>
+    </t:form>
+</div>
+
+</html>

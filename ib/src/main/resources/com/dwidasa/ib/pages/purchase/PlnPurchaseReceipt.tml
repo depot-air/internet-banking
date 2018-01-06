@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<div id="recipe_wrap">
+    <form t:type="form" t:id="plnPurchaseReceipt" clientValidation="submit">
+        <div id="recipe">
+            <div id="logo_blue"></div>
+            <hr/>
+            <div id="recipe_list">
+                <table>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:meterNumber}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${plnPurchaseView.meterNumber}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:idPelanggan}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${plnPurchaseView.customerReference}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:referenceName}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${plnPurchaseView.referenceName}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:powerCategory}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last" >
+                            <label>${plnPurchaseView.powerCategory}${message:va}</label>
+                        </td>
+                    </tr>
+	            	
+                    <tr class="odd">
+                        <td>
+                        	<t:if test="gsp">
+                            	<label>${message:gspRef}</label>
+                            </t:if>	
+                        	<t:if test="! gsp">
+                            	<label>${message:sybRef}</label>
+                            </t:if>	
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last" >
+                            <label>${vGspRef}</label>
+                        </td>
+                    </tr>
+	                    
+                    <tr>
+                        <td>
+                            <label>${message:rpBayar}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last" >
+                            <label>${message:curr}
+                                <t:output value="plnPurchaseView.amount" format="formatter"/></label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:admin}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last" >
+                            <label>${message:curr}
+                                <t:output value="plnPurchaseView.fee" format="formatter"/></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:stamp}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:curr}
+<!--                                 <t:output value="plnPurchaseView.stamp" format="formatter"/> -->
+								   ${getcurrencyFormat(plnPurchaseView.stamp)}
+                            </label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:ppn}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:curr}
+<!--                                 <t:output value="plnPurchaseView.ppn" format="formatter"/> -->
+                            	 ${getcurrencyFormat(plnPurchaseView.ppn)}
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:ppj}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:curr}
+<!--                                 <t:output value="plnPurchaseView.ppj" format="formatter"/> -->
+                            	${getcurrencyFormat(plnPurchaseView.ppj)}
+                            </label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:installment}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:curr}
+<!--                                 <t:output value="plnPurchaseView.installment" format="formatter"/> -->
+                            	${getcurrencyFormat(plnPurchaseView.installment)}
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:tokenAmount}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${message:curr}
+<!--                                 <t:output value="plnPurchaseView.tokenAmount" format="formatter"/> -->
+                            	${getcurrencyFormat(plnPurchaseView.tokenAmount)}
+                            </label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:kwhAmount}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${plnPurchaseView.kwh}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>${message:token}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label style="font-weight: bold; font-size: 14pt;">${vTokenNumber}</label>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>
+                            <label>${message:status}</label>
+                        </td>
+                        <td>
+                            <label>|</label>
+                        </td>
+                        <td class="last">
+                            <label>${StatusDetil}</label>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        
+        <t:loop source="footers" value="footer">
+        	<div id="note">            
+	            <label style="align:center;">${footer}</label>
+        	</div>
+        </t:loop>
+        <t:if test="fromHistory">
+			<t:submit t:id="back" value="message:back" class="grey_btn left"/>
+		</t:if>          
+		<t:if test="success">
+        	<input type="button" onclick="popupInfo('/purchase/plnPurchasePrint')" class="grey_btn right" t:type="any" value="message:print"/>
+        </t:if>		       
+		<t:if test="notSuccess">
+			<input type="button" onclick="popupInfo('/purchase/plnPurchasePrint?reprint=reprint')" class="grey_btn right" t:type="any" value="message:reprint"/>	
+		</t:if>                  
+    </form>
+</div>
+</html>

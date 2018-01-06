@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <div class="ico_position ico_favorite_3"></div>
+
+    <t:form class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+            <legend>${message:transferData}</legend>
+            <table>
+             	<tr class="odd">
+		            <td>
+		                <t:label for="senderPhoneNumber"/>
+		            </td>
+		            <td>
+		            	<input type="text" size="4" value="+62" />
+		                <input t:id="senderPhoneNumber" t:type="textField" type="text"
+		                       value="cashOutDelimaView.senderPhoneNumber"
+		                       label="message:senderPhoneNumber" validate="required, minLength=8, regExp=^[0-9]+$"/>
+		                ${message:phoneExample}
+		            </td>
+		        </tr>	
+                <tr>
+                    <td class="first">
+                        <t:label for="amount"/>
+                    </td>
+                    <td class="last">
+                        <input t:type="TextField" t:id="amount" type="text"
+                               value="CashOutDelimaView.amount"
+                               label="message:amount" validate="required"/>
+                        ${message:maximalAmount}
+                    </td>
+                </tr>
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <t:Token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge" mode="tokenType"/>
+
+
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+
+    </t:form>
+</div>
+</html>
+
+
+
+

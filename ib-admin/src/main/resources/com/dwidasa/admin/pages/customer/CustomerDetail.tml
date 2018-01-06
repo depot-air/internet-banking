@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <fieldset>
+            <legend>${message:customerData}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <label>${message:customerUsername}</label>
+                    </td>
+                    <td class="last">
+                        <label>${customer.customerUsername}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:customerName}</label>
+                    </td>
+                    <td>
+                        <label>${customer.customerName}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:cifNumber}</label>
+                    </td>
+                    <td>
+                        <label>${customer.cifNumber}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:customerPhone}</label>
+                    </td>
+                    <td>
+                        <label>${customer.customerPhone}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:customerEmail}</label>
+                    </td>
+                    <td>
+                        <label>${customer.customerEmail}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:lastLogin}</label>
+                    </td>
+                    <td>
+                        <label>${customer.lastLogin}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:status}</label>
+                    </td>
+                    <td>
+                        <label>${getStrStatus(customer.status)}</label>
+                        <t:if test="customerActive">
+                        	&#160;&#160;&#160;&#160;<t:eventlink t:id="block">[Ubah Jadi Non Aktif]</t:eventlink>
+                        <p:else>
+                        	&#160;&#160;&#160;&#160;<t:eventlink t:id="unblock">[Ubah Jadi Aktif]</t:eventlink>
+                        </p:else>
+                        </t:if>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>${message:customerDevice}</legend>
+            <table t:type="grid" source="dataSource" row="row" rowsPerPage="pageSize" add="platform, action"
+            	include="deviceId, status, expiredDate" 
+                reorder="deviceId, platform, status, expiredDate, action" width="100%" t:mixins="gridSortingDisabled">
+                <t:parameter name="empty">
+                    <div id="emptyData">
+                        ${message:emptyData}<br/>&#160;
+                    </div>
+                </t:parameter>
+                <p:platformCell>
+                	${getStrPlatform(row.deviceId)}
+                </p:platformCell>
+                <p:statusCell>
+                	${getStrDeviceStatus(row.status)}
+                </p:statusCell>
+                <p:actionCell>
+                	<a t:type="actionlink" t:id="delete" t:context="row.id" onClick="return confirm('${message:confirmDelete}');">${message:delete}</a>
+                </p:actionCell>
+            </table>
+            <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        </fieldset>
+        
+    </form>
+</div>
+</html>

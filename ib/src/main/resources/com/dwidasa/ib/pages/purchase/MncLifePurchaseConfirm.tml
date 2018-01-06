@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h1>${message:title}</h1>
+	<div class="ico_position ico_favorite_10"></div>
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <t:errors banner="message:errorBanner"/>
+        <fieldSet>
+             <legend>${message:confirm}</legend>
+            <table>
+               
+                
+                    <tr class="odd">
+                    <td class="first">
+                        <label>${message:namatertanggung}</label>
+                    </td>
+                    
+                    <td class="last">
+                        <label>${mncLifePurchaseView.namaTertanggung}</label>
+                    </td>
+               		 </tr>
+                <tr>
+                    <td>
+                        <label>${message:nomorKtp}</label>
+                    </td>
+                    
+                    <td class="last">
+                        <label>${mncLifePurchaseView.CustomerReference}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:jenisKelamin}</label>
+                    </td>
+                    
+                    <td class="last">
+                        <label>${JenisKelamin}</label>
+                    </td>
+                </tr>
+                
+<!--                 <tr> -->
+<!--                     <td> -->
+<!--                         <label>${message:tipeDokumen}</label> -->
+<!--                     </td> -->
+                    
+<!--                     <td class="last"> -->
+<!--                         <label>${TipeDokumen}</label> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+                
+                <tr>
+                    <td>
+                        <label>${message:tempatLahir}</label>
+                    </td>
+                    
+                    <td class="last">
+                        <label>${mncLifePurchaseView.tempatLahir}</label>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <label>${message:tanggalLahir}</label>
+                    </td>
+                    
+                    <td class="last">
+                        <label>${FormatTgl}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:alamat}</label>
+                    </td>
+                   
+                    <td class="last">
+                        <label>${mncLifePurchaseView.alamat}</label>
+                    </td>
+                </tr>
+
+<!--                 <t:radioGroup value="chooseValue"> -->
+<!--                     <tr class="odd"> -->
+<!--                         <td> -->
+<!--                             <label>${message:nominal}</label> -->
+<!--                         </td> -->
+<!--                         <td> -->
+<!--                             <t:radio t:id="unsold1" value="literal:0"/> -->
+<!--                             <t:label for="unsold1">${message:sesuaiInput}&nbsp;<t:output value="denomination" format="formatter"/></t:label> -->
+<!--                         </td> -->
+<!--                     </tr> -->
+<!--                     <t:if test="mncLifePurchaseView.unsold1"> -->
+<!--                         <tr> -->
+<!--                             <td> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                 <t:radio t:id="unsold2" value="literal:1"/> -->
+<!--                                 <t:label for="unsold2">${message:unsold2}&nbsp;<t:output value="mncLifePurchaseView.unsold1" format="formatter"/></t:label> -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <t:if test="mncLifePurchaseView.unsold2"> -->
+<!--                             <tr class="odd"> -->
+<!--                                 <td> -->
+<!--                                 </td> -->
+<!--                                 <td> -->
+<!--                                     <t:radio t:id="fromId" value="literal:2"/> -->
+<!--                                     <t:label for="fromId">${message:unsold2}&nbsp;<t:output value="mncLifePurchaseView.unsold2" format="formatter"/></t:label> -->
+<!--                                 </td> -->
+<!--                             </tr> -->
+<!--                         </t:if> -->
+<!--                     </t:if> -->
+<!--                 </t:radioGroup> -->
+
+				<tr class="odd">
+                    <td>
+                        <label>${message:kota}</label>
+                    </td>
+                    
+                    <td class="last">
+                        <label>${mncLifePurchaseView.kota}</label>
+                    </td>
+                </tr>
+				
+				<tr>
+                    <td>
+                        <label>${message:namaAhliWaris1}</label>
+                    </td>
+                    
+                    <td class="last">
+                        <label>${mncLifePurchaseView.namaAhliWaris1}</label>
+                    </td>
+                </tr>
+                
+                <tr class="odd">
+                    <td>
+                        <label>${message:namaAhliWaris2}</label>
+                    </td>
+                   
+                    <td class="last">
+                        <label>${mncLifePurchaseView.namaAhliWaris2}</label>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label>${message:namaAhliWaris3}</label>
+                    </td>
+                   
+                    <td class="last">
+                        <label>${mncLifePurchaseView.namaAhliWaris3}</label>
+                    </td>
+                </tr>
+                
+               <tr class="odd">
+                    <td>
+                        <label>${message:noHandphone}</label>
+                    </td>
+                     
+                    <td class="last">
+                        <label>${mncLifePurchaseView.noHp}</label>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label>${message:email}</label>
+                    </td>
+                    
+                    <td class="last">
+                        <label>${mncLifePurchaseView.emailAddress}</label>
+                    </td>
+                </tr>
+                   
+            </table>
+        </fieldSet>
+        <hr/>
+
+        <t:token token="tokenView.token" token6Digit="tokenView.token" status="odd" challenge="tokenView.challenge"
+                 mode="tokenType"/>
+        <a hRef="/ib/purchase/mnclifepurchaseinput" >
+			<input type="button" class="grey_btn ml10" t:type="any" value="message:cancel"/> 
+        </a>
+        <t:submit t:id="next" class="green_btn mr10" value="message:next"/>
+    </form>
+</div>
+</html>

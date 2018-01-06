@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" clientValidation="submit">
+        <fieldset>
+            <legend>${subtitle}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="deviceType"/>
+                    </td>
+                    <td class="last">
+                        <t:select t:id="deviceType" t:model="literal:10=BlackBerry,11=Android,12=iPhone" t:value="row.deviceType" validate="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="versionid"/>
+                    </td>
+                    <td>
+                        <input t:id="versionId" value="row.versionId" t:type="textfield"
+                               validate="required"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="version"/>
+                    </td>
+                    <td>
+                        <input t:id="version" value="row.version" t:type="textfield"
+                               validate="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>${message:mandatory-label}</label>
+                    </td>
+                    <td>
+                        <t:radiogroup t:value="row.mandatory" validate="required">
+                        	<t:radio t:id="yesRadio" value="literal:1" style="float:none"/>
+                        	<t:label for="yesRadio"/>
+                        	&#160;&#160;
+                        	<t:radio t:id="noRadio" value="literal:0" style="float:none"/>
+                        	<t:label for="noRadio"/>
+                        </t:radiogroup>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="changes"/>
+                    </td>
+                    <td>
+                        <t:textarea t:id="changes" value="row.changes" rows="5" cols="50"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="url"/>
+                    </td>
+                    <td>
+                        <input t:id="url" value="row.url" t:type="textfield" size="60"
+                               validate="required"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:submit t:id="add" class="green_btn mr10" value="prop:action"/>
+    </form>
+</div>
+</html>

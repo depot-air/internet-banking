@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>${message:mainTitle}</title>
+</head>
+<body>
+<div class="container_24">
+    <div id="head" class="grid_24">
+        <a href="" title="BPR KS" class="logo"></a>
+		<div class="app_name2"></div>
+        <div class="head_componen">
+            <p>${message:help}</p>
+            <p><span class="phone_ico"></span></p>
+            <p>${message:phone}</p>
+        </div>
+    </div>
+    <div id="neck" class="grid_24">
+        <p class="date_time"></p>
+        <ul>
+            <li><a href="Index" title="Home" class="history_home"></a></li>
+            <li class="his_sep">&nbsp;</li>
+            <li><p>${group}</p></li>
+            <li class="his_sep">&nbsp;</li>
+            <li><p>${title}</p></li>
+            <li class="his_sep">&nbsp;</li>
+        </ul>
+        <p class="user_log">${message:welcome} <b>${user.name}</b> | <a t:type="actionlink"
+                                                                        t:id="logout">${message:logout}</a></p>
+    </div>
+    <div id="main_menu" class="grid_6">
+        <div id="mm_title">${message:mainMenu}</div>
+        <div id="mm_list_wraper">
+            <span class="emb_left"></span>
+            <span class="emb_right"></span>
+            <span class="emb_botleft"></span>
+            <span class="emb_botright"></span>
+            <span class="emb_footrpt"></span>
+            
+            <div id="mm_list">
+            <t:tree source="roots"/>
+            </div>
+<!-- 
+            <div id="mm_list">
+                <h3>Administrasi User<span class="arrowclose"></span></h3>
+                <div class="panel">
+                    <ul>
+                        <li><t:pagelink t:page="user/viewProfile">Ubah Profile</t:pagelink></li>
+                        <t:if test="isRole([1])">
+                        	<li class="last"><t:pagelink t:page="user/maintenanceUserList">Maintenance User</t:pagelink></li>
+                        </t:if>
+                    </ul>
+                </div>
+                <hr />
+                <t:if test="isRole([1,2])">
+                <h3>Pemeliharaan Tabel Master<span class="arrowclose"></span></h3>
+                <div class="panel">
+                    <ul>
+                        <li><t:pagelink t:page="master/parameterList">Sistem Parameter</t:pagelink></li>
+                        <li><t:pagelink t:page="master/accountTypeList">Account Type</t:pagelink></li>
+                        <li><t:pagelink t:page="master/transactionTypeList">Transaction Type</t:pagelink></li>
+                        <li><t:pagelink t:page="master/currencyList">Currency</t:pagelink></li>
+                        <li><t:pagelink t:page="master/responseCodeList">Response Code</t:pagelink></li>
+                        <li class="last"><t:pagelink t:page="master/cellularPrefixList">Prefix Telpon</t:pagelink></li>                        
+                    </ul>
+                </div>
+                <hr />
+                <h3>Pemeliharaan Produk<span class="arrowclose"></span></h3>
+                <div class="panel">
+                    <ul>
+                        <li><t:pagelink t:page="product/billerList">Biller</t:pagelink></li>
+                        <li><t:pagelink t:page="product/providerList">Provider / Jaringan</t:pagelink></li>
+                        <li><t:pagelink t:page="product/billerProductList">Produk</t:pagelink></li>
+						<li><t:pagelink t:page="product/purchaseProductList">Produk Pembelian</t:pagelink></li>
+						<li class="last"><t:pagelink t:page="product/maintenancePaymentList">Produk Pembayaran</t:pagelink></li>
+                    </ul>
+                </div>
+                <hr />
+                <h3>Pemeliharaan Sistem<span class="arrowclose"></span></h3>
+                <div class="panel">
+                    <ul>
+                        <li><t:pagelink t:page="system/bodList">Proses BOD</t:pagelink></li>
+                    </ul>
+                </div>
+                </t:if>
+                <hr/>
+                <t:if test="isRole([1,3])">
+                <h3>Transfer Via Treasury<span class="arrowclose"></span></h3>
+                <div class="panel">
+                    <ul>
+                        <li class="last"><t:pagelink t:page="treasury/treasuryList">Data Transfer</t:pagelink></li>
+                    </ul>
+                </div>
+                </t:if>
+                &#160;
+            </div>
+-->            
+        </div>
+    </div>
+    <t:body/>
+    <div class="clear"></div>
+    <div id="footer" class="grid_24">
+        <p><span class="small_logo"></span>${message:mainTitle}</p>
+        <ul id="foor_link" class="right">
+            <li><a href="">${message:termOfUse}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:privacy}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:security}</a></li>
+            <li><p>|</p></li>
+            <li><a href="">${message:contactUs}</a></li>
+        </ul>
+        <hr/>
+        <p>${message:copyright}</p>
+        <p class="call_center">${message:callCenter}</p>
+    </div>
+</div>
+</body>
+</html>

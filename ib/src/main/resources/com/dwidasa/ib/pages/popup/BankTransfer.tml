@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<head>
+    <link rel="stylesheet" href="${context:layout/stylesheets/overlay.css}" type="text/css" media="screen, projection"/>
+
+</head>
+
+<body>
+<form t:type="form" class="full-form" t:id="transferOtherInput" clientValidation="submit">
+
+
+    <div class="search_wrap">
+        <div class="ground1"></div>
+        <div class="ground2"></div>
+        <div class="ground3"></div>
+        <div class="ground4"></div>
+
+        <label for="receiverBank">${message:receiverBank}</label>
+        <input t:id="receiverBank" t:type="textField" type="text"
+               t:value="receiverBank"/>
+
+        <t:submit t:id="find" value="Cari" class="btn_style"/>
+
+    </div>
+    <div class="search_wrap">
+        <div class="ground1"></div>
+        <div class="ground2"></div>
+        <div class="ground3"></div>
+        <div class="ground4"></div>
+        <div class="Grid">
+            <table t:type="grid" source="dataSource" row="row" rowsPerPage="5" t:model="mymodel">
+                <t:parameter name="empty">
+                    <div id="emptyData">
+                        ${message:emptyData}
+                    </div>
+                </t:parameter>
+                <p:billerCodecell>
+                    <a href="#" onclick="processSelection(${toJson(row)})">${row.billerName}</a>
+                </p:billerCodecell>
+            </table>
+
+        </div>
+    </div>
+
+</form>
+</body>
+</html>
+

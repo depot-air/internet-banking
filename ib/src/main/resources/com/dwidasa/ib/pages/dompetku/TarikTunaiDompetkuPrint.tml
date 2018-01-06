@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="message:title" group="message:group" referenceNumber="${cashInDompetkuView.referenceNumber}" transactionDateString="${cashInDompetkuView.transactionDateString}"  
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+        <table class="dg_first">
+           
+           
+            <tr>
+                <td style="font-weight:bold;">${message:nomorHandphone}</td>
+                <td>:</td>
+                <td>${cashInDompetkuView.msiSDN}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:namaCustomer}</td>
+                <td>:</td>
+                <td>${cashInDompetkuView.namaCustomer}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:rupiahTopUp}</td>
+                <td>:</td>
+                <td>${message:curr}
+            			<t:output value="cashInDompetkuView.nominalTopUp" format="formatter"/>
+            		</td>
+            </tr>
+             <tr>
+                <td style="font-weight:bold;">${message:token}</td>
+                <td>:</td>
+                <td>${cashInDompetkuView.token}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">${message:nomorReferensi}</td>
+                <td>:</td>
+                <td>${cashInDompetkuView.referenceNumber}</td>
+            </tr>
+
+            <tr/>
+            <tr/>
+            <tr/>
+            <tr/>
+            
+        </table>
+        
+        <p class="center" align="center">
+	        <br />
+	        <br />
+	        <span class="upercase" style="font-weight:bold; font-style:italic;" >${message:footNote1}</span><br/>
+	        <span class="upercase" style="font-weight:bold;">${message:footNote2}</span><br/>
+   		 </p>
+</html>

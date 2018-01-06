@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layoutPrint" title="" referenceNumber="${mcnMncLifePurchaseView.referenceNumber}" transactionDateString="${mcnMncLifePurchaseView.transactionDateString}"  
+	xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+
+<p class="center" align="center">
+			    <span class="upercase" style="font-weight:bold;">${message:header1}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:header2}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:header3}</span><br/>
+			   
+	    </p>
+	    
+        <table class="dg_first">
+<!--         	<tr> -->
+<!--             	<td class="center" colSpan="3" style="font-weight: bold; font-size: 9pt;">${mcnMncLifePurchaseView.productName}</td> -->
+<!--             </tr> -->
+            <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">NO KTP</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.CustomerReference}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">NAMA TERTANGGUNG</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NamaTertanggung}</td>
+            </tr>
+            <tr>
+                <td colspan="3"><hr /></td>
+            </tr>
+            
+            <t:if test="mcnMncLifePurchaseView.NomoPolis1">
+            
+            <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:nomorPolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NomoPolis1}</td>
+            </tr>
+            
+            
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:tanggalawalpolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${FormatTglAwal} - ${FormatTglAkhir}</td>
+            </tr>
+             
+             </t:if>
+             
+             
+             <t:if test="mcnMncLifePurchaseView.NomoPolis2">
+             
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:nomorPolis2}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NomoPolis2}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:tanggalawalpolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${FormatTglAwal2} - ${FormatTglAkhir2}</td>
+            </tr>
+            
+            </t:if>
+            
+            <t:if test="mcnMncLifePurchaseView.NomoPolis3">
+            
+            <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:nomorPolis3}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NomoPolis3}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:tanggalawalpolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${FormatTglAwal3} - ${FormatTglAkhir3}</td>
+            </tr>
+            
+            </t:if>
+            
+            <t:if test="mcnMncLifePurchaseView.NomoPolis4">
+            
+            <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:nomorPolis4}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NomoPolis4}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:tanggalawalpolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${FormatTglAwal4} - ${FormatTglAkhir4}</td>
+            </tr>
+            
+            </t:if>
+            
+            <t:if test="mcnMncLifePurchaseView.NomoPolis5">
+            
+            <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:nomorPolis5}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NomoPolis5}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:tanggalawalpolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${FormatTglAwal5} - ${FormatTglAkhir5}</td>
+            </tr>
+            
+            </t:if>
+            
+            
+            <t:if test="mcnMncLifePurchaseView.NomoPolis6">
+            
+            <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:nomorPolis6}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NomoPolis6}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:tanggalawalpolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${FormatTglAwal6} - ${FormatTglAkhir6}</td>
+            </tr>
+            
+            </t:if>
+            
+            <t:if test="mcnMncLifePurchaseView.NomoPolis7">
+            
+            <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:nomorPolis7}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NomoPolis7}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:tanggalawalpolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${FormatTglAwal7} - ${FormatTglAkhir7}</td>
+            </tr>
+            
+            </t:if>
+            
+            <t:if test="mcnMncLifePurchaseView.NomoPolis8">
+            
+            <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:nomorPolis8}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NomoPolis8}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:tanggalawalpolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${FormatTglAwal8} - ${FormatTglAkhir8}</td>
+            </tr>
+            
+            
+            </t:if>
+            
+            <t:if test="mcnMncLifePurchaseView.NomoPolis9">
+            <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:nomorPolis9}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${mcnMncLifePurchaseView.NomoPolis9}</td>
+            </tr>
+             <tr>
+                <td class="firstcol" style="font-weight: bold; font-size: 9pt;">${message:tanggalawalpolis1}</td>
+                <td>:</td>
+                <td style="font-size: 9pt;">${FormatTglAwal9} - ${FormatTglAkhir9}</td>
+            </tr>
+            
+            </t:if>
+            
+            <tr/>
+            <tr/>
+        </table>
+        
+        
+        <p class="center" align="center">
+		        <br />
+			    
+			    <span class="upercase" style="font-weight:bold;">${message:footdown1Note}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdown2Note}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdown3Note}</span><br/>
+			    <span class="upercase" style="font-weight:bold;">${message:footdown4Note}</span><br/>
+			    
+	    </p>
+       
+        
+</html>

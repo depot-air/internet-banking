@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="message:title" group="message:group"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div id="main_content">
+    <span class="emb_left"></span>
+    <span class="emb_right"></span>
+    <span class="emb_botleft"></span>
+    <span class="emb_botright"></span>
+    <span class="emb_footrpt"></span>
+
+    <h2>${message:title}</h2>
+
+    <form t:type="form" class="formfield" t:id="kioskPaperDetail" clientValidation="submit" autofocus="false">
+        <fieldset>
+            <legend>${subtitle}</legend>
+            <table>
+                <tr class="odd">
+                    <td class="first">
+                        <t:label for="printerType"/>
+                    </td>
+                    <td class="last">
+                    	<t:select t:id="printerType" t:value="kioskPaper.printerType" blankOption="always"
+                    		t:model="printerTypeModel" t:validate="required" label="message:printerType"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="description"/>
+                    </td>
+                    <td>
+                        <input t:id="description" value="kioskPaper.description" t:type="textfield"
+                               validate="required" label="message:description"/>
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <t:label for="maxPaper"/>
+                    </td>
+                    <td>
+                        <input t:id="maxPaper" value="kioskPaper.maxPaper" t:type="textfield"
+                               validate="required" label="message:maxPaper"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <t:label for="maxTape"/>
+                    </td>
+                    <td>
+                        <input t:id="maxTape" value="kioskPaper.maxTape" t:type="textfield"
+                               validate="required" label="message:maxTape"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <hr/>
+        <t:submit t:id="back" class="grey_btn ml10" value="message:back" mode="cancel"/>
+        <t:submit t:id="add" class="green_btn mr10" value="prop:action"/>
+    </form>
+</div>
+</html>
