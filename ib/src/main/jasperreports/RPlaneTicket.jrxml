@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="planeTicket" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d538bb9-a455-4d20-af5a-b3945891817d">
+	<property name="ireport.zoom" value="1.3286707500000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Barcode" mode="Opaque" forecolor="#000066" backcolor="#FFFFFF" fill="Solid" hAlign="Left" vAlign="Top" markup="styled" fontName="SansSerif" fontSize="11"/>
+	<style name="Zebra" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 1]]></conditionExpression>
+			<style backcolor="#CAC5BB"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="flightType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DEPARTURE"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["F:\\workspaces\\wsks\\wsib\\ib\\src\\main\\jasperreports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="customerId" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[Long.valueOf("102114")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["9p"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionDate" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[(new SimpleDateFormat("yyyyMMdd HH:mm:ss")).parse("20141020 00:00:00")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionDatePlusOne" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[(new SimpleDateFormat("yyyyMMdd HH:mm:ss")).parse("20141010 00:00:00")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="bookingCodeDepart" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["RCTJRK"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="bookingCodeReturn" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["QWERTY"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="reportType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["LOGO"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT COUNT(id) counter  FROM r_ireport_data
+WHERE m_customer_id = $P{customerId}
+AND transaction_type = $P{transactionType}
+AND transaction_date BETWEEN $P{transactionDate} AND $P{transactionDatePlusOne}
+AND report_type = 'LOGO'
+AND data1 = 'RETURN']]>
+	</queryString>
+	<field name="counter" class="java.lang.Long"/>
+	<title>
+		<band height="55">
+			<subreport>
+				<reportElement positionType="Float" x="-20" y="0" width="594" height="50" uuid="a5ed7f1a-ab1c-4368-acc7-ad35f2d88cee"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionType">
+					<subreportParameterExpression><![CDATA[$P{transactionType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportType">
+					<subreportParameterExpression><![CDATA[$P{reportType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="customerId">
+					<subreportParameterExpression><![CDATA[$P{customerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionDatePlusOne">
+					<subreportParameterExpression><![CDATA[$P{transactionDatePlusOne}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionDate">
+					<subreportParameterExpression><![CDATA[$P{transactionDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bookingCode">
+					<subreportParameterExpression><![CDATA[$P{bookingCodeDepart}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "RDepartureTicket.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<summary>
+		<band height="55">
+			<printWhenExpression><![CDATA[new Boolean($F{counter}.intValue() > 0 )]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" x="-20" y="0" width="594" height="50" uuid="04301fd7-a5f9-414a-8f2b-91c97ad30f4f"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bookingCodeDepart">
+					<subreportParameterExpression><![CDATA[$P{bookingCodeDepart}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionType">
+					<subreportParameterExpression><![CDATA[$P{transactionType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="customerId">
+					<subreportParameterExpression><![CDATA[$P{customerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportType">
+					<subreportParameterExpression><![CDATA[$P{reportType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionDatePlusOne">
+					<subreportParameterExpression><![CDATA[$P{transactionDatePlusOne}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionDate">
+					<subreportParameterExpression><![CDATA[$P{transactionDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bookingCode">
+					<subreportParameterExpression><![CDATA[$P{bookingCodeReturn}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "RReturnTicket.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

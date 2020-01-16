@@ -1,0 +1,88 @@
+
+<pre>
+<B>STRUK PEMBELIAN TIKET PESAWAT</B>
+              
+Terima kasih telah mempercayai IB BPRKS dalam pemesanan tiket pesawat Anda. Pemesanan Anda telah dikonfirmasi dengan sukses.
+Print e-tiket Anda di atas kertas ukuran A4 untuk ditunjukkan pada proses check-in di bandara.
+Sertakan juga dokumen yang diperlukan maupun kartu identitas Anda berupa KTP/SIM (rute domestik), Paspor (rute internasional).
+Harap tiba di bandara 2 jam sebelum waktu keberangkatan.
+Waktu yang tertera adalah waktu lokal bandara setempat.
+
+Ringkasan penerbangan Anda:
+
+<B>KEBERANGKATAN</B>
+       
+KODE BOOKING        : $view.departureFlight.bookInfo.bookCode
+TOTAL HARGA TIKET   : Rp $nf.format("number", $view.total, $locale)
+NOMOR PENERBANGAN   : $view.departureFlight.flightNumber
+TANGGAL BERANGKAT   : $du.getDD_YYYY_MM($view.departureFlight.flightDate)                        
+JAM BERANGKAT       : $du.getyyyyMMMDDHHss($view.departureFlight.etd)
+JAM SAMPAI          : $du.getyyyyMMMDDHHss($view.departureFlight.eta)
+BANDARA ASAL        : $view.departureFlight.departureAirportCode
+BANDARA TUJUAN      : $view.departureFlight.arrivalAirportCode
+#if($view.departureFlight.aeroConnectingFlight)
+
+NOMOR PENERBANGAN CONNECTING  : $view.departureFlight.aeroConnectingFlight.connectingFlightFno
+TANGGAL BERANGKAT CONNECTING  : $du.getDD_YYYY_MM($view.departureFlight.aeroConnectingFlight.connectingFlightDate)               
+JAM BERANGKAT CONNECTING      : $du.getyyyyMMMDDHHss($view.departureFlight.aeroConnectingFlight.connectingFlightEtd)
+JAM SAMPAI CONNECTING         : $du.getyyyyMMMDDHHss($view.departureFlight.aeroConnectingFlight.connectingFlightEta)
+BANDARA ASAL CONNECTING       : $view.departureFlight.aeroConnectingFlight.connectingFlightFrom
+BANDARA TUJUAN CONNECTING     : $view.departureFlight.aeroConnectingFlight.connectingFlightTo
+#end
+#if($view.departureFlight.aeroConnectingFlight2)
+
+NOMOR PENERBANGAN CONNECTING 2: $view.departureFlight.aeroConnectingFlight2.connectingFlightFno
+TANGGAL BERANGKAT CONNECTING 2: $du.getDD_YYYY_MM($view.departureFlight.aeroConnectingFlight2.connectingFlightDate)               
+JAM BERANGKAT CONNECTING 2    : $du.getyyyyMMMDDHHss($view.departureFlight.aeroConnectingFlight2.connectingFlightEtd)
+JAM SAMPAI CONNECTING 2       : $du.getyyyyMMMDDHHss($view.departureFlight.aeroConnectingFlight2.connectingFlightEta)
+BANDARA ASAL CONNECTING 2     : $view.departureFlight.aeroConnectingFlight2.connectingFlightFrom
+BANDARA TUJUAN CONNECTING 2   : $view.departureFlight.aeroConnectingFlight2.connectingFlightTo
+#end
+
+#if( !$view.isDepartOnly )
+<B>KEMBALI</B>
+       
+KODE BOOKING        : $view.returnFlight.bookInfo.bookCode
+NOMOR PENERBANGAN   : $view.returnFlight.flightNumber
+TANGGAL BERANGKAT   : $du.getDD_YYYY_MM($view.returnFlight.flightDate)                        
+JAM BERANGKAT       : $du.getyyyyMMMDDHHss($view.returnFlight.etd)
+JAM SAMPAI          : $du.getyyyyMMMDDHHss($view.returnFlight.eta)
+BANDARA ASAL        : $view.returnFlight.departureAirportCode
+BANDARA TUJUAN      : $view.returnFlight.arrivalAirportCode
+#if($view.returnFlight.aeroConnectingFlight)
+
+NOMOR PENERBANGAN CONNECTING  : $view.returnFlight.aeroConnectingFlight.connectingFlightFno
+TANGGAL BERANGKAT CONNECTING  : $du.getDD_YYYY_MM($view.returnFlight.aeroConnectingFlight.connectingFlightDate)               
+JAM BERANGKAT CONNECTING      : $du.getyyyyMMMDDHHss($view.returnFlight.aeroConnectingFlight.connectingFlightEtd)
+JAM SAMPAI CONNECTING         : $du.getyyyyMMMDDHHss($view.returnFlight.aeroConnectingFlight.connectingFlightEta)
+BANDARA ASAL CONNECTING       : $view.returnFlight.aeroConnectingFlight.connectingFlightFrom
+BANDARA TUJUAN CONNECTING     : $view.returnFlight.aeroConnectingFlight.connectingFlightTo
+#end
+#if($view.returnFlight.aeroConnectingFlight2)
+
+NOMOR PENERBANGAN CONNECTING 2: $view.returnFlight.aeroConnectingFlight2.connectingFlightFno
+TANGGAL BERANGKAT CONNECTING 2: $du.getDD_YYYY_MM($view.returnFlight.aeroConnectingFlight2.connectingFlightDate)               
+JAM BERANGKAT CONNECTING 2    : $du.getyyyyMMMDDHHss($view.returnFlight.aeroConnectingFlight2.connectingFlightEtd)
+JAM SAMPAI CONNECTING 2       : $du.getyyyyMMMDDHHss($view.returnFlight.aeroConnectingFlight2.connectingFlightEta)
+BANDARA ASAL CONNECTING 2     : $view.returnFlight.aeroConnectingFlight2.connectingFlightFrom
+BANDARA TUJUAN CONNECTING 2   : $view.returnFlight.aeroConnectingFlight2.connectingFlightTo
+#end
+#end
+
+<B>DAFTAR PENUMPANG</B>                                      
+#foreach( $passenger in $view.passengers )
+
+NAMA LENGKAP        : $passenger.passengerTitle $passenger.passengerFirstName $passenger.passengerLastName
+#if($passenger.passengerIdCard)
+NOMOR IDENTITAS     : $passenger.passengerIdCard
+#end
+TANGGAL LAHIR       : $du.getDD_YYYY_MM($passenger.passengerDob)   
+#end
+
+<B>KONTAK PEMESAN</B>
+
+NAMA LENGKAP        : $view.aeroCustomer.customerName 
+NO HANDPHONE        : $view.aeroCustomer.customerPhone  
+EMAIL               : $view.aeroCustomer.customerEmail
+   
+</pre>

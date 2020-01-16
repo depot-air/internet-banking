@@ -1,0 +1,11 @@
+Terima kasih telah menggunakan layanan Mobile Banking BPRKS
+
+Berikut ini jurnal transaksi yang telah anda lakukan :
+- Tanggal Transaksi : ${displayer.transactionDate}
+- Jenis Transaksi : ${displayer.transactionName}
+- Jumlah Uang : Rp. ${displayer.amount}
+- Rekening Sumber : ${displayer.accountNumber}
+- Status : ${displayer.transactionStatus}
+- No Referensi : ${displayer.referenceNumber}
+
+BPR Karyajatnika Sadaya

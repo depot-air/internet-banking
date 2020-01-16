@@ -1,0 +1,36 @@
+<pre>
+DELIMA CASH TO BANK
+
+NOMOR REFERENSI     : $view.billerReference
+KODE TRANSFER       : $view.customerReference
+TANGGAL TRANSKSI    : $du.getyyyyMMMDDHHss($view.transactionDate)
+JUMLAH KIRIMAN      : Rp $nf.format("number", $view.amount, $locale) 
+JUMLAH FEE          : Rp $nf.format("number", $view.fee, $locale)
+
+DATA PENGIRIM
+NOMOR ID            : $view.senderIdNumber
+NAMA                : $view.senderName
+JENIS KELAMIN       : $view.senderGender
+ALAMAT              : $view.senderAddress
+KOTA                : $view.senderCity
+KODE POS            : $view.senderPostalCode
+NEGARA              : $view.senderCountry
+TIPE ID CARD        : $view.senderCardType
+TEMPAT LAHIR        : $view.senderPob
+TANGGAL LAHIR       : $view.senderDob
+NOMOR TELEPON       : $view.senderPhoneNumber
+
+DATA PENERIMA
+NOMOR ID            : $view.receiverIdNumber
+NAMA                : $view.receiverName
+JENIS KELAMIN       : $view.receiverGender
+ALAMAT              : $view.receiverAddress
+KOTA                : $view.receiverCity
+KODE POS            : $view.receiverPostalCode
+NEGARA              : $view.receiverCountry
+TIPE ID CARD        : $view.receiverCardType
+NOMOR TELEPON       : $view.receiverPhoneNumber
+
+HARAP TANDA BUKTI INI DISIMPAN SEBAGAI TANDA BUKTI YANG SAH
+TERIMA KASIH
+</pre>

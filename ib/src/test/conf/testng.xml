@@ -1,0 +1,173 @@
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="/ib/assets/1.0-SNAPSHOT/tapestry/default.css"></link>
+        <meta content="Apache Tapestry Framework (version 5.2.5)" name="generator"></meta>
+    </head>
+    <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+    <div id="ct_left">
+        <div id="head_menu">
+            <div class="ground_1"></div>
+            <div class="ground_2"></div>
+            <div class="ground_3"></div>
+            <p>Main Menu</p>
+        </div>
+        <div class="content_menu">
+            <h2><span class="arrow"></span>Email
+            </h2>
+            <div class="pane">
+                <ul>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Pesan Masuk
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <h2><span class="arrow"></span>Transfer Dana
+            </h2>
+            <div class="pane">
+                <ul>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Tambah Daftar Penerima Transfer
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Transfer ke BPRKS
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Transfer Batch
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Transfer ke Bank Lain
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <h2><span class="arrow"></span>Pembelian
+            </h2>
+            <div class="pane">
+                <ul>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect/purchase$002fVoucherPurchaseInput">
+                            Pulsa Isi Ulang
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+
+                            Cek Status Pulsa HP
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            PLN Pra Bayar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <h2><span class="arrow"></span>Pembayaran
+            </h2>
+            <div class="pane">
+                <ul>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            PLN
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Telkom
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Internet
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Tiket Kereta
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            TV
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Handphone Pasca Bayar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <h2><span class="arrow"></span>Delima
+            </h2>
+            <div class="pane">
+                <ul>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+
+                            Cash In
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Cash Out
+                        </a>
+                    </li>
+                    <li>
+                        <span class="obj_1"></span>
+                        <span class="obj_2"></span>
+                        <a href="/ib/index.tree.leaf:redirect">
+                            Cek Status
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer_menu">
+            <div class="ground_1"></div>
+            <div class="ground_2"></div>
+            <div class="ground_3"></div>
+        </div>
+    </div>
+</html>

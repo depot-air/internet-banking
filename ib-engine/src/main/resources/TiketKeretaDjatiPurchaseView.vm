@@ -1,0 +1,186 @@
+#if( $view.totalEmptySheat > 1 )
+#set( $penumpang = $view.namaPenumpang1 +" / "+ $view.noKursiPenumpang1 +" , "+ $view.namaPenumpang2 +" / "+ $view.noKursiPenumpang2 )
+#else
+#set( $penumpang = $view.namaPenumpang1 +" / "+ $view.noKursiPenumpang1 )
+#end
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+   <title>Email Notifikasi</title>
+   
+</head>
+<body style="font-family: Geneva,Arial; font-size:12px; color: #7a7a7a; ">
+ <center>
+   <table width="100%" cellspacing="0" style="padding-top: 8px; padding-right:8px; padding-bottom:8px; padding-left: 8px; border-bottom: 1px solid #ddd; ">
+        <tr>
+                <td style="text-align: left;"><img src="https://ib.bprks.co.id/ib/bprks/img/bprks_blue.png" width="110px" height="30"/></td>
+                <td>&nbsp;</td>
+                <td style="text-align: right; color:#6f6e6e ; font-size: 13px; font-family: Geneva; ">Notifikasi eBanking</td>
+        </tr>
+   </table>
+   <table width="100%" cellspacing="0" >
+        <tr>
+                <td style="font-size: 15px; color: #6f6e6e ; padding-top: 10px; padding-right:10px; padding-bottom:10px; padding-left: 10px; text-align: left; font-family: Geneva;">STRUK PEMESANAN TIKET BUS KRAMAT DJATI</td>
+                
+        </tr>
+    </table>
+    <table width="100%" cellspacing="0" style="padding-top: 8px; padding-right:8px; padding-bottom:8px; padding-left: 8px; text-align: left;">
+        <tr>
+                <td style="font-size: 12px; font-family: Geneva;">Terima kasih Anda telah menggunakan fasilitas Internet Banking BPR KS.</td>
+                
+        </tr>
+    </table>
+    <table width="100%" cellspacing="0" style="padding-top: 8px; padding-right:8px; padding-bottom:8px; padding-left: 8px; text-align: left; ">
+        <tr>
+                <td style="font-size: 13px; color:#6f6e6e ; font-family: Geneva;">Detail Transaksi</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%" cellspacing="0" style="padding-top: 8px; padding-right:8px; padding-bottom:8px; padding-left: 8px;">    
+       
+       	 <tr>
+                <td width="40%" style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Nomor Transaksi</td>
+                
+                <td width="60%" style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva; ">$view.transactionID)</td>
+        </tr>
+       
+        <tr>
+                <td width="40%" style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Ref No</td>
+                
+                <td width="60%" style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva; ">$view.paymentCode</td>
+        </tr>
+        <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Nama</td>
+                
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva; ">$view.pemesan</td>
+        </tr>
+        <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">No Identitas</td>
+               
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva;">$view.noIdentitas</td>
+        </tr>
+        
+        <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">No. Handphone</td>
+               
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva;">$view.noHp</td>
+        </tr>
+        
+        <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Jurusan</td>
+               
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva;">$view.dari - $view.tujuan</td>
+        </tr>
+        
+        <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Kota Tujuan</td>
+               
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva;">$view.tujuan</td>
+        </tr>
+        
+        <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Tgl Berangkat</td>
+               
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva;">$du.getyyyyMMMDDHHss($view.tglKeberangkatan)</td>
+        </tr>
+        
+        <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Lokasi Keberangkatan</td>
+               
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva;">$view.departHour, $view.dari, $view.departBranch</td>
+        </tr>
+        
+        <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Jumlah Kursi</td>
+               
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva;">$view.totalEmptySheat</td>
+        </tr>
+        
+        
+         <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Penumpang</td>
+               
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva;">$penumpang</td>
+        </tr>
+        
+        
+        
+        <tr>
+                <td style="text-align: left; font-size: 12px; vertical-align: top; color:#7a7a7a; font-family: Geneva;">Jenis</td>
+                
+                <td style="text-align: left; font-size: 12px; vertical-align: top; color:#000; font-family: Geneva;">Transaksi PEMESANAN TIKET BUS KRAMAT DJATI</td>
+        </tr>
+       
+       
+        <tr>
+                <td style="text-align: left; font-size: 12px; color:#7a7a7a; font-family: Geneva;">Status</td>
+                
+                <td style="text-align: left; color:#03a644; font-size: 12px; font-family: Geneva;"><b>BERHASIL</b></td>
+        </tr>
+        
+      </table>
+      
+       <table width="100%" cellspacing="0" style="padding-top: 8px; padding-right:8px; padding-bottom:8px; padding-left: 8px; text-align: left;">
+        <tr>
+                <td>
+                    <p style="font-size: 12px; font-family: Geneva;">SIMPAN RESI INI SEBAGAI BUKTI PEMBAYARAN TIKET YANG SAH<br />TERIMA KASIH</p>
+                </td>
+                
+        </tr>
+        
+        </table>
+        
+        
+        <table width="100%" cellspacing="0" style="padding-top: 8px; padding-right:8px; padding-bottom:8px; padding-left: 8px; text-align: left;">
+      
+      
+        <tr>
+                <td width="40%" style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Ref No</td>
+                
+                <td width="60%" style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva; ">$view.paymentCode</td>
+        </tr>
+        
+        
+         <tr>
+                <td style="text-align: left; font-size: 12px;  color:#7a7a7a; font-family: Geneva;">Penumpang</td>
+               
+                <td style="text-align: left; font-size: 12px;  color:#000; font-family: Geneva;">$penumpang</td>
+        </tr>
+        
+        
+        
+       </table>
+       
+       
+        <table width="100%" cellspacing="0" style="padding-top: 8px; padding-right:8px; padding-bottom:8px; padding-left: 8px; text-align: left;">
+        <tr>
+                <td>
+                    <p style="font-size: 12px; font-family: Geneva;">SIMPAN RESI INI SEBAGAI BUKTI PEMBAYARAN TIKET YANG SAH<br />TERIMA KASIH</p>
+                </td>
+                
+        </tr>
+        
+        </table
+       
+      
+       <table width="100%" cellspacing="0" style="padding-top: 8px; padding-right:8px; padding-bottom:8px; padding-left: 8px; border-top: 1px solid #ddd; " >      
+        <tr>
+                <td width="60%" style=" font-size:11px; color:#b6b6b6; text-align: left; font-family: Geneva;">
+                    <p>Kantor Pusat BPR KS <br />Jl. Abdurahman Saleh No.2 Bandung - Phone 022-6033 236<br /></p>    
+                </td>
+               
+                <td width="40%" style="font-size:11px; text-align:left;">
+                    <p style="color:#bebebe; font-size: 12px; text-align: right; font-family: Geneva;">call center<br /><b style="color:#888888 ; font-size:12px;">(022)4556600</b></p>
+                </td>
+        </tr>
+        </table>
+          
+       </table> 
+ </center>
+    
+    
+</body>
+</html>

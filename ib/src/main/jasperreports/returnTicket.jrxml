@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="returnTicket" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d538bb9-a455-4d20-af5a-b3945891817d">
+	<property name="ireport.zoom" value="1.3286707500000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<style name="Barcode" mode="Opaque" forecolor="#000066" backcolor="#FFFFFF" fill="Solid" hAlign="Left" vAlign="Top" markup="styled" fontName="SansSerif" fontSize="11"/>
+	<style name="Zebra" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 1]]></conditionExpression>
+			<style backcolor="#CAC5BB"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="flightType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DEPARTURE"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["F:\\workspaces\\wsks\\wsib\\ib\\src\\main\\jasperreports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="customerId" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[Long.valueOf("102114")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["9p"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionDate" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[(new SimpleDateFormat("yyyyMMdd HH:mm:ss")).parse("20141008 00:00:00")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionDatePlusOne" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[(new SimpleDateFormat("yyyyMMdd HH:mm:ss")).parse("20141009 00:00:00")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="bookingCode" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["RCTJRK"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="reportType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["LOGO"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT data1, data2, data3, data4, data5, data6, data7 FROM r_ireport_data
+WHERE m_customer_id = $P{customerId}
+AND transaction_type = $P{transactionType}
+AND transaction_date BETWEEN $P{transactionDate} AND $P{transactionDatePlusOne}
+AND reference_key = $P{bookingCode}
+AND report_type = $P{reportType}
+AND data1 = 'RETURN']]>
+	</queryString>
+	<field name="data1" class="java.lang.String"/>
+	<field name="data2" class="java.lang.String"/>
+	<field name="data3" class="java.lang.String"/>
+	<field name="data4" class="java.lang.String"/>
+	<field name="data5" class="java.lang.String"/>
+	<field name="data6" class="java.lang.String"/>
+	<field name="data7" class="java.lang.String"/>
+	<title>
+		<band height="322" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="-20" y="0" width="595" height="61" backcolor="#EEEEEE" uuid="3ba0eb26-ff59-4a7f-a94f-bdef5209e727"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="13" y="18" width="127" height="32" forecolor="#000000" backcolor="#FFFFFF" uuid="791c8a27-46f3-4acb-a69c-789090f222a7"/>
+				<textElement>
+					<font fontName="SansSerif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-Ticket]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement style="Barcode" x="8" y="254" width="114" height="37" uuid="c813fea7-2ef7-4b75-933c-c4d93c67ffe0"/>
+				<c:Code39 xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="none">
+					<c:codeExpression><![CDATA[$P{bookingCode}]]></c:codeExpression>
+				</c:Code39>
+			</componentElement>
+			<staticText>
+				<reportElement x="13" y="72" width="186" height="20" forecolor="#2D1E77" backcolor="#FFFFFF" uuid="b496ca77-e4da-4ea6-9df9-d9ffaacc5528"/>
+				<textElement>
+					<font fontName="SansSerif" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOOKING DETAIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="110" width="114" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="c452790d-e0a6-4d73-bdb3-35982fc02890"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Booking Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="130" width="114" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="5f8ff7a9-9aff-43dd-88fc-fc8537d08ea7"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="150" width="114" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="ad61c465-22d4-42c3-870d-912252cea04b"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Contact]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="170" width="114" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="4edf4480-c95e-429c-b92f-233c4717401d"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="252" width="90" height="14" forecolor="#242424" backcolor="#FFFFFF" uuid="05ae50d6-de5a-4dc9-8f42-8d312a00b427"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Booking Code]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="127" y="110" width="191" height="20" forecolor="#242424" uuid="a5d8a203-9ec9-404f-9b0f-b19a48fd3ad8"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[":" + " " + $F{data4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="130" width="191" height="20" forecolor="#242424" uuid="c176d5b2-db4e-457f-abea-bfc8ca04e0f0"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[":" + " " + $F{data5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="150" width="191" height="20" forecolor="#242424" uuid="b8015e53-a902-4ac9-8edf-27c960e1a0c4"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[":" + " " + $F{data6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="170" width="191" height="20" forecolor="#242424" uuid="60ca8765-dd6f-475b-be13-0fc8b1a7e087"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[":" + " " + $F{data7}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="427" y="18" width="113" height="32" uuid="56931e6c-149b-45d6-90b9-4564a1228ab0"/>
+				<imageExpression><![CDATA[$F{data2}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="424" y="233" width="114" height="74" uuid="e55e2c7f-79f3-4cf3-9e81-49554fe74549"/>
+				<imageExpression><![CDATA[$F{data3}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="95" y="266" width="90" height="28" forecolor="#242424" uuid="5e66d16d-3b86-4c8e-8ebb-877bca2e5a79"/>
+				<textElement>
+					<font fontName="SansSerif" size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{bookingCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="211" width="186" height="20" forecolor="#2D1E77" backcolor="#FFFFFF" uuid="a1767c58-ca50-4b11-89ca-a3dd74f4e77a"/>
+				<textElement>
+					<font fontName="SansSerif" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RETURN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="13" y="93" width="525" height="1" uuid="560de423-3863-4c40-9c9f-95722322e1e9"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="232" width="525" height="1" uuid="c6633881-df1b-4f80-93ae-a7e674c9bee6"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="74" splitType="Stretch">
+			<subreport>
+				<reportElement x="13" y="0" width="527" height="42" uuid="a5ed7f1a-ab1c-4368-acc7-ad35f2d88cee"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionType">
+					<subreportParameterExpression><![CDATA[$P{transactionType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="customerId">
+					<subreportParameterExpression><![CDATA[$P{customerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportType">
+					<subreportParameterExpression><![CDATA[$P{reportType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionDatePlusOne">
+					<subreportParameterExpression><![CDATA[$P{transactionDatePlusOne}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="departOrReturn">
+					<subreportParameterExpression><![CDATA["RETURN"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionDate">
+					<subreportParameterExpression><![CDATA[$P{transactionDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bookingCode">
+					<subreportParameterExpression><![CDATA[$P{bookingCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_flight.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="0" width="251" height="20" forecolor="#2D1E77" backcolor="#FFFFFF" uuid="4738bc19-5941-460b-ae64-e0613051455f"/>
+				<textElement>
+					<font fontName="SansSerif" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASSENGER DETAILS]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="13" y="26" width="527" height="34" uuid="3dc5571d-6597-4184-a8ef-88693940977b"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionType">
+					<subreportParameterExpression><![CDATA[$P{transactionType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportType">
+					<subreportParameterExpression><![CDATA[$P{reportType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="customerId">
+					<subreportParameterExpression><![CDATA[$P{customerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionDatePlusOne">
+					<subreportParameterExpression><![CDATA[$P{transactionDatePlusOne}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="transactionDate">
+					<subreportParameterExpression><![CDATA[$P{transactionDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bookingCode">
+					<subreportParameterExpression><![CDATA[$P{bookingCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_passenger.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="13" y="21" width="525" height="1" uuid="4c254e3e-a049-4305-b4d7-8c80aa28228f"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="13" width="34" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="362b4813-283c-48dc-b9ee-7586bdd440eb"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Note]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="33" width="404" height="17" forecolor="#242424" backcolor="#FFFFFF" uuid="8001b3cf-9715-46aa-943a-2bfd60ee0ce2"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Time is based on the actual city / airport]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="50" width="404" height="17" forecolor="#242424" backcolor="#FFFFFF" uuid="a8096999-74f0-48ba-839f-6f38f749bf2e"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Please Check In minimal one hour before departure time]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

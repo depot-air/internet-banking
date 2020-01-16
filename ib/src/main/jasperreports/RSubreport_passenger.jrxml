@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreport_passenger" pageWidth="525" pageHeight="802" columnWidth="525" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5dc9641b-0e6f-47a3-87cb-d5656aca256c">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Zebra" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 1]]></conditionExpression>
+			<style backcolor="#EEEEEE"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="customerId" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[Long.valueOf("102114")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["9p"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionDate" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[(new SimpleDateFormat("yyyyMMdd HH:mm:ss")).parse("20141008 00:00:00")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionDatePlusOne" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[(new SimpleDateFormat("yyyyMMdd HH:mm:ss")).parse("20141009 00:00:00")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="bookingCode" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["RCTJRK"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="reportType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["PASSENGER"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT data1, data2, data3, data4, data5 FROM r_ireport_data
+WHERE m_customer_id = $P{customerId}
+AND transaction_type = $P{transactionType}
+AND transaction_date BETWEEN $P{transactionDate} AND $P{transactionDatePlusOne}
+AND reference_key = $P{bookingCode}
+AND report_type = 'PASSENGER']]>
+	</queryString>
+	<field name="data1" class="java.lang.String"/>
+	<field name="data2" class="java.lang.String"/>
+	<field name="data3" class="java.lang.String"/>
+	<field name="data4" class="java.lang.String"/>
+	<field name="data5" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="393" y="1" width="131" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="64c06970-85d4-4831-b752-729e152c1fed"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ID Card]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="1" width="100" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="191a103a-578e-4291-838f-f4ad42f01de2"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Birth Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="1" width="204" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="1cb24b78-5cc5-4fd4-896a-8ee8ea2c4022"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Passenger Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1" width="34" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="7024b8e8-ebb1-4522-9f40-99f16353b7ca"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="1" width="55" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="9f475ff0-f996-41a2-819b-7856962304de"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Title]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="1" y="0" width="34" height="20" forecolor="#787878" uuid="9121bf92-cde5-4e62-863c-43bc8ebf3584"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  " + $F{data1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="90" y="0" width="204" height="20" forecolor="#787878" uuid="25b54fe3-a89f-4729-9d62-83fefd930c8a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{data3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="294" y="0" width="100" height="20" forecolor="#787878" uuid="d03476a7-6cee-4117-83a1-3b69706ec721"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{data4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="393" y="0" width="130" height="20" forecolor="#787878" uuid="ac1c8fa4-1cea-4d84-97d9-5ab01debdc94"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{data5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="35" y="0" width="55" height="20" forecolor="#787878" uuid="5282f01e-25a6-45d4-82f7-f5236c4e7d00"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{data2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

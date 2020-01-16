@@ -1,0 +1,15 @@
+mvn install:install-file -Dfile=VAAdminAPI.jar -DgroupId=com.velis -DartifactId=VAAdminAPI -Dversion=1.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=VAAgentAPI.jar -DgroupId=com.velis -DartifactId=VAAgentAPI -Dversion=1.0 -Dpackaging=jar
+
+
+		<dependency>
+			<groupId>com.velis</groupId>
+			<artifactId>VAAdminAPI</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.velis</groupId>
+			<artifactId>VAAgentAPI</artifactId>
+			<version>1.0</version>
+		</dependency>

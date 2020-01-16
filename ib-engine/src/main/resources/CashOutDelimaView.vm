@@ -1,0 +1,14 @@
+<pre>
+DELIMA CASH OUT
+
+TANGGAL TRANSAKSI   : $du.getyyyyMMMDDHHss($view.transactionDate) 
+NOMOR ID PENERIMA   : $view.receiverIdNumber
+NOMOR REFERENSI     : $view.referenceNumber
+KODE TRANSFER       : $view.customerReference
+NOMOR REKENING      : $view.accountNumber
+JUMLAH KIRIMAN      : Rp $nf.format("number", $view.amount, $locale)
+BIAYA ADMIN         : Rp $nf.format("number", $view.fee, $locale)
+
+HARAP TANDA BUKTI INI DISIMPAN SEBAGAI TANDA BUKTI YANG SAH
+TERIMA KASIH
+</pre>

@@ -1,0 +1,21 @@
+<pre>
+STRUK PEMBELIAN TIKET KERETA
+                
+NO REFERENSI        : $view.referenceNumber  
+TANGGAL TRANSAKSI   : $du.getyyyyMMMDDHHss($view.transactionDate)                           
+KODE BOOKING        : $view.bookingCode                        
+KERETA              : $view.trainName ($view.trainNumber) 
+TANGGAL BERANGKAT   : $du.getyyyyMMMDDHHss($view.departureDate)                         
+STASIUN ASAL        : $view.originName ($view.originCode)                           
+TANGGAL TIBA        : $du.getyyyyMMMDDHHss($view.arrivalDate)
+STASIUN TUJUAN      : $view.destinationName ($view.destinationCode)
+PENUMPANG           : $view.strPassenger
+KONTAK PEMESAN      : $view.strContactPhone
+TOTAL HARGA TIKET   : Rp $nf.format("number", $view.amount, $locale)
+BIAYA LAYANAN       : Rp $nf.format("number", $view.fee, $locale)           
+ 
+
+HARAP STRUK INI DISIMPAN SEBAGAI
+BUKTI PEMBAYARAN YANG SAH
+TERIMA KASIH
+</pre>

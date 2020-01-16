@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreport_flight" pageWidth="525" pageHeight="802" columnWidth="525" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="cdd1ac3f-99dd-4c3b-8368-f0451714055d">
+	<property name="ireport.zoom" value="1.5000000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Zebra" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 1]]></conditionExpression>
+			<style backcolor="#EEEEEE"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="customerId" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[Long.valueOf("102114")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["9p"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionDate" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[(new SimpleDateFormat("yyyyMMdd HH:mm:ss")).parse("20141008 00:00:00")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="transactionDatePlusOne" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[(new SimpleDateFormat("yyyyMMdd HH:mm:ss")).parse("20141009 00:00:00")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="bookingCode" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["RCTJRK"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="reportType" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["FLIGHT"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="departOrReturn" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DEPARTURE"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT data1, data2, data3, data4, data5, data6 FROM r_ireport_data
+WHERE m_customer_id = $P{customerId}
+AND transaction_type = $P{transactionType}
+AND transaction_date BETWEEN $P{transactionDate} AND $P{transactionDatePlusOne}
+AND reference_key = $P{bookingCode}
+AND report_type = 'FLIGHT'
+AND data1 = $P{departOrReturn}]]>
+	</queryString>
+	<field name="data1" class="java.lang.String"/>
+	<field name="data2" class="java.lang.String"/>
+	<field name="data3" class="java.lang.String"/>
+	<field name="data4" class="java.lang.String"/>
+	<field name="data5" class="java.lang.String"/>
+	<field name="data6" class="java.lang.String"/>
+	<columnHeader>
+		<band height="22">
+			<staticText>
+				<reportElement x="295" y="2" width="75" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="986c1a5c-b62e-4931-8609-00ab1c267417"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="2" width="33" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="5585434e-8469-463c-bd4b-a4420fb1a315"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Class]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="2" width="70" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="6f92ad3a-57c5-4731-a386-f8009b2200a8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="2" width="294" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="cd06d6ab-5e91-4168-a70a-d54b79d6449d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Airport/City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="2" width="52" height="20" forecolor="#242424" backcolor="#FFFFFF" uuid="4370348f-1376-4bcb-8a46-02ec76ebd2f9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Flight No.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="440" y="0" width="52" height="20" forecolor="#787878" uuid="4db0ca1f-5622-4775-bad8-2a8e8ec06570"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="492" y="0" width="33" height="20" forecolor="#787878" uuid="6983fecd-f8f2-4a7d-a947-90b8912add1a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data6}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="12" y="0" width="283" height="20" forecolor="#787878" uuid="fc49ea75-f182-4fd7-ba8c-c661ec67f418"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="370" y="0" width="70" height="20" forecolor="#787878" uuid="9bfe729f-f721-4ea0-a22a-75ea7c49f4f9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="295" y="0" width="75" height="20" forecolor="#787878" uuid="28858cdd-8a9c-4c82-827c-15849818607b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data3}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Zebra" mode="Opaque" x="1" y="0" width="11" height="20" forecolor="#787878" uuid="ca92327b-6c4b-412c-881b-e895e4a9104e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

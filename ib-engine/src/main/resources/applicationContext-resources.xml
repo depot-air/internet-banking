@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+    <!-- For mail settings and future properties files -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!--
+    <jee:jndi-lookup id="extendedProperty" jndi-name="java:comp/env/bean/extendedProperty"/>
+    <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/postgres"/>
+    -->
+    <!-- Untuk IB -->
+    <bean id="extendedProperty" class="com.dwidasa.engine.ExtendedProperty">
+        <property name="serverType" value="2"/>        
+        <property name="defaultTerminalId" value="IBS"/>
+        <property name="defaultMerchantType" value="6014"/>
+        <property name="migration" value="true"/>
+    </bean>
+    <!-- Untuk MB -->
+    <!--
+    <bean id="extendedProperty" class="com.dwidasa.engine.ExtendedProperty">
+        <property name="serverType" value="1"/>
+        <property name="defaultTerminalId" value="MBS"/>
+        <property name="defaultMerchantType" value="6017"/>
+        <property name="migration" value="true"/>
+    </bean>
+    -->
+    <!-- Untuk Kiosk -->
+    <!--
+    <bean id="extendedProperty" class="com.dwidasa.engine.ExtendedProperty">
+        <property name="serverType" value="3"/>        
+        <property name="defaultTerminalId" value="KSK"/>
+        <property name="defaultMerchantType" value="6015"/>
+        <property name="migration" value="true"/>
+    </bean>
+    -->
+    <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="idleConnectionTestPeriod" value="60"/>
+        <property name="idleMaxAge" value="240"/>
+  <!-- value for kiosk and admin should be lower than IB and MB server -->
+        <property name="maxConnectionsPerPartition" value="100"/>
+        <property name="minConnectionsPerPartition" value="10"/>
+        <property name="partitionCount" value="3"/>
+        <property name="acquireIncrement" value="5"/>
+        <property name="statementsCacheSize" value="100"/>
+        <property name="releaseHelperThreads" value="3"/>
+        <property name="initSQL" value="SELECT 1"/>
+    </bean>
+    <!--
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="maxActive" value="100"/>
+        <property name="maxWait" value="1400"/>
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="defaultAutoCommit" value="true"/>
+    </bean>
+    -->
+     <!--
+     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://192.168.100.47:5432/ib2"/>
+        <property name="username" value="ib2"/>
+        <property name="password" value="ib2"/>
+		<property name="testWhileIdle" value="true"/>
+		<property name="testOnBorrow" value="true"/>
+		<property name="testOnReturn" value="true"/>
+		<property name="validationQuery" value="SELECT 1"/>
+		<property name="timeBetweenEvictionRunsMillis" value="30000"/>
+		<property name="maxActive" value="150"/>
+		<property name="minIdle" value="10"/>
+		<property name="maxWait" value="10000"/>
+		<property name="initialSize" value="20"/>
+		<property name="minEvictableIdleTimeMillis" value="30000"/>
+		<property name="defaultAutoCommit" value="true"/>
+		<property name="poolPreparedStatements" value="true"/>
+     </bean>
+     -->
+
+    <!--
+    <bean id="dataSource" class="org.postgresql.ds.PGConnectionPoolDataSource">
+        <property name="serverName" value="192.168.100.47"/>
+        <property name="databaseName" value="ib2"/>
+        <property name="portNumber" value="5432"/>
+        <property name="user" value="ib2"/>
+        <property name="password" value="ib2"/>
+        <property name="defaultAutoCommit" value="true"/>
+    </bean>
+    -->
+</beans>
