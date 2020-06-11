@@ -288,7 +288,7 @@
         <spring.version>3.0.5.RELEASE</spring.version>
 
         <aspectj.version>1.6.10</aspectj.version>
-        <commons.beanutils.version>1.8.3</commons.beanutils.version>
+        <commons.beanutils.version>1.9.2</commons.beanutils.version>
         <commons.collections.version>3.2.1</commons.collections.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <commons.lang.version>2.6</commons.lang.version>
