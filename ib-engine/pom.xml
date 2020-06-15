@@ -289,7 +289,7 @@
 
         <aspectj.version>1.6.10</aspectj.version>
         <commons.beanutils.version>1.8.3</commons.beanutils.version>
-        <commons.collections.version>3.2.1</commons.collections.version>
+        <commons.collections.version>3.2.2</commons.collections.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.codec.version>1.5</commons.codec.version>
