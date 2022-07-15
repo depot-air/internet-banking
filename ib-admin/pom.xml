@@ -197,7 +197,7 @@
     </pluginRepositories>
 
     <properties>
-        <tapestry-release-version>5.3.2</tapestry-release-version>
+        <tapestry-release-version>5.8.2</tapestry-release-version>
         <spring.version>3.0.5.RELEASE</spring.version>
         <aspectj.version>1.6.10</aspectj.version>
         <commons.lang.version>2.6</commons.lang.version>
