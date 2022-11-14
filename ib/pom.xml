@@ -315,7 +315,7 @@
 
     <properties>
         <tapestry-release-version>5.3.2</tapestry-release-version>
-        <spring.version>3.0.5.RELEASE</spring.version>
+        <spring.version>3.2.18.RELEASE</spring.version>
         <aspectj.version>1.6.10</aspectj.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.codec.version>1.5</commons.codec.version>
