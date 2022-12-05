@@ -293,7 +293,7 @@
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.codec.version>1.5</commons.codec.version>
-        <commons.net.version>3.0.1</commons.net.version>
+        <commons.net.version>3.9.0</commons.net.version>
         <javamail.version>1.4.1</javamail.version>
         <velocity.version>1.7</velocity.version>
     </properties>
